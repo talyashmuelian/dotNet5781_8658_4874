@@ -48,6 +48,7 @@ namespace dotNet5781_01_8658_4874
                         lineBus = new Bus(numBus, date);//יצירת מופע מסוג אוטובוס Creating a bus-type show
                         listBuses.Add(lineBus); //הוספת האוטובוס לרשימה Add the bus to the list
                         lineBus.setYearStart(year);
+
                         break;
                     case 2:
                         Console.WriteLine("Enter registration-number:");//הודעה למשתמש להכניס מספר רישוי Notify user to enter license number
