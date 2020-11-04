@@ -14,7 +14,8 @@ namespace dotNet5781_02_8658_4874
 
         public float Distance_p { get => Distance; set => Distance = value; }
         public float TimeOfDriving_p { get => TimeOfDriving; set => TimeOfDriving = value; }
-        public BusLineStation()
+
+        public BusLineStation(int numStation) : base(numStation)//קריאה לבנאי עם פרמטרים ממחלקת תחנת אוטובוס
         {
             //Random.NextDouble() * (maximum - minimum) + minimum;
             Random rand = new Random(DateTime.Now.Millisecond);

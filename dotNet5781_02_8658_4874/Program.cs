@@ -113,8 +113,49 @@ namespace dotNet5781_02_8658_4874
 
                         break;
                     case 3:
-                        
-                        break;
+                        Console.WriteLine("Enter 1 for print all the lines that pass through the station according to the station number OR 2 to print travel options between two stations");
+                        tempStr = Console.ReadLine();//קליטה מהמשתמש את בחירתו Absorption from the user of his choice
+                        numChoose = int.Parse(tempStr);
+                        //לתפוס חריגה למקרה שהשתמש לא יכניס שלם
+                        if (numChoose==1)//הדפסת כל הקווים שעוברים בתחנה ע"פ מספר תחנה
+                        {
+                            Console.WriteLine("Enter the line number station");
+                            string tempStr1 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה Absorption from the user of his choice
+                            int numChoose1 = int.Parse(tempStr1);
+                            //לתפוס חריגה למקרה שהשתמש לא יכניס שלם
+                            List<LineBus> temp = new List<LineBus>();
+                            temp = list1.ListOfLineThatPassStation(numChoose1);
+                            //לתפוס את החריגה שנזרקה במקרה שלא היו קווים שעוברים בתחנה
+                            Console.WriteLine("The bus lines that pass through the station:");
+                            for (int i=0;i< temp.Count;i++)
+                            {
+                                Console.WriteLine(temp[i]);
+                            }
+                        }
+                        if (numChoose == 2)//הדפסת אפשרויות הנסיעה בין שתי תחנות, ממוינות
+                        {
+                            Console.WriteLine("Enter the line number station1");
+                            string tempStr1 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה הראשונה
+                            int numChoose1 = int.Parse(tempStr1);
+                            //לתפוס חריגה למקרה שהשתמש לא יכניס שלם
+                            Console.WriteLine("Enter the line number station2");
+                            string tempStr2 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה השנייה
+                            int numChoose2 = int.Parse(tempStr2);
+                            //לתפוס חריגה למקרה שהשתמש לא יכניס שלם
+                            LineBus inTatRoute = new LineBus();
+                            List<LineBus> temp = new List<LineBus>();
+                            for (var i = 0; i < list1.Buses.Count; i++)
+                            {
+                                inTatRoute= tatRoute(BusLineStation station1, BusLineStation station2)
+                            }
+                        }
+                        else
+                        {
+                            //לזרוק חריגה בכל מקרה של הכנסת מספר לא תקין
+                        }
+
+
+                            break;
                     case 4:
                         
                         break;

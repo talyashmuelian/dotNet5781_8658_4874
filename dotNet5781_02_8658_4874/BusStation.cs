@@ -42,6 +42,17 @@ namespace dotNet5781_02_8658_4874
                 Longitude = num;
             }
         }
+        public BusStation(int numStation)
+        {
+            BusStationKey = numStation;
+            //double num2=Random.NextDouble() * (33.3- 31) + 31;
+            Random rand = new Random(DateTime.Now.Millisecond);
+            float num1 = rand.Next(31, 34);
+            Latitude = num1;
+            rand = new Random(DateTime.Now.Millisecond);
+            num1 = rand.Next(34, 36);
+            Longitude = num1;
+        }
         public BusStation()
         {
             Random rand = new Random(DateTime.Now.Millisecond);
