@@ -6,31 +6,35 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
-    enum MyEnum { General=1,North,South,Center,Jerusalem }
+    enum MyEnum { General = 1, North, South, Center, Jerusalem }
     class LineBus : IComparable
 
     {
-        protected List<BusLineStation> Stations;//מסלול הקו- רשימת התחנות שלו
+        public List<BusLineStation> Stations;//מסלול הקו- רשימת התחנות שלו- יכול להיות שאסור לעשות ציבורי ואז צריך לחשוב איך לאפשר גישה לאוסף קוי אוטובוס
         protected int BusLine;//מספר קו
         //protected BusLineStation FirstStation;//תחנת מוצא
         //protected BusLineStation LastStation;//תחנה סופית
         protected string Area;//איזור בארץ
-        public BusLineStation FirstStation 
-        { 
-            set{Stations[0]=value; }
-            get{return Stations[0]; }
+        public BusLineStation FirstStation
+        {
+            set { Stations[0] = value; }
+            get { return Stations[0]; }
         }
         public BusLineStation LastStation
         {
-            set{Stations[Stations.Count] = value; }
-            get{return Stations[Stations.Count];}
+            set { Stations[Stations.Count] = value; }
+            get { return Stations[Stations.Count]; }
         }
-        public LineBus()
+        public LineBus()//בנאי שיוצר אוטומטית 4 תחנות בקו
         {
             Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
             int num = rand.Next(999);//ייתכן שצריך לבדוק שלא קיים קו כזה כבר ואם כן להוציא חריגה
             BusLine = num;
-            Stations = new List<BusLineStation>();
+            //Stations = new List<BusLineStation>();//יצירת רשימת תחנות ריקה ולאחר מכן הוספת 4 תחנות לרשימה
+            BusLineStation s1 = new BusLineStation(); BusLineStation s2 = new BusLineStation(); BusLineStation s3 = new BusLineStation();
+            BusLineStation s4 = new BusLineStation();
+            Stations.Add(s1); Stations.Add(s2); Stations.Add(s3); Stations.Add(s4);
+
             rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר בין 1 ל5 כדי לבחור איזור בארץ
             num = rand.Next(1, 5);
             switch (num)
@@ -52,7 +56,7 @@ namespace dotNet5781_02_8658_4874
                     break;
             }
         }
-        
+
 
         public int BusLine1 { get => BusLine; set => BusLine = value; }
         public string Area1 { get => Area; set => Area = value; }
@@ -169,7 +173,7 @@ namespace dotNet5781_02_8658_4874
             }
             return 0;//אולי צריך להוציא חריגה שלא נמצאו התחנות או אחת מהן
         }
-        public bool IsStationHere (BusLineStation station)//בודקת אם תחנה כלשהי נמצאת בקו הזה
+        public bool IsStationHere(BusLineStation station)//בודקת אם תחנה כלשהי נמצאת בקו הזה
         {
             for (var i = 0; i < Stations.Count; i++)
             {
@@ -180,9 +184,9 @@ namespace dotNet5781_02_8658_4874
         }
         public LineBus tatRoute(BusLineStation station1, BusLineStation station2)//מתודה שמחזירה תת מסלול מתוך קו אוטובוס
         {
-            if (IsStationHere(station1)&& IsStationHere(station2))//בדיקה ששתי התחנות אכן קיימות בקו
+            if (IsStationHere(station1) && IsStationHere(station2))//בדיקה ששתי התחנות אכן קיימות בקו
             {
-                LineBus temp=new LineBus();
+                LineBus temp = new LineBus();
                 temp.BusLine = BusLine;
                 temp.Area = Area;
                 int num1 = 0;//משתנה לצורך שמירת האינדקס של התחנה הראשונה
@@ -194,18 +198,18 @@ namespace dotNet5781_02_8658_4874
                     if (Stations[i].BusStationKey_p == station2.BusStationKey_p)
                         num2 = i;
                 }
-                for (int j=num1; j<=num2;j++)//מכניסה את התחנות שבאמצע לרשימה במופע העזר של תת המסלול
+                for (int j = num1; j <= num2; j++)//מכניסה את התחנות שבאמצע לרשימה במופע העזר של תת המסלול
                 {
                     temp.Stations.Add(Stations[j]);
                 }
                 return temp;
-                
+
             }
             return null;//ייתכן שצריך להואציא חריגה על כך שאחת או שתי התחנות לא נמצאו בקו זה
         }
         public float AllTheTime()//כל הזמן מתחילת המסלול עד סופו
         {
-            float temp=0;
+            float temp = 0;
             for (var i = 1; i < Stations.Count; i++)
             {
                 temp += Stations[i].TimeOfDriving_p;
