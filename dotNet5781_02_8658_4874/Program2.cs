@@ -9,11 +9,17 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
-    class Program
+    
+    class Program2
     {
+        //static public Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
+        //static public Random rand = new Random();
         static void Main(string[] args)
         {
-            ListLineBus list1= new ListLineBus();
+            
+
+            ListLineBus list1 = new ListLineBus();
+            list1.add20LinesToSystem();
             int ch;
             do
             {
@@ -187,20 +193,23 @@ namespace dotNet5781_02_8658_4874
                             {
                                 for (int j = 0; j < list1.Buses[i].Stations.Count; j++)//נעבור על כל התחנות בקו
                                 {
-                                    for (int k=0;k < temp111.Count; k++)//נעבור על הרשימת עזר שלנו לבדוק אם התחנה כבר הוכנסה אליה
+                                    temp111.Add(list1.Buses[0].Stations[0]);
+                                    for (int k = 0; k < temp111.Count; k++)//נעבור על הרשימת עזר שלנו לבדוק אם התחנה כבר הוכנסה אליה
+                                    {
                                         if (list1.Buses[i].Stations[j].BusStationKey_p == temp111[k].BusStationKey_p)//התחנה עבר קיימת ברשימת העזר
                                         {
                                             break;
                                         }
-                                    else//התחנה לא קיימת ברשימת העזר ולכן צריך להכניס אותה
+                                        else//התחנה לא קיימת ברשימת העזר ולכן צריך להכניס אותה
                                         {
                                             temp111.Add(list1.Buses[i].Stations[j]);//נכניס אותה לרשימת העזר שמכילה את כל התחנות במערכת ללא כפילויות
                                         }
+                                    }
                                 }
                             }
                             for (int i=0;i<temp111.Count;i++)//הדפסת רשימת כל התחנות במערכת והקווים שעוברים בהן
                             {
-                                Console.WriteLine("Number station"+ temp111[i].BusStationKey_p);//הדפסת מספר התחנה
+                                Console.WriteLine("Number station: "+ temp111[i].BusStationKey_p);//הדפסת מספר התחנה
 
                                 List<LineBus> listOfLinesInSpecificStation = new List<LineBus>();//יצירת רשימה שאליה ייכנסו כל הקווים שעוברים בתחנה הספציפית
                                 listOfLinesInSpecificStation = list1.ListOfLineThatPassStation(temp111[i].BusStationKey_p);//זימון פונקציה שמחזירה את רשימת הקווים העוברים בתחנה
@@ -208,7 +217,7 @@ namespace dotNet5781_02_8658_4874
                                 Console.WriteLine("The bus lines that pass through the station:");
                                 for (int j = 0; i < listOfLinesInSpecificStation.Count; j++)//הדפסת רשימת כל הקווים העוברים בתחנה
                                 {
-                                    Console.WriteLine(listOfLinesInSpecificStation[j]);
+                                    Console.WriteLine(listOfLinesInSpecificStation[j].BusLine1);
                                 }
                             }
                         }

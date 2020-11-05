@@ -8,6 +8,7 @@ namespace dotNet5781_02_8658_4874
 {
     class BusStation
     {
+        static public Random rand = new Random(DateTime.Now.Millisecond);
         protected int BusStationKey;//מספר תחנה
         protected float Latitude;
         protected float Longitude;
@@ -26,7 +27,7 @@ namespace dotNet5781_02_8658_4874
             get => Latitude; 
             set
             {
-                Random rand = new Random(DateTime.Now.Millisecond);
+                //Random rand = new Random(DateTime.Now.Millisecond);
                 float num = rand.Next(31, 34);
                 Latitude = num;
 
@@ -37,7 +38,7 @@ namespace dotNet5781_02_8658_4874
             get => Longitude; 
             set
             {
-                Random rand = new Random(DateTime.Now.Millisecond);
+                //Random rand = new Random(DateTime.Now.Millisecond);
                 float num = rand.Next(34,36);
                 Longitude = num;
             }
@@ -46,7 +47,7 @@ namespace dotNet5781_02_8658_4874
         {
             BusStationKey = numStation;
             //double num2=Random.NextDouble() * (33.3- 31) + 31;
-            Random rand = new Random(DateTime.Now.Millisecond);
+            //Random rand = new Random(DateTime.Now.Millisecond);
             float num1 = rand.Next(31, 34);
             Latitude = num1;
             rand = new Random(DateTime.Now.Millisecond);
@@ -55,7 +56,7 @@ namespace dotNet5781_02_8658_4874
         }
         public BusStation()
         {
-            Random rand = new Random(DateTime.Now.Millisecond);
+            //Random rand = new Random(DateTime.Now.Millisecond);
             int num = rand.Next(999999);
             BusStationKey = num;
             //double num2=Random.NextDouble() * (33.3- 31) + 31;

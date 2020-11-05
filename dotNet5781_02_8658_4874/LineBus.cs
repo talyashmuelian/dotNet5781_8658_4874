@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
+    
     enum MyEnum { General = 1, North, South, Center, Jerusalem }
     class LineBus : IComparable
 
     {
-        public List<BusLineStation> Stations;//מסלול הקו- רשימת התחנות שלו- יכול להיות שאסור לעשות ציבורי ואז צריך לחשוב איך לאפשר גישה לאוסף קוי אוטובוס
-        protected int BusLine;//מספר קו
+        static public Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
+        public List<BusLineStation> Stations = new List<BusLineStation>();//מסלול הקו- רשימת התחנות שלו- יכול להיות שאסור לעשות ציבורי ואז צריך לחשוב איך לאפשר גישה לאוסף קוי אוטובוס
+        protected static int BusLine;//מספר קו
         //protected BusLineStation FirstStation;//תחנת מוצא
         //protected BusLineStation LastStation;//תחנה סופית
         protected string Area;//איזור בארץ
@@ -25,17 +27,19 @@ namespace dotNet5781_02_8658_4874
             set { Stations[Stations.Count] = value; }
             get { return Stations[Stations.Count]; }
         }
-        public LineBus()//בנאי שיוצר אוטומטית 4 תחנות בקו
+        public void add4Stations ()//מתודה שמוסיפה 5 תחנות לקו. מתוכן 3 מוגרלות
         {
-            Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
-            int num = rand.Next(999);//ייתכן שצריך לבדוק שלא קיים קו כזה כבר ואם כן להוציא חריגה
-            BusLine = num;
-            //Stations = new List<BusLineStation>();//יצירת רשימת תחנות ריקה ולאחר מכן הוספת 4 תחנות לרשימה
             BusLineStation s1 = new BusLineStation(); BusLineStation s2 = new BusLineStation(); BusLineStation s3 = new BusLineStation();
-            BusLineStation s4 = new BusLineStation();
-            Stations.Add(s1); Stations.Add(s2); Stations.Add(s3); Stations.Add(s4);
-
-            rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר בין 1 ל5 כדי לבחור איזור בארץ
+            BusLineStation s4 = new BusLineStation(1); BusLineStation s5 = new BusLineStation(2);
+            Stations.Add(s1); Stations.Add(s2); Stations.Add(s3); Stations.Add(s4); Stations.Add(s5);
+        }
+        public LineBus()//בנאי
+        {
+            
+            //Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
+            int num = rand.Next(1,999);//ייתכן שצריך לבדוק שלא קיים קו כזה כבר ואם כן להוציא חריגה
+            BusLine = num;
+            //rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר בין 1 ל5 כדי לבחור איזור בארץ
             num = rand.Next(1, 5);
             switch (num)
             {
@@ -187,7 +191,7 @@ namespace dotNet5781_02_8658_4874
             if (IsStationHere(station1) && IsStationHere(station2))//בדיקה ששתי התחנות אכן קיימות בקו
             {
                 LineBus temp = new LineBus();
-                temp.BusLine = BusLine;
+                temp.BusLine1 = BusLine1;
                 temp.Area = Area;
                 int num1 = 0;//משתנה לצורך שמירת האינדקס של התחנה הראשונה
                 int num2 = 0;//משתנה לצורך שמירת האינדקס של התחנה השנייה

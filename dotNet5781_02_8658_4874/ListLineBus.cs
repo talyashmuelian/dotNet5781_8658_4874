@@ -34,12 +34,24 @@ namespace dotNet5781_02_8658_4874
             return index;
 
         }
-        public ListLineBus()//בנאי שיוצר אוטמטית 10 קווי אוטובוס
+        //public ListLineBus()
+        //{
+            
+        //}
+        public void add20LinesToSystem()//מתודה שמוסיפה 20 קווים אקראיים למערכת
         {
             LineBus s1 = new LineBus(); LineBus s2 = new LineBus(); LineBus s3 = new LineBus(); LineBus s4 = new LineBus();
             LineBus s5 = new LineBus(); LineBus s6 = new LineBus(); LineBus s7 = new LineBus(); LineBus s8 = new LineBus();
             LineBus s9 = new LineBus(); LineBus s10 = new LineBus();
+            LineBus s11 = new LineBus(); LineBus s12 = new LineBus(); LineBus s13 = new LineBus(); LineBus s14 = new LineBus();
+            LineBus s15 = new LineBus(); LineBus s16 = new LineBus(); LineBus s17 = new LineBus(); LineBus s18 = new LineBus();
+            LineBus s19 = new LineBus(); LineBus s20 = new LineBus();
+            s1.add4Stations(); s2.add4Stations(); s3.add4Stations(); s4.add4Stations(); s5.add4Stations(); s6.add4Stations();
+            s7.add4Stations(); s8.add4Stations(); s9.add4Stations(); s10.add4Stations(); s11.add4Stations(); s12.add4Stations();
+            s13.add4Stations(); s14.add4Stations(); s15.add4Stations(); s16.add4Stations(); s17.add4Stations(); s18.add4Stations();
+            s19.add4Stations(); s20.add4Stations();
             Buses.Add(s1); Buses.Add(s2); Buses.Add(s3); Buses.Add(s4); Buses.Add(s5); Buses.Add(s6); Buses.Add(s7); Buses.Add(s8); Buses.Add(s9); Buses.Add(s10);
+            Buses.Add(s11); Buses.Add(s12); Buses.Add(s13); Buses.Add(s14); Buses.Add(s15); Buses.Add(s16); Buses.Add(s17); Buses.Add(s18); Buses.Add(s19); Buses.Add(s20);
         }
 
         public int Count { get; private set; }

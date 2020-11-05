@@ -8,6 +8,7 @@ namespace dotNet5781_02_8658_4874
 {
     class BusLineStation: BusStation
     {
+        static public Random rand = new Random(DateTime.Now.Millisecond);
         //לקלוט את המידע מהמשתמש
         protected float Distance;//מרחק מתחנת קו אוטובוס הקודמת
         protected float TimeOfDriving;//זמן הנסיעה בדקות מתחנת קו אוטובוס הקודמת
@@ -17,7 +18,7 @@ namespace dotNet5781_02_8658_4874
         public BusLineStation()
         {
             //Random.NextDouble() * (maximum - minimum) + minimum;
-            Random rand = new Random(DateTime.Now.Millisecond);
+            //Random rand = new Random(DateTime.Now.Millisecond);
             float num = rand.Next(10000);
             Distance = num;
             TimeOfDriving = Distance / 500;//כל חצי קילומטר לוקח דקה נסיעה
@@ -25,7 +26,7 @@ namespace dotNet5781_02_8658_4874
         public BusLineStation(int numStation) : base(numStation)//קריאה לבנאי עם פרמטרים ממחלקת תחנת אוטובוס
         {
             //Random.NextDouble() * (maximum - minimum) + minimum;
-            Random rand = new Random(DateTime.Now.Millisecond);
+            //Random rand = new Random(DateTime.Now.Millisecond);
             float num = rand.Next(10000);
             Distance = num;
             TimeOfDriving = Distance / 500;//כל חצי קילומטר לוקח דקה נסיעה

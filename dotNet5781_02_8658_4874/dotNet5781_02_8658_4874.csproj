@@ -49,7 +49,7 @@
     <Compile Include="ListEmptyException.cs" />
     <Compile Include="ListLineBus.cs" />
     <Compile Include="LineBus.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Program2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
