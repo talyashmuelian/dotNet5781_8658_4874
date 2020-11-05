@@ -142,11 +142,23 @@ namespace dotNet5781_02_8658_4874
                             string tempStr2 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה השנייה
                             int numChoose2 = int.Parse(tempStr2);
                             //לתפוס חריגה למקרה שהשתמש לא יכניס שלם
-                            LineBus inTatRoute = new LineBus();
-                            List<LineBus> temp = new List<LineBus>();
+                            LineBus inTatRoute = new LineBus();//משתנה שישמור את תת המסלול
+                            ListLineBus temp = new ListLineBus();//רשימה הקווים שעושים את הדרך בין שתי התחנות המבוקשות
+                            BusLineStation station11 = new BusLineStation(numChoose1);//יצירת תחנה ראשונה עם מספר התחנה המתקבלת
+                            BusLineStation station22 = new BusLineStation(numChoose2);//יצירת תחנה שנייה עם מספר התחנה המתקבלת
                             for (var i = 0; i < list1.Buses.Count; i++)
                             {
-                                inTatRoute= tatRoute(BusLineStation station1, BusLineStation station2)
+                                inTatRoute = list1.Buses[i].tatRoute(station11, station22);
+                                if (inTatRoute != null)//הקו אכן נוסע בין שתי תחנות אלו
+                                {
+                                    temp.addLineBus(inTatRoute);//הוספת הקו לתוך האוסף של קווי האוטובוס העוברים בתחנה
+                                }
+                            }
+                            temp.Buses.Sort();//מיון לפי זמן הנסיעה
+                            Console.WriteLine("List of lines that make the desired route:");
+                            for (var i = 0; i < temp.Buses.Count; i++)
+                            {
+                                Console.WriteLine(temp.Buses[i].BusLine1);//הדפסת מספרי הקווים שעושים את הדרך הזאת
                             }
                         }
                         else
@@ -157,7 +169,53 @@ namespace dotNet5781_02_8658_4874
 
                             break;
                     case 4:
-                        
+                        Console.WriteLine("Enter 1 for print all bus lines in the system OR 2 to print a list of all the stations and line numbers that pass through them");
+                        tempStr = Console.ReadLine();//קליטה מהמשתמש את בחירתו Absorption from the user of his choice
+                        numChoose = int.Parse(tempStr);
+                        //לתפוס חריגה למקרה שהשתמש לא יכניס שלם
+                        if (numChoose == 1)//הדפסת כל קווי האוטובוס במערכת
+                        {
+                            for (var i = 0; i < list1.Buses.Count; i++)
+                            {
+                                Console.WriteLine(list1.Buses[i].BusLine1);
+                            }
+                        }
+                        if (numChoose == 2)//הדפסת רשימת כל התחנות ומספרי הקווים שעוברים דרכם
+                        {
+                            List<BusLineStation> temp111=new List<BusLineStation>();//רשימה שאליה ייכנסו כל התחנות במערכת ללא כפילויות
+                            for (var i = 0; i < list1.Buses.Count; i++)
+                            {
+                                for (int j = 0; j < list1.Buses[i].Stations.Count; j++)//נעבור על כל התחנות בקו
+                                {
+                                    for (int k=0;k < temp111.Count; k++)//נעבור על הרשימת עזר שלנו לבדוק אם התחנה כבר הוכנסה אליה
+                                        if (list1.Buses[i].Stations[j].BusStationKey_p == temp111[k].BusStationKey_p)//התחנה עבר קיימת ברשימת העזר
+                                        {
+                                            break;
+                                        }
+                                    else//התחנה לא קיימת ברשימת העזר ולכן צריך להכניס אותה
+                                        {
+                                            temp111.Add(list1.Buses[i].Stations[j]);//נכניס אותה לרשימת העזר שמכילה את כל התחנות במערכת ללא כפילויות
+                                        }
+                                }
+                            }
+                            for (int i=0;i<temp111.Count;i++)//הדפסת רשימת כל התחנות במערכת והקווים שעוברים בהן
+                            {
+                                Console.WriteLine("Number station"+ temp111[i].BusStationKey_p);//הדפסת מספר התחנה
+
+                                List<LineBus> listOfLinesInSpecificStation = new List<LineBus>();//יצירת רשימה שאליה ייכנסו כל הקווים שעוברים בתחנה הספציפית
+                                listOfLinesInSpecificStation = list1.ListOfLineThatPassStation(temp111[i].BusStationKey_p);//זימון פונקציה שמחזירה את רשימת הקווים העוברים בתחנה
+                                //לתפוס את החריגה שנזרקה במקרה שלא היו קווים שעוברים בתחנה
+                                Console.WriteLine("The bus lines that pass through the station:");
+                                for (int j = 0; i < listOfLinesInSpecificStation.Count; j++)//הדפסת רשימת כל הקווים העוברים בתחנה
+                                {
+                                    Console.WriteLine(listOfLinesInSpecificStation[j]);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //לזרוק חריגה בכל מקרה של הכנסת מספר לא תקין
+                        }
                         break;
                 }
 
