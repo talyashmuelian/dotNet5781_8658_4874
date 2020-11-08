@@ -194,6 +194,7 @@ namespace dotNet5781_02_8658_4874
                             {
                                 Console.WriteLine(temp[i].BusLine1);
                             }
+
                         }
                         if (numChoose == 2)//הדפסת אפשרויות הנסיעה בין שתי תחנות, ממוינות
                         {
