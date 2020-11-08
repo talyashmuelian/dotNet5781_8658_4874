@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 namespace dotNet5781_02_8658_4874
 { 
-    class ListLineBus : IEnumerable, IEnumerator
+    class ListLineBus : IEnumerable
 
     {
 
@@ -26,8 +26,8 @@ namespace dotNet5781_02_8658_4874
         }
         private int FindIndex(int lineNumber)
         {
-            int index = Buses.FindIndex((LineBus line) => { return line.BusLine1 == lineNumber; });
-            if (index==-1)
+            var index = Buses.FindIndex((LineBus line) => { return line.BusLine1 == lineNumber; });
+            if (index == -1)
             {
                 //לזרוק חריגה אם האינדקס קטן מאפס
             }
@@ -36,7 +36,7 @@ namespace dotNet5781_02_8658_4874
         }
         //public ListLineBus()
         //{
-            
+
         //}
         public void add20LinesToSystem()//מתודה שמוסיפה 20 קווים אקראיים למערכת
         {
@@ -56,25 +56,25 @@ namespace dotNet5781_02_8658_4874
 
         public int Count { get; private set; }
         public IEnumerator GetEnumerator()
-        { return this; }
+        { return Buses.GetEnumerator(); }
 
-        int index = -1;
-        public object Current
-        { get { return Buses[index]; } }
+        //int index = -1;
+        //public object Current
+        //{ get { return Buses[index]; } }
 
-        public bool MoveNext()
-        {
-            index++;
-            if (index >= Count)
-            {
-                index = -1;
-                return false;
-            }
-            return true;
-        }
+        //public bool MoveNext()
+        //{
+        //    index++;
+        //    if (index >= Count)
+        //    {
+        //        index = -1;
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
-        public void Reset()
-        { index = -1; }
+        //public void Reset()
+        //{ index = -1; }
 
         public void addLineBus(LineBus busToAdd)
         {

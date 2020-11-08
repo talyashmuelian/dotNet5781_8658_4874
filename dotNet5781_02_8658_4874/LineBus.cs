@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
-    
+    //static public Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
     enum MyEnum { General = 1, North, South, Center, Jerusalem }
     class LineBus : IComparable
 
     {
-        static public Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
+        //static public Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
         public List<BusLineStation> Stations = new List<BusLineStation>();//מסלול הקו- רשימת התחנות שלו- יכול להיות שאסור לעשות ציבורי ואז צריך לחשוב איך לאפשר גישה לאוסף קוי אוטובוס
-        protected static int BusLine;//מספר קו
+        protected int BusLine;//מספר קו
         //protected BusLineStation FirstStation;//תחנת מוצא
         //protected BusLineStation LastStation;//תחנה סופית
         protected string Area;//איזור בארץ
@@ -27,20 +27,25 @@ namespace dotNet5781_02_8658_4874
             set { Stations[Stations.Count] = value; }
             get { return Stations[Stations.Count]; }
         }
-        public void add4Stations ()//מתודה שמוסיפה 5 תחנות לקו. מתוכן 3 מוגרלות
+        public void add4Stations ()//מתודה שמוסיפה 13 תחנות לקו. מתוכן 3 מוגרלות
         {
             BusLineStation s1 = new BusLineStation(); BusLineStation s2 = new BusLineStation(); BusLineStation s3 = new BusLineStation();
-            BusLineStation s4 = new BusLineStation(1); BusLineStation s5 = new BusLineStation(2);
+            BusLineStation s4 = new BusLineStation(1); BusLineStation s5 = new BusLineStation(2); BusLineStation s6 = new BusLineStation(3);
+            BusLineStation s7 = new BusLineStation(4); BusLineStation s8 = new BusLineStation(5); BusLineStation s9 = new BusLineStation(6);
+            BusLineStation s10 = new BusLineStation(7); BusLineStation s11 = new BusLineStation(8); BusLineStation s12 = new BusLineStation(9);
+            BusLineStation s13 = new BusLineStation(10);
             Stations.Add(s1); Stations.Add(s2); Stations.Add(s3); Stations.Add(s4); Stations.Add(s5);
+            Stations.Add(s6); Stations.Add(s7); Stations.Add(s8); Stations.Add(s9); Stations.Add(s10);
+            Stations.Add(s11); Stations.Add(s12); Stations.Add(s13);
         }
         public LineBus()//בנאי
         {
             
             //Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
-            int num = rand.Next(1,999);//ייתכן שצריך לבדוק שלא קיים קו כזה כבר ואם כן להוציא חריגה
+            int num = Program2.rand.Next(1,999);//ייתכן שצריך לבדוק שלא קיים קו כזה כבר ואם כן להוציא חריגה
             BusLine = num;
             //rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר בין 1 ל5 כדי לבחור איזור בארץ
-            num = rand.Next(1, 5);
+            num = Program2.rand.Next(1, 5);
             switch (num)
             {
                 case 1:
