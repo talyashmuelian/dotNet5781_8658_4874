@@ -10,16 +10,17 @@ namespace dotNet5781_02_8658_4874
     {
         //static public Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
         //לקלוט את המידע מהמשתמש
-        protected float Distance;//מרחק מתחנת קו אוטובוס הקודמת
-        protected float TimeOfDriving;//זמן הנסיעה בדקות מתחנת קו אוטובוס הקודמת
+        protected double Distance;//מרחק בקילומטרים מתחנת קו אוטובוס הקודמת
+        protected double TimeOfDriving;//זמן הנסיעה בדקות מתחנת קו אוטובוס הקודמת
 
-        public float Distance_p { get => Distance; set => Distance = value; }
-        public float TimeOfDriving_p { get => TimeOfDriving; set => TimeOfDriving = value; }
+        public double Distance_p { get => Distance; set => Distance = value; }
+        public double TimeOfDriving_p { get => TimeOfDriving; set => TimeOfDriving = value; }
         public BusLineStation()
         {
             //Program2.random.NextDouble() * (maximum - minimum) + minimum;
             //Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
-            float num = Program2.rand.Next(10000);
+            double num = Program2.rand.NextDouble() * (10000 - 0) + 0;
+            //float num = Program2.rand.Next(10000);
             Distance = num;
             TimeOfDriving = Distance / 500;//כל חצי קילומטר לוקח דקה נסיעה
         }
@@ -27,9 +28,11 @@ namespace dotNet5781_02_8658_4874
         {
             //Program2.random.NextDouble() * (maximum - minimum) + minimum;
             //Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
-            float num = Program2.rand.Next(10000);
+            double num = Program2.rand.NextDouble() * (10000 - 0) + 0;
+            //float num = Program2.rand.Next(10000);
             Distance = num;
             TimeOfDriving = Distance / 500;//כל חצי קילומטר לוקח דקה נסיעה
         }
+       
     }
 }

@@ -27,11 +27,17 @@ namespace dotNet5781_02_8658_4874
         private int FindIndex(int lineNumber)
         {
             var index = Buses.FindIndex((LineBus line) => { return line.BusLine1 == lineNumber; });
-            if (index == -1)
+            try
             {
-                //לזרוק חריגה אם האינדקס קטן מאפס
+                if (index == -1)
+                {
+                    //לזרוק חריגה אם האינדקס קטן מאפס
+                    throw new ObjectNotFoundException("Error: not found");
+                }
             }
+            catch (ObjectNotFoundException ex) { Console.WriteLine(ex.Message); }
             return index;
+
 
         }
         //public ListLineBus()
@@ -110,14 +116,29 @@ namespace dotNet5781_02_8658_4874
 
         {
             List<LineBus> temp = new List<LineBus>();
+            bool flag = false;
             for (var i = 0; i < Buses.Count; i++)
             {
                 for (var j = 0; j < Buses[i].Stations.Count; j++)
                 {
                     if (Buses[i].Stations[j].BusStationKey_p == CodeStation)//אם נמצאה התחנה בקו הזה
+                    {
                         temp.Add(Buses[i]);//נוסיף את הקו לרשימת הקווים שעוברים בתחנה
+                        flag = true;
+                    }
+                      
                 }
             }
+            try
+            {
+                if (flag==false)
+                    throw new ObjectNotFoundException("Error: The requested station was not found");
+                if (temp.Count == 0)
+                    throw new ListEmptyException("There are no lines passing through the station");
+            }
+
+            catch (ListEmptyException ex) { Console.WriteLine(ex.Message); return null; }
+            catch (ObjectNotFoundException ex) { Console.WriteLine(ex.Message); }
             return temp;//צריך לבדוק אם הרשימה ריקה ואם כן צריך להוציא חריגה
         }
         public List<LineBus> getSorted()
@@ -126,6 +147,40 @@ namespace dotNet5781_02_8658_4874
             temp = Buses;//הכנסת הרשימה שלנו לתוך רשימת העזר
             temp.Sort();//מיון רשימת העזר
             return temp;//החזרת רשימת העזר הממוינת
+        }
+        public List<BusLineStation> AllStationInSystem()//מחזירה רשימה של כל התחנות במערכת ללא כפילויות
+        {
+            List<BusLineStation> temp111 = new List<BusLineStation>();//רשימה שאליה ייכנסו כל התחנות במערכת ללא כפילויות
+            temp111.Add(Buses[0].Stations[0]);
+            for (var i = 0; i < Buses.Count; i++)
+            {
+                for (int j = 0; j < Buses[i].Stations.Count; j++)//נעבור על כל התחנות בקו
+                {
+                    bool flag = false;//דגל שהוא אמת אם התחנה כבר נמצאת ברשימה
+                    for (int k = 0; k < temp111.Count; k++)//נעבור על הרשימת עזר שלנו לבדוק אם התחנה כבר הוכנסה אליה
+                    {
+                        if (Buses[i].Stations[j].BusStationKey_p == temp111[k].BusStationKey_p)//התחנה עבר קיימת ברשימת העזר
+                        {
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag == false)//התחנה לא קיימת ברשימת העזר ולכן צריך להכניס אותה
+                        temp111.Add(Buses[i].Stations[j]);//נכניס אותה לרשימת העזר שמכילה את כל התחנות במערכת ללא כפילויות
+                }
+            }
+            return temp111;
+        }
+        public bool IfStationInSystem(int numStation)
+        {
+            List<BusLineStation> temp123 = new List<BusLineStation>();
+            temp123=AllStationInSystem();
+            for (int i=0;i< temp123.Count;i++)
+            {
+                if (numStation == temp123[i].BusStationKey_p)
+                    return true;
+            }
+            return false;
         }
     }
 }

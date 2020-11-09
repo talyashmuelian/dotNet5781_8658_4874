@@ -59,17 +59,18 @@ namespace dotNet5781_02_8658_4874
             //Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
             int num = Program2.rand.Next(11, 999999);
             BusStationKey = num;
-            //double num2=Program2.random.NextDouble() * (33.3- 31) + 31;
             //Program2.rand = new Program2.random(DateTime.Now.Millisecond);
-            float num1 = Program2.rand.Next(31, 34);
-            Latitude = num1;
+            int num1 = Program2.rand.Next(3100000, 3330000);
+            float temp = (float) num1 / 100000;
+            Latitude = temp;
             //Program2.rand = new Program2.random(DateTime.Now.Millisecond);
-            num1 = Program2.rand.Next(34, 36);
-            Longitude = num1;
+            num1 = Program2.rand.Next(3430000, 3550000);
+            temp = (float)num1 / 100000;
+            Longitude = temp;
         }
         public override string ToString()
         {
-             { return "Bus Station Code: " + BusStationKey + ", Latitude: " + Latitude + ", Longitude" + Longitude; }
+             { return "Bus Station Code: " + BusStationKey + ", Latitude: " + Latitude + ", Longitude: " + Longitude; }
         }
     }
 }

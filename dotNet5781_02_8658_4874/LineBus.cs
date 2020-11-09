@@ -69,6 +69,16 @@ namespace dotNet5781_02_8658_4874
 
         public int BusLine1 { get => BusLine; set => BusLine = value; }
         public string Area1 { get => Area; set => Area = value; }
+        public string  stringStation ()//שרשור כל התחנות למחרוזת על מנת שנוכל להציג אותה בטוסטרינג
+        {
+            string str=null;
+            for (int i=0;i<Stations.Count;i++)
+            {
+                str=str + Stations[i].BusStationKey_p;
+                str = str + "=>";
+            }
+            return str;
+        }
 
         //public List<BusLineStation> BackRoute()
         //{
@@ -82,7 +92,7 @@ namespace dotNet5781_02_8658_4874
         //}
         public override string ToString()
         {
-            { return "The line of bus: " + BusLine1 + ", Area: " + Area1 + ", Stations-go" + Stations /*+ ", Stations-back" + BackRoute()*/; }//לוודא שהוא יכול לקבל מתודה ולא רק שדות
+            { return "The line of bus: " + BusLine1 + ", Area: " + Area1 + ", Stations-go: "+ stringStation(); }
         }
         public void addStation(BusLineStation toAdd)//הוספת תחנה למסלול הקו
         {
@@ -104,6 +114,8 @@ namespace dotNet5781_02_8658_4874
             {
                 Stations.Insert(0, toAdd);
             }
+            if(choose != 1&& choose !=2 && choose != 3)
+                throw new FormatException("The number you entered is incorrect. enter 1 or 2 or 3");
         }
         public void delStation(BusLineStation toDel)//מחיקת תחנה ממסלול הקו
         {
@@ -120,9 +132,9 @@ namespace dotNet5781_02_8658_4874
             }
             return false;
         }
-        public float getDistance(BusLineStation station1, BusLineStation station2)//מתודה שמחזירה את המרחק בין שתי תחנות (לאו דווקא סמוכות)
+        public double getDistance(BusLineStation station1, BusLineStation station2)//מתודה שמחזירה את המרחק בין שתי תחנות (לאו דווקא סמוכות)
         {
-            float temp = 0;
+            double temp = 0;
             for (var i = 0; i < Stations.Count; i++)//עוברת על כל התחנות במסלול ובודקת אם מספר התחנה זהה
             {
                 if ((Stations[i].BusStationKey_p == station1.BusStationKey_p) || (Stations[i].BusStationKey_p == station2.BusStationKey_p))//אם הגעת לאחת התחנות
@@ -151,9 +163,9 @@ namespace dotNet5781_02_8658_4874
             }
             return 0;//אולי צריך להוציא חריגה שלא נמצאו התחנות או אחת מהן
         }
-        public float getTimeOfDriving(BusLineStation station1, BusLineStation station2)//מתודה שמחזירה את זמן הנסיעה בין שתי תחנות (לאו דווקא סמוכות)
+        public double getTimeOfDriving(BusLineStation station1, BusLineStation station2)//מתודה שמחזירה את זמן הנסיעה בין שתי תחנות (לאו דווקא סמוכות)
         {
-            float temp = 0;
+            double temp = 0;
             for (var i = 0; i < Stations.Count; i++)//עוברת על כל התחנות במסלול ובודקת אם מספר התחנה זהה
             {
                 if ((Stations[i].BusStationKey_p == station1.BusStationKey_p) || (Stations[i].BusStationKey_p == station2.BusStationKey_p))//אם הגעת לאחת התחנות
@@ -216,9 +228,9 @@ namespace dotNet5781_02_8658_4874
             }
             return null;//ייתכן שצריך להוציא חריגה על כך שאחת או שתי התחנות לא נמצאו בקו זה
         }
-        public float AllTheTime()//כל הזמן מתחילת המסלול עד סופו
+        public double AllTheTime()//כל הזמן מתחילת המסלול עד סופו
         {
-            float temp = 0;
+            double temp = 0;
             for (var i = 1; i < Stations.Count; i++)
             {
                 temp += Stations[i].TimeOfDriving_p;
