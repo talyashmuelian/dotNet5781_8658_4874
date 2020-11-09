@@ -12,8 +12,6 @@ namespace dotNet5781_02_8658_4874
     {
         public ListEmptyException() : base() {  }
         public ListEmptyException(string message) : base(message) { }
-        //public ListEmptyException(string message, Exception inner) : base(message, inner) { }
-        //protected ListEmptyException(SerializationInfo info, StreamingContext context) : base(info, context) { }
      
     }
     public class ObjectNotFoundException : Exception//חריגה שמציינת שהאובייקט להוספה או למחיקה לא קיים במערכת

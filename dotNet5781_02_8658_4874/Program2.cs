@@ -13,7 +13,6 @@ namespace dotNet5781_02_8658_4874
     class Program2
     {
         static public Random rand = new Random();//הגרלת מספר קו
-        //static public Random rand = new Random();
         static void Main(string[] args)
         {
             
@@ -37,7 +36,6 @@ namespace dotNet5781_02_8658_4874
                     ch = int.Parse(chStr);
                     if (ch>5)
                         throw new FormatException("The number you entered is incorrect");
-                    //להוציא חריגה למקרה שלא הוכנס שלם
                     switch (ch)
                     {
                         case 1://הוספת תחנה או קו אוטובוס
@@ -65,37 +63,13 @@ namespace dotNet5781_02_8658_4874
                                         break;
                                     }
                                 }
-                                if (indexOfWantedBus < 0)
+                                if (indexOfWantedBus < 0)//הקו לא נמצא
                                 {
                                     throw new ObjectNotFoundException("Error: Line does not exist");
-                                    //try { throw new ObjectNotFoundException("Error: Line does not exist"); }
-                                    //catch (ObjectNotFoundException ex) { Console.WriteLine(ex.Message); }
-                                    //break;
-                                    //להוציא חריגה או הודעה שהקו שרוצים להוסיף אליו תחנה לא קיים
                                 }
                                 Console.WriteLine("Enter the station number you want to add to the line ");
                                 string tempStr1 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה Absorption from the user of his choice
                                 int numChoose1 = int.Parse(tempStr1);//קליטת מספר התחנה
-                                                                     //לתפוס חריגה למקרה שהשתמש לא יכניס שלם
-                                //List<BusLineStation> temp111 = new List<BusLineStation>();//רשימה שאליה ייכנסו כל התחנות במערכת ללא כפילויות
-                                //temp111.Add(list1.Buses[0].Stations[0]);
-                                //for (var i = 0; i < list1.Buses.Count; i++)
-                                //{
-                                //    for (int j = 0; j < list1.Buses[i].Stations.Count; j++)//נעבור על כל התחנות בקו
-                                //    {
-                                //        bool flag = false;//דגל שהוא אמת אם התחנה כבר נמצאת ברשימה
-                                //        for (int k = 0; k < temp111.Count; k++)//נעבור על הרשימת עזר שלנו לבדוק אם התחנה כבר הוכנסה אליה
-                                //        {
-                                //            if (list1.Buses[i].Stations[j].BusStationKey_p == temp111[k].BusStationKey_p)//התחנה עבר קיימת ברשימת העזר
-                                //            {
-                                //                flag = true;
-                                //                break;
-                                //            }
-                                //        }
-                                //        if (flag == false)//התחנה לא קיימת ברשימת העזר ולכן צריך להכניס אותה
-                                //            temp111.Add(list1.Buses[i].Stations[j]);//נכניס אותה לרשימת העזר שמכילה את כל התחנות במערכת ללא כפילויות
-                                //    }
-                                //}
                                 List<BusLineStation> temp111 = new List<BusLineStation>();//רשימה שאליה ייכנסו כל התחנות במערכת ללא כפילויות
                                 temp111 = list1.AllStationInSystem();//זימון מתודה שמחזירה לתוך המשתנה את רשימת כל התחנות שקיימות כעת במערכת
                                 bool flag1 = false;//דגל שיהפוך לאמת אם התחנה אכן תימצא בתחנות הקיימות במערכת
@@ -110,10 +84,6 @@ namespace dotNet5781_02_8658_4874
                                 if (flag1 == false)//התחנה לא קיימת במערכת
                                 {
                                     throw new ObjectNotFoundException("Error: The station does not exist in the system");
-                                    //try { throw new ObjectNotFoundException("Error: The station does not exist in the system"); }
-                                    //catch (ObjectNotFoundException ex) { Console.WriteLine(ex.Message); }
-                                    ////להוציא חריגה או הודעה שלא ניתן להוסיף לקו תחנה שאינה קיימת
-                                    //break;
                                 }
 
                                 try
@@ -122,22 +92,17 @@ namespace dotNet5781_02_8658_4874
                                     {
                                         if (list1.Buses[indexOfWantedBus].Stations[j].BusStationKey_p == numChoose1)//התחנה כבר קיימת בקו ואין אפשרות להוסיף אותה עקב כך
                                         {
-                                            throw new AnObjectAlreadyExistsException("Error: The station already exists on the line");
-                                            //להוציא חריגה שהתחנה כבר קיימת
+                                            throw new AnObjectAlreadyExistsException("Error: The station already exists on the line");//להוציא חריגה שהתחנה כבר קיימת
                                         }
                                     }
                                 }
                                 catch (AnObjectAlreadyExistsException ex) { Console.WriteLine(ex.Message); break; }
-                                //להוציא חריגה או הודעה שלא ניתן להוסיף לקו תחנה שאינה קיימת
                                 BusLineStation StationToAdd = new BusLineStation(numChoose1);
                                 list1.Buses[indexOfWantedBus].addStation(StationToAdd);//הוספת התחנה לקו המבוקש
                                 Console.WriteLine("Done successfully");
                             }
                             if (numChoose !=2 && numChoose!=1)
                             {
-                                //try { throw new FormatException("The number that the Knesset is incorrect. Insert 1 or 2"); }
-                                //catch (FormatException ex) { Console.WriteLine(ex.Message); }
-                                //להוציא חריגה אם המשתמש הכניס כל מספר אחר
                                 throw new FormatException("The number you entered is incorrect. Insert 1 or 2");
                             }
 
@@ -182,10 +147,6 @@ namespace dotNet5781_02_8658_4874
                                 if (indexOfWantedBus < 0)//אם הקו לא קיים
                                 {
                                     throw new ObjectNotFoundException("Error: Line does not exist");
-                                    //try { throw new ObjectNotFoundException("Error: Line does not exist"); }
-                                    //catch (ObjectNotFoundException ex) { Console.WriteLine(ex.Message); }
-                                    //break;
-                                    //להוציא חריגה או הודעה שהקו שרוצים להוסיף אליו תחנה לא קיים
                                 }
                                 Console.WriteLine("Enter the line number station to delete");
                                 string tempStr1 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה Absorption from the user of his choice
@@ -214,9 +175,6 @@ namespace dotNet5781_02_8658_4874
                             if (numChoose != 2 && numChoose != 1)
                             {
                                 throw new FormatException("The number you entered is incorrect. Insert 1 or 2");
-                                //try { throw new FormatException("The number that the Knesset is incorrect. Insert 1 or 2"); }
-                                //catch (FormatException ex) { Console.WriteLine(ex.Message); }
-                                //בכל מקרה שהמשתמש הכניס מספר אחר להוציא חריגה
                             }
 
                             break;
@@ -238,7 +196,7 @@ namespace dotNet5781_02_8658_4874
                                 }
 
                             }
-                            if (numChoose == 2)//הדפסת אפשרויות הנסיעה בין שתי תחנות, ממוינות
+                            if (numChoose == 2)//הדפסת אפשרויות הנסיעה בין שתי תחנות, ממוינות לפי אורך הנסיעה, מהקצר לארוך
                             {
                                 Console.WriteLine("Enter the line number station1");
                                 string tempStr1 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה הראשונה
@@ -272,9 +230,6 @@ namespace dotNet5781_02_8658_4874
                             if (numChoose != 2 && numChoose != 1)
                             {
                                 throw new FormatException("The number you entered is incorrect. Insert 1 or 2");
-                                //try { throw new FormatException("The number that the Knesset is incorrect. Insert 1 or 2"); }
-                                //catch (FormatException ex) { Console.WriteLine(ex.Message); }
-                                //לזרוק חריגה בכל מקרה של הכנסת מספר לא תקין
                             }
 
 
@@ -292,30 +247,11 @@ namespace dotNet5781_02_8658_4874
                             }
                             if (numChoose == 2)//הדפסת רשימת כל התחנות ומספרי הקווים שעוברים דרכם
                             {
-                                //List<BusLineStation> temp111 = new List<BusLineStation>();//רשימה שאליה ייכנסו כל התחנות במערכת ללא כפילויות
-                                //temp111.Add(list1.Buses[0].Stations[0]);
-                                //for (var i = 0; i < list1.Buses.Count; i++)
-                                //{
-                                //    for (int j = 0; j < list1.Buses[i].Stations.Count; j++)//נעבור על כל התחנות בקו
-                                //    {
-                                //        bool flag = false;//דגל שהוא אמת אם התחנה כבר נמצאת ברשימה
-                                //        for (int k = 0; k < temp111.Count; k++)//נעבור על הרשימת עזר שלנו לבדוק אם התחנה כבר הוכנסה אליה
-                                //        {
-                                //            if (list1.Buses[i].Stations[j].BusStationKey_p == temp111[k].BusStationKey_p)//התחנה עבר קיימת ברשימת העזר
-                                //            {
-                                //                flag = true;
-                                //                break;
-                                //            }
-                                //        }
-                                //        if (flag == false)//התחנה לא קיימת ברשימת העזר ולכן צריך להכניס אותה
-                                //            temp111.Add(list1.Buses[i].Stations[j]);//נכניס אותה לרשימת העזר שמכילה את כל התחנות במערכת ללא כפילויות
-                                //    }
-                                //}
                                 List<BusLineStation> temp111 = new List<BusLineStation>();//רשימה שאליה ייכנסו כל התחנות במערכת ללא כפילויות
                                 temp111 = list1.AllStationInSystem();//זימון מתודה שמחזירה לתוך המשתנה את רשימת כל התחנות שקיימות כעת במערכת
                                 for (int i = 0; i < temp111.Count; i++)//הדפסת רשימת כל התחנות במערכת והקווים שעוברים בהן
                                 {
-                                    Console.WriteLine("Station details: " + temp111[i]);//הדפסת מספר התחנה
+                                    Console.WriteLine("Station details: " + temp111[i]);//הדפסת התחנה
 
                                     List<LineBus> listOfLinesInSpecificStation = new List<LineBus>();//יצירת רשימה שאליה ייכנסו כל הקווים שעוברים בתחנה הספציפית
                                     listOfLinesInSpecificStation = list1.ListOfLineThatPassStation(temp111[i].BusStationKey_p);//זימון פונקציה שמחזירה את רשימת הקווים העוברים בתחנה
@@ -330,9 +266,6 @@ namespace dotNet5781_02_8658_4874
                             if (numChoose != 2 && numChoose != 1)
                             {
                                 throw new FormatException("The number you entered is incorrect Insert 1 or 2");
-                                //try { throw new FormatException("The number that the Knesset is incorrect. Insert 1 or 2"); }
-                                //catch (FormatException ex) { Console.WriteLine(ex.Message); }
-                                //לזרוק חריגה בכל מקרה של הכנסת מספר לא תקין
                             }
                             break;
                     }

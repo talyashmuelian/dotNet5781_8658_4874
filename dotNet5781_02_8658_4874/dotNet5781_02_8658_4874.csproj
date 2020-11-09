@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="BusStation.cs" />
     <Compile Include="BusLineStation.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="ListEmptyException.cs" />
     <Compile Include="ListLineBus.cs" />
     <Compile Include="LineBus.cs" />

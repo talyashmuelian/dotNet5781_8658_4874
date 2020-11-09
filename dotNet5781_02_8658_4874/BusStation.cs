@@ -8,11 +8,9 @@ namespace dotNet5781_02_8658_4874
 {
     class BusStation
     {
-        //static public Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
         protected int BusStationKey;//מספר תחנה
-        protected float Latitude;
-        protected float Longitude;
-        //protected string Address;//להחליט אם לעשות מאפיין
+        protected float Latitude;//קו רוחב
+        protected float Longitude;//קו אורך
         public int BusStationKey_p
         {
             get { return BusStationKey; }
@@ -27,7 +25,6 @@ namespace dotNet5781_02_8658_4874
             get => Latitude; 
             set
             {
-                //Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
                 float num = Program2.rand.Next(31, 34);
                 Latitude = num;
 
@@ -38,32 +35,25 @@ namespace dotNet5781_02_8658_4874
             get => Longitude; 
             set
             {
-                //Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
                 float num = Program2.rand.Next(34,36);
                 Longitude = num;
             }
         }
-        public BusStation(int numStation)
+        public BusStation(int numStation)//ctor with parameters
         {
             BusStationKey = numStation;
-            //double num2=Program2.random.NextDouble() * (33.3- 31) + 31;
-            //Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
             float num1 = Program2.rand.Next(31, 34);
             Latitude = num1;
-            //Program2.rand = new Program2.random(DateTime.Now.Millisecond);
             num1 = Program2.rand.Next(34, 36);
             Longitude = num1;
         }
-        public BusStation()
+        public BusStation()//ctor empty
         {
-            //Program2.random Program2.rand = new Program2.random(DateTime.Now.Millisecond);
             int num = Program2.rand.Next(11, 999999);
             BusStationKey = num;
-            //Program2.rand = new Program2.random(DateTime.Now.Millisecond);
             int num1 = Program2.rand.Next(3100000, 3330000);
             float temp = (float) num1 / 100000;
             Latitude = temp;
-            //Program2.rand = new Program2.random(DateTime.Now.Millisecond);
             num1 = Program2.rand.Next(3430000, 3550000);
             temp = (float)num1 / 100000;
             Longitude = temp;

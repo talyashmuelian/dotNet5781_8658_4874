@@ -31,8 +31,7 @@ namespace dotNet5781_02_8658_4874
             {
                 if (index == -1)
                 {
-                    //לזרוק חריגה אם האינדקס קטן מאפס
-                    throw new ObjectNotFoundException("Error: not found");
+                    throw new ObjectNotFoundException("Error: not found");//לזרוק חריגה אם האינדקס קטן מאפס
                 }
             }
             catch (ObjectNotFoundException ex) { Console.WriteLine(ex.Message); }
@@ -40,10 +39,6 @@ namespace dotNet5781_02_8658_4874
 
 
         }
-        //public ListLineBus()
-        //{
-
-        //}
         public void add20LinesToSystem()//מתודה שמוסיפה 20 קווים אקראיים למערכת
         {
             LineBus s1 = new LineBus(); LineBus s2 = new LineBus(); LineBus s3 = new LineBus(); LineBus s4 = new LineBus();
@@ -64,24 +59,6 @@ namespace dotNet5781_02_8658_4874
         public IEnumerator GetEnumerator()
         { return Buses.GetEnumerator(); }
 
-        //int index = -1;
-        //public object Current
-        //{ get { return Buses[index]; } }
-
-        //public bool MoveNext()
-        //{
-        //    index++;
-        //    if (index >= Count)
-        //    {
-        //        index = -1;
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
-        //public void Reset()
-        //{ index = -1; }
-
         public void addLineBus(LineBus busToAdd)
         {
             for (var i = 0; i < Buses.Count; i++)
@@ -101,16 +78,6 @@ namespace dotNet5781_02_8658_4874
             }
             if (flag==true)
                 Buses.Remove(busToDel);
-        }
-        public void addStationToSpesificLine(LineBus busToAddHim)//מוסיפה תחנה לקו ספציפי. צריך לטפל בה.
-        {
-            for (var i = 0; i < Buses.Count; i++)
-            {
-                if (busToAddHim.BusLine1== Buses[i].BusLine1)
-                {
-                    //Buses[i].addStation
-                }
-            }
         }
         public List<LineBus> ListOfLineThatPassStation (int CodeStation)//מחזירה את רשימת הקווים שעוברים בתחנה
 

@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
-    //static public Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
     enum MyEnum { General = 1, North, South, Center, Jerusalem }
     class LineBus : IComparable
 
     {
-        //static public Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
         public List<BusLineStation> Stations = new List<BusLineStation>();//מסלול הקו- רשימת התחנות שלו- יכול להיות שאסור לעשות ציבורי ואז צריך לחשוב איך לאפשר גישה לאוסף קוי אוטובוס
         protected int BusLine;//מספר קו
-        //protected BusLineStation FirstStation;//תחנת מוצא
-        //protected BusLineStation LastStation;//תחנה סופית
         protected string Area;//איזור בארץ
         public BusLineStation FirstStation
         {
@@ -40,11 +36,8 @@ namespace dotNet5781_02_8658_4874
         }
         public LineBus()//בנאי
         {
-            
-            //Random rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר קו
             int num = Program2.rand.Next(1,999);//ייתכן שצריך לבדוק שלא קיים קו כזה כבר ואם כן להוציא חריגה
             BusLine = num;
-            //rand = new Random(DateTime.Now.Millisecond);//הגרלת מספר בין 1 ל5 כדי לבחור איזור בארץ
             num = Program2.rand.Next(1, 5);
             switch (num)
             {
@@ -79,17 +72,6 @@ namespace dotNet5781_02_8658_4874
             }
             return str;
         }
-
-        //public List<BusLineStation> BackRoute()
-        //{
-        //    List<BusLineStation> temp = new List<BusLineStation>(); ;
-        //    for (var i = Stations.Count; i >=0 ; i--)
-        //    {
-        //        temp.Add(Stations[i]);
-
-        //    }
-        //    return temp;
-        //}
         public override string ToString()
         {
             { return "The line of bus: " + BusLine1 + ", Area: " + Area1 + ", Stations-go: "+ stringStation(); }
@@ -226,7 +208,7 @@ namespace dotNet5781_02_8658_4874
                 return temp;
 
             }
-            return null;//ייתכן שצריך להוציא חריגה על כך שאחת או שתי התחנות לא נמצאו בקו זה
+            return null;
         }
         public double AllTheTime()//כל הזמן מתחילת המסלול עד סופו
         {
