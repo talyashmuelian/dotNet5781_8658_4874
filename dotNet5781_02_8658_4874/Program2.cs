@@ -15,8 +15,6 @@ namespace dotNet5781_02_8658_4874
         static public Random rand = new Random();//הגרלת מספר קו
         static void Main(string[] args)
         {
-            
-
             ListLineBus list1 = new ListLineBus();
             list1.add20LinesToSystem();//זימון מתודה שמתאחלת את המערכת ב20 קווים ולכל אחד מהם 13 תחנות
             int ch=0;
