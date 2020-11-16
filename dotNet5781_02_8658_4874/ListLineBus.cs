@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 namespace dotNet5781_02_8658_4874
 { 
-    class ListLineBus : IEnumerable
+    public class ListLineBus : IEnumerable
 
     {
 
@@ -38,6 +38,15 @@ namespace dotNet5781_02_8658_4874
             return index;
 
 
+        }
+        public void add10LinesToSystem()//מתודה שמוסיפה 10 קווים אקראיים למערכת
+        {
+            LineBus s1 = new LineBus(); LineBus s2 = new LineBus(); LineBus s3 = new LineBus(); LineBus s4 = new LineBus();
+            LineBus s5 = new LineBus(); LineBus s6 = new LineBus(); LineBus s7 = new LineBus(); LineBus s8 = new LineBus();
+            LineBus s9 = new LineBus(); LineBus s10 = new LineBus();
+            s1.add10RandomStations(); s2.add10RandomStations(); s3.add10RandomStations(); s4.add10RandomStations(); s5.add10RandomStations(); s6.add10RandomStations();
+            s7.add10RandomStations(); s8.add10RandomStations(); s9.add10RandomStations(); s10.add10RandomStations();
+            Buses.Add(s1); Buses.Add(s2); Buses.Add(s3); Buses.Add(s4); Buses.Add(s5); Buses.Add(s6); Buses.Add(s7); Buses.Add(s8); Buses.Add(s9); Buses.Add(s10);
         }
         public void add20LinesToSystem()//מתודה שמוסיפה 20 קווים אקראיים למערכת
         {

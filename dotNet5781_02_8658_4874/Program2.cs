@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
-    
-    class Program2
+
+    public class Program2
     {
         static public Random rand = new Random();//הגרלת מספר קו
         static void Main(string[] args)

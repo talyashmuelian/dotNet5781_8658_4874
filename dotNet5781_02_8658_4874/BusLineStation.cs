@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
-    class BusLineStation: BusStation
+    public class BusLineStation: BusStation
     {
         protected double Distance;//מרחק בקילומטרים מתחנת קו אוטובוס הקודמת
         protected double TimeOfDriving;//זמן הנסיעה בדקות מתחנת קו אוטובוס הקודמת

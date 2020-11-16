@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace dotNet5781_02_8658_4874
 {
     enum MyEnum { General = 1, North, South, Center, Jerusalem }
-    class LineBus : IComparable
+    public class LineBus : IComparable
 
     {
         public List<BusLineStation> Stations = new List<BusLineStation>();//מסלול הקו- רשימת התחנות שלו- יכול להיות שאסור לעשות ציבורי ואז צריך לחשוב איך לאפשר גישה לאוסף קוי אוטובוס
         protected int BusLine;//מספר קו
         protected string Area;//איזור בארץ
+        protected double timeOfDriving;//זמן הנסיעה הכולל של הקו
         public BusLineStation FirstStation
         {
             set { Stations[0] = value; }
@@ -34,8 +35,18 @@ namespace dotNet5781_02_8658_4874
             Stations.Add(s6); Stations.Add(s7); Stations.Add(s8); Stations.Add(s9); Stations.Add(s10);
             Stations.Add(s11); Stations.Add(s12); Stations.Add(s13);
         }
+        public void add10RandomStations ()//הוספת 10 תחנות מוגרלות לקו
+        {
+            BusLineStation s1 = new BusLineStation(); BusLineStation s2 = new BusLineStation(); BusLineStation s3 = new BusLineStation();
+            BusLineStation s4 = new BusLineStation(); BusLineStation s5 = new BusLineStation(); BusLineStation s6 = new BusLineStation();
+            BusLineStation s7 = new BusLineStation(); BusLineStation s8 = new BusLineStation(); BusLineStation s9 = new BusLineStation();
+            BusLineStation s10 = new BusLineStation();
+            Stations.Add(s1); Stations.Add(s2); Stations.Add(s3); Stations.Add(s4); Stations.Add(s5);
+            Stations.Add(s6); Stations.Add(s7); Stations.Add(s8); Stations.Add(s9); Stations.Add(s10);
+        }
         public LineBus()//בנאי
         {
+            timeOfDriving=AllTheTime();
             int num = Program2.rand.Next(1,999);//ייתכן שצריך לבדוק שלא קיים קו כזה כבר ואם כן להוציא חריגה
             BusLine = num;
             num = Program2.rand.Next(1, 5);

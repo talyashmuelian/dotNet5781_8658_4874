@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
-    class BusStation
+    public class BusStation
     {
         protected int BusStationKey;//מספר תחנה
         protected float Latitude;//קו רוחב
