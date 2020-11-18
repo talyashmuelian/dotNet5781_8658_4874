@@ -21,29 +21,30 @@ namespace dotNet5781_03a_8658_4874
     /// </summary>
     public partial class MainWindow : Window
     {
-        ListLineBus cbHostList = new ListLineBus();
+        ListLineBus list123 = new ListLineBus();
         private LineBus currentDisplayBusLine;
         public MainWindow()
         {
-            cbHostList.add10LinesToSystem();
+            list123.add10LinesToSystem();
             InitializeComponent();
-            cbHostList.ItemsSource = cbHostList.Buses;
-            cbHostList.DisplayMemberPath = " BusLine ";
-            cbHostList.SelectedIndex = 0;
-            ShowBusLine();
+            cbBusLines.ItemsSource = list123.Buses;
+            cbBusLines.DisplayMemberPath = "BusLine1";
+            cbBusLines.SelectedIndex = 0;
+            //ShowBusLine(cbBusLines.SelectedIndex);
+
 
 
         }
         private void ShowBusLine(int index)
         {
-            currentDisplayBusLine = busLines[index];
+            currentDisplayBusLine = list123.Buses[index];
             UpGrid.DataContext = currentDisplayBusLine;
             lbBusLineStations.DataContext = currentDisplayBusLine.Stations;
         }
 
         private void cbBusLines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ShowBusLine((cbBusLines.SelectedValue as LineBus).BusLine);
+            ShowBusLine((cbBusLines.SelectedValue as LineBus).BusLine1);
         }
     }
 }

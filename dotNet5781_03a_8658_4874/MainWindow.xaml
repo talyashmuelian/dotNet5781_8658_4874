@@ -21,9 +21,9 @@ VerticalAlignment="Stretch" Width="auto">
  </Grid.ColumnDefinitions >
             <TextBox Name ="tbArea" Grid.Column="3" HorizontalAlignment="Stretch" Height="23" Margin="39.8,37,0,0" TextWrapping="Wrap" Text="{Binding Path=Area}" VerticalAlignment="Stretch" Width="120" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="14"/>
             <Label Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="142.6,37,0,0" VerticalAlignment="Top"/>
-<ComboBox Name="cbBusLines" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="92,26,0,0" VerticalAlignment="Stretch" Width="120" Grid.Column="1" SelectionChanged="cbBusLines_SelectionChanged"/>
+            <ComboBox x:Name="cbBusLines" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="92,26,0,0" VerticalAlignment="Stretch" Width="120" Grid.Column="1" SelectionChanged="cbBusLines_SelectionChanged"/>
         </Grid>
-        <ListBox Name="lbBusLineStations" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="100" Margin="45,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <ListBox Name="lbBusLineStations" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="276" Margin="45,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="396"/>
 
 
     </Grid>
