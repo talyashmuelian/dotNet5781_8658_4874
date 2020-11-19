@@ -32,9 +32,6 @@ namespace dotNet5781_03a_8658_4874
             cbBusLines.SelectedIndex = 0;
 
             ShowBusLine(list123.Buses[0].BusLine1);
-
-
-
         }
         private void ShowBusLine(int index)
         {
