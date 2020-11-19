@@ -17,7 +17,7 @@ namespace dotNet5781_02_8658_4874
         {
             ListLineBus list1 = new ListLineBus();
             list1.add20LinesToSystem();//זימון מתודה שמתאחלת את המערכת ב20 קווים ולכל אחד מהם 13 תחנות
-            int ch=0;
+            int ch = 0;
             do
             {
                 try
@@ -32,7 +32,7 @@ namespace dotNet5781_02_8658_4874
                     int numChoose;
                     string chStr = Console.ReadLine();
                     ch = int.Parse(chStr);
-                    if (ch>5)
+                    if (ch > 5)
                         throw new FormatException("The number you entered is incorrect");
                     switch (ch)
                     {
@@ -52,19 +52,18 @@ namespace dotNet5781_02_8658_4874
                                 Console.WriteLine("Enter the line number you want to add a station to ");
                                 tempStr = Console.ReadLine();//קליטה מהמשתמש את בחירתו Absorption from the user of his choice
                                 int numChoose3 = int.Parse(tempStr);//קליטת מספר הקו
-                                int indexOfWantedBus = -1;
-                                for (int i = 0; i < list1.Buses.Count; i++)//נחפש את הקו שאליו המשתמש ביקש להוסיף תחנה
+                                LineBus lineBus = null;
+                                foreach (LineBus line in list1)//נחפש את הקו שאליו המשתמש ביקש להוסיף תחנה
                                 {
-                                    if (list1.Buses[i].BusLine1 == numChoose3)
+                                    if (line.BusLine1 == numChoose3)
                                     {
-                                        indexOfWantedBus = i;
+                                        lineBus = line;
                                         break;
                                     }
                                 }
-                                if (indexOfWantedBus < 0)//הקו לא נמצא
-                                {
+                                if (lineBus == null)//הקו לא נמצא
                                     throw new ObjectNotFoundException("Error: Line does not exist");
-                                }
+
                                 Console.WriteLine("Enter the station number you want to add to the line ");
                                 string tempStr1 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה Absorption from the user of his choice
                                 int numChoose1 = int.Parse(tempStr1);//קליטת מספר התחנה
@@ -86,9 +85,9 @@ namespace dotNet5781_02_8658_4874
 
                                 try
                                 {
-                                    for (int j = 0; j < list1.Buses[indexOfWantedBus].Stations.Count; j++)//נעבור על כל התחנות בקו
+                                    for (int j = 0; j < lineBus.Stations.Count; j++)//נעבור על כל התחנות בקו
                                     {
-                                        if (list1.Buses[indexOfWantedBus].Stations[j].BusStationKey_p == numChoose1)//התחנה כבר קיימת בקו ואין אפשרות להוסיף אותה עקב כך
+                                        if (lineBus.Stations[j].BusStationKey_p == numChoose1)//התחנה כבר קיימת בקו ואין אפשרות להוסיף אותה עקב כך
                                         {
                                             throw new AnObjectAlreadyExistsException("Error: The station already exists on the line");//להוציא חריגה שהתחנה כבר קיימת
                                         }
@@ -96,13 +95,11 @@ namespace dotNet5781_02_8658_4874
                                 }
                                 catch (AnObjectAlreadyExistsException ex) { Console.WriteLine(ex.Message); break; }
                                 BusLineStation StationToAdd = new BusLineStation(numChoose1);
-                                list1.Buses[indexOfWantedBus].addStation(StationToAdd);//הוספת התחנה לקו המבוקש
+                                lineBus.addStation(StationToAdd);//הוספת התחנה לקו המבוקש
                                 Console.WriteLine("Done successfully");
                             }
-                            if (numChoose !=2 && numChoose!=1)
-                            {
+                            if (numChoose != 2 && numChoose != 1)
                                 throw new FormatException("The number you entered is incorrect. Insert 1 or 2");
-                            }
 
                             break;
                         case 2://מחיקת תחנה או קו אוטובוס
@@ -115,61 +112,54 @@ namespace dotNet5781_02_8658_4874
                                 Console.WriteLine("Enter the line number you want to delete");
                                 tempStr = Console.ReadLine();//קליטה מהמשתמש את מספר הקו Absorption from the user of his choice
                                 int numChoose2 = int.Parse(tempStr);
-                                bool flag = false;//דגל שיהיה אמת אם הקו המבוקש נמצא ויהיה שקר אם הוא לא נמצא
-                                for (var i = 0; i < list1.Buses.Count; i++)
+                                LineBus lineBus = null;
+                                foreach (LineBus line in list1)//נחפש את הקו שאליו המשתמש ביקש להוסיף תחנה
                                 {
-                                    if (list1.Buses[i].BusLine1 == numChoose2)//נמצא הקו שרוצים למחוק
+                                    if (line.BusLine1 == numChoose2)
                                     {
-                                        list1.delLineBus(list1.Buses[i]);//נזמן עבורו את פונקציית המחיקה
-                                        Console.WriteLine("Done successfully");
-                                        flag = true;
+                                        lineBus = line;
+                                        break;
                                     }
                                 }
-                                if (flag==false)
+                                if (lineBus == null)
                                     throw new ObjectNotFoundException("Error: The line does not exist");//להוציא חריגה שלא נמצא הקו המבוקש למחיקה
+                                list1.delLineBus(lineBus);//נזמן עבורו את פונקציית המחיקה
+                                Console.WriteLine("Done successfully");
                             }
                             if (numChoose == 2)//רוצה למחוק תחנה מקו מסוים
                             {
                                 Console.WriteLine("Enter the line number from which you want to delete a station");
                                 tempStr = Console.ReadLine();//קליטה מהמשתמש את מספר הקו Absorption from the user of his choice
                                 int numChoose2 = int.Parse(tempStr);
-                                int indexOfWantedBus = -1;
-                                for (int i = 0; i < list1.Buses.Count; i++)//נחפש את הקו שממנו אנחנו רוצים למחוק תחנה
+                                LineBus lineBus = null;
+                                foreach (LineBus line in list1)//נחפש את הקו שאליו המשתמש ביקש להוסיף תחנה
                                 {
-                                    if (list1.Buses[i].BusLine1 == numChoose2)
+                                    if (line.BusLine1 == numChoose2)
                                     {
-                                        indexOfWantedBus = i;
+                                        lineBus = line;
                                         break;
                                     }
                                 }
-                                if (indexOfWantedBus < 0)//אם הקו לא קיים
-                                {
+                                if (lineBus == null)
                                     throw new ObjectNotFoundException("Error: Line does not exist");
-                                }
                                 Console.WriteLine("Enter the line number station to delete");
                                 string tempStr1 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה Absorption from the user of his choice
                                 int numChoose1 = int.Parse(tempStr1);
                                 bool flag1 = false;//דגל שיהיה אמת אם התחנה אכן נמצאה בקו ויהיה שקר אם היא לא נמצאה
-                                for (var i = 0; i < list1.Buses.Count; i++)
+                                for (int j = 0; j < lineBus.Stations.Count; j++)//נעבור על כל התחנות בקו
                                 {
-                                    if (list1.Buses[i].BusLine1 == numChoose2)//נמצא הקו שרוצים למחוק ממנו
+                                    if (lineBus.Stations[j].BusStationKey_p == numChoose1)//מצאנו את התחנה
                                     {
-                                        for (int j = 0; j < list1.Buses[i].Stations.Count; j++)//נעבור על כל התחנות בקו
-                                        {
-                                            if (list1.Buses[i].Stations[j].BusStationKey_p == numChoose1)//מצאנו את התחנה
-                                            {
-                                                list1.Buses[i].delStation(list1.Buses[i].Stations[j]);//נזמן את פונקציית מחיקת התחנה
-                                                flag1 = true;
-                                                Console.WriteLine("Done successfully");
-                                            }
-                                            
-                                        }
-                                        if (flag1==false)//התחנה לא נמצאה בקו המבוקש
-                                            throw new ObjectNotFoundException("Error: The station was not on the requested line");
+                                        lineBus.delStation(lineBus.Stations[j]);//נזמן את פונקציית מחיקת התחנה
+                                        flag1 = true;
+                                        Console.WriteLine("Done successfully");
                                     }
-                                }
 
+                                }
+                                if (flag1 == false)//התחנה לא נמצאה בקו המבוקש
+                                    throw new ObjectNotFoundException("Error: The station was not on the requested line");
                             }
+
                             if (numChoose != 2 && numChoose != 1)
                             {
                                 throw new FormatException("The number you entered is incorrect. Insert 1 or 2");
@@ -199,7 +189,7 @@ namespace dotNet5781_02_8658_4874
                                 Console.WriteLine("Enter the line number station1");
                                 string tempStr1 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה הראשונה
                                 int numChoose1 = int.Parse(tempStr1);
-                                if (list1.IfStationInSystem(numChoose1)== false)//בדיקה האם התחנה אכן קיימת במערכת
+                                if (list1.IfStationInSystem(numChoose1) == false)//בדיקה האם התחנה אכן קיימת במערכת
                                     throw new ObjectNotFoundException("Error: The requested station was not found");
                                 Console.WriteLine("Enter the line number station2");
                                 string tempStr2 = Console.ReadLine();//קליטה מהמשתמש את מספר התחנה השנייה
@@ -207,42 +197,30 @@ namespace dotNet5781_02_8658_4874
                                 if (list1.IfStationInSystem(numChoose2) == false)//בדיקה האם התחנה אכן קיימת במערכת
                                     throw new ObjectNotFoundException("Error: The requested station was not found");
                                 LineBus inTatRoute = new LineBus();//משתנה שישמור את תת המסלול
-                                ListLineBus temp = new ListLineBus();//רשימה הקווים שעושים את הדרך בין שתי התחנות המבוקשות
+                                List<LineBus> temp = new List<LineBus>();//רשימה הקווים שעושים את הדרך בין שתי התחנות המבוקשות
                                 BusLineStation station11 = new BusLineStation(numChoose1);//יצירת תחנה ראשונה עם מספר התחנה המתקבלת
                                 BusLineStation station22 = new BusLineStation(numChoose2);//יצירת תחנה שנייה עם מספר התחנה המתקבלת
-                                for (var i = 0; i < list1.Buses.Count; i++)
+                                foreach (LineBus line in list1)
                                 {
-                                    inTatRoute = list1.Buses[i].tatRoute(station11, station22);
+                                    inTatRoute = line.tatRoute(station11, station22);
                                     if (inTatRoute != null)//הקו אכן נוסע בין שתי תחנות אלו
-                                    {
-                                        temp.addLineBus(inTatRoute);//הוספת הקו לתוך האוסף של קווי האוטובוס העוברים בתחנה
-                                    }
+                                        temp.Add(inTatRoute);//הוספת הקו לתוך האוסף של קווי האוטובוס העוברים בתחנה
                                 }
-                                temp.Buses.Sort();//מיון לפי זמן הנסיעה
+                                temp.Sort();//מיון לפי זמן הנסיעה
                                 Console.WriteLine("List of lines that make the desired route:");
-                                for (var i = 0; i < temp.Buses.Count; i++)
-                                {
-                                    Console.WriteLine(temp.Buses[i].BusLine1);//הדפסת מספרי הקווים שעושים את הדרך הזאת
-                                }
+                                foreach (LineBus line in temp)
+                                    Console.WriteLine(line.BusLine1);//הדפסת מספרי הקווים שעושים את הדרך הזאת
                             }
                             if (numChoose != 2 && numChoose != 1)
-                            {
                                 throw new FormatException("The number you entered is incorrect. Insert 1 or 2");
-                            }
-
-
                             break;
                         case 4:
                             Console.WriteLine("Enter 1 for print all bus lines in the system OR 2 to print a list of all the stations and line numbers that pass through them");
                             tempStr = Console.ReadLine();//קליטה מהמשתמש את בחירתו Absorption from the user of his choice
                             numChoose = int.Parse(tempStr);
                             if (numChoose == 1)//הדפסת כל קווי האוטובוס במערכת
-                            {
-                                for (var i = 0; i < list1.Buses.Count; i++)
-                                {
-                                    Console.WriteLine(list1.Buses[i]);
-                                }
-                            }
+                                foreach (LineBus line in list1)
+                                    Console.WriteLine(line);
                             if (numChoose == 2)//הדפסת רשימת כל התחנות ומספרי הקווים שעוברים דרכם
                             {
                                 List<BusLineStation> temp111 = new List<BusLineStation>();//רשימה שאליה ייכנסו כל התחנות במערכת ללא כפילויות
@@ -270,7 +248,7 @@ namespace dotNet5781_02_8658_4874
                 }
                 catch (FormatException ex) { Console.WriteLine(ex.Message); }
                 catch (ObjectNotFoundException ex) { Console.WriteLine(ex.Message); }
-                
+
             } while (ch != 5);
             Console.WriteLine("exit");
         }

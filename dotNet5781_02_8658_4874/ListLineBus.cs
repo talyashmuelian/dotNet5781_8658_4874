@@ -7,10 +7,8 @@ using System.Collections;
 namespace dotNet5781_02_8658_4874
 { 
     public class ListLineBus : IEnumerable
-
     {
-
-        public List<LineBus> Buses=new List<LineBus>();//רשימה של קווי אוטובוסים
+        List<LineBus> Buses=new List<LineBus>();//רשימה של קווי אוטובוסים
         public LineBus this[int lineNumber]
         {
             get

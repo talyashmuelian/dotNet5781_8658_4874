@@ -27,15 +27,13 @@ namespace dotNet5781_03a_8658_4874
         {
             list123.add10LinesToSystem();
             InitializeComponent();
-            cbBusLines.ItemsSource = list123.Buses;
+            cbBusLines.ItemsSource = list123;
             cbBusLines.DisplayMemberPath = "BusLine1";
             cbBusLines.SelectedIndex = 0;
-
-            ShowBusLine(list123.Buses[0].BusLine1);
         }
         private void ShowBusLine(int index)
         {
-            currentDisplayBusLine = list123.Buses[index];
+            currentDisplayBusLine = list123[index];
             UpGrid.DataContext = currentDisplayBusLine;
             lbBusLineStations.DataContext = currentDisplayBusLine.Stations;
         }
