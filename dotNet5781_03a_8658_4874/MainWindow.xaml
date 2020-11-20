@@ -5,25 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03a_8658_4874"
         mc:Ignorable="d"
-        Title="MainWindow" Height="640" Width="800">
-<Grid Name="MainGrid">
- <Grid.RowDefinitions>
- <RowDefinition Height="50*"/>
- <RowDefinition Height="400*"/>
- </Grid.RowDefinitions>
+        Title="תחבורה ציבורית" Height="640" Width="800">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="400*"/>
+        </Grid.RowDefinitions>
         <Grid Name="UpGrid" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0"
 VerticalAlignment="Stretch" Width="auto">
-<Grid.ColumnDefinitions>
- <ColumnDefinition Width="*"/>
- <ColumnDefinition Width="*"/>
-<ColumnDefinition Width="*"/>
-<ColumnDefinition Width="*"/>
- </Grid.ColumnDefinitions >
-            <TextBox Name ="tbArea" Grid.Column="3" HorizontalAlignment="Stretch" Height="23" Margin="39.8,37,0,0" TextWrapping="Wrap" Text="{Binding Path=Area}" VerticalAlignment="Stretch" Width="120" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="14"/>
-            <Label Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="142.6,37,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbBusLines" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="92,26,0,0" VerticalAlignment="Stretch" Width="120" Grid.Column="1" SelectionChanged="cbBusLines_SelectionChanged"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions >
+            <TextBox Name ="tbArea" Grid.Column="3" HorizontalAlignment="Stretch" Height="23" Margin="26.8,26,51.6,19" TextWrapping="Wrap" Text="{Binding Path=Area}" VerticalAlignment="Stretch" Width="120" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="14"/>
+            <ComboBox x:Name="cbBusLines" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="17.6,16,126.8,10" VerticalAlignment="Stretch" Grid.Column="1" SelectionChanged="cbBusLines_SelectionChanged"/>
+            <Label Content="Number line: " HorizontalAlignment="Left" Margin="58,23,0,0" VerticalAlignment="Top" Background="#FFD47D7D" FontFamily="Cooper Black" FontSize="18" Width="140"/>
+            <Label Content="Area: " Grid.Column="2" HorizontalAlignment="Left" Margin="97.2,26,0,0" VerticalAlignment="Top" Background="#FF7AD3AB" FontFamily="Cooper Black" FontSize="18"/>
         </Grid>
-        <ListBox Name="lbBusLineStations" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="276" Margin="45,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="396"/>
+        <ListBox Name="lbBusLineStations" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="230" Margin="37,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="399"/>
+        <Label Content="Stations in the line: " HorizontalAlignment="Left" Margin="65,12,0,0" Grid.Row="1" VerticalAlignment="Top" Background="#FFBC79E2" FontFamily="Cooper Black" FontSize="14"/>
 
 
     </Grid>
