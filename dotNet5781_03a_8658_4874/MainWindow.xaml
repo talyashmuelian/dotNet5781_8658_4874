@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03a_8658_4874"
         mc:Ignorable="d"
-        Title="תחבורה ציבורית" Height="640" Width="800">
+        Title="תחבורה ציבורית" Height="640" Width="800" Icon="https://img.icons8.com/plasticine/2x/bus.png">
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="50*"/>
@@ -19,13 +19,13 @@ VerticalAlignment="Stretch" Width="auto">
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions >
-            <TextBox Name ="tbArea" Grid.Column="3" HorizontalAlignment="Stretch" Height="23" Margin="26.8,26,51.6,19" TextWrapping="Wrap" Text="{Binding Path=Area}" VerticalAlignment="Stretch" Width="120" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="14"/>
+            <TextBox x:Name ="tbArea" Grid.Column="3" HorizontalAlignment="Stretch" Height="23" Margin="26.8,26,51.6,19" TextWrapping="Wrap" Text="{Binding Path=Area1}" VerticalAlignment="Stretch" Width="120" FontFamily="Narkisim" FontSize="20"/>
             <ComboBox x:Name="cbBusLines" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="17.6,16,126.8,10" VerticalAlignment="Stretch" Grid.Column="1" SelectionChanged="cbBusLines_SelectionChanged"/>
-            <Label Content="Number line: " HorizontalAlignment="Left" Margin="58,23,0,0" VerticalAlignment="Top" Background="#FFD47D7D" FontFamily="Cooper Black" FontSize="18" Width="140"/>
-            <Label Content="Area: " Grid.Column="2" HorizontalAlignment="Left" Margin="97.2,26,0,0" VerticalAlignment="Top" Background="#FF7AD3AB" FontFamily="Cooper Black" FontSize="18"/>
+            <Label Content="Number line: " HorizontalAlignment="Left" Margin="38,23,0,0" VerticalAlignment="Top" Background="#FFD47D7D" FontFamily="Century Gothic" FontSize="22" Width="160" FontWeight="Bold"/>
+            <Label Content="Area: " Grid.Column="2" HorizontalAlignment="Left" Margin="125.2,18,0,0" VerticalAlignment="Top" Background="#FF7AD3AB" FontFamily="Century Gothic" FontSize="22" FontWeight="Bold"/>
         </Grid>
-        <ListBox Name="lbBusLineStations" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="230" Margin="37,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="399"/>
-        <Label Content="Stations in the line: " HorizontalAlignment="Left" Margin="65,12,0,0" Grid.Row="1" VerticalAlignment="Top" Background="#FFBC79E2" FontFamily="Cooper Black" FontSize="14"/>
+        <ListBox Name="lbBusLineStations" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="230" Margin="43,76,0,0" Grid.Row="1" VerticalAlignment="Top" Width="399"/>
+        <Label Content="Stations in the line: " HorizontalAlignment="Left" Margin="43,10,0,0" Grid.Row="1" VerticalAlignment="Top" Background="#FFBC79E2" FontFamily="Century Gothic" FontSize="22" FontWeight="Bold"/>
 
 
     </Grid>

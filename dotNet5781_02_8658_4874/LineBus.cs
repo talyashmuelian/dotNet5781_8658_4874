@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8658_4874
 {
-    enum MyEnum { General = 1, North, South, Center, Jerusalem }
+    //enum MyEnum { General = 1, North, South, Center, Jerusalem }
     public class LineBus : IComparable
 
     {

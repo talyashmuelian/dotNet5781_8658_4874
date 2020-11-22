@@ -30,6 +30,7 @@ namespace dotNet5781_03a_8658_4874
             cbBusLines.ItemsSource = list123;
             cbBusLines.DisplayMemberPath = "BusLine1";
             cbBusLines.SelectedIndex = 0;
+            //ShowBusLine((cbBusLines.SelectedValue as LineBus).BusLine1);
         }
         private void ShowBusLine(int index)
         {
@@ -42,5 +43,7 @@ namespace dotNet5781_03a_8658_4874
         {
             ShowBusLine((cbBusLines.SelectedValue as LineBus).BusLine1);
         }
+
+
     }
 }
