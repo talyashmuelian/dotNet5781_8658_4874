@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace dotNet5781_03a_8658_4874.Properties
+namespace dotNet5781_03b_8658_4874.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -43,7 +43,7 @@ namespace dotNet5781_03a_8658_4874.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("dotNet5781_03a_8658_4874.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("dotNet5781_03b_8658_4874.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

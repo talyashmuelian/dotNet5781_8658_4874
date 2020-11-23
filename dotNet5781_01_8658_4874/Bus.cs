@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_01_8658_4874
 {
-	class Bus
+	enum state { ready=1, onTravel, onRefueling, onTreatment };
+	public class Bus
 	{
 		private int yearStart;//השנה שבה האוטובוס נכנס לפעילות The year the bus went into operation
 		private int numOfBus;//מספר רישוי license number
@@ -16,6 +17,24 @@ namespace dotNet5781_01_8658_4874
 		private int kilometersUntilLastTreatment;//נסועה בה בוצע הטיפול האחרון A ride in which the last treatment was performed
 		private int kilometraj;//נסועה כוללת Total travel
 		private int kilometers;//כמות הקילומטרים מאז התדלוק The amount of miles since refueling
+		private state flag;//שדה עבור סטטוס
+
+        public int kilometers1 { get => kilometers; set => kilometers = value; }
+		public int numOfBus1 { get => numOfBus; set => numOfBus = value; }
+
+		public Bus()
+        {
+			DateTime myDate = new DateTime();
+			numOfBus = Program.rand.Next(1000000, 99999999);
+			dateOfStart = myDate;
+			kilometraj = 0;
+			kilometers = 0;
+			kilometersFromTreament = 0;
+			kilometersUntilLastTreatment = 0;
+			dateTreatLast = DateTime.Now;
+			yearStart = 0;
+			flag = (state)1;//אתחול האוטובוס כמוכן לנסיעה
+		}
 		public Bus(int num, DateTime myDate)//c-tor
 		{
 			numOfBus = num;
@@ -26,6 +45,7 @@ namespace dotNet5781_01_8658_4874
 			kilometersUntilLastTreatment = 0;
 			dateTreatLast = DateTime.Now;
 			yearStart = 0;
+			flag = (state)1;//אתחול האוטובוס כמוכן לנסיעה
 
 		}
 		public void setYearStart(int num) { yearStart = num; }
@@ -79,6 +99,16 @@ namespace dotNet5781_01_8658_4874
 			kilometersFromTreament += kilimeterForTravel;//עדכון מספר הקילומטרים מאז הטיפול האחרון Update the number of miles since the last treatment
 			kilometraj += kilimeterForTravel;//עדכון נסועה כוללת Overall travel update
 			kilometers += kilimeterForTravel;//עדכון כמות הקילומטרים מאז התדלוק Update the amount of miles since refueling
+		}
+		public override string ToString()
+		{
+			{ return "Licensing number: " + numOfBus + ", Activity start date: " + dateOfStart + ", Last treatment date: " + dateTreatLast
+				+", Number of miles since last treatment: " + kilometersFromTreament
+				+", Total travel: " + kilometraj
+				+ ", The amount of miles since refueling: " + kilometers
+				+ ", Status: " + flag
+			;
+			}
 		}
 
 	}
