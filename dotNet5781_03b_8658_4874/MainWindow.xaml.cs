@@ -37,12 +37,16 @@ namespace dotNet5781_03b_8658_4874
             lbBusesOnSystem.ItemsSource = collectionBuses;
             lbBusesOnSystem.DisplayMemberPath = "numOfBus1";
         }
-
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Window1 secondWindow = new Window1();
             secondWindow.Show();
 
+        }
+
+        private void lbBusesOnSystem_SelectionChanged(object sender, SelectionChangedEventArgs e)//מה קורה כשבוחרים אוטובוס מהרשימה
+        {
+            //צריך להוציא פה חלון עם נתוני האוטובוסMessageBox.Show("דוגמה", "שגיאה");
         }
     }
 }

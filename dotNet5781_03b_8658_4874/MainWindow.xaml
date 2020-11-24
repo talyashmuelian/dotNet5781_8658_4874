@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="lbBusesOnSystem" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="207" Margin="43,76,0,0" VerticalAlignment="Top" Width="155"/>
+        <ListBox x:Name="lbBusesOnSystem" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="207" Margin="43,76,0,0" VerticalAlignment="Top" Width="155" SelectionMode="Single" SelectionChanged="lbBusesOnSystem_SelectionChanged"/>
         <Button x:Name="button1" Content="הוספת אוטובוס למערכת" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="137" Height="41" Click="button1_Click"/>
 
     </Grid>

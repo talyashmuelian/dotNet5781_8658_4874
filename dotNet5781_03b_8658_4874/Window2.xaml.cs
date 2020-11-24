@@ -24,11 +24,11 @@ namespace dotNet5781_03b_8658_4874
             InitializeComponent();
         }
 
-        private void sentButton_Click(object sender, RoutedEventArgs e)//כפתור לשליחת האוטובוס לנסיעה עם המרחק שהתקבל
+        private void sentButton_Click(object sender, RoutedEventArgs e)
         {
             if (true)//לזמן מתודה שתבדוק האם האוטובוס הנמצא יכול לצאת לנסיעה מבחינת דלק וקילומטרז, או שעברה שנה מאז הטיפול האחרון'
             {
-                //listBuses[i].doingDriving(num);//לזמן מתודה שמוסיפה את הקילומטרים של נסיעה זו For a method time that adds the miles of this trip
+                MessageBox.Show("נשלח בהצלחה");//listBuses[i].doingDriving(num);//לזמן מתודה שמוסיפה את הקילומטרים של נסיעה זו For a method time that adds the miles of this trip
             }
             else
             {
