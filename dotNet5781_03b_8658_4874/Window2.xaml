@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         mc:Ignorable="d"
-        Title="Window2" Height="450" Width="800">
-    <Grid>
+        Title="Window2" Height="200" Width="400">
+    <Grid Margin="0,0,46,8.667">
         <TextBlock  Text="Enter the travel distance: " HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="217"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="197,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="sentButton" Content="Button" HorizontalAlignment="Left" Margin="97,54,0,0" VerticalAlignment="Top" Width="75" Click="sentButton_Click"/>
+        <TextBox x:Name="ditance" Text="{Binding Path=numOfBus1,UpdateSourceTrigger=LostFocus,Mode=TwoWay}" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" HorizontalAlignment="Left" Height="23" Margin="197,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="sentButton" Content="sent" HorizontalAlignment="Left" Margin="97,54,0,0" VerticalAlignment="Top" Width="75" Click="sentButton_Click"/>
 
     </Grid>
 </Window>

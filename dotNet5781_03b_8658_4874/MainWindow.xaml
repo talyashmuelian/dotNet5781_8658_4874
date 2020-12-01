@@ -6,8 +6,25 @@
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="MyDataTemplate"                   DataType="local:MyData" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"                    Text="license number: " />
+                <TextBlock Grid.Column="1"                    Text="{Binding Path=numOfBus1}" />
+                <Button x:Name="doTravel" Content="do travel" Grid.Column="2" Click="travelButton_Click" />
+                <Button x:Name="fuel" Content="fuel" Grid.Column="3" Click="fuelButton_Click"/>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        <ListBox x:Name="lbBusesOnSystem" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="207" Margin="43,76,0,0" VerticalAlignment="Top" Width="155" SelectionMode="Single" SelectionChanged="lbBusesOnSystem_SelectionChanged"/>
+        <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplate}"  HorizontalAlignment="Left" Height="294" Margin="43,76,0,0" VerticalAlignment="Top" Width="466" MouseDoubleClick="showData_doubleClick"  SelectionMode="Single" />
         <Button x:Name="button1" Content="הוספת אוטובוס למערכת" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="137" Height="41" Click="button1_Click"/>
 
     </Grid>

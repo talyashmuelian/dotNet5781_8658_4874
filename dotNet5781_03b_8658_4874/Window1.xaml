@@ -5,17 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Window1" Height="400" Width="800">
     <Grid>
         <TextBlock Text="enter the data:" HorizontalAlignment="Left" Margin="65,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="151"/>
-        <TextBlock Text="enter license number:" HorizontalAlignment="Left" Margin="65,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="28" Width="127"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="216,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Text="enter day:" HorizontalAlignment="Left" Margin="65,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Text="enter month: " HorizontalAlignment="Left" Margin="64,132,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
-        <TextBlock Text="enter year: " HorizontalAlignment="Left" Margin="66,165,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="152,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="152,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="152,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="addButton" Content="add" HorizontalAlignment="Left" Margin="460,273,0,0" VerticalAlignment="Top" Width="104" Height="29" Click="addButton_Click"/>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="74,62,0,0" VerticalAlignment="Top" Width="312">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="The amount of miles since refueling:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="kilometers1TextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,7,-74,7" Grid.Row="3" Text="{Binding Path=kilometers1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
+            <Label Content="Total travel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+            <TextBox x:Name="kilometraj1TextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,6.333,-72.667,6.667" Grid.Row="5" Text="{Binding kilometraj1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
+            <Label Content="Licensing number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBox x:Name="numOfBus1TextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,6.333,-72,6.667" Grid.Row="6" Text="{Binding numOfBus1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
+        </Grid>
 
     </Grid>
 </Window>

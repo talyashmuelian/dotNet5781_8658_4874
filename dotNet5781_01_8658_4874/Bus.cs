@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_01_8658_4874
 {
-	enum state { ready=1, onTravel, onRefueling, onTreatment };
+	public enum state { ready=1, onTravel, onRefueling, onTreatment };
 	public class Bus
 	{
 		private int yearStart;//השנה שבה האוטובוס נכנס לפעילות The year the bus went into operation
@@ -21,20 +21,13 @@ namespace dotNet5781_01_8658_4874
 
         public int kilometers1 { get => kilometers; set => kilometers = value; }
 		public int numOfBus1 { get => numOfBus; set => numOfBus = value; }
+		public int kilometraj1 { get => kilometraj; set => kilometraj = value; }
+		public int kilometersFromTreament1 { get => kilometersFromTreament; set => kilometersFromTreament = value; }
+		public DateTime dateTreatLast1 { get => dateTreatLast; set => dateTreatLast = value; }
+		public DateTime dateOfStart1 { get => dateOfStart; set => dateOfStart = value; }
+		public state Flag1 { get => flag; set => flag = value; }
 
-		public Bus()
-        {
-			DateTime myDate = new DateTime();
-			numOfBus = Program.rand.Next(1000000, 99999999);
-			dateOfStart = myDate;
-			kilometraj = 0;
-			kilometers = 0;
-			kilometersFromTreament = 0;
-			kilometersUntilLastTreatment = 0;
-			dateTreatLast = DateTime.Now;
-			yearStart = 0;
-			flag = (state)1;//אתחול האוטובוס כמוכן לנסיעה
-		}
+		public Bus() { }
 		public Bus(int num, DateTime myDate)//c-tor
 		{
 			numOfBus = num;
