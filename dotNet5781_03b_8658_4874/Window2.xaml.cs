@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using dotNet5781_01_8658_4874;
+using System.ComponentModel;
+using System.Threading;
 
 namespace dotNet5781_03b_8658_4874
 {
@@ -25,7 +27,7 @@ namespace dotNet5781_03b_8658_4874
         {
             InitializeComponent();
         }
-
+        
         private void sentButton_Click(object sender, RoutedEventArgs e)
         {
             Close();

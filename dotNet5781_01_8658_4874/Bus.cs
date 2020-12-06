@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace dotNet5781_01_8658_4874
 {
-	public enum state { ready=1, onTravel, onRefueling, onTreatment };
+	public enum state { ready=1, onTravel, onRefueling, onTreatment, notReady };
 	public class Bus
 	{
 		private int yearStart;//השנה שבה האוטובוס נכנס לפעילות The year the bus went into operation
@@ -18,16 +19,39 @@ namespace dotNet5781_01_8658_4874
 		private int kilometraj;//נסועה כוללת Total travel
 		private int kilometers;//כמות הקילומטרים מאז התדלוק The amount of miles since refueling
 		private state flag;//שדה עבור סטטוס
-
-        public int kilometers1 { get => kilometers; set => kilometers = value; }
-		public int numOfBus1 { get => numOfBus; set => numOfBus = value; }
+		private int numOfKmInTheLastTime;//שדה עבור שמירת מס הקילוממטרים של הנססיעה האחרונה שהתבצעה
+		public int numOfKmInTheLastTime1 { get => numOfKmInTheLastTime; set => numOfKmInTheLastTime = value; }
+		public int kilometers1 { get => kilometers; set => kilometers = value; }
+		public int numOfBus1 
+		{
+			get 
+			{
+				//int start, middle, end;
+				//if (yearStart > 2017)//8 ספרות numbers
+				//{
+				//	start = numOfBus / 100000;
+				//	middle = (numOfBus % 100000) / 1000;
+				//	end = numOfBus % 1000;
+				//	return "Registration Number:" + start + "-" + middle + "-" + end; 
+				//}
+				//else//7 ספרות numbers
+				//{
+				//	start = numOfBus / 100000;
+				//	middle = (numOfBus % 100000) / 100;
+				//	end = numOfBus % 100;
+				//	return "Registration Number:" + start + "-" + middle + "-" + end;
+				//}
+				return numOfBus;
+			}
+			set => numOfBus = value; 
+		}
 		public int kilometraj1 { get => kilometraj; set => kilometraj = value; }
+		public int yeartSart1 { get => yearStart; set => yearStart = value; }
 		public int kilometersFromTreament1 { get => kilometersFromTreament; set => kilometersFromTreament = value; }
 		public DateTime dateTreatLast1 { get => dateTreatLast; set => dateTreatLast = value; }
 		public DateTime dateOfStart1 { get => dateOfStart; set => dateOfStart = value; }
 		public state Flag1 { get => flag; set => flag = value; }
-
-		public Bus() { }
+		public Bus() { yearStart = DateTime.Now.Year; }
 		public Bus(int num, DateTime myDate)//c-tor
 		{
 			numOfBus = num;
@@ -37,7 +61,8 @@ namespace dotNet5781_01_8658_4874
 			kilometersFromTreament = 0;
 			kilometersUntilLastTreatment = 0;
 			dateTreatLast = DateTime.Now;
-			yearStart = 0;
+			yearStart = myDate.Year;
+			numOfKmInTheLastTime = 0;
 			flag = (state)1;//אתחול האוטובוס כמוכן לנסיעה
 
 		}
@@ -77,14 +102,16 @@ namespace dotNet5781_01_8658_4874
 			TimeSpan t = date1 - dateTreatLast;
 			int space = Convert.ToInt32(t.TotalDays);//casting to int
 			if (space > 365)//עברה שנה מאז הטיפול האחרון It has been a year since the last treatment
-				return false;
+				throw new ObjectNotAllowedException("The bus cannot make the travel, treatment is needed");//צריך טיפול
 			int sum = kilimeterForTravel + kilometersFromTreament;//סכום הקילומטרים שהיו מאז הטיפול האחרון פלוס הנסיעה שהוגרלה The amount of miles that have been since the last treatment plus the raffle ride
 			if (sum > 20000)//הנסיעה ארוכה מידי מבחינת קילומטרז' שנשאר לטיפול The journey is too long in terms of mileage left for treatment
-				return false;
+				throw new ObjectNotAllowedException("The bus cannot make the travel, treatment is needed");//צריך טיפול
 			sum = kilometers + kilimeterForTravel;// סכום הקילומטרים שהיו מאז התדלוק האחרון פלוס הנסיעה שהוגרלה The amount of miles that have been since the last refueling plus the raffle ride
 
 			if (sum > 1200)//הנסיעה ארוכה מידי מבחינת דלק The trip is too long in terms of fuel
-				return false;
+				throw new ObjectNotAllowedException("The bus cannot make the travel, need to refuel");//צריך תדלוק
+			if (Flag1 != (state)1)
+				throw new ObjectNotAllowedException("The bus cannot make the travel, Status does not allow");//סטטוס לא מאפשר
 			return true;
 		}
 		public void doingDriving(int kilimeterForTravel)

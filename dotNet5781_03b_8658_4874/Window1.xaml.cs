@@ -30,14 +30,27 @@ namespace dotNet5781_03b_8658_4874
         }
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            /*int.TryParse(number.Text, out int num);
-            DateTime.TryParse(date.ToString(), out DateTime start);
-            newItem = new Bus(num, start);*/
             newItem.Flag1 = (state)1;
             newItem.dateTreatLast1 = DateTime.Now;
             newItem.dateOfStart1 = DateTime.Now;
             newItem.kilometersFromTreament1 = 0;
-            MainWindow.collectionBuses.Add(newItem);
+            newItem.numOfKmInTheLastTime1 = 0;
+            try
+            {
+                foreach (Bus item in MainWindow.collectionBuses)
+                {
+                    if (item.numOfBus1 == newItem.numOfBus1)
+                        throw new ObjectNotAllowedException("The license number already exists in the system");
+                }
+                if (newItem.numOfBus1 < 100000 || newItem.numOfBus1 > 99999999)
+                    throw new ObjectNotAllowedException("The number is not allow. Enter a number of digits that will be compatible for a year.");
+                if (newItem.yeartSart1 < 2018 && newItem.numOfBus1 > 9999999)
+                    throw new ObjectNotAllowedException("The number is not allow. Enter a number of digits that will be compatible for a year.");
+                if (newItem.yeartSart1 >= 2018 && newItem.numOfBus1 < 10000000)
+                    throw new ObjectNotAllowedException("The number is not allow. Enter a number of digits that will be compatible for a year.");
+                MainWindow.collectionBuses.Add(newItem);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "ERROR"); }
             Close();
         }
     }

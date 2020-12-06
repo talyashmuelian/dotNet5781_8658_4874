@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="550">
     <Window.Resources>
         <DataTemplate x:Key="MyDataTemplate"                   DataType="local:MyData" >
             <Grid>
@@ -16,16 +16,17 @@
                     <ColumnDefinition Width="100" />
 
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0"                    Text="license number: " />
-                <TextBlock Grid.Column="1"                    Text="{Binding Path=numOfBus1}" />
-                <Button x:Name="doTravel" Content="do travel" Grid.Column="2" Click="travelButton_Click" />
-                <Button x:Name="fuel" Content="fuel" Grid.Column="3" Click="fuelButton_Click"/>
+                <TextBlock Grid.Column="0"             Style="{StaticResource myTextBlockStyle}"   Text="license number: " FontSize="12" Foreground="#FF0A0A0E" />
+                <TextBlock Grid.Column="1"             Style="{StaticResource myTextBlockStyle}"   Text="{Binding Path=numOfBus1}" FontSize="11" Foreground="#FF0D0D12" />
+                <Button x:Name="doTravel" Style="{StaticResource myButtonStyle}" Content="Do travel" Grid.Column="2" Click="travelButton_Click" Background="#FF8EBCD0" />
+                <Button x:Name="fuel"  Style="{StaticResource myButtonStyle}" Content="Fuel" Grid.Column="3" Click="fuelButton_Click" Background="#FF9EDEED"/>
             </Grid>
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplate}"  HorizontalAlignment="Left" Height="294" Margin="43,76,0,0" VerticalAlignment="Top" Width="466" MouseDoubleClick="showData_doubleClick"  SelectionMode="Single" />
-        <Button x:Name="button1" Content="הוספת אוטובוס למערכת" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="137" Height="41" Click="button1_Click"/>
+        <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplate}"  HorizontalAlignment="Left" Height="294" Margin="43,76,0,0" VerticalAlignment="Top" Width="429" MouseDoubleClick="showData_doubleClick"  SelectionMode="Single" />
+        <Button x:Name="button1" Style="{StaticResource myButtonStyle}" Content="Add bus" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="137" Height="41" Click="button1_Click" FontFamily="Ink Free" FontWeight="Bold" Background="#FFC799CE" FontSize="24"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="368,10,0,0" VerticalAlignment="Top" Width="68"/>
 
     </Grid>
 </Window>
