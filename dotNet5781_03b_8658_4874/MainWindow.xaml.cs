@@ -90,6 +90,8 @@ namespace dotNet5781_03b_8658_4874
             int.TryParse(windowBusDrive.ditance.Text, out int num);
             try
             {
+                if (num == 0)
+                    return;
                 if (CurrentBus.checkIfReady(num) == true)
                 {
                     CurrentBus.doingDriving(num);

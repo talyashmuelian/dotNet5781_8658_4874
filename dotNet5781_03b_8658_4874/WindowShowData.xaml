@@ -9,9 +9,9 @@
         Title="WindowShowData" Height="450" Width="580" >
     <Grid x:Name="grid2" >
         <TextBlock Style="{StaticResource myTextBlockStyle}" HorizontalAlignment="Left" Margin="73,10,0,0" TextWrapping="Wrap" Text="Bus details:" VerticalAlignment="Top" Height="48" Width="234" FontSize="36" FontWeight="Bold"/>
-        <Button x:Name="dotravel" Style="{StaticResource myButtonStyle}" Content="do travel" HorizontalAlignment="Left" Margin="359,346,0,0" VerticalAlignment="Top" Width="75" Click="travelButton_Click" Background="#FFC799CE"/>
-        <Button x:Name="fuel" Style="{StaticResource myButtonStyle}" Content="fuel" HorizontalAlignment="Left" Margin="232,346,0,0" VerticalAlignment="Top" Width="75" Click="fuelButton_Click" Background="#FFC799CE"/>
-        <Button x:Name="treatment" Style="{StaticResource myButtonStyle}" Content="do treatment" HorizontalAlignment="Left" Margin="90,346,0,0" VerticalAlignment="Top" Width="94" Click="treatmentButton_Click" Height="19" Background="#FFC799CE"/>
+        <Button x:Name="dotravel" Style="{StaticResource myButtonStyle}" Content="Do travel" HorizontalAlignment="Left" Margin="359,346,0,0" VerticalAlignment="Top" Width="75" Click="travelButton_Click" Background="#FFC799CE"/>
+        <Button x:Name="fuel" Style="{StaticResource myButtonStyle}" Content="Fuel" HorizontalAlignment="Left" Margin="232,346,0,0" VerticalAlignment="Top" Width="75" Click="fuelButton_Click" Background="#FFC799CE"/>
+        <Button x:Name="treatment" Style="{StaticResource myButtonStyle}" Content="Do treatment" HorizontalAlignment="Left" Margin="90,346,0,0" VerticalAlignment="Top" Width="94" Click="treatmentButton_Click" Height="19" Background="#FFC799CE"/>
         <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="74,62,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

@@ -24,9 +24,9 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplate}"  HorizontalAlignment="Left" Height="294" Margin="43,76,0,0" VerticalAlignment="Top" Width="429" MouseDoubleClick="showData_doubleClick"  SelectionMode="Single" />
-        <Button x:Name="button1" Style="{StaticResource myButtonStyle}" Content="Add bus" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="137" Height="41" Click="button1_Click" FontFamily="Ink Free" FontWeight="Bold" Background="#FFC799CE" FontSize="24"/>
-        <Image HorizontalAlignment="Left" Height="55" Margin="368,10,0,0" VerticalAlignment="Top" Width="68"/>
+        <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplate}"  HorizontalAlignment="Left" Height="294" Margin="43,95,0,0" VerticalAlignment="Top" Width="429" MouseDoubleClick="showData_doubleClick"  SelectionMode="Single" />
+        <Button x:Name="button1" Style="{StaticResource myButtonStyle}" Content="Add bus" HorizontalAlignment="Left" Margin="43,24,0,0" VerticalAlignment="Top" Width="137" Height="41" Click="button1_Click" FontFamily="Ink Free" FontWeight="Bold" Background="#FFC799CE" FontSize="24"/>
+        <Image HorizontalAlignment="Left" Height="95" Margin="367,0,0,0" VerticalAlignment="Top" Width="105" Source="logo.jpeg"/>
 
     </Grid>
 </Window>
