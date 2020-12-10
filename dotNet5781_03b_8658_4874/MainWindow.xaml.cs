@@ -47,6 +47,7 @@ namespace dotNet5781_03b_8658_4874
             Bus bus9 = new Bus(rand1.Next(10000000, 99999999), new DateTime(2019, 10, 2)); 
             Bus bus10 = new Bus(rand1.Next(1000000, 9999999), new DateTime(2005, 11, 1));
             bus1.kilometers1 = 1000;//אתחול אוטובוס כך שיהיה לו מעט דלק
+            bus1.ifCanToFuel1 = true;
             DateTime myDate = new DateTime(2019, 9, 1);
             bus2.dateTreatLast1 = myDate;//אתחול אוטובוס כך שעברה שנה מאז הטיפול האחרון שלו
             bus2.Flag1 = (state)5; //bus2.ifReady1 = false;// האוטובוס הזה לא מוכן לנסיעה
@@ -64,14 +65,12 @@ namespace dotNet5781_03b_8658_4874
         {
             Window1 secondWindow = new Window1();
             secondWindow.ShowDialog();
-            //lbBusesOnSystem.Items.Refresh();
         }
         private void workerTravel_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             int progress = e.ProgressPercentage;
             Bus forNow = e.UserState as Bus;
             forNow.time1 = progress;
-            //(Bus)e.UserState.time1 = e.ProgressPercentage;
             lbBusesOnSystem.Items.Refresh();
         }
         private void workerTravel_DoWork(object sender, DoWorkEventArgs e)
@@ -81,11 +80,9 @@ namespace dotNet5781_03b_8658_4874
             int distance1 = current.numOfKmInTheLastTime1;
             int quik = rand1.Next(20, 50);//הגרלת מרחק בקמש
             int time = distance1 /quik;
-            //Thread.Sleep(time*6000);//צריך לתת לו לישון לפי זמן הנסיעה
             for (int i = time * 6; i >= 0; i--)
             {
                 Thread.Sleep(1000);
-                //e.Result.time1
                 workerTravel.ReportProgress(i, e.Argument);
             }
         }
@@ -93,7 +90,9 @@ namespace dotNet5781_03b_8658_4874
         {
             Bus result = (Bus)e.Result;
             result.Flag1 = (state)1;
-            //result.ifReady1 = true;
+            result.ifReady1 = true;
+            result.ifCanToFuel1 = true;
+            result.ifCanToTreat1 = true;
             lbBusesOnSystem.Items.Refresh();
         }
         private void travelButton_Click(object sender, RoutedEventArgs e)//כפתור שליחה לנסיעה
@@ -114,7 +113,9 @@ namespace dotNet5781_03b_8658_4874
                 }
                 CurrentBus.numOfKmInTheLastTime1=num;
                 CurrentBus.Flag1 = (state)2;//הפיכת הסטטוס לבנסיעה
-                //CurrentBus.ifReady1 = false;
+                CurrentBus.ifReady1 = false;
+                CurrentBus.ifCanToFuel1 = false;
+                CurrentBus.ifCanToTreat1 = false;
                 lbBusesOnSystem.Items.Refresh();
                 workerTravel = new BackgroundWorker();
                 workerTravel.DoWork += workerTravel_DoWork;
@@ -133,20 +134,14 @@ namespace dotNet5781_03b_8658_4874
             int progress = e.ProgressPercentage;
             Bus forNow = e.UserState as Bus;
             forNow.time1 = progress;
-            //(Bus)e.UserState.time1 = e.ProgressPercentage;
             lbBusesOnSystem.Items.Refresh();
-            //(Finditem<Label>(e.UserState, "time")).Content= (progress);
-            //time.Content = (progress);
         }
         private void workerFuel_DoWork(object sender, DoWorkEventArgs e)
         {
-            //Thread.Sleep(12000);//צריך לתת לו לישון לפי זמן הנסיעה
             e.Result = e.Argument;
-            //Bus forNow=e.Argument as Bus;
             for (int i = 12; i >=0; i--)
             {
                 Thread.Sleep(1000);
-                //e.Result.time1
                 workerFuel.ReportProgress(i, e.Argument);
             }
         }
@@ -154,6 +149,8 @@ namespace dotNet5781_03b_8658_4874
         {
             Bus result = (Bus)e.Result;
             result.Flag1 =(state)1;
+            result.ifReady1 = true;
+            result.ifCanToTreat1 = true;
             lbBusesOnSystem.Items.Refresh();
         }
         private void fuelButton_Click(object sender, RoutedEventArgs e)//כפתור שליחה לתדלוק
@@ -167,7 +164,9 @@ namespace dotNet5781_03b_8658_4874
                 CurrentBus.setKilometers(0);//איפוס השדה שסופר את כמות הקילומטרים מאז התדלוק
                 CurrentBus.Flag1 = (state)3;//הפיכת הסטטוס לבתדלוק
                 lbBusesOnSystem.Items.Refresh();
-                
+                CurrentBus.ifReady1 = false;//לא יכול לבצע נסיעה בזמן תדלוק
+                CurrentBus.ifCanToFuel1 = false;//לא יכול לבצע פעמיים תדלוק
+                CurrentBus.ifCanToTreat1 = false;//לא יכול לבצע טיפול תתוך כדי תדלוק
                 workerFuel = new BackgroundWorker();
                 workerFuel.DoWork += workerFuel_DoWork;
                 workerFuel.ProgressChanged += workerFuel_ProgressChanged;
@@ -184,40 +183,9 @@ namespace dotNet5781_03b_8658_4874
             var fxElt = sender as ListBox;
             Bus CurrentBus = fxElt.SelectedItem as Bus;
             WindowShowData showDataWindow = new WindowShowData(CurrentBus);
-            //showDataWindow.MyData = CurrentBus;
             showDataWindow.ShowDialog();
         }
-        private childItem FindVisualChild<childItem>(DependencyObject obj) where childItem : DependencyObject
-        {
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
-            {
-                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
-                if (child != null && child is childItem)
-                {
-                    return (childItem)child;
-                }
-                else
-                {
-                    childItem childOfChild = FindVisualChild<childItem>(child);
-                    if (childOfChild != null)
-                        return childOfChild;
-                }
-            }
-            return null;
-        }
-        public A Finditem<A>(object item, string str)
-        {
-
-            ListBoxItem myListBoxItem = (ListBoxItem)(lbBusesOnSystem.ItemContainerGenerator.ContainerFromItem(item));
-
-            // Getting the ContentPresenter of myListBoxItem
-            ContentPresenter myContentPresenter = FindVisualChild<ContentPresenter>(myListBoxItem);
-
-            // Finding textBlock from the DataTemplate that is set on that ContentPresenter
-            DataTemplate myDataTemplate = myContentPresenter.ContentTemplate;
-            A myLabel = (A)myDataTemplate.FindName(str, myContentPresenter);
-            return myLabel;
-        }
+        
 
     }
 }

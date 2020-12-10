@@ -36,9 +36,9 @@ namespace dotNet5781_03b_8658_4874
         }
         private void workerTravel_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            //string timerText = stopWatch.Elapsed.ToString();
-            //timerText = timerText.Substring(0, 8);
-            //this.timerTextBlock.Text = timerText;
+            int progress = e.ProgressPercentage;
+            Bus forNow = e.UserState as Bus;
+            forNow.time1 = progress;
         }
         private void workerTravel_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -47,19 +47,25 @@ namespace dotNet5781_03b_8658_4874
             int distance1 = current.numOfKmInTheLastTime1;
             int quik = MainWindow.rand1.Next(20, 50);//הגרלת מרחק בקמש
             int time = distance1 / quik;
-            Thread.Sleep(time * 6000);//צריך לתת לו לישון לפי זמן הנסיעה
+            for (int i = time * 6; i >= 0; i--)
+            {
+                Thread.Sleep(1000);
+                workerTravel.ReportProgress(i, e.Argument);
+            }
         }
         private void workerTravel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Bus result = (Bus)e.Result;
             result.Flag1 = (state)1;
+            result.ifReady1 = true;
+            result.ifCanToFuel1 = true;
+            result.ifCanToTreat1 = true;
             var mw = (MainWindow)Application.Current.MainWindow;
             mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
         }
         private void travelButton_Click(object sender, RoutedEventArgs e)//כפתור שליחה לנסיעה
         {
             var fxElt = sender as FrameworkElement;
-            //Bus CurrentBus = fxElt.DataContext as Bus;
             MyData = fxElt.DataContext as Bus;
             Window2 windowBusDrive = new Window2();
             windowBusDrive.ShowDialog();
@@ -73,6 +79,9 @@ namespace dotNet5781_03b_8658_4874
                 }
                 MyData.numOfKmInTheLastTime1 = num;
                 MyData.Flag1 = (state)2;//הפיכת הסטטוס לבנסיעה
+                MyData.ifReady1 = false;
+                MyData.ifCanToFuel1 = false;
+                MyData.ifCanToTreat1 = false;
                 var mw = (MainWindow)Application.Current.MainWindow;
                 mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
                 workerTravel = new BackgroundWorker();
@@ -87,21 +96,25 @@ namespace dotNet5781_03b_8658_4874
         }
         private void workerFuel_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            //string timerText = stopWatch.Elapsed.ToString();
-            //timerText = timerText.Substring(0, 8);
-            //this.timerTextBlock.Text = timerText;
+            int progress = e.ProgressPercentage;
+            Bus forNow = e.UserState as Bus;
+            forNow.time1 = progress;
         }
-
-
         private void workerFuel_DoWork(object sender, DoWorkEventArgs e)
         {
-            Thread.Sleep(12000);//צריך לתת לו לישון לפי זמן הנסיעה
             e.Result = e.Argument;
+            for (int i = 12; i >= 0; i--)
+            {
+                Thread.Sleep(1000);
+                workerFuel.ReportProgress(i, e.Argument);
+            }
         }
         private void workerFuel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Bus result = (Bus)e.Result;
             result.Flag1 = (state)1;
+            result.ifReady1 = true;
+            result.ifCanToTreat1 = true;
             var mw = (MainWindow)Application.Current.MainWindow;
             mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
         }
@@ -117,7 +130,9 @@ namespace dotNet5781_03b_8658_4874
                 MyData.Flag1 = (state)3;//הפיכת הסטטוס לבתדלוק
                 var mw = (MainWindow)Application.Current.MainWindow;
                 mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
-                
+                MyData.ifReady1 = false;//לא יכול לבצע נסיעה בזמן תדלוק
+                MyData.ifCanToFuel1 = false;//לא יכול לבצע פעמיים תדלוק
+                MyData.ifCanToTreat1 = false;//לא יכול לבצע טיפול תתוך כדי תדלוק
                 workerFuel = new BackgroundWorker();
                 workerFuel.DoWork += workerFuel_DoWork;
                 workerFuel.ProgressChanged += workerFuel_ProgressChanged;
@@ -134,19 +149,16 @@ namespace dotNet5781_03b_8658_4874
         {
             int progress = e.ProgressPercentage;
             Bus forNow = e.UserState as Bus;
-            forNow.time1 = progress; var mw = (MainWindow)Application.Current.MainWindow;
+            forNow.time1 = progress; 
+            var mw = (MainWindow)Application.Current.MainWindow;
             mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
-            timer.GetBindingExpression(TextBlock.TextProperty).UpdateSource();
         }
         private void workerTreatment_DoWork(object sender, DoWorkEventArgs e)
         {
-            //Thread.Sleep(144000);
             e.Result = e.Argument;
-            //Bus forNow=e.Argument as Bus;
             for (int i = 144; i >= 0; i--)
             {
                 Thread.Sleep(1000);
-                //e.Result.time1
                 workerTreatment.ReportProgress(i, e.Argument);
             }
         }
@@ -154,6 +166,12 @@ namespace dotNet5781_03b_8658_4874
         {
             Bus result = (Bus)e.Result;
             result.Flag1 = (state)1;
+            result.ifReady1 = true;
+            if (result.kilometers1==0)
+                result.ifCanToFuel1 = false;
+            else
+                result.ifCanToFuel1 = true;
+            result.ifCanToTreat1 = true;
             var mw = (MainWindow)Application.Current.MainWindow;
             mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
         }
@@ -167,6 +185,9 @@ namespace dotNet5781_03b_8658_4874
             MyData.Flag1 = (state)4;//שינוי הסטטוס לבטיפול
             var mw = (MainWindow)Application.Current.MainWindow;
             mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
+            MyData.ifReady1 = false;//לא יכול לבצע נסיעה בזמן טיפול
+            MyData.ifCanToFuel1 = false;//לא יכול לבצע תדלוק תוך כדי טיפול
+            MyData.ifCanToTreat1 = false;//לא יכול לבצע פעמיים תדלוק
             workerTreatment = new BackgroundWorker();
             workerTreatment.DoWork += workerTreatment_DoWork;
             workerTreatment.ProgressChanged += workerTreatment_ProgressChanged;

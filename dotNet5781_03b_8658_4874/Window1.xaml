@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         mc:Ignorable="d"
-        Title="Window1" Height="320" Width="490" Background="#FFCABBC1">
+        Title="Window1" Height="320" Width="490" Background="#FFCABBC1" Icon="logo.jpeg">
     <Grid>
         <TextBlock Text="Enter the data:" Style="{StaticResource myTextBlockStyle}" HorizontalAlignment="Left" Margin="65,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="247" FontSize="22"/>
         <Button x:Name="addButton" Style="{StaticResource myButtonStyle}" Content="Add" HorizontalAlignment="Left" Margin="191,212,0,0" VerticalAlignment="Top" Width="104" Height="29" Click="addButton_Click"/>

@@ -36,6 +36,12 @@ namespace dotNet5781_03b_8658_4874
             newItem.dateOfStart1 = DateTime.Now;
             newItem.kilometersFromTreament1 = 0;
             newItem.numOfKmInTheLastTime1 = 0;
+            newItem.ifReady1 = true;
+            if (newItem.kilometers1 == 0)
+                newItem.ifCanToFuel1 = false;
+            else
+                newItem.ifCanToFuel1 = true;
+            newItem.ifCanToTreat1 = true;
             try
             {
                 foreach (Bus item in MainWindow.collectionBuses)

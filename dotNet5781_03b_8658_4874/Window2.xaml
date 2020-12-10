@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         mc:Ignorable="d"
-        Title="Window2" Height="100" Width="380" Background="#FFCABBC1">
+        Title="Window2" Height="100" Width="380" Background="#FFCABBC1" Icon="logo.jpeg">
     <Grid Margin="0,0,12.333,8.667">
         <TextBlock  Text="Enter the travel distance: " Style="{StaticResource myTextBlockStyle}"  HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="217"/>
         <TextBox x:Name="ditance" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown"  Text="{Binding Path=numOfBus1,UpdateSourceTrigger=LostFocus,Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="207,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

@@ -23,7 +23,10 @@ namespace dotNet5781_01_8658_4874
 		private int kilometraj;//נסועה כוללת Total travel
 		private int kilometers;//כמות הקילומטרים מאז התדלוק The amount of miles since refueling
 		private state flag;//שדה עבור סטטוס
-						   //private bool ifReady;
+		private bool ifReady;
+		private bool ifCanToFuel;
+		private bool ifCanToTreat;
+
 		private int numOfKmInTheLastTime;//שדה עבור שמירת מס הקילוממטרים של הנססיעה האחרונה שהתבצעה
 		public bool ifInTravel()
 		{
@@ -46,48 +49,75 @@ namespace dotNet5781_01_8658_4874
 			return false;
 		}
 		public bool ifInTraetment1 { get => ifInTraetment(); }
-		public bool ifCanToFuel()
-		{
-			if (kilometers == 0)
-				return false;
-			if (flag == (state)2)
-				return false;
-			if (flag == (state)3)
-				return false;
-			return true;
-		}
-		public bool ifCanToFuel1 { get => ifCanToFuel(); }
-		public bool ifCanToTreat()
-		{
-			if (flag == (state)2)
-				return false;
-			if (flag == (state)4)
-				return false;
-			return true;
-		}
-		public bool ifCanToTreat1 { get => ifCanToTreat(); }
-		public bool ifReady()//מתודה שבודקת האם האוטובוס מוכן לנסיעה
-		{
+		//public bool ifCanToFuel()
+		//{
+		//	if (kilometers == 0)
+		//		return false;
+		//	if (flag == (state)2)
+		//		return false;
+		//	if (flag == (state)3)
+		//		return false;
+		//	return true;
+		//}
+		//public bool ifCanToFuel1 { get => ifCanToFuel(); }
+		//public bool ifCanToTreat()
+		//{
+		//	if (flag == (state)2)
+		//		return false;
+		//	if (flag == (state)4)
+		//		return false;
+		//	return true;
+		//}
+		//public bool ifCanToTreat1 { get => ifCanToTreat(); }
+        //public bool ifReadyFunc()//מתודה שבודקת האם האוטובוס מוכן לנסיעה
+        //{
 
-			DateTime date1 = DateTime.Now;
-			TimeSpan t = date1 - dateTreatLast;
-			int space = Convert.ToInt32(t.TotalDays);//casting to int
-			if (space > 365)//עברה שנה מאז הטיפול האחרון It has been a year since the last treatment
-				return false;
-			if (kilometersFromTreament >= 20000)//עברו מספר הקילומטרים הדרוש לטיפול
-				return false;
-			if (kilometers >= 1200)//אין דלק
-				return false;
-			if (Flag1 != (state)1)
-				return false;
-			//if (flag == (state)1)
-			//	return true;
-			return true;
+        //    DateTime date1 = DateTime.Now;
+        //    TimeSpan t = date1 - dateTreatLast;
+        //    int space = Convert.ToInt32(t.TotalDays);//casting to int
+        //    if (space > 365)//עברה שנה מאז הטיפול האחרון It has been a year since the last treatment
+        //        return false;
+        //    if (kilometersFromTreament >= 20000)//עברו מספר הקילומטרים הדרוש לטיפול
+        //        return false;
+        //    if (kilometers >= 1200)//אין דלק
+        //        return false;
+        //    if (Flag1 != (state)1)
+        //        return false;
+        //    return true;
+        //}
+   //     public bool ifReady1 { get => ifReady; 
+			//set
+   //         {
+   //             DateTime date1 = DateTime.Now;
+   //             TimeSpan t = date1 - dateTreatLast;
+   //             int space = Convert.ToInt32(t.TotalDays);//casting to int
+   //             if (space > 365 || kilometersFromTreament >= 20000 || kilometers >= 1200 || Flag1 != (state)1)//עברה שנה מאז הטיפול האחרון It has been a year since the last treatment
+   //                 ifReady = false;
+   //             else
+   //                 ifReady = true;
+			//	if (PropertyChanged != null)
+   //             { PropertyChanged(this, new PropertyChangedEventArgs("ifReady1")); }
+   //         }
+   //     }
+        //public bool ifReady1
+        //{
+        //    get => ifReady();
+        //    set
+        //    {
+        //        ifReady1 = value;
+        //        if (PropertyChanged != null)
+        //        { PropertyChanged(this, new PropertyChangedEventArgs("ifReady1")); }
+        //    }
+        //}
+        public int numOfKmInTheLastTime1 { get => numOfKmInTheLastTime; set => numOfKmInTheLastTime = value; }
+		public int kilometers1 { get => kilometers;
+			set
+			{
+				kilometers = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("kilometers1")); }
+			}
 		}
-		//public bool ifReady1 { get => ifReady; set => ifReady = value; }
-		public bool ifReady1 { get => ifReady(); }
-		public int numOfKmInTheLastTime1 { get => numOfKmInTheLastTime; set => numOfKmInTheLastTime = value; }
-		public int kilometers1 { get => kilometers; set => kilometers = value; }
 		public string numOfBusString1
 		{
 			get
@@ -112,18 +142,83 @@ namespace dotNet5781_01_8658_4874
 			}
 			set => numOfBus = value; 
 		}
+		public bool ifReady1
+		{
+			get => ifReady;
+			set
+			{
+				ifReady = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("ifReady1")); }
+			}
+		}
+		public bool ifCanToFuel1
+		{
+			get => ifCanToFuel;
+			set
+			{
+				ifCanToFuel = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("ifCanToFuel1")); }
+			}
+		}
+		public bool ifCanToTreat1
+		{
+			get => ifCanToTreat;
+			set
+			{
+				ifCanToTreat = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("ifCanToTreat1")); }
+			}
+		}
 		public int time1 { get => time;
 			set { time = value;
 				if (PropertyChanged != null) 
-					{ PropertyChanged(this, new PropertyChangedEventArgs("time")); }
+					{ PropertyChanged(this, new PropertyChangedEventArgs("time1")); }
 			}
 		}
-		public int kilometraj1 { get => kilometraj; set => kilometraj = value; }
+		public int kilometraj1 { get => kilometraj; 
+			set
+			{
+				kilometraj = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("kilometraj1")); }
+			}
+		}
 		public int yeartSart1 { get => yearStart; set => yearStart = value; }
-		public int kilometersFromTreament1 { get => kilometersFromTreament; set => kilometersFromTreament = value; }
-		public DateTime dateTreatLast1 { get => dateTreatLast; set => dateTreatLast = value; }
-		public DateTime dateOfStart1 { get => dateOfStart; set => dateOfStart = value; }
-		public state Flag1 { get => flag; set => flag = value; }
+		public int kilometersFromTreament1 { get => kilometersFromTreament;
+			set
+			{
+				kilometersFromTreament = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("kilometersFromTreament1")); }
+			}
+		}
+		public DateTime dateTreatLast1 { get => dateTreatLast;
+			set
+			{
+				dateTreatLast = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("dateTreatLast1")); }
+			}
+		}
+		public DateTime dateOfStart1 { get => dateOfStart;
+			set
+			{
+				dateOfStart = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("dateOfStart1")); }
+			}
+		}
+		public state Flag1 { get => flag; 
+			set
+			{
+				flag = value;
+				if (PropertyChanged != null)
+				{ PropertyChanged(this, new PropertyChangedEventArgs("Flag1")); }
+			}
+		}
 		public Bus() { yearStart = DateTime.Now.Year; }
 		public Bus(int num, DateTime myDate)//c-tor
 		{
@@ -138,7 +233,9 @@ namespace dotNet5781_01_8658_4874
 			yearStart = myDate.Year;
 			numOfKmInTheLastTime = 0;
 			flag = (state)1;//אתחול האוטובוס כמוכן לנסיעה
-			//ifReady = true;
+			ifReady = true;
+			ifCanToFuel = false;
+			ifCanToTreat = true;
 
 		}
 		public void setYearStart(int num) { yearStart = num; }
@@ -191,9 +288,9 @@ namespace dotNet5781_01_8658_4874
 		}
 		public void doingDriving(int kilimeterForTravel)
 		{
-			kilometersFromTreament += kilimeterForTravel;//עדכון מספר הקילומטרים מאז הטיפול האחרון Update the number of miles since the last treatment
-			kilometraj += kilimeterForTravel;//עדכון נסועה כוללת Overall travel update
-			kilometers += kilimeterForTravel;//עדכון כמות הקילומטרים מאז התדלוק Update the amount of miles since refueling
+			kilometersFromTreament1 += kilimeterForTravel;//עדכון מספר הקילומטרים מאז הטיפול האחרון Update the number of miles since the last treatment
+			kilometraj1 += kilimeterForTravel;//עדכון נסועה כוללת Overall travel update
+			kilometers1 += kilimeterForTravel;//עדכון כמות הקילומטרים מאז התדלוק Update the amount of miles since refueling
 		}
 		//public override string ToString()
 		//{
