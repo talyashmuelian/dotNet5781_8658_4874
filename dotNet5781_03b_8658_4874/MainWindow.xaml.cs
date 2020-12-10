@@ -30,7 +30,6 @@ namespace dotNet5781_03b_8658_4874
     {
         BackgroundWorker workerFuel;
         BackgroundWorker workerTravel;
-
         static public Random rand1 = new Random();
         public static ObservableCollection<Bus> collectionBuses = new ObservableCollection<Bus>();
         public MainWindow()
