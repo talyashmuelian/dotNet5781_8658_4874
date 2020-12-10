@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 
 namespace dotNet5781_01_8658_4874
 {
 	public enum state { ready=1, onTravel, onRefueling, onTreatment, notReady };
-	public class Bus
+	public class Bus : INotifyPropertyChanged
 	{
+		public event PropertyChangedEventHandler PropertyChanged;
+		private int time;
 		private int yearStart;//השנה שבה האוטובוס נכנס לפעילות The year the bus went into operation
 		private int numOfBus;//מספר רישוי license number
+		private string numOfBusString;//מספר רישוי במחרוזת
 		private DateTime dateOfStart;//תאריך תחילת פעילות Activity start date
 		private DateTime dateTreatLast;//תאריך טיפול אחרון Last treatment date
 		private int kilometersFromTreament;//מספר הקילומטרים מאז הטיפול האחרון Number of miles since last treatment
@@ -19,31 +23,100 @@ namespace dotNet5781_01_8658_4874
 		private int kilometraj;//נסועה כוללת Total travel
 		private int kilometers;//כמות הקילומטרים מאז התדלוק The amount of miles since refueling
 		private state flag;//שדה עבור סטטוס
+						   //private bool ifReady;
 		private int numOfKmInTheLastTime;//שדה עבור שמירת מס הקילוממטרים של הנססיעה האחרונה שהתבצעה
+		public bool ifInTravel()
+		{
+			if (flag == (state)2)
+				return true;
+			return false;
+		}
+		public bool ifInTravel1 { get => ifInTravel(); }
+		public bool ifInFuel()
+		{
+			if (flag == (state)3)
+				return true;
+			return false;
+		}
+		public bool ifInFuel1 { get => ifInFuel(); }
+		public bool ifInTraetment()
+		{
+			if (flag == (state)4)
+				return true;
+			return false;
+		}
+		public bool ifInTraetment1 { get => ifInTraetment(); }
+		public bool ifCanToFuel()
+		{
+			if (kilometers == 0)
+				return false;
+			if (flag == (state)2)
+				return false;
+			if (flag == (state)3)
+				return false;
+			return true;
+		}
+		public bool ifCanToFuel1 { get => ifCanToFuel(); }
+		public bool ifCanToTreat()
+		{
+			if (flag == (state)2)
+				return false;
+			if (flag == (state)4)
+				return false;
+			return true;
+		}
+		public bool ifCanToTreat1 { get => ifCanToTreat(); }
+		public bool ifReady()//מתודה שבודקת האם האוטובוס מוכן לנסיעה
+		{
+
+			DateTime date1 = DateTime.Now;
+			TimeSpan t = date1 - dateTreatLast;
+			int space = Convert.ToInt32(t.TotalDays);//casting to int
+			if (space > 365)//עברה שנה מאז הטיפול האחרון It has been a year since the last treatment
+				return false;
+			if (kilometersFromTreament >= 20000)//עברו מספר הקילומטרים הדרוש לטיפול
+				return false;
+			if (kilometers >= 1200)//אין דלק
+				return false;
+			if (Flag1 != (state)1)
+				return false;
+			//if (flag == (state)1)
+			//	return true;
+			return true;
+		}
+		//public bool ifReady1 { get => ifReady; set => ifReady = value; }
+		public bool ifReady1 { get => ifReady(); }
 		public int numOfKmInTheLastTime1 { get => numOfKmInTheLastTime; set => numOfKmInTheLastTime = value; }
 		public int kilometers1 { get => kilometers; set => kilometers = value; }
+		public string numOfBusString1
+		{
+			get
+			{
+				if (yearStart > 2017)//8 ספרות numbers
+				{
+					return numOfBusString.Substring(0, 3) +"-" +numOfBusString[3] + numOfBusString[4] + "-" + numOfBusString[5] + numOfBusString[6] + numOfBusString[7];
+
+				}
+				else//7 ספרות numbers
+				{
+					return numOfBusString.Substring(0, 2) + "-" + numOfBusString[2] + numOfBusString[3] + numOfBusString[4] + "-" + numOfBusString[5] + numOfBusString[6];
+				}
+			}
+			set => numOfBusString = value;
+		}
 		public int numOfBus1 
 		{
 			get 
 			{
-				//int start, middle, end;
-				//if (yearStart > 2017)//8 ספרות numbers
-				//{
-				//	start = numOfBus / 100000;
-				//	middle = (numOfBus % 100000) / 1000;
-				//	end = numOfBus % 1000;
-				//	return "Registration Number:" + start + "-" + middle + "-" + end; 
-				//}
-				//else//7 ספרות numbers
-				//{
-				//	start = numOfBus / 100000;
-				//	middle = (numOfBus % 100000) / 100;
-				//	end = numOfBus % 100;
-				//	return "Registration Number:" + start + "-" + middle + "-" + end;
-				//}
 				return numOfBus;
 			}
 			set => numOfBus = value; 
+		}
+		public int time1 { get => time;
+			set { time = value;
+				if (PropertyChanged != null) 
+					{ PropertyChanged(this, new PropertyChangedEventArgs("time")); }
+			}
 		}
 		public int kilometraj1 { get => kilometraj; set => kilometraj = value; }
 		public int yeartSart1 { get => yearStart; set => yearStart = value; }
@@ -55,6 +128,7 @@ namespace dotNet5781_01_8658_4874
 		public Bus(int num, DateTime myDate)//c-tor
 		{
 			numOfBus = num;
+			numOfBusString = num.ToString();
 			dateOfStart = myDate;
 			kilometraj = 0;
 			kilometers = 0;
@@ -64,6 +138,7 @@ namespace dotNet5781_01_8658_4874
 			yearStart = myDate.Year;
 			numOfKmInTheLastTime = 0;
 			flag = (state)1;//אתחול האוטובוס כמוכן לנסיעה
+			//ifReady = true;
 
 		}
 		public void setYearStart(int num) { yearStart = num; }
@@ -120,16 +195,16 @@ namespace dotNet5781_01_8658_4874
 			kilometraj += kilimeterForTravel;//עדכון נסועה כוללת Overall travel update
 			kilometers += kilimeterForTravel;//עדכון כמות הקילומטרים מאז התדלוק Update the amount of miles since refueling
 		}
-		public override string ToString()
-		{
-			{ return "Licensing number: " + numOfBus + ", Activity start date: " + dateOfStart + ", Last treatment date: " + dateTreatLast
-				+", Number of miles since last treatment: " + kilometersFromTreament
-				+", Total travel: " + kilometraj
-				+ ", The amount of miles since refueling: " + kilometers
-				+ ", Status: " + flag
-			;
-			}
-		}
+		//public override string ToString()
+		//{
+		//	{ return "Licensing number: " + numOfBus + ", Activity start date: " + dateOfStart + ", Last treatment date: " + dateTreatLast
+		//		+", Number of miles since last treatment: " + kilometersFromTreament
+		//		+", Total travel: " + kilometraj
+		//		+ ", The amount of miles since refueling: " + kilometers
+		//		+ ", Status: " + flag
+		//	;
+		//	}
+		//}
 
 	}
 }

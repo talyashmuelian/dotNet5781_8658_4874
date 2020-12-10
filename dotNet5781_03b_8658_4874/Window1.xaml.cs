@@ -30,6 +30,7 @@ namespace dotNet5781_03b_8658_4874
         }
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            newItem.numOfBusString1 = numOfBus1TextBox.Text;
             newItem.Flag1 = (state)1;
             newItem.dateTreatLast1 = DateTime.Now;
             newItem.dateOfStart1 = DateTime.Now;

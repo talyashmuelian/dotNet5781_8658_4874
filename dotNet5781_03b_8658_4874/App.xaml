@@ -6,6 +6,7 @@
     <Application.Resources>
         <Style x:Key="myButtonStyle"            TargetType="Button">
             <Setter Property="FontFamily"               Value="Ink Free" />
+            <Setter Property="Background"               Value="#FF7DEF74"/>
             <Setter Property="FontWeight"               Value="Bold" />
         </Style>
         <Style x:Key="myTextBlockStyle"            TargetType="TextBlock">

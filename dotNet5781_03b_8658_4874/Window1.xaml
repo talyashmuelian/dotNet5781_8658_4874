@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         mc:Ignorable="d"
-        Title="Window1" Height="320" Width="490">
+        Title="Window1" Height="320" Width="490" Background="#FFCABBC1">
     <Grid>
         <TextBlock Text="Enter the data:" Style="{StaticResource myTextBlockStyle}" HorizontalAlignment="Left" Margin="65,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="247" FontSize="22"/>
-        <Button x:Name="addButton" Style="{StaticResource myButtonStyle}" Content="Add" HorizontalAlignment="Left" Margin="191,212,0,0" VerticalAlignment="Top" Width="104" Height="29" Click="addButton_Click" Background="#FFC799CE"/>
-        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="74,62,0,0" VerticalAlignment="Top" Width="312">
+        <Button x:Name="addButton" Style="{StaticResource myButtonStyle}" Content="Add" HorizontalAlignment="Left" Margin="191,212,0,0" VerticalAlignment="Top" Width="104" Height="29" Click="addButton_Click"/>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="33,64,0,0" VerticalAlignment="Top" Width="312">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -24,11 +24,11 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="The amount of miles since refueling:" Style="{StaticResource myLabelStyle}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="kilometers1TextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,7,-74,7" Grid.Row="3" Text="{Binding Path=kilometers1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
+            <TextBox x:Name="kilometers1TextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,7,-74,7" Grid.Row="3" Text="{Binding Path=kilometers1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
             <Label Content="Total travel:" Grid.Column="0" Style="{StaticResource myLabelStyle}" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="kilometraj1TextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,6.333,-72.667,6.667" Grid.Row="5" Text="{Binding kilometraj1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
+            <TextBox x:Name="kilometraj1Textox" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,6.333,-72.667,6.667" Grid.Row="5" Text="{Binding kilometraj1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
             <Label Content="Licensing number:" Grid.Column="0" Style="{StaticResource myLabelStyle}" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBox x:Name="numOfBus1TextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,6.333,-72,6.667" Grid.Row="6" Text="{Binding numOfBus1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
+            <TextBox x:Name="numOfBus1TextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="3.333,6.333,-72,6.667" Grid.Row="6" Text="{Binding numOfBus1, Mode=OneWayToSource}" VerticalAlignment="Center" Width="84"/>
         </Grid>
 
     </Grid>

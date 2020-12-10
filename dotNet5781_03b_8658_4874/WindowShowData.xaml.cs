@@ -53,6 +53,8 @@ namespace dotNet5781_03b_8658_4874
         {
             Bus result = (Bus)e.Result;
             result.Flag1 = (state)1;
+            var mw = (MainWindow)Application.Current.MainWindow;
+            mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
         }
         private void travelButton_Click(object sender, RoutedEventArgs e)//כפתור שליחה לנסיעה
         {
@@ -71,6 +73,8 @@ namespace dotNet5781_03b_8658_4874
                 }
                 MyData.numOfKmInTheLastTime1 = num;
                 MyData.Flag1 = (state)2;//הפיכת הסטטוס לבנסיעה
+                var mw = (MainWindow)Application.Current.MainWindow;
+                mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
                 workerTravel = new BackgroundWorker();
                 workerTravel.DoWork += workerTravel_DoWork;
                 workerTravel.ProgressChanged += workerTravel_ProgressChanged;
@@ -98,39 +102,60 @@ namespace dotNet5781_03b_8658_4874
         {
             Bus result = (Bus)e.Result;
             result.Flag1 = (state)1;
+            var mw = (MainWindow)Application.Current.MainWindow;
+            mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
         }
         private void fuelButton_Click(object sender, RoutedEventArgs e)//כפתור שליחה לתדלוק
         {
             var fxElt = sender as FrameworkElement;
-            //Bus CurrentBus = fxElt.DataContext as Bus;
             MyData = fxElt.DataContext as Bus;
-            MyData.setKilometers(0);//איפוס השדה שסופר את כמות הקילומטרים מאז התדלוק
-            MyData.Flag1 = (state)3;//הפיכת הסטטוס לבתדלוק
-            MessageBox.Show("Refueling successfully", "");
-            workerFuel = new BackgroundWorker();
-            workerFuel.DoWork += workerFuel_DoWork;
-            workerFuel.ProgressChanged += workerFuel_ProgressChanged;
-            workerFuel.RunWorkerCompleted += workerFuel_RunWorkerCompleted;
-            workerFuel.WorkerReportsProgress = true;
-            workerFuel.WorkerSupportsCancellation = true;
-            workerFuel.RunWorkerAsync(MyData);
+            try
+            {
+                if (MyData.kilometers1 == 0)
+                    throw new ObjectNotAllowedException("The container is full");
+                MyData.setKilometers(0);//איפוס השדה שסופר את כמות הקילומטרים מאז התדלוק
+                MyData.Flag1 = (state)3;//הפיכת הסטטוס לבתדלוק
+                var mw = (MainWindow)Application.Current.MainWindow;
+                mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
+                
+                workerFuel = new BackgroundWorker();
+                workerFuel.DoWork += workerFuel_DoWork;
+                workerFuel.ProgressChanged += workerFuel_ProgressChanged;
+                workerFuel.RunWorkerCompleted += workerFuel_RunWorkerCompleted;
+                workerFuel.WorkerReportsProgress = true;
+                workerFuel.WorkerSupportsCancellation = true;
+                workerFuel.RunWorkerAsync(MyData);
+                MessageBox.Show("Refueling successfully", "");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
         }
         private void workerTreatment_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            //string timerText = stopWatch.Elapsed.ToString();
-            //timerText = timerText.Substring(0, 8);
-            //this.timerTextBlock.Text = timerText;
+            int progress = e.ProgressPercentage;
+            Bus forNow = e.UserState as Bus;
+            forNow.time1 = progress; var mw = (MainWindow)Application.Current.MainWindow;
+            mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
+            timer.GetBindingExpression(TextBlock.TextProperty).UpdateSource();
         }
         private void workerTreatment_DoWork(object sender, DoWorkEventArgs e)
         {
-            Thread.Sleep(144000);
+            //Thread.Sleep(144000);
             e.Result = e.Argument;
+            //Bus forNow=e.Argument as Bus;
+            for (int i = 144; i >= 0; i--)
+            {
+                Thread.Sleep(1000);
+                //e.Result.time1
+                workerTreatment.ReportProgress(i, e.Argument);
+            }
         }
         private void workerTreatment_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Bus result = (Bus)e.Result;
             result.Flag1 = (state)1;
+            var mw = (MainWindow)Application.Current.MainWindow;
+            mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
         }
         private void treatmentButton_Click(object sender, RoutedEventArgs e)//כפתור שליחה לטיפול
         {
@@ -138,8 +163,10 @@ namespace dotNet5781_03b_8658_4874
             //Bus CurrentBus = fxElt.DataContext as Bus;
             MyData = fxElt.DataContext as Bus;
             MyData.treatment();//שליחה לטיפול
-            MessageBox.Show("Treatment successfully", "");
+            
             MyData.Flag1 = (state)4;//שינוי הסטטוס לבטיפול
+            var mw = (MainWindow)Application.Current.MainWindow;
+            mw.myRefresh();//lbBusesOnSystem.Items.Refresh();
             workerTreatment = new BackgroundWorker();
             workerTreatment.DoWork += workerTreatment_DoWork;
             workerTreatment.ProgressChanged += workerTreatment_ProgressChanged;
@@ -147,6 +174,7 @@ namespace dotNet5781_03b_8658_4874
             workerTreatment.WorkerReportsProgress = true;
             workerTreatment.WorkerSupportsCancellation = true;
             workerTreatment.RunWorkerAsync(MyData);
+            MessageBox.Show("Treatment successfully", "");
         }
     }
 }

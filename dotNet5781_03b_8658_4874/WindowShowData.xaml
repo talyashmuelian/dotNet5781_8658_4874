@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         xmlns:dotNet5781_01_8658_4874="clr-namespace:dotNet5781_01_8658_4874;assembly=dotNet5781_01_8658_4874" x:Class="dotNet5781_03b_8658_4874.WindowShowData"
         mc:Ignorable="d"
-        Title="WindowShowData" Height="450" Width="580" >
+        Title="WindowShowData" Height="450" Width="580" Background="#FFCABBC1" >
+    
     <Grid x:Name="grid2" >
         <TextBlock Style="{StaticResource myTextBlockStyle}" HorizontalAlignment="Left" Margin="73,10,0,0" TextWrapping="Wrap" Text="Bus details:" VerticalAlignment="Top" Height="48" Width="234" FontSize="36" FontWeight="Bold"/>
-        <Button x:Name="dotravel" Style="{StaticResource myButtonStyle}" Content="Do travel" HorizontalAlignment="Left" Margin="359,346,0,0" VerticalAlignment="Top" Width="75" Click="travelButton_Click" Background="#FFC799CE"/>
-        <Button x:Name="fuel" Style="{StaticResource myButtonStyle}" Content="Fuel" HorizontalAlignment="Left" Margin="232,346,0,0" VerticalAlignment="Top" Width="75" Click="fuelButton_Click" Background="#FFC799CE"/>
-        <Button x:Name="treatment" Style="{StaticResource myButtonStyle}" Content="Do treatment" HorizontalAlignment="Left" Margin="90,346,0,0" VerticalAlignment="Top" Width="94" Click="treatmentButton_Click" Height="19" Background="#FFC799CE"/>
+        <Button x:Name="dotravel" Style="{StaticResource myButtonStyle}" IsEnabled="{Binding Path=ifReady1}" Content="Do travel" HorizontalAlignment="Left" Margin="359,346,0,0" VerticalAlignment="Top" Width="75" Click="travelButton_Click"/>
+        <Button x:Name="fuel" Style="{StaticResource myButtonStyle}" IsEnabled="{Binding Path=ifCanToFuel1}" Content="Fuel" HorizontalAlignment="Left" Margin="232,346,0,0" VerticalAlignment="Top" Width="75" Click="fuelButton_Click"/>
+        <Button x:Name="treatment" Style="{StaticResource myButtonStyle}" IsEnabled="{Binding Path=ifCanToTreat1}" Content="Do treatment" HorizontalAlignment="Left" Margin="90,346,0,0" VerticalAlignment="Top" Width="94" Click="treatmentButton_Click" Height="19"/>
         <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="74,62,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -27,9 +28,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Activity start date:" Style="{StaticResource myLabelStyle}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <DatePicker x:Name="dateOfStart1DatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding dateOfStart1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+            <DatePicker x:Name="dateOfStart1DatePicker" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding dateOfStart1, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
             <Label Content="Last treatment date:" Style="{StaticResource myLabelStyle}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <DatePicker x:Name="dateTreatLast1DatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding dateTreatLast1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+            <DatePicker x:Name="dateTreatLast1DatePicker" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding dateTreatLast1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Background="#00000000" Foreground="#FF100606"/>
             <Label Content="Status:" Style="{StaticResource myLabelStyle}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
             <TextBlock x:Name="flag1TextBlock" Style="{StaticResource myTextBlockStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="2" Text="{Binding Flag1}" VerticalAlignment="Center"/>
             <Label Content="The amount of miles since refueling:" Style="{StaticResource myLabelStyle}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
@@ -39,8 +40,9 @@
             <Label Content="Total travel:" Style="{StaticResource myLabelStyle}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
             <TextBlock x:Name="kilometraj1TextBlock" Style="{StaticResource myTextBlockStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="5" Text="{Binding kilometraj1}" VerticalAlignment="Center"/>
             <Label Content="Licensing number:" Style="{StaticResource myLabelStyle}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBlock x:Name="numOfBus1TextBlock" Style="{StaticResource myTextBlockStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="6" Text="{Binding numOfBus1}" VerticalAlignment="Center"/>
+            <TextBlock x:Name="numOfBus1TextBlock" Style="{StaticResource myTextBlockStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="6" Text="{Binding numOfBusString1, Mode=OneWay}" VerticalAlignment="Center"/>
         </Grid>
+        <TextBlock  x:Name="timer" Style="{StaticResource myTextBlockStyle}"   Text="{Binding Path=time1, UpdateSourceTrigger=PropertyChanged}" FontSize="11" Foreground="#FF0D0D12" HorizontalAlignment="Left" Margin="359,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

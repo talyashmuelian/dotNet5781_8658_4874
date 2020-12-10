@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03b_8658_4874"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="550">
+        Title="MainWindow" Height="450" Width="700" Background="#FFCABBC1">
     <Window.Resources>
         <DataTemplate x:Key="MyDataTemplate"                   DataType="local:MyData" >
             <Grid>
@@ -14,19 +14,39 @@
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="100" />
-
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0"             Style="{StaticResource myTextBlockStyle}"   Text="license number: " FontSize="12" Foreground="#FF0A0A0E" />
-                <TextBlock Grid.Column="1"             Style="{StaticResource myTextBlockStyle}"   Text="{Binding Path=numOfBus1}" FontSize="11" Foreground="#FF0D0D12" />
-                <Button x:Name="doTravel" Style="{StaticResource myButtonStyle}" Content="Do travel" Grid.Column="2" Click="travelButton_Click" Background="#FF8EBCD0" />
-                <Button x:Name="fuel"  Style="{StaticResource myButtonStyle}" Content="Fuel" Grid.Column="3" Click="fuelButton_Click" Background="#FF9EDEED"/>
+                <TextBlock Grid.Column="0"    Text="license number: " FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=ifInTravel1}" Value="True">
+                                    <Setter Property="Background" Value="#FF14E214" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=ifInFuel1}" Value="True">
+                                    <Setter Property="Background" Value="#FFEB6A6A" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=ifInTraetment1}" Value="True">
+                                    <Setter Property="Background" Value="#FF6262E6" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>                </TextBlock>
+                <TextBlock Grid.Column="1"             Style="{StaticResource myTextBlockStyle}"   Text="{Binding Path=numOfBusString1}" FontSize="11" Foreground="#FF0D0D12" />
+                <Button x:Name="doTravel" Style="{StaticResource myButtonStyle}" IsEnabled="{Binding Path=ifReady1}"  Content="Do travel" Grid.Column="2" Click="travelButton_Click" Background="#FF8EBCD0" />
+                <Button x:Name="fuel"  Style="{StaticResource myButtonStyle}" IsEnabled="{Binding Path=ifCanToFuel1}" Content="Fuel" Grid.Column="3" Click="fuelButton_Click" Background="#FF9EDEED"/>
+                <TextBlock Grid.Column="5"             Style="{StaticResource myTextBlockStyle}"   Text="{Binding Path=time1}" FontSize="11" Foreground="#FF0D0D12" />
             </Grid>
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplate}"  HorizontalAlignment="Left" Height="294" Margin="43,95,0,0" VerticalAlignment="Top" Width="429" MouseDoubleClick="showData_doubleClick"  SelectionMode="Single" />
-        <Button x:Name="button1" Style="{StaticResource myButtonStyle}" Content="Add bus" HorizontalAlignment="Left" Margin="43,24,0,0" VerticalAlignment="Top" Width="137" Height="41" Click="button1_Click" FontFamily="Ink Free" FontWeight="Bold" Background="#FFC799CE" FontSize="24"/>
-        <Image HorizontalAlignment="Left" Height="95" Margin="367,0,0,0" VerticalAlignment="Top" Width="105" Source="logo.jpeg"/>
+        <ListBox x:Name="lbBusesOnSystem" Background="#FFCABBC1" ItemTemplate="{StaticResource MyDataTemplate}"  HorizontalAlignment="Left" Height="294" Margin="43,95,0,0" VerticalAlignment="Top" Width="589" MouseDoubleClick="showData_doubleClick"  SelectionMode="Single" />
+        <Button x:Name="button1" Style="{StaticResource myButtonStyle}" Content="Add bus" HorizontalAlignment="Left" Margin="43,24,0,0" VerticalAlignment="Top" Width="137" Height="41" Click="button1_Click" FontFamily="Ink Free" FontWeight="Bold" Background="#FFCFBB41" FontSize="24"/>
+        <Image HorizontalAlignment="Left" Height="104" Margin="497,0,0,0" VerticalAlignment="Top" Width="111" Source="kk.jpeg"/>
+        <Label Content="On driving" Background="#FF14E214" FontFamily="Ink Free" HorizontalAlignment="Left" Margin="43,70,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="On refueling" Background="#FFEB6A6A" FontFamily="Ink Free" HorizontalAlignment="Left" Margin="111,70,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="On treatment" Background="#FF6262E6" FontFamily="Ink Free" HorizontalAlignment="Left" Margin="191,70,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </Window>
