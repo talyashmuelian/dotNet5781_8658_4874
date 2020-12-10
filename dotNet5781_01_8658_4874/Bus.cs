@@ -26,8 +26,7 @@ namespace dotNet5781_01_8658_4874
 		private bool ifReady;
 		private bool ifCanToFuel;
 		private bool ifCanToTreat;
-
-		private int numOfKmInTheLastTime;//שדה עבור שמירת מס הקילוממטרים של הנססיעה האחרונה שהתבצעה
+        private int numOfKmInTheLastTime;//שדה עבור שמירת מס הקילוממטרים של הנססיעה האחרונה שהתבצעה
 		public bool ifInTravel()
 		{
 			if (flag == (state)2)
@@ -49,66 +48,7 @@ namespace dotNet5781_01_8658_4874
 			return false;
 		}
 		public bool ifInTraetment1 { get => ifInTraetment(); }
-		//public bool ifCanToFuel()
-		//{
-		//	if (kilometers == 0)
-		//		return false;
-		//	if (flag == (state)2)
-		//		return false;
-		//	if (flag == (state)3)
-		//		return false;
-		//	return true;
-		//}
-		//public bool ifCanToFuel1 { get => ifCanToFuel(); }
-		//public bool ifCanToTreat()
-		//{
-		//	if (flag == (state)2)
-		//		return false;
-		//	if (flag == (state)4)
-		//		return false;
-		//	return true;
-		//}
-		//public bool ifCanToTreat1 { get => ifCanToTreat(); }
-        //public bool ifReadyFunc()//מתודה שבודקת האם האוטובוס מוכן לנסיעה
-        //{
-
-        //    DateTime date1 = DateTime.Now;
-        //    TimeSpan t = date1 - dateTreatLast;
-        //    int space = Convert.ToInt32(t.TotalDays);//casting to int
-        //    if (space > 365)//עברה שנה מאז הטיפול האחרון It has been a year since the last treatment
-        //        return false;
-        //    if (kilometersFromTreament >= 20000)//עברו מספר הקילומטרים הדרוש לטיפול
-        //        return false;
-        //    if (kilometers >= 1200)//אין דלק
-        //        return false;
-        //    if (Flag1 != (state)1)
-        //        return false;
-        //    return true;
-        //}
-   //     public bool ifReady1 { get => ifReady; 
-			//set
-   //         {
-   //             DateTime date1 = DateTime.Now;
-   //             TimeSpan t = date1 - dateTreatLast;
-   //             int space = Convert.ToInt32(t.TotalDays);//casting to int
-   //             if (space > 365 || kilometersFromTreament >= 20000 || kilometers >= 1200 || Flag1 != (state)1)//עברה שנה מאז הטיפול האחרון It has been a year since the last treatment
-   //                 ifReady = false;
-   //             else
-   //                 ifReady = true;
-			//	if (PropertyChanged != null)
-   //             { PropertyChanged(this, new PropertyChangedEventArgs("ifReady1")); }
-   //         }
-   //     }
-        //public bool ifReady1
-        //{
-        //    get => ifReady();
-        //    set
-        //    {
-        //        ifReady1 = value;
-        //        if (PropertyChanged != null)
-        //        { PropertyChanged(this, new PropertyChangedEventArgs("ifReady1")); }
-        //    }
-        //}
+		
         public int numOfKmInTheLastTime1 { get => numOfKmInTheLastTime; set => numOfKmInTheLastTime = value; }
 		public int kilometers1 { get => kilometers;
 			set
@@ -292,16 +232,7 @@ namespace dotNet5781_01_8658_4874
 			kilometraj1 += kilimeterForTravel;//עדכון נסועה כוללת Overall travel update
 			kilometers1 += kilimeterForTravel;//עדכון כמות הקילומטרים מאז התדלוק Update the amount of miles since refueling
 		}
-		//public override string ToString()
-		//{
-		//	{ return "Licensing number: " + numOfBus + ", Activity start date: " + dateOfStart + ", Last treatment date: " + dateTreatLast
-		//		+", Number of miles since last treatment: " + kilometersFromTreament
-		//		+", Total travel: " + kilometraj
-		//		+ ", The amount of miles since refueling: " + kilometers
-		//		+ ", Status: " + flag
-		//	;
-		//	}
-		//}
 
-	}
+
+    }
 }
