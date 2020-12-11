@@ -55,8 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bus.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="ConvertClass1.cs" />
+    <Compile Include="exaption.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -117,12 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\dotNet5781_01_8658_4874\dotNet5781_01_8658_4874.csproj">
-      <Project>{7d538606-fd97-4454-95ed-149d4e20031d}</Project>
-      <Name>dotNet5781_01_8658_4874</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.jpeg" />
