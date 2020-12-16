@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    public class DO
+    public enum Status
     {
+        DRIVING, READY, REFUELLING, SERVICE
     }
 }
