@@ -10,13 +10,13 @@ namespace DS
     {
         static public Random rand = new Random();
         private static List<BusDAO> busses = new List<BusDAO>();//רשימת אוטבוסים
-        private static List<BusInTravelDAO> busestravel = new List<BusInTravelDAO>();//רשימת אוטובוסים בנסיעה
+        //private static List<BusInTravelDAO> busestravel = new List<BusInTravelDAO>();//רשימת אוטובוסים בנסיעה
         private static List<BusLineDAO> busLines = new List<BusLineDAO>();//רשימה של קווי אוטובוס
         private static List<BusStationDAO> busStations = new List<BusStationDAO>();//רשימת תחנות
         private static List<LineStationDAO> lineStations = new List<LineStationDAO>();//רשימת תחנות קו (נקודות במסלול)
         private static List<PairConsecutiveStationsDAO> pairConsecutiveStations = new List<PairConsecutiveStationsDAO>();//אוסף כל זוגות התחנות העוקבות
         public static List<BusDAO> Buses { get => busses; }
-        public static List<BusInTravelDAO> BusesTravel { get => busestravel; }
+        //public static List<BusInTravelDAO> BusesTravel { get => busestravel; }
         public static List<BusLineDAO> BusLines { get => busLines; }
         public static List<BusStationDAO> BusStations { get => busStations; }
         public static List<LineStationDAO> LineStations { get => lineStations; }
@@ -29,6 +29,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-3),
                 TotalKms = 5000,
                 Fuel = 1200,
+                DateTreatLast= DateTime.Now,
+                KmFromTreament=0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -37,6 +39,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-3),
                 TotalKms = 6000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -45,6 +49,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-3),
                 TotalKms = 12000,
                 Fuel = 1000,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -53,6 +59,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-10),
                 TotalKms = 1000,
                 Fuel = 500,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -61,6 +69,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-1),
                 TotalKms = 14000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -69,6 +79,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-2),
                 TotalKms = 13000,
                 Fuel = 700,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -77,6 +89,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-0),
                 TotalKms = 15000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -85,6 +99,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-4),
                 TotalKms = 3000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -93,6 +109,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-11),
                 TotalKms = 18000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -101,6 +119,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-1),
                 TotalKms = 8000,
                 Fuel = 900,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -109,6 +129,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-2),
                 TotalKms = 9000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -117,6 +139,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-0),
                 TotalKms = 8000,
                 Fuel = 900,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -125,6 +149,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-0),
                 TotalKms = 7000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -133,6 +159,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-1),
                 TotalKms = 10000,
                 Fuel = 800,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -141,6 +169,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-13),
                 TotalKms = 30000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -149,6 +179,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-2),
                 TotalKms = 45000,
                 Fuel = 600,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -157,6 +189,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-9),
                 TotalKms = 8000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
 
@@ -166,6 +200,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-20),
                 TotalKms = 9999999,
                 Fuel = 500,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -174,6 +210,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-2),
                 TotalKms = 5000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
             Buses.Add(new BusDAO
@@ -182,6 +220,8 @@ namespace DS
                 StartOfWork = DateTime.Today.AddYears(-100),
                 TotalKms = 5000,
                 Fuel = 1200,
+                DateTreatLast = DateTime.Now,
+                KmFromTreament = 0,
                 Status = Status.READY
             });
 

@@ -8,6 +8,7 @@ namespace DS
 {
     static public class configoration//לא בטוח שההרשאות נכונות
     {
-        public static int runNumber { get; set; } = 11;//מספר רץ בשביל מספר מזהה
+        static int runNumber = 11;
+        public static int RunNumber => ++runNumber; //מספר רץ בשביל מספר מזהה
     }
 }
