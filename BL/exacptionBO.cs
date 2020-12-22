@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 using DO;
 namespace BO
 {
     [Serializable]
-    public class BusException : Exception
+    public class BusExceptionBO : Exception
     {
-        public BusException()
+        public BusExceptionBO()
         {
         }
 
-        public BusException(string message) : base(message)
+        public BusExceptionBO(string message) : base(message)
         {
         }
 
-        public BusException(string message, Exception innerException) : base(message, innerException)
+        public BusExceptionBO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected BusException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected BusExceptionBO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
@@ -42,75 +43,75 @@ namespace BO
         {
         }
     }
-    public class BusLineException : Exception
+    public class BusLineExceptionBO : Exception
     {
-        public BusLineException()
+        public BusLineExceptionBO()
         {
         }
 
-        public BusLineException(string message) : base(message)
+        public BusLineExceptionBO(string message) : base(message)
         {
         }
 
-        public BusLineException(string message, Exception innerException) : base(message, innerException)
+        public BusLineExceptionBO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected BusLineException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected BusLineExceptionBO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
-    public class BusStationException : Exception
+    public class BusStationExceptionBO : Exception
     {
-        public BusStationException()
+        public BusStationExceptionBO()
         {
         }
 
-        public BusStationException(string message) : base(message)
+        public BusStationExceptionBO(string message) : base(message)
         {
         }
 
-        public BusStationException(string message, Exception innerException) : base(message, innerException)
+        public BusStationExceptionBO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected BusStationException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected BusStationExceptionBO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
-    public class LineStationException : Exception
+    public class LineStationExceptionBO : Exception
     {
-        public LineStationException()
+        public LineStationExceptionBO()
         {
         }
 
-        public LineStationException(string message) : base(message)
+        public LineStationExceptionBO(string message) : base(message)
         {
         }
 
-        public LineStationException(string message, Exception innerException) : base(message, innerException)
+        public LineStationExceptionBO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected LineStationException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected LineStationExceptionBO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
-    public class PairConsecutiveStationsException : Exception
+    public class PairConsecutiveStationsExceptionBO : Exception
     {
-        public PairConsecutiveStationsException()
+        public PairConsecutiveStationsExceptionBO()
         {
         }
 
-        public PairConsecutiveStationsException(string message) : base(message)
+        public PairConsecutiveStationsExceptionBO(string message) : base(message)
         {
         }
 
-        public PairConsecutiveStationsException(string message, Exception innerException) : base(message, innerException)
+        public PairConsecutiveStationsExceptionBO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected PairConsecutiveStationsException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected PairConsecutiveStationsExceptionBO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

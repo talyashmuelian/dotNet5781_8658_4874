@@ -8,21 +8,21 @@ using System.Runtime.Serialization;
 namespace DO
 {
     [Serializable]
-    public class BusException : Exception
+    public class BusExceptionDO : Exception
     {
-        public BusException()
+        public BusExceptionDO()
         {
         }
 
-        public BusException(string message) : base(message)
+        public BusExceptionDO(string message) : base(message)
         {
         }
 
-        public BusException(string message, Exception innerException) : base(message, innerException)
+        public BusExceptionDO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected BusException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected BusExceptionDO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
@@ -43,76 +43,77 @@ namespace DO
         {
         }
     }
-    public class BusLineException : Exception
+    public class BusLineExceptionDO : Exception
     {
-        public BusLineException()
+        public BusLineExceptionDO()
         {
         }
 
-        public BusLineException(string message) : base(message)
+        public BusLineExceptionDO(string message) : base(message)
         {
         }
 
-        public BusLineException(string message, Exception innerException) : base(message, innerException)
+        public BusLineExceptionDO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected BusLineException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected BusLineExceptionDO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
-    public class BusStationException : Exception
+    public class BusStationExceptionDO : Exception
     {
-        public BusStationException()
+        public BusStationExceptionDO()
         {
         }
 
-        public BusStationException(string message) : base(message)
+        public BusStationExceptionDO(string message) : base(message)
         {
         }
 
-        public BusStationException(string message, Exception innerException) : base(message, innerException)
+        public BusStationExceptionDO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected BusStationException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected BusStationExceptionDO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
-    public class LineStationException : Exception
+    public class LineStationExceptionDO : Exception
     {
-        public LineStationException()
+        public LineStationExceptionDO()
         {
         }
 
-        public LineStationException(string message) : base(message)
+        public LineStationExceptionDO(string message) : base(message)
         {
         }
 
-        public LineStationException(string message, Exception innerException) : base(message, innerException)
+        public LineStationExceptionDO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected LineStationException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected LineStationExceptionDO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
-    public class PairConsecutiveStationsException : Exception
+    public class PairConsecutiveStationsExceptionDO : Exception
     {
-        public PairConsecutiveStationsException()
+        public PairConsecutiveStationsExceptionDO()
         {
         }
 
-        public PairConsecutiveStationsException(string message) : base(message)
+        public PairConsecutiveStationsExceptionDO(string message) : base(message)
         {
         }
 
-        public PairConsecutiveStationsException(string message, Exception innerException) : base(message, innerException)
+        public PairConsecutiveStationsExceptionDO(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected PairConsecutiveStationsException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected PairConsecutiveStationsExceptionDO(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
+    
 }

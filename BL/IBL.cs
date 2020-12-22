@@ -24,7 +24,7 @@ namespace BLAPI
         void refuel(BusBO bus);
         void treatment(BusBO bus);
         IEnumerable<BusStationBO> GetAllBusStationsBO();//הדפסת כל התחנות
-        BusBO GetBusStationBO(int codeStation);//קבלת פרטים עבור תחנה מסוימת
+        BusStationBO GetBusStationBO(int codeStation);//קבלת פרטים עבור תחנה מסוימת
         //הוספה עדכון ומחיקת תחנה
         bool addBusStation(BusStationBO busStation);//הוספת תחנה חדשה לגמרי שחייבת להיות לפחות בקו אחד
         bool updateBusStation(BusStationBO busStation);

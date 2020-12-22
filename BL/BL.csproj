@@ -48,6 +48,7 @@
     <Compile Include="BusStationBO.cs" />
     <Compile Include="exacptionBO.cs" />
     <Compile Include="PairConsecutiveStationsBO.cs" />
+    <Compile Include="StationInLineBO.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="IBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
