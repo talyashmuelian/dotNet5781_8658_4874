@@ -29,7 +29,7 @@ namespace UI
                 //Console.WriteLine(bl.GetBusBO(33333333));
                 //printAllBusStations();
                 //bl.addBusStation(new BusStationBO { CodeStation = 93939393, NameStation = "rachel hameshoreret" });
-                //printAllBusStations();
+                printAllBusStations();
                 //bl.deleteBusStation(new BusStationBO { CodeStation = 93939393, NameStation = "rachel hameshoreret" });
                 //printAllBusStations();
                 ////bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });;
