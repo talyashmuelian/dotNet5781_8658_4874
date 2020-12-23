@@ -47,7 +47,7 @@
     <Compile Include="BusLineBO.cs" />
     <Compile Include="BusStationBO.cs" />
     <Compile Include="exacptionBO.cs" />
-    <Compile Include="PairConsecutiveStationsBO.cs" />
+    <Compile Include="TripBO.cs" />
     <Compile Include="StationInLineBO.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="IBL.cs" />
@@ -55,6 +55,10 @@
     <Compile Include="Tools.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DalObject\DalObject.csproj">
+      <Project>{ae84c83e-36a7-4e3a-834e-bddc6f03f87d}</Project>
+      <Name>DalObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DLAPI\DLAPI.csproj">
       <Project>{2e72a07d-c2ff-4b8a-a8ba-70c4642999b1}</Project>
       <Name>DLAPI</Name>

@@ -10,7 +10,7 @@ namespace BO
     {
         public int CodeStation { get; set; }//קוד תחנה
         public string NameStation { get; set; }//שם תחנה
-        public int Distance { get; set; }//מרחק בקילומטרים//ייתכן שצריך לעשות את זה ממשי
-        public int TimeDriving { get; set; }//זמן נסיעה ממוצע בדקות
+        public int Distance { get; set; }//מרחק מתחנה קודמת בקמ
+        public int TimeDriving { get; set; }//זמן נסיעה מתחנה קודמת בקמ
     }
 }

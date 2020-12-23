@@ -13,6 +13,13 @@ namespace DLAPI
     /// </summary>
     static class DalConfig
     {
+        public class DLPackage
+        {
+            public string Name;
+            public string PkgName;
+            public string NameSpace;
+            public string ClassName;
+        }
         internal static string DalName;
         internal static Dictionary<string, string> DalPackages;
 

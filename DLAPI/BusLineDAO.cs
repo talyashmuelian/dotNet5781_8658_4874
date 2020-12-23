@@ -9,7 +9,7 @@ namespace DO
     public class BusLineDAO//קו אוטובוס
     {
         //אולי צריך להוסיף פה שדה עבור המספר הרץ- המזהה
-        public int IdentifyNumber { get; set; } //מספר מזהה קו
+        public int IdentifyNumber { get; set; }//מספר מזהה קו
         public int LineNumber { get; set; }//מספר קו
         public string Area { get; set; }//איזור
         public int FirstStationNum { get; set; }//מספר תחנה ראשונה

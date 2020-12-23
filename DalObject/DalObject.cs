@@ -9,13 +9,13 @@ using DS;
 
 namespace DL
 {
-    class DLObject:IDal
+    class DalObject : IDal
     {
         #region singelton
-        static readonly DLObject instance = new DLObject();
-        static DLObject() { }
-        DLObject() { }
-        public static DLObject Instance => instance;
+        static readonly DalObject instance = new DalObject();
+        static DalObject() { }
+        DalObject() { }
+        public static DalObject Instance => instance;
         #endregion
         //אוטובוס
         #region bus
@@ -72,7 +72,7 @@ namespace DL
             IEnumerable<BusDAO> TempBusDAO = from BusDAO item in DATA.Buses
                                              where BusDAOCondition(item)
                                              select item.Clone();
-            if (TempBusDAO.Count()==0)
+            if (TempBusDAO.Count() == 0)
                 throw new BusExceptionDO("There are no buses in the system that meet the condition");
             return TempBusDAO;
         }
@@ -83,7 +83,7 @@ namespace DL
             if (bus1 != null)
                 return bus1.Clone();
             else
-                throw new DO.BusExceptionDO("The license number "+ license+" not found");
+                throw new DO.BusExceptionDO("The license number " + license + " not found");
         }
         #endregion
         //קו אוטובוס
@@ -139,8 +139,8 @@ namespace DL
         public IEnumerable<BusLineDAO> getPartOfBusLines(Predicate<BusLineDAO> BusLineDAOCondition)
         {
             IEnumerable<BusLineDAO> TempBusLineDAO = from BusLineDAO item in DATA.BusLines
-                                             where BusLineDAOCondition(item)
-                                             select item.Clone();
+                                                     where BusLineDAOCondition(item)
+                                                     select item.Clone();
             if (TempBusLineDAO.Count() == 0)
                 throw new BusLineExceptionDO("There are no bus lines in the system that meet the condition");
             return TempBusLineDAO;
@@ -165,6 +165,19 @@ namespace DL
                 //return false;
             }
             DATA.BusStations.Add(station.Clone());
+            ///////להוסיף מידע על תחנות עוקבות
+            /////ניצור לתחנה חדשה אובייקטים של זוג תחנות עוקבות בינה לבין כל תחנה קיימת
+            foreach(var station1 in DATA.BusStations)
+            {
+                int dis = DATA.rand.Next(1, 500);
+                DATA.PairConsecutiveStations.Add(new PairConsecutiveStationsDAO
+                { 
+                    StationNum1= station1.CodeStation,
+                    StationNum2= station.CodeStation,
+                    Distance= dis,
+                    TimeDriving= dis
+                }); 
+            }
             return true;
         }
         public bool updateBusStation(BusStationDAO station)
@@ -209,7 +222,7 @@ namespace DL
         {
             IEnumerable<BusStationDAO> TempBusStationDAO = from BusStationDAO item in DATA.BusStations
                                                            where BusStationDAOCondition(item)
-                                             select item.Clone();
+                                                           select item.Clone();
             if (TempBusStationDAO.Count() == 0)
                 throw new BusStationExceptionDO("There are no stations in the system that meet the condition");
             return TempBusStationDAO;
@@ -233,7 +246,7 @@ namespace DL
                 throw new LineStationExceptionDO("The line does not exist and therefore no station can be added to it");
                 //return false;
             }
-            if (DATA.LineStations.Exists(mishehu => mishehu.IdentifyNumber == station.IdentifyNumber&& mishehu.CodeStation == station.CodeStation))
+            if (DATA.LineStations.Exists(mishehu => mishehu.IdentifyNumber == station.IdentifyNumber && mishehu.CodeStation == station.CodeStation))
             {
                 throw new LineStationExceptionDO("The station already exists on the line");
                 //return false;
@@ -245,10 +258,10 @@ namespace DL
         {
             if (!DATA.LineStations.Exists(mishehu => mishehu.IdentifyNumber == station.IdentifyNumber && mishehu.CodeStation == station.CodeStation))
             {
-                throw new DO.LineStationExceptionDO("The Station number " + station.CodeStation + " not found in the line "+ station.IdentifyNumber);
+                throw new DO.LineStationExceptionDO("The Station number " + station.CodeStation + " not found in the line " + station.IdentifyNumber);
                 //return false;
             }
-            DATA.LineStations.RemoveAll(b => b.IdentifyNumber == station.IdentifyNumber&& b.CodeStation == station.CodeStation);//מוחק את האובייקט הקיים
+            DATA.LineStations.RemoveAll(b => b.IdentifyNumber == station.IdentifyNumber && b.CodeStation == station.CodeStation);//מוחק את האובייקט הקיים
             DATA.LineStations.Add(station.Clone());//מכניס את החדש במקומו
             return true;
         }
@@ -283,25 +296,25 @@ namespace DL
         {
             IEnumerable<LineStationDAO> TempLineStationDAO = from LineStationDAO item in DATA.LineStations
                                                              where LineStationDAOCondition(item)
-                                             select item.Clone();
+                                                             select item.Clone();
             if (TempLineStationDAO.Count() == 0)
                 throw new LineStationExceptionDO("There are no line stations that meet the condition");
             return TempLineStationDAO;
         }
-        public LineStationDAO getOneObjectLineStationDAO(int identifyNumber,int codeStation)
+        public LineStationDAO getOneObjectLineStationDAO(int identifyNumber, int codeStation)
         {
             LineStationDAO lineStation1 = DATA.LineStations.Find(p => p.IdentifyNumber == identifyNumber && p.CodeStation == codeStation);
             if (lineStation1 != null)
                 return lineStation1.Clone();
             else
-                throw new DO.LineStationExceptionDO("The Station number " + codeStation + " not found in the line "+ identifyNumber);
+                throw new DO.LineStationExceptionDO("The Station number " + codeStation + " not found in the line " + identifyNumber);
         }
         #endregion
         //PairConsecutiveStations//זוג תחנות עוקבות
         #region PairConsecutiveStations
         public bool addPairConsecutiveStations(PairConsecutiveStationsDAO stations)
         {
-            if (DATA.PairConsecutiveStations.Exists(mishehu => mishehu.StationNum1 == stations.StationNum1&& mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1))
+            if (DATA.PairConsecutiveStations.Exists(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1))
             {
                 throw new PairConsecutiveStationsExceptionDO("The pair of stations already exists");
                 //return false;
@@ -351,14 +364,14 @@ namespace DL
         {
             IEnumerable<PairConsecutiveStationsDAO> TempPairConsecutiveStationsDAO = from PairConsecutiveStationsDAO item in DATA.PairConsecutiveStations
                                                                                      where PairConsecutiveStationsDAOCondition(item)
-                                             select item.Clone();
+                                                                                     select item.Clone();
             if (TempPairConsecutiveStationsDAO.Count() == 0)
                 throw new PairConsecutiveStationsExceptionDO("There is no pair of stations that meets the condition");
             return TempPairConsecutiveStationsDAO;
         }
         public PairConsecutiveStationsDAO getOneObjectPairConsecutiveStations(int stationNum1, int stationNum2)
         {
-            PairConsecutiveStationsDAO stations1 = DATA.PairConsecutiveStations.Find(p => p.StationNum1 == stationNum1&& p.StationNum1 == stationNum1|| p.StationNum2 == stationNum1 && p.StationNum1 == stationNum2);
+            PairConsecutiveStationsDAO stations1 = DATA.PairConsecutiveStations.Find(p => p.StationNum1 == stationNum1 && p.StationNum1 == stationNum1 || p.StationNum2 == stationNum1 && p.StationNum1 == stationNum2);
 
             if (stations1 != null)
                 return stations1.Clone();
@@ -368,3 +381,4 @@ namespace DL
         #endregion
     }
 }
+

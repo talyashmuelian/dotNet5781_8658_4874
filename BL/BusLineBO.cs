@@ -14,7 +14,7 @@ namespace BO
         public string Area { get; set; }//איזור
         public int FirstStationNum { get; set; }//מספר תחנה ראשונה
         public int LastStationNum { get; set; }//מספר תחנה אחרונה
-        public IEnumerable<DO.BusStationDAO> ListOfStations { get; set; }
+        public IEnumerable<StationInLineBO> ListOfStations { get; set; }
         public override string ToString()
         {
             return this.ToStringProperty();

@@ -21,6 +21,14 @@ namespace DS
         public static List<BusStationDAO> BusStations { get => busStations; }
         public static List<LineStationDAO> LineStations { get => lineStations; }
         public static List<PairConsecutiveStationsDAO> PairConsecutiveStations { get => pairConsecutiveStations; }
+        static DATA()
+        {
+            initBuses();
+            initBusLines();
+            initBusStations();
+            initLineStations();
+            initPairConsecutiveStations();
+        }
         public static void initBuses()
         {
             Buses.Add(new BusDAO
@@ -196,7 +204,7 @@ namespace DS
 
             Buses.Add(new BusDAO
             {
-                License = 3333333,
+                License = 3213333,
                 StartOfWork = DateTime.Today.AddYears(-20),
                 TotalKms = 9999999,
                 Fuel = 500,
