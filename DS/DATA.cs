@@ -1202,7 +1202,7 @@ namespace DS
             });
             LineStations.Add(new LineStationDAO
             {
-                CodeStation = 3836744,
+                CodeStation = 383744,
                 IdentifyNumber = 7,
                 NumStationInTheLine =6
             });
@@ -1385,7 +1385,7 @@ namespace DS
             });
             LineStations.Add(new LineStationDAO
             {
-                CodeStation =39475 ,
+                CodeStation = 398475,
                 IdentifyNumber = 10,
                 NumStationInTheLine =6
             });
@@ -1421,10 +1421,12 @@ namespace DS
                 foreach (BusStationDAO station2 in BusStations)
                 {
                     bool flag = false;//דגל שיהיה אמת אם התחנות כבר קיימות ושקר אם לא
-                    foreach (PairConsecutiveStationsDAO zug in PairConsecutiveStations)//בדיקה האם זוג התתחנות הזה כבר קיים באוסף
+                    foreach (PairConsecutiveStationsDAO zug in PairConsecutiveStations)//בדיקה האם זוג התחנות הזה כבר קיים באוסף
                     {
                         if (station1.CodeStation == zug.StationNum1 && station2.CodeStation == zug.StationNum2 || station1.CodeStation == zug.StationNum2 && station2.CodeStation == zug.StationNum1)
-                            flag=true; return;
+                        {
+                            flag = true; break;
+                        }
                     }
                     if (flag == false)
                     {

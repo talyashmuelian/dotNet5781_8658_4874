@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalObject", "DalObject\DalObject.csproj", "{AE84C83E-36A7-4E3A-834E-BDDC6F03F87D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIwpf", "UIwpf\UIwpf.csproj", "{E3291FD2-A0F1-4D80-9CFC-B3CFFD56D0BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{AE84C83E-36A7-4E3A-834E-BDDC6F03F87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE84C83E-36A7-4E3A-834E-BDDC6F03F87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE84C83E-36A7-4E3A-834E-BDDC6F03F87D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3291FD2-A0F1-4D80-9CFC-B3CFFD56D0BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3291FD2-A0F1-4D80-9CFC-B3CFFD56D0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3291FD2-A0F1-4D80-9CFC-B3CFFD56D0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3291FD2-A0F1-4D80-9CFC-B3CFFD56D0BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

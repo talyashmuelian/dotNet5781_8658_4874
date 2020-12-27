@@ -29,7 +29,6 @@ namespace BL
             //יכול להיות שצריך לעדכן את רשימת תחנות הקו
             return busLineDAO;
         }
-
         private BusLineBO convertoBO(BusLineDAO busLine)
         {
             BusLineBO busLineBO = new BusLineBO
@@ -107,12 +106,14 @@ namespace BL
             return result;
         }
         //הוספה, עדכון ומחיקת קו
-        public bool addBusLine(BusLineBO busLine)
+        public bool addBusLine(BusLineBO busLine)//הוספת קו אינה מאפשרת הוספת רשימת תחנות אוטומטית אלא רק ראשונה ואחרונה. אם רוצים להוסיף תחנות זה דרך מתודת הוספת תחנה לקו
         {
             bool result;
             try
             {
                 result = dal.addBusLine(convertDAO(busLine));
+                dal.addLineStation(new LineStationDAO {CodeStation= busLine.FirstStationNum, IdentifyNumber= busLine.IdentifyNumber, NumStationInTheLine=1});
+                dal.addLineStation(new LineStationDAO { CodeStation = busLine.LastStationNum, IdentifyNumber = busLine.IdentifyNumber, NumStationInTheLine = 2 });
             }
             catch (DO.BusLineExceptionDO ex)
             {
@@ -120,7 +121,7 @@ namespace BL
             }
             return result;
         }
-        public bool updateBusLine(BusLineBO busLine)
+        public bool updateBusLine(BusLineBO busLine)//עדכון השדות הפשוטים עבור קו. אם רוצים לבצע שינוי בתחנות שלו, כלומר להוסיף או להוריד זה במתודות הוספה ומחיקה של תחנה מקו
         {
             bool result;
             try
@@ -136,6 +137,59 @@ namespace BL
         public void deleteBusLine(BusLineBO busLine)
         {
 
+        }
+        public void addStationToLine(int codeStation, int identifyNumber, int location)//הוספת תחנה קיימת לקו קיים
+        {
+            BusStationDAO busStationDAO;
+            try
+            {
+                busStationDAO = dal.getOneObjectBusStationDAO(codeStation);
+            }
+            catch (DO.BusStationExceptionDO ex)
+            {
+                throw new BO.BusStationExceptionBO("Code Station number not found", ex);
+            }
+            BusLineDAO busLineDAO;
+            try
+            {
+                busLineDAO = dal.getOneObjectBusLineDAO(identifyNumber);
+            }
+            catch (DO.BusLineExceptionDO ex)
+            {
+                throw new BO.BusLineExceptionBO("Identify Number not found", ex);
+            }
+            foreach(LineStationDAO lineStation in dal.getAllLineStations())//בדיקה אם התחנה כבר קיימת בקו
+            {
+                if (lineStation.CodeStation == codeStation && lineStation.IdentifyNumber == identifyNumber)
+                    throw new BO.BusLineExceptionBO("The station already exists on this line");
+            }
+            int countStations=0;//כמה תחנות יש לקו
+            foreach (LineStationDAO lineStation in dal.getAllLineStations())//בדיקה אם המיקום הגיוני ולא גדול יותר מידי
+            {
+                if (lineStation.IdentifyNumber == identifyNumber)
+                    countStations++;
+            }
+            if(countStations+1< location)//אם המיקום גדול מידי
+                throw new BO.BusLineExceptionBO("The location sent is invalid. You must enter a location as the number of stations on the line or one more.");
+            
+            //צריך להזיז את כל התחנות שאחרי המיקום אחד קדימה אם ישנן
+            IEnumerable<LineStationDAO> stationsInLine = dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber);
+            foreach (LineStationDAO lineStation in stationsInLine)
+            {
+                dal.deleteLineStation(lineStation);//מחיקת התחנות של הקו מהמאגר על מנת להכניס חדשות במיקום נכון
+            }
+            foreach (LineStationDAO lineStation in stationsInLine)
+            {
+                if (lineStation.NumStationInTheLine>=location)
+                {
+                    dal.addLineStation(new LineStationDAO {CodeStation= lineStation.CodeStation, IdentifyNumber= lineStation.IdentifyNumber, NumStationInTheLine= lineStation.NumStationInTheLine + 1 });
+                }
+                else
+                {
+                    dal.addLineStation(new LineStationDAO { CodeStation = lineStation.CodeStation, IdentifyNumber = lineStation.IdentifyNumber, NumStationInTheLine = lineStation.NumStationInTheLine });
+                }
+            }
+            dal.addLineStation(new LineStationDAO { CodeStation = codeStation, IdentifyNumber = identifyNumber, NumStationInTheLine = location });
         }
         #endregion
         //אוטובוסים
@@ -306,11 +360,15 @@ namespace BL
             try
             {
                 IEnumerable<LineStationDAO> listLineStations = dal.getPartOfLineStations(item => item.CodeStation == busStation.CodeStation);//רשימה של תחנות קו המתאימות לתחנה הזאת
-                IEnumerable<BusLineBO> listOfLineInStation =
+                IEnumerable<LineInStationBO> listOfLineInStation =
                 from lineStation in listLineStations
-                from BusLine in GetAllBusLinesBO()
-                where lineStation.IdentifyNumber == BusLine.IdentifyNumber
-                select BusLine;
+                from BusLine1 in dal.getAllBusLines()
+                    //from station1 in dal.getAllBusStations()//זה לא עובד טוב, שם התחנה לא באמת נכון
+                    //let lastStationName = station1.NameStation
+                    //where station1.CodeStation== lineStation.CodeStation
+                where lineStation.IdentifyNumber == BusLine1.IdentifyNumber
+                let result = new LineInStationBO { LineNumber = BusLine1.LineNumber, LastStationName =dal.getOneObjectBusStationDAO(BusLine1.LastStationNum).NameStation, LastStationNum= BusLine1.LastStationNum }
+                select result;
                 busStationBO.ListOfLines = listOfLineInStation;
                 return busStationBO;
             }
@@ -359,6 +417,7 @@ namespace BL
                 //        //לבדוק איך לדעת את המיקום של התחנה בכל קו
                 //    });
                 //}
+                /////////בהוספת תחנה לא מוסיפים לה קווים מיד. אם רוצים להוסיף תחנה לקו עושים את זה דרך עדכון קו
                 result = dal.addBusStation(convertDAO(busStation));
                 
 

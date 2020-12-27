@@ -14,6 +14,7 @@ namespace BLAPI
         bool addBusLine(BusLineBO busLine);
         bool updateBusLine(BusLineBO busLine);
         void deleteBusLine(BusLineBO busLine);
+        void addStationToLine(int codeStation, int identifyNumber, int location);//הוספת תחנה קיימת לקו קיים
         IEnumerable<BusBO> GetAllBusesBO();//הדפסת כל האוטבוסים
         BusBO GetBusBO(int license);//קבלת פרטי אוטובוס בודד
         //הוספה, עדכון ומחיקת אוטובוס

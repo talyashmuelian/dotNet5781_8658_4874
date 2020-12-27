@@ -95,6 +95,7 @@ namespace DL
                 throw new BusLineExceptionDO("Identify-Number-Line exists allready");
                 //return false;
             }
+            busLine.IdentifyNumber = configoration.RunNumber;
             DATA.BusLines.Add(busLine.Clone());
             return true;
         }
@@ -230,7 +231,6 @@ namespace DL
         public BusStationDAO getOneObjectBusStationDAO(int codeStation)
         {
             BusStationDAO station1 = DATA.BusStations.Find(p => p.CodeStation == codeStation);
-
             if (station1 != null)
                 return station1.Clone();
             else
@@ -371,7 +371,7 @@ namespace DL
         }
         public PairConsecutiveStationsDAO getOneObjectPairConsecutiveStations(int stationNum1, int stationNum2)
         {
-            PairConsecutiveStationsDAO stations1 = DATA.PairConsecutiveStations.Find(p => p.StationNum1 == stationNum1 && p.StationNum1 == stationNum1 || p.StationNum2 == stationNum1 && p.StationNum1 == stationNum2);
+            PairConsecutiveStationsDAO stations1 = DATA.PairConsecutiveStations.Find(p => p.StationNum1 == stationNum1 && p.StationNum2 == stationNum2 || p.StationNum2 == stationNum1 && p.StationNum1 == stationNum2);
 
             if (stations1 != null)
                 return stations1.Clone();

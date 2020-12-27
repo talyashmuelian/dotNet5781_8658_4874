@@ -29,11 +29,12 @@ namespace UI
                 //Console.WriteLine(bl.GetBusBO(33333333));
                 //printAllBusStations();
                 //bl.addBusStation(new BusStationBO { CodeStation = 93939393, NameStation = "rachel hameshoreret" });
-                printAllBusStations();
+                //printAllBusStations();
                 //bl.deleteBusStation(new BusStationBO { CodeStation = 93939393, NameStation = "rachel hameshoreret" });
                 //printAllBusStations();
                 ////bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });;
                 //Console.WriteLine(bl.GetBusStationBO(123456));
+                //bl.GetBusLineBO(1);
                 printAllBusLines();
             }
             catch (Exception ex)
@@ -57,8 +58,16 @@ namespace UI
             foreach (var item in bl.GetAllBusStationsBO())
             {
                 Console.WriteLine(item);
-                foreach (var vvv in item.ListOfLines)
-                    Console.WriteLine(vvv.LineNumber);
+                try
+                {
+                    foreach (var vvv in item.ListOfLines)
+                    {
+                        Console.WriteLine(vvv);
+                        //Console.WriteLine(vvv.LastStationName);
+                        //Console.WriteLine(vvv.LastStationNum);
+                    }
+                }
+                catch { Console.WriteLine("no stations"); }
             }
             Console.WriteLine("-------------------------------");
         }
@@ -67,8 +76,8 @@ namespace UI
             foreach (var item in bl.GetAllBusLinesBO())
             {
                 Console.WriteLine(item);
-                //foreach (var vvv in item.ListOfStations)
-                //    Console.WriteLine(vvv.CodeStation);
+                foreach (var vvv in item.ListOfStations)
+                    Console.WriteLine(vvv);
             }
             Console.WriteLine("-------------------------------");
         }

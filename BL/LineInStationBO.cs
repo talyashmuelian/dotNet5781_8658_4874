@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace BO
 {
-    public class BusLineDAO//קו אוטובוס
+    public class LineInStationBO//קו אוטובוס
     {
-        public int IdentifyNumber { get; set; }//מספר מזהה קו
         public int LineNumber { get; set; }//מספר קו
-        public string Area { get; set; }//איזור
-        public int FirstStationNum { get; set; }//מספר תחנה ראשונה
+        public string LastStationName { get; set; }//שם תחנה אחרונה
         public int LastStationNum { get; set; }//מספר תחנה אחרונה
-
         public override string ToString()
         {
             return this.ToStringProperty();

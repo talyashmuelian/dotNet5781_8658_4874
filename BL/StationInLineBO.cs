@@ -11,6 +11,10 @@ namespace BO
         public int CodeStation { get; set; }//קוד תחנה
         public string NameStation { get; set; }//שם תחנה
         public int Distance { get; set; }//מרחק מתחנה קודמת בקמ
-        public int TimeDriving { get; set; }//זמן נסיעה מתחנה קודמת בקמ
+        public int TimeDriving { get; set; }//זמן נסיעה מתחנה קודמת בדקות
+        public override string ToString()
+        {
+            return this.ToStringProperty();
+        }
     }
 }

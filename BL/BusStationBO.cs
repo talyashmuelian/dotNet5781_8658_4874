@@ -13,10 +13,11 @@ namespace BO
         public double Longitude { get; set; }//קו אורך
         public string NameStation { get; set; }//שם תחנה
         public bool IsAccessible { get; set; }//האם יש גישה לנכים
-        public IEnumerable<BusLineBO> ListOfLines { get; set;}
+        public IEnumerable<LineInStationBO> ListOfLines { get; set;}
         public override string ToString()
         {
             return this.ToStringProperty();
+            ///לטפל בטוסטרינג הזה. הוא לא מדפיס את רשימת הקווים בתחנה
         }
     }
 }
