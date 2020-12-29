@@ -23,19 +23,54 @@ namespace UIwpf
     /// </summary>
     public partial class manager : Window
     {
-        IBL bl = BLFactory.GetBl();
-        ObservableCollection<BusBO> buses = new ObservableCollection<BusBO>();
-        public manager()
+        IBL bl;
+        public manager(IBL _bl)
         {
             InitializeComponent();
-            IEnumerable< BusBO> busList = bl.GetAllBusesBO();
-            foreach (var item in busList)
-            {
-                buses.Add(item);
-            }
-            this.lbBusesOnSystem.ItemsSource = buses;
-            //lbBusesOnSystem.ItemsSource = ;
+            
+            bl = _bl;
+            RefreshBusesLB();
+            RefreshLinesLB();
+            RefreshStationsLB();
+        }
+        void RefreshBusesLB()
+        {
+            lbBusesOnSystem.DataContext = bl.GetAllBusesBO().ToList();
+        }
+        void RefreshLinesLB()
+        {
+            lbLinesOnSystem.DataContext = bl.GetAllBusLinesBO().ToList();
+        }
+        void RefreshStationsLB()
+        {
+            lbStationsOnSystem.DataContext = bl.GetAllBusStationsBO().ToList();
         }
 
+        private void Button_ClickAddLine(object sender, RoutedEventArgs e)
+        {
+            addLine addLineWindow = new addLine(bl);
+            addLineWindow.ShowDialog();
+            try { bl.addBusLine(addLineWindow.newItem1); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה"); }
+            RefreshLinesLB();
+        }
+
+        private void Button_ClickDeleteLine(object sender, RoutedEventArgs e)
+        {
+            deleteLine deleteLineWindow = new deleteLine(bl);
+            deleteLineWindow.ShowDialog();
+            try { bl.deleteBusLine(deleteLineWindow.newItem1); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה"); }
+            RefreshLinesLB();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            updateLine updateLineWindow = new updateLine(bl);
+            updateLineWindow.ShowDialog();
+            try { bl.updateBusLine(updateLineWindow.newItem1); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה"); }
+            RefreshLinesLB();
+        }
     }
 }

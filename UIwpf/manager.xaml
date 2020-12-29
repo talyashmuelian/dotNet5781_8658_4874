@@ -7,20 +7,55 @@
         mc:Ignorable="d"
         Title="מנהל" Height="450" Width="800">
     <Window.Resources>
-        <DataTemplate x:Key="MyDataTemplate"                   DataType="local:MyData" >
+        <DataTemplate x:Key="MyDataTemplateBuses"                   DataType="local:MyData" >
+            <Grid Grid.IsSharedSizeScope="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" SharedSizeGroup="FirstNameColumn"/>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="4" Text=":מספר רישוי" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="3"  Text="{Binding Path=License}" FontSize="11" Foreground="#FF0D0D12" />
+                <Button x:Name="Treatment" Content="בצע טיפול" Grid.Column="1" Background="#FF8EBCD0" />
+                <Button x:Name="Fuel" Content="בצע תדלוק" Grid.Column="0" Background="#FF8EBCD0"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="MyDataTemplateLines"                   DataType="local:MyData" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="40" />
                     <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0"    Text="license number: " FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
-                <TextBlock Grid.Column="1"  Text="{Binding Path=License}" FontSize="11" Foreground="#FF0D0D12" />
-                <Button x:Name="Treatment" Content="Treatment" Grid.Column="2" Background="#FF8EBCD0" />
-                <Button x:Name="Fuel" Content="Fuel" Grid.Column="3" Background="#FF8EBCD0"/>
+                <TextBlock Grid.Column="5" Text=":מספר קו" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="4"  Text="{Binding Path=LineNumber}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="3" Text=":מזהה קו" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="2"  Text="{Binding Path=IdentifyNumber}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="1" Text=":איזור" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="0"  Text="{Binding Path=Area}" FontSize="11" Foreground="#FF0D0D12" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="MyDataTemplateStations"                   DataType="local:MyData" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="5" Text=":מספר תחנה" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="4"  Text="{Binding Path=CodeStation}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="3" Text=":שם תחנה " FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="2"  Text="{Binding Path=NameStation}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="1" Text=":גישה לנכים" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="0"  Text="{Binding Path=IsAccessible}" FontSize="11" Foreground="#FF0D0D12" />
             </Grid>
         </DataTemplate>
     </Window.Resources>
@@ -30,7 +65,7 @@
                 <TabItem Header="אוטובוסים">
                     <TabItem.Content>
                         <Grid>
-                            <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplate}"  HorizontalAlignment="Left" Height="294" Margin="118,60,0,0" VerticalAlignment="Top" Width="472"  SelectionMode="Single" />
+                            <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplateBuses}"  HorizontalAlignment="Left" Height="294" Margin="118,60,0,0" VerticalAlignment="Top" Width="419"  SelectionMode="Single" ItemsSource="{Binding}" />
                             <Button Content="הוספת אוטובוס" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="90"/>
                             <Button Content="עדכון אוטובוס" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="90"/>
                             <Button Content="מחיקת אוטובוס" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="90"/>
@@ -40,9 +75,12 @@
                 <TabItem Header="קווים">
                     <TabItem.Content>
                         <Grid>
-                            <Button Content="הוספת קו" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="90"/>
-                            <Button Content="עדכון קו" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="90"/>
-                            <Button Content="מחיקת קו" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="90"/>
+                            <ListBox x:Name="lbLinesOnSystem" ItemTemplate="{StaticResource MyDataTemplateLines}"  HorizontalAlignment="Left" Height="294" Margin="118,60,0,0" VerticalAlignment="Top" Width="457"  SelectionMode="Single" ItemsSource="{Binding}" />
+                            <Button Content="הוספת קו" HorizontalAlignment="Left" Margin="349,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddLine"/>
+                            <Button Content="עדכון קו" HorizontalAlignment="Left" Margin="472,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
+                            <Button Content="מחיקת קו" HorizontalAlignment="Left" Margin="590,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteLine"/>
+                            <Button Content="הוספת תחנה לקו" HorizontalAlignment="Left" Margin="206,10,0,0" VerticalAlignment="Top" Width="112"/>
+                            <Button Content="מחיקת תחנה מקו" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="112"/>
 
                         </Grid>
                     </TabItem.Content>
@@ -50,6 +88,7 @@
                 <TabItem Header="תחנות" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,-2,-2" Width="66">
                     <TabItem.Content>
                         <Grid>
+                            <ListBox x:Name="lbStationsOnSystem" ItemTemplate="{StaticResource MyDataTemplateStations}"  HorizontalAlignment="Left" Height="294" Margin="70,60,0,0" VerticalAlignment="Top" Width="520"  SelectionMode="Single" ItemsSource="{Binding}" />
                             <Button Content="הוספת תחנה" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="90"/>
                             <Button Content="עדכון תחנה" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="90"/>
                             <Button Content="מחיקת תחנה" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="90"/>

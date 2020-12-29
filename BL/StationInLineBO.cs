@@ -8,6 +8,7 @@ namespace BO
 {
     public class StationInLineBO
     {
+        public int NumStationInTheLine { get; set; }//מספר התחנה בקו
         public int CodeStation { get; set; }//קוד תחנה
         public string NameStation { get; set; }//שם תחנה
         public int Distance { get; set; }//מרחק מתחנה קודמת בקמ

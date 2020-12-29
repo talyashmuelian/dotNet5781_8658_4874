@@ -10,29 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using BLAPI;
 using BO;
-
 namespace UIwpf
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for addLine.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class addLine : Window
     {
-        IBL bl = BLFactory.GetBl();
-        public MainWindow()
+        IBL bl;
+        private BusLineBO newItem = new BusLineBO();
+        public BusLineBO newItem1 { get => newItem; set => newItem = value; }
+        public addLine(IBL _bl)
         {
             InitializeComponent();
-            
+            bl = _bl;
+            DataContext = newItem;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)//אירוע לחיצת כפתור מנהל
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            manager managerWindow = new manager(bl);
-            managerWindow.Show();
+            Close();
         }
     }
 }

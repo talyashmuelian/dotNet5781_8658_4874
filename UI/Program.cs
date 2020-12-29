@@ -36,10 +36,19 @@ namespace UI
                 //Console.WriteLine(bl.GetBusStationBO(123456));
                 //bl.GetBusLineBO(1);
                 printAllBusLines();
+                //bl.addStationToLine(123456, 5, 11);
+                bool a=bl.addBusLine(new BusLineBO { LineNumber = 12, Area = "aaa", FirstStationNum = 123456, LastStationNum = 111111 });
+                if (a)
+                { printAllBusLines(); }
+                //bl.delStationToLine(123456, 5);
+                //printAllBusLines();
+                //bl.deleteBusLine(new BusLineBO { IdentifyNumber = 2 });
+                //bl.deleteBusStation(new BusStationBO { CodeStation = 123456 });
+                //printAllBusStations();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
 
             Console.WriteLine("hiiiiiiiiiiiii");
@@ -67,7 +76,7 @@ namespace UI
                         //Console.WriteLine(vvv.LastStationNum);
                     }
                 }
-                catch { Console.WriteLine("no stations"); }
+                catch { Console.WriteLine("no lines"); }
             }
             Console.WriteLine("-------------------------------");
         }

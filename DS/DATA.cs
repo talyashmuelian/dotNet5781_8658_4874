@@ -324,7 +324,7 @@ namespace DS
                 CodeStation =123456,
                 Latitude=34.45,
                 Longitude=33.6,
-                NameStation="mizpe nevo",
+                NameStation="מצפה נבו",
                 IsAccessible=true
             });
             BusStations.Add(new BusStationDAO
@@ -332,7 +332,7 @@ namespace DS
                 CodeStation =111111,
                 Latitude =30.01,
                 Longitude =31.11,
-                NameStation ="shomron",
+                NameStation ="שומרון",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
@@ -340,7 +340,7 @@ namespace DS
                 CodeStation =111222,
                 Latitude =40.6,
                 Longitude =20.45,
-                NameStation ="avraham avinu",
+                NameStation ="אברהם אבינו",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO

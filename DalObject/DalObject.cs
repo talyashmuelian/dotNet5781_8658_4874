@@ -97,6 +97,8 @@ namespace DL
             }
             busLine.IdentifyNumber = configoration.RunNumber;
             DATA.BusLines.Add(busLine.Clone());
+            DATA.LineStations.Add(new LineStationDAO { CodeStation = busLine.FirstStationNum, IdentifyNumber = busLine.IdentifyNumber, NumStationInTheLine = 1 });
+            DATA.LineStations.Add(new LineStationDAO { CodeStation = busLine.LastStationNum, IdentifyNumber = busLine.IdentifyNumber, NumStationInTheLine = 2 });
             return true;
         }
         public bool updateBusLine(BusLineDAO busLine)
@@ -106,6 +108,10 @@ namespace DL
                 throw new DO.BusLineExceptionDO("The Identify-Number-Line " + busLine.IdentifyNumber + " not found");
                 //return false;
             }
+            BusLineDAO currentLine = getOneObjectBusLineDAO(busLine.IdentifyNumber);//שמירה על הערכים הקודמים של הקו
+            busLine.IdentifyNumber = currentLine.IdentifyNumber;
+            busLine.FirstStationNum = currentLine.FirstStationNum;
+            busLine.LastStationNum = currentLine.LastStationNum;
             DATA.BusLines.RemoveAll(b => b.IdentifyNumber == busLine.IdentifyNumber);//מוחק את הקו אוטובוס הקיים
             DATA.BusLines.Add(busLine.Clone());//מכניס את החדש במקומו
             return true;
@@ -213,6 +219,8 @@ namespace DL
             //    DS.DataSource.Buses.Remove(todelete);
             //}
             DS.DATA.BusStations.RemoveAll(item => item.CodeStation == station.CodeStation);
+            //מחיקת האובייקטים של תחנות עוקבות שקשורות לתחנה הזאת
+            DATA.PairConsecutiveStations.RemoveAll(mishehu => mishehu.StationNum1 == station.CodeStation || mishehu.StationNum2 == station.CodeStation);//מוחק את כל הזוגות שקשורים לתחנה הנמחקת
         }
         public IEnumerable<BusStationDAO> getAllBusStations()
         {
@@ -241,11 +249,11 @@ namespace DL
         #region LineStation
         public bool addLineStation(LineStationDAO station)
         {
-            if (!DATA.BusLines.Exists(mishehu => mishehu.IdentifyNumber == station.IdentifyNumber))//אם הקו לא קיים בכלל
-            {
-                throw new LineStationExceptionDO("The line does not exist and therefore no station can be added to it");
-                //return false;
-            }
+            //if (!DATA.BusLines.Exists(mishehu => mishehu.IdentifyNumber == station.IdentifyNumber))//אם הקו לא קיים בכלל
+            //{
+            //    throw new LineStationExceptionDO("The line does not exist and therefore no station can be added to it");
+            //    //return false;
+            //}
             if (DATA.LineStations.Exists(mishehu => mishehu.IdentifyNumber == station.IdentifyNumber && mishehu.CodeStation == station.CodeStation))
             {
                 throw new LineStationExceptionDO("The station already exists on the line");

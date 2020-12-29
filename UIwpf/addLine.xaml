@@ -1,0 +1,24 @@
+﻿<Window x:Class="UIwpf.addLine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIwpf"
+        mc:Ignorable="d"
+        Title="addLine" Height="450" Width="800">
+    <Grid>
+        <TextBlock x:Name="addLine111" Text="הוספת קו"  HorizontalAlignment="Left" Margin="377,0,0,374.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="36" Width="92"/>
+        <TextBlock x:Name="explane" Text="עליך להוסיף מספר קו, איזור וחובה להוסיף שתי תחנות שקיימות במערכת. אם ברצונך להוסיף תחנות נוספות בצע זאת בכפתור הייעודי" HorizontalAlignment="Left" Margin="73,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="23" Width="701"/>
+        <TextBlock HorizontalAlignment="Left" Margin="573,100,0,0" TextWrapping="Wrap" Text=":מספר הקו להוספה" VerticalAlignment="Top" Height="29" Width="102"/>
+        <TextBlock HorizontalAlignment="Left" Margin="574,150,0,0" TextWrapping="Wrap" Text=":איזור הקו להוספה" VerticalAlignment="Top" Height="29" Width="102"/>
+        <TextBlock HorizontalAlignment="Left" Margin="556,200,0,0" TextWrapping="Wrap" Text=":מספר התחנה הראשונה" VerticalAlignment="Top" Height="29" Width="129"/>
+        <TextBlock HorizontalAlignment="Left" Margin="556,250,0,0" TextWrapping="Wrap" Text=":מספר התחנה האחרונה" VerticalAlignment="Top" Height="29" Width="129"/>
+        <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="419,100,0,0" TextWrapping="Wrap" Text="{Binding Path=LineNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="419,150,0,0" TextWrapping="Wrap" Text="{Binding Path=Area, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addLine3" HorizontalAlignment="Left" Height="23" Margin="419,200,0,0" TextWrapping="Wrap" Text="{Binding Path=FirstStationNum, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addLine4" HorizontalAlignment="Left" Height="23" Margin="419,250,0,0" TextWrapping="Wrap" Text="{Binding Path=LastStationNum, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="addButton" Content="הוסף" HorizontalAlignment="Left" Margin="411,300,0,0" VerticalAlignment="Top" Width="128" Height="60" Click="addButton_Click"/>
+
+
+    </Grid>
+</Window>
