@@ -139,7 +139,7 @@ namespace BL
             }
             return result;
         }
-        public void deleteBusLine(BusLineBO busLine)
+        public bool deleteBusLine(BusLineBO busLine)
         {
             try
             {
@@ -164,6 +164,7 @@ namespace BL
             {
                 throw new BO.BusLineExceptionBO("Does not exist in the system", ex);
             }
+            return true;
             
         }
         public void delStationToLine(int codeStation, int identifyNumber)//מחיקת תחנה קיימת מקו קיים
@@ -566,7 +567,7 @@ namespace BL
             }
             return result;
         }
-        public void deleteBusStation(BusStationBO busStation)//אפשר למחוק תחנה רק אם אף קו לא עובר בה
+        public bool deleteBusStation(BusStationBO busStation)//אפשר למחוק תחנה רק אם אף קו לא עובר בה
         {
             try
             {
@@ -585,6 +586,7 @@ namespace BL
                         throw new BO.BusStationExceptionBO("There are lines that pass through this station, so it is not possible to delete it.");
                 }
                 dal.deleteBusStation(convertDAO(busStation));
+                return true;
             }
             catch (DO.BusStationExceptionDO ex)
             {

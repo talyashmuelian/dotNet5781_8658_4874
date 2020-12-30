@@ -55,6 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="addStation.xaml.cs">
+      <DependentUpon>addStation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addStationToLine.xaml.cs">
+      <DependentUpon>addStationToLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="deleteStation.xaml.cs">
+      <DependentUpon>deleteStation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="delStationFromLine.xaml.cs">
+      <DependentUpon>delStationFromLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="showLine.xaml.cs">
+      <DependentUpon>showLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="stationToLine.cs" />
     <Compile Include="updateLine.xaml.cs">
       <DependentUpon>updateLine.xaml</DependentUpon>
     </Compile>
@@ -62,7 +78,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="addStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addStationToLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="deleteLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="deleteStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="delStationFromLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,6 +117,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="manager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="showLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,6 +150,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\BO.BusLineBO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -75,12 +75,12 @@
                 <TabItem Header="קווים">
                     <TabItem.Content>
                         <Grid>
-                            <ListBox x:Name="lbLinesOnSystem" ItemTemplate="{StaticResource MyDataTemplateLines}"  HorizontalAlignment="Left" Height="294" Margin="118,60,0,0" VerticalAlignment="Top" Width="457"  SelectionMode="Single" ItemsSource="{Binding}" />
+                            <ListBox x:Name="lbLinesOnSystem" ItemTemplate="{StaticResource MyDataTemplateLines}"  HorizontalAlignment="Left" Height="294" Margin="118,60,0,0" VerticalAlignment="Top" Width="457"  SelectionMode="Single" MouseDoubleClick="showDataLines_doubleClick" ItemsSource="{Binding}" />
                             <Button Content="הוספת קו" HorizontalAlignment="Left" Margin="349,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddLine"/>
-                            <Button Content="עדכון קו" HorizontalAlignment="Left" Margin="472,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
+                            <Button Content="עדכון קו" HorizontalAlignment="Left" Margin="472,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickUpdateLine"/>
                             <Button Content="מחיקת קו" HorizontalAlignment="Left" Margin="590,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteLine"/>
-                            <Button Content="הוספת תחנה לקו" HorizontalAlignment="Left" Margin="206,10,0,0" VerticalAlignment="Top" Width="112"/>
-                            <Button Content="מחיקת תחנה מקו" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="112"/>
+                            <Button Content="הוספת תחנה לקו" HorizontalAlignment="Left" Margin="206,10,0,0" VerticalAlignment="Top" Width="112" Click="Button_ClickAddStationToLine"/>
+                            <Button Content="מחיקת תחנה מקו" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="112" Click="Button_ClickDeleteStationFromLine"/>
 
                         </Grid>
                     </TabItem.Content>
@@ -89,9 +89,9 @@
                     <TabItem.Content>
                         <Grid>
                             <ListBox x:Name="lbStationsOnSystem" ItemTemplate="{StaticResource MyDataTemplateStations}"  HorizontalAlignment="Left" Height="294" Margin="70,60,0,0" VerticalAlignment="Top" Width="520"  SelectionMode="Single" ItemsSource="{Binding}" />
-                            <Button Content="הוספת תחנה" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="90"/>
+                            <Button Content="הוספת תחנה" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddStation"/>
                             <Button Content="עדכון תחנה" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="90"/>
-                            <Button Content="מחיקת תחנה" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="90"/>
+                            <Button Content="מחיקת תחנה" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteStation"/>
                         </Grid>
                     </TabItem.Content>
                 </TabItem>

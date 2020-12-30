@@ -1,0 +1,44 @@
+﻿<Window x:Class="UIwpf.showLine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIwpf"
+        mc:Ignorable="d"
+        Title="showLine" Height="450" Width="1000">
+    <Window.Resources>
+        <DataTemplate x:Key="MyDataTemplateStationsInLine"                   DataType="local:MyData" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="230" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="15" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="6"  Text="{Binding Path=NumStationInTheLine}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="5" Text="{Binding Path=CodeStation}" FontSize="11" Foreground="#FF0D0D12"/>
+                <TextBlock Grid.Column="4"  Text="{Binding Path=NameStation}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="3" Text=":המרחק מהתחנה הקודמת בק'מ" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="2"  Text="{Binding Path=Distance}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="1" Text=":זמן הנסיעה הממוצע מהתחנה הקודמת" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="0"  Text="{Binding Path=TimeDriving}" FontSize="11" Foreground="#FF0D0D12" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <ListBox x:Name="lbStationsInLineOnSystem" ItemTemplate="{StaticResource MyDataTemplateStationsInLine}"  HorizontalAlignment="Left" Height="243" Margin="124,62,0,0" VerticalAlignment="Top" Width="772"  SelectionMode="Single" ItemsSource="{Binding}" />
+        <TextBlock HorizontalAlignment="Left" Margin="828,20,0,0" TextWrapping="Wrap" Text=":נתוני הקו" VerticalAlignment="Top" Height="27" Width="132"/>
+        <TextBlock HorizontalAlignment="Left" Margin="707,20,0,0" TextWrapping="Wrap" Text=":מספר מזהה" VerticalAlignment="Top" Height="19" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="497,18,0,0" TextWrapping="Wrap" Text="{Binding IdentifyNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="560,18,0,0" TextWrapping="Wrap" Text=":מספר קו" VerticalAlignment="Top" Height="19" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="651,18,0,0" TextWrapping="Wrap" Text="{Binding LineNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="435,18,0,0" TextWrapping="Wrap" Text=":איזור" VerticalAlignment="Top" Height="19" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="347,18,0,0" TextWrapping="Wrap" Text="{Binding Area}" VerticalAlignment="Top" Height="19" Width="70"/>
+
+
+    </Grid>
+</Window>

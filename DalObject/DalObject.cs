@@ -116,7 +116,7 @@ namespace DL
             DATA.BusLines.Add(busLine.Clone());//מכניס את החדש במקומו
             return true;
         }
-        public void deleteBusLine(BusLineDAO busLine)
+        public bool deleteBusLine(BusLineDAO busLine)
         {
             if (!DS.DATA.BusLines.Exists(item => item.IdentifyNumber == busLine.IdentifyNumber))
             {
@@ -137,6 +137,7 @@ namespace DL
             //    DS.DataSource.Buses.Remove(todelete);
             //}
             DS.DATA.BusLines.RemoveAll(item => item.IdentifyNumber == busLine.IdentifyNumber);
+            return true;
         }
         public IEnumerable<BusLineDAO> getAllBusLines()
         {
@@ -198,7 +199,7 @@ namespace DL
             DATA.BusStations.Add(station.Clone());//מכניס את החדש במקומו
             return true;
         }
-        public void deleteBusStation(BusStationDAO station)
+        public bool deleteBusStation(BusStationDAO station)
         {
             if (!DS.DATA.BusStations.Exists(item => item.CodeStation == station.CodeStation))
             {
@@ -221,6 +222,7 @@ namespace DL
             DS.DATA.BusStations.RemoveAll(item => item.CodeStation == station.CodeStation);
             //מחיקת האובייקטים של תחנות עוקבות שקשורות לתחנה הזאת
             DATA.PairConsecutiveStations.RemoveAll(mishehu => mishehu.StationNum1 == station.CodeStation || mishehu.StationNum2 == station.CodeStation);//מוחק את כל הזוגות שקשורים לתחנה הנמחקת
+            return true;
         }
         public IEnumerable<BusStationDAO> getAllBusStations()
         {

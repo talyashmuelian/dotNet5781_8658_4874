@@ -22,7 +22,7 @@ namespace DLAPI
         #region BusLine
         bool addBusLine(BusLineDAO busLine);
         bool updateBusLine(BusLineDAO busLine);
-        void deleteBusLine(BusLineDAO busLine);
+        bool deleteBusLine(BusLineDAO busLine);
         IEnumerable<BusLineDAO> getAllBusLines();
         IEnumerable<BusLineDAO> getPartOfBusLines(Predicate<BusLineDAO> BusLineDAOCondition);
         BusLineDAO getOneObjectBusLineDAO(int identifyNumber);
@@ -31,7 +31,7 @@ namespace DLAPI
         #region BusStation
         bool addBusStation(BusStationDAO station);
         bool updateBusStation(BusStationDAO station);
-        void deleteBusStation(BusStationDAO station);
+        bool deleteBusStation(BusStationDAO station);
         IEnumerable<BusStationDAO> getAllBusStations();
         IEnumerable<BusStationDAO> getPartOfBusStations(Predicate<BusStationDAO> BusStationDAOCondition);
         BusStationDAO getOneObjectBusStationDAO(int codeStation);

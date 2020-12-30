@@ -23,6 +23,7 @@ namespace UIwpf
         IBL bl;
         private BusLineBO newItem = new BusLineBO();
         public BusLineBO newItem1 { get => newItem; set => newItem = value; }
+        public bool ifDone { get; set; } = false;
         public addLine(IBL _bl)
         {
             InitializeComponent();
@@ -32,6 +33,11 @@ namespace UIwpf
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            addLine1.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            addLine2.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            addLine3.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            addLine4.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            ifDone = true;
             Close();
         }
     }
