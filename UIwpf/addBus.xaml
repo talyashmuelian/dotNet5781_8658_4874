@@ -1,0 +1,19 @@
+﻿<Window x:Class="UIwpf.addBus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIwpf"
+        mc:Ignorable="d"
+        Title="addBus" Height="450" Width="800">
+    <Grid>
+        <TextBlock x:Name="addLine111" Text="הוספת אוטובוס"  HorizontalAlignment="Left" Margin="377,0,0,356.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="36" Width="92"/>
+        <TextBlock HorizontalAlignment="Left" Margin="459,100,0,0" TextWrapping="Wrap" Text=":מספר הרישוי להוספה" VerticalAlignment="Top" Height="23" Width="118"/>
+        <TextBlock HorizontalAlignment="Left" Margin="499,150,0,0" TextWrapping="Wrap" Text=":נסועה" VerticalAlignment="Top" Height="29" Width="102"/>
+        <TextBlock HorizontalAlignment="Left" Margin="480,200,0,0" TextWrapping="Wrap" Text=":תאריך רישוי" VerticalAlignment="Top" Height="29" Width="129"/>
+        <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" Text="{Binding Path=License,UpdateSourceTrigger=Explicit, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="275,150,0,0" TextWrapping="Wrap" Text="{Binding Path=TotalKms, UpdateSourceTrigger=Explicit, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="addButton" Content="הוסף" HorizontalAlignment="Left" Margin="335,300,0,0" VerticalAlignment="Top" Width="132" Height="40" Click="addButton_Click" />
+        <DatePicker HorizontalAlignment="Left" Margin="285,200,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartOfWork, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+    </Grid>
+</Window>

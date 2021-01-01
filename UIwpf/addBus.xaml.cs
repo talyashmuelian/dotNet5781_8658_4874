@@ -16,23 +16,27 @@ using BO;
 namespace UIwpf
 {
     /// <summary>
-    /// Interaction logic for addStation.xaml
+    /// Interaction logic for addBus.xaml
     /// </summary>
-    public partial class addStation : Window
+    public partial class addBus : Window
     {
         IBL bl;
-        private BusStationBO newItem = new BusStationBO();
-        public BusStationBO newItem1 { get => newItem; set => newItem = value; }
+        private BusBO newItem = new BusBO();
+        public BusBO newItem1 { get => newItem; set => newItem = value; }
         public bool ifDone { get; set; } = false;
-        public addStation(IBL _bl)
+        public addBus(IBL _bl)
         {
             InitializeComponent();
             bl = _bl;
             DataContext = newItem;
         }
 
-        private void Button_ClickAddStation(object sender, RoutedEventArgs e)
+        private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            newItem.DateTreatLast= DateTime.Now;
+            newItem.Fuel = 1200;
+            newItem.KmFromTreament = 0;
+            newItem.Status = (Status)1;//מוכן
             ifDone = true;
             Close();
         }

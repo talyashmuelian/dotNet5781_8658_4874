@@ -23,6 +23,7 @@ namespace UIwpf
         IBL bl;
         private BusLineBO newItem = new BusLineBO();
         public BusLineBO newItem1 { get => newItem; set => newItem = value; }
+        public bool ifDone { get; set; } = false;
         public updateLine(IBL _bl)
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace UIwpf
 
         private void Button_ClickUpdate(object sender, RoutedEventArgs e)
         {
+            ifDone = true;
             Close();
         }
     }

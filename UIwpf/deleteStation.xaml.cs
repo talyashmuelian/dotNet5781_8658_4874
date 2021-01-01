@@ -23,9 +23,18 @@ namespace UIwpf
         IBL bl;
         private BusStationBO newItem = new BusStationBO();
         public BusStationBO newItem1 { get => newItem; set => newItem = value; }
-        public deleteStation()
+        public bool ifDone { get; set; } = false;
+        public deleteStation(IBL _bl)
         {
             InitializeComponent();
+            bl = _bl;
+            DataContext = newItem;
+        }
+
+        private void Button_ClickDelStation(object sender, RoutedEventArgs e)
+        {
+            ifDone = true;
+            Close();
         }
     }
 }

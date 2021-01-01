@@ -16,25 +16,17 @@ using BO;
 namespace UIwpf
 {
     /// <summary>
-    /// Interaction logic for addStation.xaml
+    /// Interaction logic for showStation.xaml
     /// </summary>
-    public partial class addStation : Window
+    public partial class showStation : Window
     {
         IBL bl;
-        private BusStationBO newItem = new BusStationBO();
-        public BusStationBO newItem1 { get => newItem; set => newItem = value; }
-        public bool ifDone { get; set; } = false;
-        public addStation(IBL _bl)
+        public showStation(IBL _bl, BusStationBO currentStation)
         {
             InitializeComponent();
             bl = _bl;
-            DataContext = newItem;
-        }
-
-        private void Button_ClickAddStation(object sender, RoutedEventArgs e)
-        {
-            ifDone = true;
-            Close();
+            DataContext = currentStation;
+            lbLinesInStationOnSystem.DataContext = currentStation.ListOfLines.ToList();
         }
     }
 }

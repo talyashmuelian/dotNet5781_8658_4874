@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="addBus.xaml.cs">
+      <DependentUpon>addBus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="addStation.xaml.cs">
       <DependentUpon>addStation.xaml</DependentUpon>
     </Compile>
@@ -70,10 +73,20 @@
     <Compile Include="showLine.xaml.cs">
       <DependentUpon>showLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="showStation.xaml.cs">
+      <DependentUpon>showStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="stationToLine.cs" />
     <Compile Include="updateLine.xaml.cs">
       <DependentUpon>updateLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="updateStation.xaml.cs">
+      <DependentUpon>updateStation.xaml</DependentUpon>
+    </Compile>
+    <Page Include="addBus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="addLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,7 +137,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="showStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="updateLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

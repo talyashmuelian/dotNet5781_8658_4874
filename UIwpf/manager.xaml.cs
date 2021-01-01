@@ -70,8 +70,9 @@ namespace UIwpf
             deleteLineWindow.ShowDialog();
             bool a = false;
             try 
-            { 
-                a=bl.deleteBusLine(deleteLineWindow.newItem1); 
+            {
+                if (deleteLineWindow.ifDone)
+                { a = bl.deleteBusLine(deleteLineWindow.newItem1); }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error);}
             RefreshLinesLB();
@@ -88,7 +89,9 @@ namespace UIwpf
             bool a = false;
             try 
             {
-                a=bl.updateBusLine(updateLineWindow.newItem1); 
+                if (updateLineWindow.ifDone)
+                { a = bl.updateBusLine(updateLineWindow.newItem1); }
+                 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             RefreshLinesLB();
@@ -126,8 +129,8 @@ namespace UIwpf
             bool a = false;
             try
             {
-                a = bl.addBusStation(addStationWindow.newItem1);
-
+                if (addStationWindow.ifDone)
+                { a = bl.addBusStation(addStationWindow.newItem1); }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             RefreshStationsLB();
@@ -139,19 +142,63 @@ namespace UIwpf
 
         private void Button_ClickDeleteStation(object sender, RoutedEventArgs e)
         {
-        //    deleteStation deleteStationWindow = new deleteStation(bl);
-        //    deleteStationWindow.ShowDialog();
-        //    bool a = false;
-        //    try
-        //    {
-        //        a = bl.deleteBusStation(deleteStationWindow.newItem1);
-        //    }
-        //    catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
-        //    RefreshStationsLB();
-        //    if (a)
-        //    {
-        //        MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
-        //    }
+            deleteStation deleteStationWindow = new deleteStation(bl);
+            deleteStationWindow.ShowDialog();
+            bool a = false;
+            try
+            {
+                if (deleteStationWindow.ifDone)
+                { a = bl.deleteBusStation(deleteStationWindow.newItem1); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+            RefreshStationsLB();
+            if (a)
+            {
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void Button_ClickUpdateStation(object sender, RoutedEventArgs e)
+        {
+            updateStation updateStationWindow = new updateStation(bl);
+            updateStationWindow.ShowDialog();
+            bool a = false;
+            try
+            {
+                if (updateStationWindow.ifDone)
+                { a = bl.updateBusStation(updateStationWindow.newItem1); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+            RefreshStationsLB();
+            if (a)
+            {
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+        private void showDataStations_doubleClick(object sender, RoutedEventArgs e)//חלון נתוני תחנה
+        {
+            var fxElt = sender as ListBox;
+            BusStationBO CurrentStation = fxElt.SelectedItem as BusStationBO;
+            showStation showStationWindow = new showStation(bl, CurrentStation);
+            showStationWindow.ShowDialog();
+        }
+
+        private void Button_ClickAddBus(object sender, RoutedEventArgs e)
+        {
+            addBus addBusWindow = new addBus(bl);
+            addBusWindow.ShowDialog();
+            bool a = false;
+            try
+            {
+                if (addBusWindow.ifDone)
+                { a = bl.addBus(addBusWindow.newItem1); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+            RefreshBusesLB();
+            if (a)
+            {
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
