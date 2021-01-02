@@ -8,7 +8,7 @@ namespace DO
 {
     public class BusDAO
     {
-        public int License { get; set; }//מספר רישוי
+        public string License { get; set; }//מספר רישוי
         public DateTime StartOfWork { get; set; }//תאריך רישוי
         public int TotalKms { get; set; }//קילומטרז'
         public int Fuel { get; set; }//מיכל דלק

@@ -40,7 +40,7 @@ namespace DL
             DATA.Buses.Add(bus.Clone());//מכניס את החדש במקומו
             return true;
         }
-        public void deleteBus(BusDAO bus)
+        public bool deleteBus(BusDAO bus)
         {
             if (!DS.DATA.Buses.Exists(item => item.License == bus.License))
             {
@@ -61,6 +61,7 @@ namespace DL
             //    DS.DataSource.Buses.Remove(todelete);
             //}
             DS.DATA.Buses.RemoveAll(item => item.License == bus.License);
+            return true;
         }
         public IEnumerable<BusDAO> getAllBuses()
         {
@@ -76,7 +77,7 @@ namespace DL
                 throw new BusExceptionDO("There are no buses in the system that meet the condition");
             return TempBusDAO;
         }
-        public BusDAO getOneObjectBusDAO(int license)
+        public BusDAO getOneObjectBusDAO(string license)
         {
             BusDAO bus1 = DATA.Buses.Find(p => p.License == license);
 

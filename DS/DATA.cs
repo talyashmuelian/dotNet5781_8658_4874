@@ -33,7 +33,7 @@ namespace DS
         {
             Buses.Add(new BusDAO
             {
-                License = 1234567,
+                License = "1234567",
                 StartOfWork = DateTime.Today.AddYears(-3),
                 TotalKms = 5000,
                 Fuel = 1200,
@@ -43,7 +43,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 1234578,
+                License = "1234578",
                 StartOfWork = DateTime.Today.AddYears(-3),
                 TotalKms = 6000,
                 Fuel = 1200,
@@ -53,7 +53,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 1222567,
+                License = "1222567",
                 StartOfWork = DateTime.Today.AddYears(-3),
                 TotalKms = 12000,
                 Fuel = 1000,
@@ -63,7 +63,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 4444567,
+                License = "4444567",
                 StartOfWork = DateTime.Today.AddYears(-10),
                 TotalKms = 1000,
                 Fuel = 500,
@@ -73,7 +73,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 12341234,
+                License = "12341234",
                 StartOfWork = DateTime.Today.AddYears(-1),
                 TotalKms = 14000,
                 Fuel = 1200,
@@ -83,7 +83,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 88888888,
+                License = "88888888",
                 StartOfWork = DateTime.Today.AddYears(-2),
                 TotalKms = 13000,
                 Fuel = 700,
@@ -93,7 +93,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 33333333,
+                License = "33333333",
                 StartOfWork = DateTime.Today.AddYears(-0),
                 TotalKms = 15000,
                 Fuel = 1200,
@@ -103,7 +103,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 4444444,
+                License = "4444444",
                 StartOfWork = DateTime.Today.AddYears(-4),
                 TotalKms = 3000,
                 Fuel = 1200,
@@ -113,7 +113,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 1231235,
+                License = "1231235",
                 StartOfWork = DateTime.Today.AddYears(-11),
                 TotalKms = 18000,
                 Fuel = 1200,
@@ -123,7 +123,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 56756788,
+                License = "56756788",
                 StartOfWork = DateTime.Today.AddYears(-1),
                 TotalKms = 8000,
                 Fuel = 900,
@@ -133,7 +133,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 23423455,
+                License = "23423455",
                 StartOfWork = DateTime.Today.AddYears(-2),
                 TotalKms = 9000,
                 Fuel = 1200,
@@ -143,7 +143,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 32132166,
+                License = "32132166",
                 StartOfWork = DateTime.Today.AddYears(-0),
                 TotalKms = 8000,
                 Fuel = 900,
@@ -153,7 +153,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 65466777,
+                License = "65466777",
                 StartOfWork = DateTime.Today.AddYears(-0),
                 TotalKms = 7000,
                 Fuel = 1200,
@@ -163,7 +163,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 44444555,
+                License = "44444555",
                 StartOfWork = DateTime.Today.AddYears(-1),
                 TotalKms = 10000,
                 Fuel = 800,
@@ -173,7 +173,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 3213214,
+                License = "3213214",
                 StartOfWork = DateTime.Today.AddYears(-13),
                 TotalKms = 30000,
                 Fuel = 1200,
@@ -183,7 +183,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 12332112,
+                License = "12332112",
                 StartOfWork = DateTime.Today.AddYears(-2),
                 TotalKms = 45000,
                 Fuel = 600,
@@ -193,7 +193,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 9877896,
+                License = "9877896",
                 StartOfWork = DateTime.Today.AddYears(-9),
                 TotalKms = 8000,
                 Fuel = 1200,
@@ -204,7 +204,7 @@ namespace DS
 
             Buses.Add(new BusDAO
             {
-                License = 3213333,
+                License = "3213333",
                 StartOfWork = DateTime.Today.AddYears(-20),
                 TotalKms = 9999999,
                 Fuel = 500,
@@ -214,7 +214,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 77745617,
+                License = "77745617",
                 StartOfWork = DateTime.Today.AddYears(-2),
                 TotalKms = 5000,
                 Fuel = 1200,
@@ -224,7 +224,7 @@ namespace DS
             });
             Buses.Add(new BusDAO
             {
-                License = 6666666,
+                License = "6666666",
                 StartOfWork = DateTime.Today.AddYears(-100),
                 TotalKms = 5000,
                 Fuel = 1200,

@@ -339,7 +339,7 @@ namespace BL
         {
             BusDAO busDAO = new BusDAO
             {
-                License = Int32.Parse(bus.License),
+                License = bus.License,//Int32.Parse(bus.License)
                 StartOfWork = bus.StartOfWork,
                 TotalKms = bus.TotalKms,
                 Fuel = bus.Fuel,
@@ -355,7 +355,7 @@ namespace BL
         {
             return new BusBO
             {
-                License = bus.License.ToString(),
+                License = bus.License,
                 StartOfWork = bus.StartOfWork,
                 TotalKms = bus.TotalKms,
                 Fuel = bus.Fuel,
@@ -371,7 +371,7 @@ namespace BL
                    select convertoBO(bus);
         }
         //קבלת פרטי אוטובוס בודד
-        public BusBO GetBusBO(int license)
+        public BusBO GetBusBO(string license)
         {
             BusBO result = new BusBO();
             BusDAO busDAO;
@@ -392,6 +392,12 @@ namespace BL
             bool result;
             try
             {
+                if (bus.License.Length < 7 || bus.License.Length > 8)
+                    throw new BusExceptionBO("מספר הרישוי ארוך או קצר מידי. הכנס מספר באורך תקין");
+                if (bus.StartOfWork.Year < 2018 && bus.License.Length > 7)
+                    throw new BusExceptionBO("מספר הרישוי ארוך מידי ואיננו תואם לתאריך הרישוי");
+                if (bus.StartOfWork.Year >= 2018 && bus.License.Length <8)
+                    throw new BusExceptionBO("מספר הרישוי קצר מידי ואיננו תואם לתאריך הרישוי");
                 result = dal.addBus(convertDAO(bus));
             }
             catch (DO.BusExceptionDO ex)
@@ -413,19 +419,21 @@ namespace BL
             }
             return result;
         }
-        public void deleteBus(BusBO bus)
+        public bool deleteBus(BusBO bus)
         {
+            bool result;
             try
             {
-                dal.deleteBus(convertDAO(bus));
+                result=dal.deleteBus(convertDAO(bus));
             }
             catch (DO.BusExceptionDO ex)
             {
                 throw new BO.BusExceptionBO("Does not exist in the system", ex);
             }
+            return result;
         }
         //שליחת אוטובוס לטיפול ותדלוק
-        public void refuel(int license)
+        public void refuel(string license)
         {
             IEnumerable<BusDAO> buses = dal.getAllBuses();
             if (!buses.Any(item => item.License == license))
@@ -447,7 +455,7 @@ namespace BL
             busDAO.Fuel = FULLTANK;//התדלוק עצמו
             dal.updateBus(busDAO);
         }
-        public void treatment(int license)
+        public void treatment(string license)
         {
             IEnumerable<BusDAO> buses = dal.getAllBuses();
             if (!buses.Any(item => item.License == license))

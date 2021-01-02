@@ -12,7 +12,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="463,150,0,0" TextWrapping="Wrap" Text=":קו רוחב" VerticalAlignment="Top" Height="29" Width="102"/>
         <TextBlock HorizontalAlignment="Left" Margin="465,200,0,0" TextWrapping="Wrap" Text=":קו אורך" VerticalAlignment="Top" Height="29" Width="129"/>
         <TextBlock HorizontalAlignment="Left" Margin="442,250,0,0" TextWrapping="Wrap" Text=":שם התחנה להוספה" VerticalAlignment="Top" Height="29" Width="129"/>
-        <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" MaxLength="6" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="275,150,0,0" TextWrapping="Wrap" Text="{Binding Path=Latitude, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="addLine3" HorizontalAlignment="Left" Height="23" Margin="275,200,0,0" TextWrapping="Wrap" Text="{Binding Path=Longitude, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="addLine4" HorizontalAlignment="Left" Height="23" Margin="272,250,0,0" TextWrapping="Wrap" Text="{Binding Path=NameStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>

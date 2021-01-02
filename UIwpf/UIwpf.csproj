@@ -64,11 +64,17 @@
     <Compile Include="addStationToLine.xaml.cs">
       <DependentUpon>addStationToLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="deleteBus.xaml.cs">
+      <DependentUpon>deleteBus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="deleteStation.xaml.cs">
       <DependentUpon>deleteStation.xaml</DependentUpon>
     </Compile>
     <Compile Include="delStationFromLine.xaml.cs">
       <DependentUpon>delStationFromLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="showBus.xaml.cs">
+      <DependentUpon>showBus.xaml</DependentUpon>
     </Compile>
     <Compile Include="showLine.xaml.cs">
       <DependentUpon>showLine.xaml</DependentUpon>
@@ -77,6 +83,9 @@
       <DependentUpon>showStation.xaml</DependentUpon>
     </Compile>
     <Compile Include="stationToLine.cs" />
+    <Compile Include="updateBus.xaml.cs">
+      <DependentUpon>updateBus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="updateLine.xaml.cs">
       <DependentUpon>updateLine.xaml</DependentUpon>
     </Compile>
@@ -96,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="addStationToLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="deleteBus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,11 +146,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="showBus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="showLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="showStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateBus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

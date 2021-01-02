@@ -1,0 +1,27 @@
+﻿<Window x:Class="UIwpf.showBus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIwpf"
+        mc:Ignorable="d"
+        Title="showBus" Height="320" Width="500">
+    <Grid Margin="0,0,0.333,-0.333">
+        <TextBlock HorizontalAlignment="Left" Margin="211,10,0,0" TextWrapping="Wrap" Text=":פרטי אוטובוס" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="362,50,0,0" TextWrapping="Wrap" Text=":מספר הרישוי" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="105,50,0,0" TextWrapping="Wrap" Text="{Binding License}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="398,80,0,0" TextWrapping="Wrap" Text=":נסועה" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="105,80,0,0" TextWrapping="Wrap" Text="{Binding TotalKms}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="290,110,0,0" TextWrapping="Wrap" Text=":כמות הליטרים במיכל הדלק" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="105,110,0,0" TextWrapping="Wrap" Text="{Binding Fuel}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="368,140,0,0" TextWrapping="Wrap" Text=":תאריך רישוי" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="105,140,0,0" TextWrapping="Wrap" Text="{Binding StartOfWork}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="335,170,0,0" TextWrapping="Wrap" Text=":תאריך טיפול אחרון" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="105,170,0,0" TextWrapping="Wrap" Text="{Binding DateTreatLast}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="230,200,0,0" TextWrapping="Wrap" Text=":מספר הקילומטרים מאז הטיפול האחרון" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="105,200,0,0" TextWrapping="Wrap" Text="{Binding KmFromTreament}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="389,230,0,0" TextWrapping="Wrap" Text=":סטטוס" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="105,230,0,0" TextWrapping="Wrap" Text="{Binding Status}" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

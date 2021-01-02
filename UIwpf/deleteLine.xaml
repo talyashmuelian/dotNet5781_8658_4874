@@ -8,7 +8,7 @@
         Title="deleteLine" Height="250" Width="400">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="67,10,0,0" TextWrapping="Wrap" Text=":הכנס את המספר המזהה של הקו שברצונך למחוק" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="128,53,0,0" TextWrapping="Wrap" Text="{Binding Path=IdentifyNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="128,53,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=IdentifyNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <Button Content="מחק" HorizontalAlignment="Left" Margin="148,114,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickDel"/>
 
     </Grid>

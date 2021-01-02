@@ -16,18 +16,16 @@ using BO;
 namespace UIwpf
 {
     /// <summary>
-    /// Interaction logic for showStation.xaml
+    /// Interaction logic for showBus.xaml
     /// </summary>
-    public partial class showStation : Window
+    public partial class showBus : Window
     {
         IBL bl;
-        public showStation(IBL _bl, BusStationBO currentStation)
+        public showBus(IBL _bl, BusBO currentBus)
         {
             InitializeComponent();
             bl = _bl;
-            DataContext = currentStation;
-            try { lbLinesInStationOnSystem.DataContext = currentStation.ListOfLines.ToList(); }
-            catch  { }//תיתפס כאן חריגה במצב שבו אין קווים שעוברים בתחנה
+            DataContext = currentBus;
         }
     }
 }

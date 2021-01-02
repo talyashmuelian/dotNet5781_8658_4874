@@ -16,22 +16,22 @@ using BO;
 namespace UIwpf
 {
     /// <summary>
-    /// Interaction logic for updateStation.xaml
+    /// Interaction logic for deleteBus.xaml
     /// </summary>
-    public partial class updateStation : Window
+    public partial class deleteBus : Window
     {
         IBL bl;
-        private BusStationBO newItem = new BusStationBO();
-        public BusStationBO newItem1 { get => newItem; set => newItem = value; }
+        private BusBO newItem = new BusBO();
+        public BusBO newItem1 { get => newItem; set => newItem = value; }
         public bool ifDone { get; set; } = false;
-        public updateStation(IBL _bl)
+        public deleteBus(IBL _bl)
         {
             InitializeComponent();
             bl = _bl;
             DataContext = newItem;
         }
 
-        private void Button_ClickUpdateStation(object sender, RoutedEventArgs e)
+        private void Button_ClickDeleteBus(object sender, RoutedEventArgs e)
         {
             ifDone = true;
             Close();

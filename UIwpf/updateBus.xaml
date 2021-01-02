@@ -1,0 +1,26 @@
+﻿<Window x:Class="UIwpf.updateBus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIwpf"
+        mc:Ignorable="d"
+        Title="updateBus" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="160,55,0,0" TextWrapping="Wrap" Text="ביכולתך לעדכן את המידע על האוטובוס על פי מספר הרישוי. חובה להכניס מידע בכל השדות" VerticalAlignment="Top" Width="512" Height="40"/>
+        <TextBlock x:Name="addLine111" Text="עדכון אוטובוס"  HorizontalAlignment="Left" Margin="377,0,0,356.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="36" Width="92"/>
+        <TextBlock HorizontalAlignment="Left" Margin="459,100,0,0" TextWrapping="Wrap" Text=":מספר הרישוי" VerticalAlignment="Top" Height="23" Width="118"/>
+        <TextBlock HorizontalAlignment="Left" Margin="454,135,0,0" TextWrapping="Wrap" Text=": נסועה מעודכנת" VerticalAlignment="Top" Height="29" Width="102"/>
+        <TextBlock HorizontalAlignment="Left" Margin="441,173,0,0" TextWrapping="Wrap" Text=": תאריך רישוי מעודכן" VerticalAlignment="Top" Height="29" Width="129"/>
+        <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=License, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="275,135,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=TotalKms, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="addButton" Content="הוסף" HorizontalAlignment="Left" Margin="337,350,0,0" VerticalAlignment="Top" Width="132" Height="40" Click="Button_ClickUpdeteBus" />
+        <DatePicker HorizontalAlignment="Left" Margin="285,170,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartOfWork, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="432,213,0,0" TextWrapping="Wrap" Text=":תאריך טיפול אחרון מעודכן" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="285,211,0,0" VerticalAlignment="Top" SelectedDate="{Binding DateTreatLast, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="454,251,0,0" TextWrapping="Wrap" Text=":כמות הדלק במיכל" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,254,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Fuel, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="421,289,0,0" TextWrapping="Wrap" Text=":מספר הקילומטרים מהטיפול האחרון" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="269,292,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=KmFromTreament, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

@@ -9,11 +9,11 @@
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="264,74,0,0" TextWrapping="Wrap" Text=":הכנס מספר מזהה" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="195,22,0,0" TextWrapping="Wrap" Text="הוספת תחנה לקו" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,73,0,0" TextWrapping="Wrap" Text="{Binding Path=IdentifyNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,73,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=IdentifyNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="267,124,0,0" TextWrapping="Wrap" Text=":הכנס מספר תחנה" VerticalAlignment="Top" Width="118"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,122,0,0" TextWrapping="Wrap" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,122,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="275,170,0,0" TextWrapping="Wrap" Text=":הכנס מיקום בקו" VerticalAlignment="Top" Width="98" Height="23"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="96,166,0,0" TextWrapping="Wrap" Text="{Binding Path=Location, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="96,166,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Location, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <Button Content="הוסף" HorizontalAlignment="Left" Margin="145,224,0,0" VerticalAlignment="Top" Width="140" Height="38" Click="Button_ClickAdd"/>
 
     </Grid>

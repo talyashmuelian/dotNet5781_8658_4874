@@ -13,10 +13,10 @@ namespace DLAPI
         #region Bus
         bool addBus(BusDAO bus);
         bool updateBus(BusDAO bus);
-        void deleteBus(BusDAO bus);
+        bool deleteBus(BusDAO bus);
         IEnumerable<BusDAO> getAllBuses();
         IEnumerable<BusDAO> getPartOfBuses(Predicate<BusDAO> BusDAOCondition);
-        BusDAO getOneObjectBusDAO(int license);
+        BusDAO getOneObjectBusDAO(string license);
         #endregion
         //קו אוטובוס
         #region BusLine

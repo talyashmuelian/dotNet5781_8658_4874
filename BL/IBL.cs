@@ -17,14 +17,14 @@ namespace BLAPI
         void delStationToLine(int codeStation, int identifyNumber);//מחיקת תחנה קיימת מקו קיים
         void addStationToLine(int codeStation, int identifyNumber, int location);//הוספת תחנה קיימת לקו קיים
         IEnumerable<BusBO> GetAllBusesBO();//הדפסת כל האוטבוסים
-        BusBO GetBusBO(int license);//קבלת פרטי אוטובוס בודד
+        BusBO GetBusBO(string license);//קבלת פרטי אוטובוס בודד
         //הוספה, עדכון ומחיקת אוטובוס
         bool addBus(BusBO bus);
         bool updateBus(BusBO bus);
-        void deleteBus(BusBO bus);
+        bool deleteBus(BusBO bus);
         //שליחת אוטבוס לטיפול ותדלוק
-        void refuel(int license);
-        void treatment(int license);
+        void refuel(string license);
+        void treatment(string license);
         IEnumerable<BusStationBO> GetAllBusStationsBO();//הדפסת כל התחנות
         BusStationBO GetBusStationBO(int codeStation);//קבלת פרטים עבור תחנה מסוימת
         //הוספה עדכון ומחיקת תחנה
