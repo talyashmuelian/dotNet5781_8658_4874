@@ -57,7 +57,7 @@ namespace DLAPI
         #region PairConsecutiveStations
         bool addPairConsecutiveStations(PairConsecutiveStationsDAO stations);
         bool updatePairConsecutiveStations(PairConsecutiveStationsDAO stations);
-        void deletePairConsecutiveStations(PairConsecutiveStationsDAO stations);
+        bool deletePairConsecutiveStations(PairConsecutiveStationsDAO stations);
         IEnumerable<PairConsecutiveStationsDAO> getAllPairConsecutiveStations();
         IEnumerable<PairConsecutiveStationsDAO> getPartOfPairConsecutiveStations(Predicate<PairConsecutiveStationsDAO> PairConsecutiveStationsDAOCondition);
         PairConsecutiveStationsDAO getOneObjectPairConsecutiveStations(int stationNum1, int stationNum2);

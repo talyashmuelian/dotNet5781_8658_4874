@@ -16,42 +16,28 @@ using BO;
 namespace UIwpf
 {
     /// <summary>
-    /// Interaction logic for addStationToLine.xaml
+    /// Interaction logic for addDataToPaitStation.xaml
     /// </summary>
-    public partial class addStationToLine : Window
+    public partial class addDataToPaitStation : Window
     {
         IBL bl;
-        private stationToLine newItem = new stationToLine();
-        public stationToLine newItem1 { get => newItem; set => newItem = value; }
-        public addStationToLine(IBL _bl)
+        private PairConsecutiveStationsBO newItem = new PairConsecutiveStationsBO();
+        public PairConsecutiveStationsBO newItem1 { get => newItem; set => newItem = value; }
+        public bool ifDone { get; set; } = false;
+        public addDataToPaitStation(IBL _bl, int station1, int station2)
         {
             InitializeComponent();
             bl = _bl;
+            newItem.StationNum1 = station1;
+            newItem.StationNum2 = station2;
             DataContext = newItem;
         }
 
-        private void Button_ClickAdd(object sender, RoutedEventArgs e)
+        private void Button_ClickAddData(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.chekIfCanToddStationToLine(newItem.CodeStation, newItem.IdentifyNumber, newItem.Location);
-                //זימון פונקציות שבודקת האם קיימות ישויות תחנות עוקבות לתחנה החדשה עם זאת שלפניה ואחריה
-                int beforeStation = bl.ifNeedToGetDataToBeforeStation(newItem.IdentifyNumber, newItem.CodeStation, newItem.Location);
-                if (beforeStation != 0)
-                {
-                    //נפתח חלון חדש שמבקש מידע עבור המרחק בין התחנות האלה
-                    addDataToPaitStation addDataToPaitStationWindow = new addDataToPaitStation(bl, beforeStation, newItem.CodeStation);
-                    addDataToPaitStationWindow.ShowDialog();
-                }
-                int afterStation = bl.ifNeedToGetDataToAfterStation(newItem.IdentifyNumber, newItem.CodeStation, newItem.Location);
-                if (afterStation !=0)
-                {
-                    //נפתח חלון חדש שמבקש מידע עבור המרחק בין התחנות האלה
-                    addDataToPaitStation addDataToPaitStationWindow = new addDataToPaitStation(bl, afterStation, newItem.CodeStation);
-                    addDataToPaitStationWindow.ShowDialog();
-                }
-                bl.addStationToLine(newItem.CodeStation, newItem.IdentifyNumber, newItem.Location);
-                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                bl.addPairConsecutiveStations(newItem);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             Close();

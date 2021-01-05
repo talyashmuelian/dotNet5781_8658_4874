@@ -34,6 +34,14 @@ namespace UIwpf
         {
             try
             {
+                bl.chekIfCanToDelStationFromLine(newItem.CodeStation, newItem.IdentifyNumber);
+                PairConsecutiveStationsBO currentPair = bl.ifNeedToGetDataBetweenTwoStation(newItem.IdentifyNumber, newItem.CodeStation);
+                if (currentPair != null)//אין מידע עבור התחנה הקודמת והעוקבת לזו שרוצים למחוק
+                {
+                    //נפתח חלון חדש שמבקש מידע עבור המרחק בין התחנות האלה
+                    addDataToPaitStation addDataToPaitStationWindow = new addDataToPaitStation(bl, currentPair.StationNum1, currentPair.StationNum2);
+                    addDataToPaitStationWindow.ShowDialog();
+                }
                 bl.delStationToLine(newItem.CodeStation, newItem.IdentifyNumber);
                 MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }

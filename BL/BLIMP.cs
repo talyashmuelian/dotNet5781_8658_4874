@@ -51,7 +51,6 @@ namespace BL
             LineStationDAO current = null;
             bool first = true;
             //הלולאה הזאת עוברת על כל תחנות קו שמקושרות לקו הזה, ויוצרת רשימה של "תחנות בקו" שתוכנס לשדה המבוקש
-            //ישנה בעיה- ההוספה של התחנה הראשונה בעייתית. לכן היא מחוץ ללולאה. צריך למצוא דרך לגרום שהלולאה תתחיל מהאיבר השני
             foreach (LineStationDAO lineStationNext in listStationInLineOrder)
             {
                 /////////////////////////////////////
@@ -60,14 +59,21 @@ namespace BL
                 current = lineStationNext;
                 if (!first)
                 {
-                    listStationTypeCorrect.Add(new StationInLineBO
+                    StationInLineBO forNow = new StationInLineBO();
+                    forNow.CodeStation = lineStationNext.CodeStation;
+                    forNow.NumStationInTheLine = lineStationNext.NumStationInTheLine;
+                    forNow.NameStation = dal.getOneObjectBusStationDAO(lineStationNext.CodeStation).NameStation;
+                    if(dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation) != null)
                     {
-                        CodeStation = lineStationNext.CodeStation,
-                        NumStationInTheLine= lineStationNext.NumStationInTheLine,
-                        NameStation = dal.getOneObjectBusStationDAO(lineStationNext.CodeStation).NameStation,
-                        Distance = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).Distance,
-                        TimeDriving = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).TimeDriving
-                    });
+                        forNow.Distance = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).Distance;
+                        forNow.TimeDriving = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).TimeDriving;
+                    }
+                    else
+                    {
+                        forNow.Distance = 0;
+                        forNow.TimeDriving = 0;
+                    }
+                    listStationTypeCorrect.Add(forNow);
                 }
                 else//במקרה שזו התחנה הראשונה, נאתחל את המרחק והזמן לאפסים
                 {
@@ -167,6 +173,63 @@ namespace BL
             return true;
             
         }
+        public void chekIfCanToDelStationFromLine(int codeStation, int identifyNumber)
+        {
+            BusStationDAO busStationDAO;
+            try
+            {
+                busStationDAO = dal.getOneObjectBusStationDAO(codeStation);
+            }
+            catch (DO.BusStationExceptionDO ex)
+            {
+                throw new BO.BusStationExceptionBO("Code Station number not found", ex);
+            }
+            BusLineDAO busLineDAO;
+            try
+            {
+                busLineDAO = dal.getOneObjectBusLineDAO(identifyNumber);
+            }
+            catch (DO.BusLineExceptionDO ex)
+            {
+                throw new BO.BusLineExceptionBO("Identify Number not found", ex);
+            }
+            bool flag = true;//  דגל שיהיה אמת אם התחנה קיימת בקו ואפשר למחוק אותה, אחרת יהיה שקר
+            int location = 0;
+            foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))//בדיקה אם התחנה קיימת בקו
+            {
+                if (lineStation.CodeStation == codeStation && lineStation.IdentifyNumber == identifyNumber)
+                {
+                    location = lineStation.NumStationInTheLine;
+                    flag = true;
+                    break;
+                }
+                else flag = false;
+            }
+            if (flag == false) throw new BO.BusLineExceptionBO("The station does not exist on the line so it cannot be deleted");
+        }
+        public PairConsecutiveStationsBO ifNeedToGetDataBetweenTwoStation(int identifyNumber, int codeStation)
+        {
+            int location = 0;
+            foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))
+            {
+                if (lineStation.CodeStation == codeStation && lineStation.IdentifyNumber == identifyNumber)
+                {
+                    location = lineStation.NumStationInTheLine;
+                }
+            }
+            int numStationBefore = 0;
+            int numStationAfter = 0;
+            foreach (var station in GetBusLineBO(identifyNumber).ListOfStations)
+            {
+                if (station.NumStationInTheLine == location - 1)
+                    numStationBefore = station.CodeStation;
+                if (station.NumStationInTheLine == location + 1)
+                    numStationAfter = station.CodeStation;
+            }
+            if (GetPairConsecutiveStationsBO(numStationBefore, numStationAfter) == null)
+                return new PairConsecutiveStationsBO {StationNum1= numStationBefore , StationNum2= numStationAfter };
+            return null;//במידה וכבר קיים מידע על זוג התחנות הללו
+        }
         public void delStationToLine(int codeStation, int identifyNumber)//מחיקת תחנה קיימת מקו קיים
         {
             BusStationDAO busStationDAO;
@@ -252,6 +315,65 @@ namespace BL
                 }
             }
         }
+        public void chekIfCanToddStationToLine(int codeStation, int identifyNumber,int location)
+        {
+            if (location == 0)
+                throw new BO.BusLineExceptionBO("The location is incorrect");//אפשר להכניס מיקום מאחד והלאה
+            BusStationDAO busStationDAO;
+            try
+            {
+                busStationDAO = dal.getOneObjectBusStationDAO(codeStation);
+            }
+            catch (DO.BusStationExceptionDO ex)
+            {
+                throw new BO.BusStationExceptionBO("Code Station number not found", ex);
+            }
+            BusLineDAO busLineDAO;
+            try
+            {
+                busLineDAO = dal.getOneObjectBusLineDAO(identifyNumber);
+            }
+            catch (DO.BusLineExceptionDO ex)
+            {
+                throw new BO.BusLineExceptionBO("Identify Number not found", ex);
+            }
+            foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))//בדיקה אם התחנה כבר קיימת בקו
+            {
+                if (lineStation.CodeStation == codeStation && lineStation.IdentifyNumber == identifyNumber)
+                    throw new BO.BusLineExceptionBO("The station already exists on this line");
+            }
+            int countStations = 0;//כמה תחנות יש לקו
+            foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))//בדיקה אם המיקום הגיוני ולא גדול יותר מידי
+            {
+                countStations++;
+            }
+            if (countStations + 1 < location)//אם המיקום גדול מידי
+                throw new BO.BusLineExceptionBO("The location sent is invalid. You must enter a location as the number of stations on the line or one more.");
+        }
+        public int ifNeedToGetDataToBeforeStation(int identifyNumber, int codeStation, int location)
+        {
+            int numStationBefore = 0;
+            foreach (var station in GetBusLineBO(identifyNumber).ListOfStations)
+            {
+                if (station.NumStationInTheLine == location - 1)
+                    numStationBefore = station.CodeStation;
+            }
+            if (GetPairConsecutiveStationsBO(numStationBefore, codeStation) == null)
+                return numStationBefore;
+            return 0;
+        }
+        public int ifNeedToGetDataToAfterStation(int identifyNumber, int codeStation, int location)
+        {
+            int numStationAfter = 0;
+            foreach (var station in GetBusLineBO(identifyNumber).ListOfStations)
+            {
+                if (station.NumStationInTheLine == location)
+                    numStationAfter = station.CodeStation;
+            }
+            if (GetPairConsecutiveStationsBO(numStationAfter, codeStation) == null)
+                return numStationAfter;
+            return 0;
+        }
         public void addStationToLine(int codeStation, int identifyNumber, int location)//הוספת תחנה קיימת לקו קיים
         {
             if (location==0)
@@ -331,7 +453,9 @@ namespace BL
                 }
             }
             dal.addLineStation(new LineStationDAO { CodeStation = codeStation, IdentifyNumber = identifyNumber, NumStationInTheLine = location });
+
         }
+        
         #endregion
         //אוטובוסים
         #region buses
@@ -603,6 +727,83 @@ namespace BL
 
         }
         #endregion
+        //זוג תחנות עוקבות
+        private PairConsecutiveStationsDAO convertDAO(PairConsecutiveStationsBO pair)
+        {
+            PairConsecutiveStationsDAO pairConsecutiveStationsDAO = new PairConsecutiveStationsDAO
+            {
+                StationNum1 = pair.StationNum1,
+                StationNum2 = pair.StationNum2,
+                Distance = pair.Distance,
+                TimeDriving = pair.TimeDriving,
+            };
+            return pairConsecutiveStationsDAO;
+        }
+        private PairConsecutiveStationsBO convertoBO(PairConsecutiveStationsDAO pair)
+        {
+            PairConsecutiveStationsBO pairConsecutiveStationsBO = new PairConsecutiveStationsBO
+            {
+                StationNum1 = pair.StationNum1,
+                StationNum2 = pair.StationNum2,
+                Distance = pair.Distance,
+                TimeDriving = pair.TimeDriving,
+            };
+            return pairConsecutiveStationsBO;
+        }
+        //קבלת פרטי זוג תחנות בודד
+        public PairConsecutiveStationsBO GetPairConsecutiveStationsBO(int stationNum1, int stationNum2)
+        {
+            PairConsecutiveStationsBO result = new PairConsecutiveStationsBO();
+            PairConsecutiveStationsDAO PairConsecutiveStationsDAO;
+            if (dal.getOneObjectPairConsecutiveStations(stationNum1, stationNum2) != null)
+            {
+                PairConsecutiveStationsDAO = dal.getOneObjectPairConsecutiveStations(stationNum1, stationNum2);
+            }
+            else
+                return null;//אין מידע על הזוג הזה
+            result = convertoBO(PairConsecutiveStationsDAO);
+            return result;
+        }
+        //הוספה, עדכון ומחיקת זוג תחנות
+        public bool addPairConsecutiveStations(PairConsecutiveStationsBO pair)
+        {
+            bool result;
+            try
+            {
+                result = dal.addPairConsecutiveStations(convertDAO(pair));
+            }
+            catch (DO.PairConsecutiveStationsExceptionDO ex)
+            {
+                throw new BO.PairConsecutiveStationsExceptionBO("זוג התחנות כבר קיים", ex);
+            }
+            return result;
+        }
+        public bool updatePairConsecutiveStations(PairConsecutiveStationsBO pair)
+        {
+            bool result;
+            try
+            {
+                result = dal.updatePairConsecutiveStations(convertDAO(pair));
+            }
+            catch (DO.PairConsecutiveStationsExceptionDO ex)
+            {
+                throw new BO.PairConsecutiveStationsExceptionBO("זוג התחנות לא נמצא", ex);
+            }
+            return result;
+        }
+        public bool deletePairConsecutiveStations(PairConsecutiveStationsBO pair)
+        {
+            bool result;
+            try
+            {
+                result = dal.deletePairConsecutiveStations(convertDAO(pair));
+            }
+            catch (DO.PairConsecutiveStationsExceptionDO ex)
+            {
+                throw new BO.PairConsecutiveStationsExceptionBO("Does not exist in the system", ex);
+            }
+            return result;
+        }
         //עדכון מרחק וזמן נסיעה בין זוג תחנות עוקבות
         public void updatePairConsecutiveStations(int numStation1, int numStation2,int distance, int timeDriving)
         {

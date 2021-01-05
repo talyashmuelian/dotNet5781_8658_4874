@@ -58,6 +58,9 @@
     <Compile Include="addBus.xaml.cs">
       <DependentUpon>addBus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="addDataToPaitStation.xaml.cs">
+      <DependentUpon>addDataToPaitStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="addStation.xaml.cs">
       <DependentUpon>addStation.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
       <DependentUpon>updateStation.xaml</DependentUpon>
     </Compile>
     <Page Include="addBus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addDataToPaitStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

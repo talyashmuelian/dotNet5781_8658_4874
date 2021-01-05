@@ -175,18 +175,19 @@ namespace DL
             }
             DATA.BusStations.Add(station.Clone());
             ///////להוסיף מידע על תחנות עוקבות
+            ///בוטל!
             /////ניצור לתחנה חדשה אובייקטים של זוג תחנות עוקבות בינה לבין כל תחנה קיימת
-            foreach(var station1 in DATA.BusStations)
-            {
-                int dis = DATA.rand.Next(1, 500);
-                DATA.PairConsecutiveStations.Add(new PairConsecutiveStationsDAO
-                { 
-                    StationNum1= station1.CodeStation,
-                    StationNum2= station.CodeStation,
-                    Distance= dis,
-                    TimeDriving= dis
-                }); 
-            }
+            //foreach(var station1 in DATA.BusStations)
+            //{
+            //    int dis = DATA.rand.Next(1, 500);
+            //    DATA.PairConsecutiveStations.Add(new PairConsecutiveStationsDAO
+            //    { 
+            //        StationNum1= station1.CodeStation,
+            //        StationNum2= station.CodeStation,
+            //        Distance= dis,
+            //        TimeDriving= dis
+            //    }); 
+            //}
             return true;
         }
         public bool updateBusStation(BusStationDAO station)
@@ -344,7 +345,7 @@ namespace DL
             DATA.PairConsecutiveStations.Add(stations.Clone());//מכניס את החדש במקומו
             return true;
         }
-        public void deletePairConsecutiveStations(PairConsecutiveStationsDAO stations)
+        public bool deletePairConsecutiveStations(PairConsecutiveStationsDAO stations)
         {
             if (!DS.DATA.PairConsecutiveStations.Exists(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1))
             {
@@ -365,6 +366,7 @@ namespace DL
             //    DS.DataSource.Buses.Remove(todelete);
             //}
             DS.DATA.PairConsecutiveStations.RemoveAll(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1);
+            return true;
         }
         public IEnumerable<PairConsecutiveStationsDAO> getAllPairConsecutiveStations()
         {
@@ -387,7 +389,7 @@ namespace DL
             if (stations1 != null)
                 return stations1.Clone();
             else
-                throw new DO.PairConsecutiveStationsExceptionDO("No object found for this pair of stations");
+                return null;//throw new DO.PairConsecutiveStationsExceptionDO("No object found for this pair of stations");
         }
         #endregion
     }

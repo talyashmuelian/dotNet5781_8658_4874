@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -48,6 +49,7 @@
     <Compile Include="BusStationBO.cs" />
     <Compile Include="exacptionBO.cs" />
     <Compile Include="LineInStationBO.cs" />
+    <Compile Include="PairConsecutiveStationsBO.cs" />
     <Compile Include="TripBO.cs" />
     <Compile Include="StationInLineBO.cs" />
     <Compile Include="Status.cs" />

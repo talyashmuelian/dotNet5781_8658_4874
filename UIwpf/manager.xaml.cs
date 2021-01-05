@@ -200,7 +200,6 @@ namespace UIwpf
                 MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
         private void Button_ClickDeleteBus(object sender, RoutedEventArgs e)
         {
             deleteBus deleteBusWindow = new deleteBus(bl);
