@@ -23,17 +23,24 @@ namespace UIwpf
         IBL bl;
         private BusBO newItem = new BusBO();
         public BusBO newItem1 { get => newItem; set => newItem = value; }
-        public bool ifDone { get; set; } = false;
-        public updateBus(IBL _bl)
+        public updateBus(IBL _bl, BusBO currentBus)
         {
             InitializeComponent();
             bl = _bl;
+            newItem.License = currentBus.License;
+            newItem.LicenseFormat = currentBus.LicenseFormat;
+            newItem.Status = (Status)1;
             DataContext = newItem;
         }
 
         private void Button_ClickUpdeteBus(object sender, RoutedEventArgs e)
         {
-            ifDone = true;
+            try
+            {
+                bl.updateBus(newItem);
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             Close();
         }
         private void TextBox_OnlyNumbers_PreviewKeyDown(object sender, KeyEventArgs e)

@@ -224,6 +224,13 @@ namespace BL
                     location = lineStation.NumStationInTheLine;
                 }
             }
+            int countStations = 0;//כמה תחנות יש לקו לפני המחיקה
+            foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))//כמה תחנות יש לקו
+            {
+                countStations++;
+            }
+            if (location == 1 || location == countStations)
+                return null;//לא צריך לקבל מידע חדש על זוג חדש כי אין כזה
             int numStationBefore = 0;
             int numStationAfter = 0;
             foreach (var station in GetBusLineBO(identifyNumber).ListOfStations)
@@ -484,7 +491,7 @@ namespace BL
 
         private BusBO convertoBO(BusDAO bus)
         {
-            return new BusBO
+            BusBO result = new BusBO
             {
                 License = bus.License,
                 StartOfWork = bus.StartOfWork,
@@ -494,6 +501,16 @@ namespace BL
                 KmFromTreament = bus.KmFromTreament,
                 Status = (BO.Status)bus.Status
             };
+            if (bus.StartOfWork.Year > 2017)//8 ספרות numbers
+            {
+                result.LicenseFormat = bus.License.Substring(0, 3) + "-" + bus.License[3] + bus.License[4] + "-" + bus.License[5] + bus.License[6] + bus.License[7];
+
+            }
+            else//7 ספרות numbers
+            {
+                result.LicenseFormat = bus.License.Substring(0, 2) + "-" + bus.License[2] + bus.License[3] + bus.License[4] + "-" + bus.License[5] + bus.License[6];
+            }
+            return result;
         }
         //הדפסת כל האוטבוסים
         public IEnumerable<BusBO> GetAllBusesBO()
@@ -841,6 +858,8 @@ namespace BL
             dal.updatePairConsecutiveStations(forNow);
         }
         #endregion
+        //משתמשים
+        #region users
         private UserDAO convertDAO(UserBO user)
         {
             UserDAO userDAO = new UserDAO
@@ -939,6 +958,7 @@ namespace BL
             else
                 throw new BO.UserExceptionBO("אחד או יותר מהשדות שהזנת שגויים");
         }
+        #endregion
     }
 }
 

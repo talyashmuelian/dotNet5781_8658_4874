@@ -33,9 +33,9 @@
         <ListBox x:Name="lbStationsInLineOnSystem" ItemTemplate="{StaticResource MyDataTemplateStationsInLine}"  HorizontalAlignment="Left" Height="243" Margin="124,62,0,0" VerticalAlignment="Top" Width="772"  SelectionMode="Single" ItemsSource="{Binding}" />
         <TextBlock HorizontalAlignment="Left" Margin="828,20,0,0" TextWrapping="Wrap" Text=":נתוני הקו" VerticalAlignment="Top" Height="27" Width="132"/>
         <TextBlock HorizontalAlignment="Left" Margin="707,20,0,0" TextWrapping="Wrap" Text=":מספר מזהה" VerticalAlignment="Top" Height="19" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Margin="497,18,0,0" TextWrapping="Wrap" Text="{Binding IdentifyNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="658,21,0,0" TextWrapping="Wrap" Text="{Binding IdentifyNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="560,18,0,0" TextWrapping="Wrap" Text=":מספר קו" VerticalAlignment="Top" Height="19" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Margin="651,18,0,0" TextWrapping="Wrap" Text="{Binding LineNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="517,18,0,0" TextWrapping="Wrap" Text="{Binding LineNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="435,18,0,0" TextWrapping="Wrap" Text=":איזור" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="347,18,0,0" TextWrapping="Wrap" Text="{Binding Area}" VerticalAlignment="Top" Height="19" Width="70"/>
 

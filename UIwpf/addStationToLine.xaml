@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="addStationToLine" Height="450" Width="450">
+        Title="addStationToLine" Height="250" Width="450">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="264,74,0,0" TextWrapping="Wrap" Text=":הכנס מספר מזהה" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="195,22,0,0" TextWrapping="Wrap" Text="הוספת תחנה לקו" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,73,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=IdentifyNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="267,124,0,0" TextWrapping="Wrap" Text=":הכנס מספר תחנה" VerticalAlignment="Top" Width="118"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,122,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="275,170,0,0" TextWrapping="Wrap" Text=":הכנס מיקום בקו" VerticalAlignment="Top" Width="98" Height="23"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="96,166,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Location, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="הוסף" HorizontalAlignment="Left" Margin="145,224,0,0" VerticalAlignment="Top" Width="140" Height="38" Click="Button_ClickAdd"/>
+        <TextBlock HorizontalAlignment="Left" Margin="195,22,0,0" TextWrapping="Wrap" Text=":הוספת תחנה לקו" VerticalAlignment="Top"/>
+        
+        <TextBlock HorizontalAlignment="Left" Margin="267,64,0,0" TextWrapping="Wrap" Text=":הכנס מספר תחנה" VerticalAlignment="Top" Width="118"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,60,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="6" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="275,110,0,0" TextWrapping="Wrap" Text=":הכנס מיקום בקו" VerticalAlignment="Top" Width="98" Height="23"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="96,106,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Location, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="הוסף" HorizontalAlignment="Left" Margin="145,150,0,0" VerticalAlignment="Top" Width="140" Height="38" Click="Button_ClickAdd"/>
+        <TextBlock HorizontalAlignment="Left" Margin="168,22,0,0" TextWrapping="Wrap" Text="{Binding Path=IdentifyNumber}" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

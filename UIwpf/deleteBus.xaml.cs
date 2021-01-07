@@ -30,7 +30,6 @@ namespace UIwpf
             bl = _bl;
             DataContext = newItem;
         }
-
         private void Button_ClickDeleteBus(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("?האם אתה בטוח שברצונך למחוק את האוטובוס", "אישור מחיקה", MessageBoxButton.YesNo);

@@ -23,10 +23,11 @@ namespace UIwpf
         IBL bl;
         private stationToLine newItem = new stationToLine();
         public stationToLine newItem1 { get => newItem; set => newItem = value; }
-        public addStationToLine(IBL _bl)
+        public addStationToLine(IBL _bl, BusLineBO currentLine)
         {
             InitializeComponent();
             bl = _bl;
+            newItem.IdentifyNumber = currentLine.IdentifyNumber;
             DataContext = newItem;
         }
 

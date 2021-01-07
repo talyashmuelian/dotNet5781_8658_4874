@@ -14,11 +14,13 @@
         <TextBlock HorizontalAlignment="Left" Margin="448,200,0,0" TextWrapping="Wrap" Text=":מספר התחנה הראשונה" VerticalAlignment="Top" Height="29" Width="129"/>
         <TextBlock HorizontalAlignment="Left" Margin="460,250,0,0" TextWrapping="Wrap" Text=":מספר התחנה האחרונה" VerticalAlignment="Top" Height="29" Width="129"/>
         <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" Text="{Binding Path=LineNumber, Mode=OneWayToSource}" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="3" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="275,150,0,0" TextWrapping="Wrap" Text="{Binding Path=Area, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="addLine3" HorizontalAlignment="Left" Height="23" Margin="275,200,0,0" TextWrapping="Wrap" Text="{Binding Path=FirstStationNum, Mode=OneWayToSource}" VerticalAlignment="Top" MaxLength="6" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Width="120"/>
-        <TextBox x:Name="addLine4" HorizontalAlignment="Left" Height="23" Margin="272,250,0,0" TextWrapping="Wrap" Text="{Binding Path=LastStationNum, Mode=OneWayToSource}" VerticalAlignment="Top" MaxLength="6" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Width="120"/>
+        
+        
+        
         <Button x:Name="addButton" Content="הוסף" HorizontalAlignment="Left" Margin="335,300,0,0" VerticalAlignment="Top" Width="132" Height="40" Click="addButton_Click"/>
 
-
+        <ComboBox x:Name="areaCB" HorizontalAlignment="Left" Margin="274,150,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="areaCB_SelectionChanged"/>
+        <ComboBox x:Name="station1CB" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="274,200,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station1CB_SelectionChanged"/>
+        <ComboBox x:Name="station2CB" HorizontalAlignment="Left" Margin="275,259,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station2CB_SelectionChanged"/>
     </Grid>
 </Window>

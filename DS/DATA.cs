@@ -37,7 +37,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "1234567",
-                StartOfWork = DateTime.Today.AddYears(-3),
+                StartOfWork = new DateTime(2017, 5, 24),
                 TotalKms = 5000,
                 Fuel = 1200,
                 DateTreatLast= DateTime.Now,
@@ -47,7 +47,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "1234578",
-                StartOfWork = DateTime.Today.AddYears(-3),
+                StartOfWork = new DateTime(2017, 8, 24),
                 TotalKms = 6000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -57,7 +57,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "1222567",
-                StartOfWork = DateTime.Today.AddYears(-3),
+                StartOfWork = new DateTime(2017, 5, 30),
                 TotalKms = 12000,
                 Fuel = 1000,
                 DateTreatLast = DateTime.Now,
@@ -67,7 +67,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "4444567",
-                StartOfWork = DateTime.Today.AddYears(-10),
+                StartOfWork = new DateTime(2010, 5, 24),
                 TotalKms = 1000,
                 Fuel = 500,
                 DateTreatLast = DateTime.Now,
@@ -77,7 +77,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "12341234",
-                StartOfWork = DateTime.Today.AddYears(-1),
+                StartOfWork = new DateTime(2019, 5, 24),
                 TotalKms = 14000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -87,7 +87,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "88888888",
-                StartOfWork = DateTime.Today.AddYears(-2),
+                StartOfWork = new DateTime(2018, 8, 29),
                 TotalKms = 13000,
                 Fuel = 700,
                 DateTreatLast = DateTime.Now,
@@ -97,7 +97,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "33333333",
-                StartOfWork = DateTime.Today.AddYears(-0),
+                StartOfWork = new DateTime(2021, 1, 6),
                 TotalKms = 15000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -107,7 +107,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "4444444",
-                StartOfWork = DateTime.Today.AddYears(-4),
+                StartOfWork = new DateTime(2015, 5, 24),
                 TotalKms = 3000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -117,7 +117,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "1231235",
-                StartOfWork = DateTime.Today.AddYears(-11),
+                StartOfWork = new DateTime(2006, 5, 24),
                 TotalKms = 18000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -127,7 +127,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "56756788",
-                StartOfWork = DateTime.Today.AddYears(-1),
+                StartOfWork = new DateTime(2020, 2, 24),
                 TotalKms = 8000,
                 Fuel = 900,
                 DateTreatLast = DateTime.Now,
@@ -137,7 +137,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "23423455",
-                StartOfWork = DateTime.Today.AddYears(-2),
+                StartOfWork = new DateTime(2018, 3, 24),
                 TotalKms = 9000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -147,7 +147,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "32132166",
-                StartOfWork = DateTime.Today.AddYears(-0),
+                StartOfWork = new DateTime(2020, 10, 24),
                 TotalKms = 8000,
                 Fuel = 900,
                 DateTreatLast = DateTime.Now,
@@ -157,7 +157,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "65466777",
-                StartOfWork = DateTime.Today.AddYears(-0),
+                StartOfWork = new DateTime(2021, 1, 1),
                 TotalKms = 7000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -167,7 +167,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "44444555",
-                StartOfWork = DateTime.Today.AddYears(-1),
+                StartOfWork = new DateTime(2018, 3, 24),
                 TotalKms = 10000,
                 Fuel = 800,
                 DateTreatLast = DateTime.Now,
@@ -177,7 +177,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "3213214",
-                StartOfWork = DateTime.Today.AddYears(-13),
+                StartOfWork = new DateTime(2009, 5, 17),
                 TotalKms = 30000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -187,7 +187,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "12332112",
-                StartOfWork = DateTime.Today.AddYears(-2),
+                StartOfWork = new DateTime(2019, 5, 24),
                 TotalKms = 45000,
                 Fuel = 600,
                 DateTreatLast = DateTime.Now,
@@ -197,7 +197,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "9877896",
-                StartOfWork = DateTime.Today.AddYears(-9),
+                StartOfWork = new DateTime(2016, 9, 24),
                 TotalKms = 8000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -208,7 +208,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "3213333",
-                StartOfWork = DateTime.Today.AddYears(-20),
+                StartOfWork = new DateTime(2002, 10, 24),
                 TotalKms = 9999999,
                 Fuel = 500,
                 DateTreatLast = DateTime.Now,
@@ -218,7 +218,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "77745617",
-                StartOfWork = DateTime.Today.AddYears(-2),
+                StartOfWork = new DateTime(2018, 8, 20),
                 TotalKms = 5000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,
@@ -228,7 +228,7 @@ namespace DS
             Buses.Add(new BusDAO
             {
                 License = "6666666",
-                StartOfWork = DateTime.Today.AddYears(-100),
+                StartOfWork = new DateTime(2005, 4, 24),
                 TotalKms = 5000,
                 Fuel = 1200,
                 DateTreatLast = DateTime.Now,

@@ -23,18 +23,45 @@ namespace UIwpf
         IBL bl;
         private BusLineBO newItem = new BusLineBO();
         public BusLineBO newItem1 { get => newItem; set => newItem = value; }
-        public bool ifDone { get; set; } = false;
+        private List<string> areas = new List<string>();
         public addLine(IBL _bl)
         {
             InitializeComponent();
             bl = _bl;
+            areas.Add("ירושלים");
+            areas.Add("מרכז");
+            areas.Add("דרום");
+            areas.Add("צפון");
             DataContext = newItem;
+            areaCB.ItemsSource = areas;
+            station1CB.ItemsSource =bl.GetAllBusStationsBO();
+            station2CB.ItemsSource = bl.GetAllBusStationsBO();
         }
-
+        private void areaCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            newItem.Area = areaCB.SelectedItem.ToString();
+        }
+        private void station1CB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            newItem.FirstStationNum = (station1CB.SelectedItem as BusStationBO).CodeStation;
+        }
+        private void station2CB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                if ((station2CB.SelectedItem as BusStationBO).CodeStation == (station1CB.SelectedItem as BusStationBO).CodeStation)
+                    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
+                newItem.LastStationNum = (station2CB.SelectedItem as BusStationBO).CodeStation;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+            
+        }
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                if ((station2CB.SelectedItem as BusStationBO).CodeStation == (station1CB.SelectedItem as BusStationBO).CodeStation)
+                    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
                 BusStationBO newStation1 = bl.GetBusStationBO(newItem.FirstStationNum);
                 BusStationBO newStation2 = bl.GetBusStationBO(newItem.LastStationNum);
                 PairConsecutiveStationsBO pair = bl.GetPairConsecutiveStationsBO(newItem.FirstStationNum, newItem.LastStationNum);
@@ -46,9 +73,11 @@ namespace UIwpf
                 }
                 bl.addBusLine(newItem);
                 MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
-            Close();
+            catch (BusStationExceptionBO ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); Close(); }
+            
         }
         private void TextBox_OnlyNumbers_PreviewKeyDown(object sender, KeyEventArgs e)
         {

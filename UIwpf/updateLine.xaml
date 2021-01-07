@@ -5,17 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="updateLine" Height="300" Width="800">
+        Title="updateLine" Height="250" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="420,74,0,0" TextWrapping="Wrap" Text=":הכנס מספר מזהה" VerticalAlignment="Top"/>
+        
         <TextBlock HorizontalAlignment="Left" Margin="28,37,-7.667,0" TextWrapping="Wrap" Text="ביכולתך לעדכן את מספר הקו ואיזורו על פי המספר המזהה. חובה להכניס מידע בשני השדות. אם ברצונך להוסיף תחנות, השתמש בכפתור הייעודי" VerticalAlignment="Top" Width="773"/>
-        <TextBlock HorizontalAlignment="Left" Margin="363,10,0,0" TextWrapping="Wrap" Text="עדכון קו" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="286,73,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=IdentifyNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="425,122,0,0" TextWrapping="Wrap" Text=":מספר קו מעודכן" VerticalAlignment="Top" Width="96"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="286,122,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=LineNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="443,170,0,0" TextWrapping="Wrap" Text=":איזור מעודכן" VerticalAlignment="Top" Width="73" Height="17"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="286,170,0,0" TextWrapping="Wrap" Text="{Binding Path=Area, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="עדכן" HorizontalAlignment="Left" Margin="337,228,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickUpdate"/>
+        <TextBlock HorizontalAlignment="Left" Margin="363,10,0,0" TextWrapping="Wrap" Text=":עדכון קו שמספרו המזהה" VerticalAlignment="Top"/>
+        
+        <TextBlock HorizontalAlignment="Left" Margin="425,76,0,0" TextWrapping="Wrap" Text=":מספר קו מעודכן" VerticalAlignment="Top" Width="96"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="286,70,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=LineNumber, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="443,116,0,0" TextWrapping="Wrap" Text=":איזור מעודכן" VerticalAlignment="Top" Width="73" Height="17"/>
+        
+        <Button Content="עדכן" HorizontalAlignment="Left" Margin="337,152,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickUpdate"/>
+        <TextBlock HorizontalAlignment="Left" Margin="311,11,0,0" TextWrapping="Wrap" Text="{Binding Path=IdentifyNumber}" VerticalAlignment="Top"/>
+        <ComboBox x:Name="areaCB" HorizontalAlignment="Left" Margin="283,111,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="areaCB_SelectionChanged"/>
 
     </Grid>
 </Window>

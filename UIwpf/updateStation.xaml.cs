@@ -24,16 +24,22 @@ namespace UIwpf
         private BusStationBO newItem = new BusStationBO();
         public BusStationBO newItem1 { get => newItem; set => newItem = value; }
         public bool ifDone { get; set; } = false;
-        public updateStation(IBL _bl)
+        public updateStation(IBL _bl, BusStationBO currentStation)
         {
             InitializeComponent();
             bl = _bl;
+            newItem.CodeStation = currentStation.CodeStation;
             DataContext = newItem;
         }
 
         private void Button_ClickUpdateStation(object sender, RoutedEventArgs e)
         {
-            ifDone = true;
+            try
+            {
+                bl.updateBusStation(newItem);
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             Close();
         }
         private void TextBox_OnlyNumbers_PreviewKeyDown(object sender, KeyEventArgs e)

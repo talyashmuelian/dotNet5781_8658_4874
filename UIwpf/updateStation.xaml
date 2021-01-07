@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="updateStation" Height="450" Width="800">
+        Title="updateStation" Height="350" Width="640">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="363,10,0,0" TextWrapping="Wrap" Text="עדכון תחנה" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="72,37,0,0" TextWrapping="Wrap" Text="ביכולתך לעדכן את שם התחנה, קווי אורכה ורוחבה, ונגישותה לנכים על פי מספר התחנה. חובה להכניס מידע בכל השדות" VerticalAlignment="Top" Width="636" Height="31"/>
-        <TextBlock HorizontalAlignment="Left" Margin="448,100,0,0" TextWrapping="Wrap" Text=":מספר תחנה לעדכון" VerticalAlignment="Top" Height="29" Width="113"/>
-        <TextBlock HorizontalAlignment="Left" Margin="463,150,0,0" TextWrapping="Wrap" Text=":קו רוחב מעודכן" VerticalAlignment="Top" Height="29" Width="102"/>
-        <TextBlock HorizontalAlignment="Left" Margin="465,200,0,0" TextWrapping="Wrap" Text=":קו אורך מעודכן" VerticalAlignment="Top" Height="29" Width="129"/>
-        <TextBlock HorizontalAlignment="Left" Margin="442,250,0,0" TextWrapping="Wrap" Text=":שם תחנה מעודכן" VerticalAlignment="Top" Height="29" Width="129"/>
-        <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="275,150,0,0" TextWrapping="Wrap" Text="{Binding Path=Latitude, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="addLine3" HorizontalAlignment="Left" Height="23" Margin="275,200,0,0" TextWrapping="Wrap" Text="{Binding Path=Longitude, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="addLine4" HorizontalAlignment="Left" Height="23" Margin="272,250,0,0" TextWrapping="Wrap" Text="{Binding Path=NameStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <CheckBox Content="קיימת גישה לנכים" IsChecked="{Binding Path=IsAccessible, Mode=OneWayToSource}"  HorizontalAlignment="Left" Margin="332,303,0,0" VerticalAlignment="Top"/>
-        <Button Content="עדכן" HorizontalAlignment="Left" Margin="337,350,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickUpdateStation"/>
+        <TextBlock HorizontalAlignment="Left" Margin="303,10,0,0" TextWrapping="Wrap" Text="עדכון תחנה" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,37,0,0" TextWrapping="Wrap" Text="ביכולתך לעדכן את שם התחנה, קווי אורכה ורוחבה, ונגישותה לנכים. חובה להכניס מידע בכל השדות" VerticalAlignment="Top" Width="522" Height="31"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="399,86,0,0" TextWrapping="Wrap" Text=":קו רוחב מעודכן" VerticalAlignment="Top" Height="29" Width="102"/>
+        <TextBlock HorizontalAlignment="Left" Margin="399,144,0,0" TextWrapping="Wrap" Text=":קו אורך מעודכן" VerticalAlignment="Top" Height="29" Width="129"/>
+        <TextBlock HorizontalAlignment="Left" Margin="390,198,0,0" TextWrapping="Wrap" Text=":שם תחנה מעודכן" VerticalAlignment="Top" Height="29" Width="129"/>
+
+        <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="203,86,0,0" TextWrapping="Wrap" Text="{Binding Path=Latitude, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addLine3" HorizontalAlignment="Left" Height="23" Margin="203,142,0,0" TextWrapping="Wrap" Text="{Binding Path=Longitude, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addLine4" HorizontalAlignment="Left" Height="23" Margin="202,198,0,0" TextWrapping="Wrap" Text="{Binding Path=NameStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <CheckBox Content="קיימת גישה לנכים" IsChecked="{Binding Path=IsAccessible, Mode=OneWayToSource}"  HorizontalAlignment="Left" Margin="278,247,0,0" VerticalAlignment="Top"/>
+        <Button Content="עדכן" HorizontalAlignment="Left" Margin="301,284,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickUpdateStation"/>
+        <TextBlock HorizontalAlignment="Left" Margin="251,0,0,396.667" TextWrapping="Wrap" Text="{Binding Path=CodeStation}" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
         Title="deleteStation" Height="250" Width="400">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="67,10,0,0" TextWrapping="Wrap" Text=":הכנס את מספר התחנה שברצונך למחוק" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="128,53,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="128,53,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="6" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <Button Content="מחק" HorizontalAlignment="Left" Margin="148,114,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickDelStation" />
     </Grid>
 </Window>

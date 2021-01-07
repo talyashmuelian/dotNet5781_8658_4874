@@ -23,17 +23,31 @@ namespace UIwpf
         IBL bl;
         private BusLineBO newItem = new BusLineBO();
         public BusLineBO newItem1 { get => newItem; set => newItem = value; }
-        public bool ifDone { get; set; } = false;
-        public updateLine(IBL _bl)
+        private List<string> areas = new List<string>();
+        public updateLine(IBL _bl, BusLineBO currentLine)
         {
             InitializeComponent();
             bl = _bl;
+            areas.Add("ירושלים");
+            areas.Add("מרכז");
+            areas.Add("דרום");
+            areas.Add("צפון");
+            newItem.IdentifyNumber = currentLine.IdentifyNumber;
             DataContext = newItem;
+            areaCB.ItemsSource = areas;
         }
-
+        private void areaCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            newItem.Area = areaCB.SelectedItem.ToString();
+        }
         private void Button_ClickUpdate(object sender, RoutedEventArgs e)
         {
-            ifDone = true;
+            try
+            {
+                bl.updateBusLine(newItem);
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             Close();
         }
         private void TextBox_OnlyNumbers_PreviewKeyDown(object sender, KeyEventArgs e)

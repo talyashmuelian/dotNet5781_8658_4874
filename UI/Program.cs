@@ -16,9 +16,10 @@ namespace UI
             try
             {
                 bl = BLFactory.GetBl();
-                printAllbusses();
-                bl.addBus(new BusBO { License = "93939393", });
-                printAllbusses();
+                Console.WriteLine(new DateTime(2017,5,24).Year);
+                //printAllbusses();
+                //bl.addBus(new BusBO { License = "93939393", });
+                //printAllbusses();
                 //bl.deleteBus(new BusBO { License = "93939393", });
                 //printAllbusses();
                 //bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });
@@ -34,7 +35,7 @@ namespace UI
                 //printAllBusStations();
                 ////bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });;
                 //Console.WriteLine(bl.GetBusStationBO(123456));
-                //bl.GetBusLineBO(1);
+                Console.WriteLine(bl.GetBusBO("12341234"));
                 //printAllBusLines();
                 //bl.addStationToLine(123456, 5, 11);
                 //bool a=bl.addBusLine(new BusLineBO { LineNumber = 12, Area = "aaa", FirstStationNum = 123456, LastStationNum = 111111 });
