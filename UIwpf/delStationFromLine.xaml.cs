@@ -34,6 +34,11 @@ namespace UIwpf
         {
             try
             {
+                MessageBoxResult result = MessageBox.Show("?האם אתה בטוח שברצונך למחוק את התחנה מהקו", "אישור מחיקה", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.No)
+                {
+                    Close();
+                }
                 bl.chekIfCanToDelStationFromLine(newItem.CodeStation, newItem.IdentifyNumber);
                 PairConsecutiveStationsBO currentPair = bl.ifNeedToGetDataBetweenTwoStation(newItem.IdentifyNumber, newItem.CodeStation);
                 if (currentPair != null)//אין מידע עבור התחנה הקודמת והעוקבת לזו שרוצים למחוק

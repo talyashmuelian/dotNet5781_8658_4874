@@ -25,7 +25,7 @@
         <DataTemplate x:Key="MyDataTemplateLines"                   DataType="local:MyData" >
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="130" />
                     <ColumnDefinition Width="70" />
                     <ColumnDefinition Width="40" />
                     <ColumnDefinition Width="100" />
@@ -43,19 +43,23 @@
         <DataTemplate x:Key="MyDataTemplateStations"                   DataType="local:MyData" >
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="30" />
                     <ColumnDefinition Width="30" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="70" />
                     <ColumnDefinition Width="80" />
+
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="5" Text=":מספר תחנה" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
-                <TextBlock Grid.Column="4"  Text="{Binding Path=CodeStation}" FontSize="11" Foreground="#FF0D0D12" />
-                <TextBlock Grid.Column="3" Text=":שם תחנה " FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
-                <TextBlock Grid.Column="2"  Text="{Binding Path=NameStation}" FontSize="11" Foreground="#FF0D0D12" />
-                <TextBlock Grid.Column="1" Text=":גישה לנכים" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
-                <TextBlock Grid.Column="0"  Text="{Binding Path=IsAccessible}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="7" Text=":מספר תחנה" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="6"  Text="{Binding Path=CodeStation}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="5" Text=":שם תחנה " FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="4"  Text="{Binding Path=NameStation}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="3" Text=":גישה לנכים" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="2"  Text="{Binding Path=IsAccessible}" FontSize="11" Foreground="#FF0D0D12" />
+                <Button Grid.Column="0" Content="תחנות עוקבות"  Background="#FF8EBCD0" Click="Button_ClickShowPair" />
             </Grid>
         </DataTemplate>
     </Window.Resources>
@@ -88,10 +92,12 @@
                 <TabItem Header="תחנות" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,-2,-2" Width="66">
                     <TabItem.Content>
                         <Grid>
-                            <ListBox x:Name="lbStationsOnSystem" ItemTemplate="{StaticResource MyDataTemplateStations}"  HorizontalAlignment="Left" Height="294" Margin="70,60,0,0" VerticalAlignment="Top" Width="520"  SelectionMode="Single" MouseDoubleClick="showDataStations_doubleClick" ItemsSource="{Binding}" />
-                            <Button Content="הוספת תחנה" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddStation"/>
-                            <Button Content="עדכון תחנה" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickUpdateStation"/>
-                            <Button Content="מחיקת תחנה" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteStation"/>
+                            <ListBox x:Name="lbStationsOnSystem" ItemTemplate="{StaticResource MyDataTemplateStations}"  HorizontalAlignment="Left" Height="294" Margin="50,60,0,0" VerticalAlignment="Top" Width="643"  SelectionMode="Single" MouseDoubleClick="showDataStations_doubleClick" ItemsSource="{Binding}" />
+                            <Button Content="הוספת תחנה" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddStation"/>
+                            <Button Content="עדכון תחנה" HorizontalAlignment="Left" Margin="318,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickUpdateStation"/>
+                            <Button Content="מחיקת תחנה" HorizontalAlignment="Left" Margin="502,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteStation"/>
+                            <Button Content="עדכון זמן ומרחק בין זוג תחנות" HorizontalAlignment="Left" Margin="119,369,0,0" VerticalAlignment="Top" Width="179" Click="Button_ClickUpdatePair"/>
+                            <Button Content="הוספת זמן ומרחק בין זוג תחנות" HorizontalAlignment="Left" Margin="398,369,0,0" VerticalAlignment="Top" Width="188" Click="Button_ClickAddPair"/>
                         </Grid>
                     </TabItem.Content>
                 </TabItem>

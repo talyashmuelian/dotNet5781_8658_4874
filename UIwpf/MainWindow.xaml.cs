@@ -24,15 +24,40 @@ namespace UIwpf
     public partial class MainWindow : Window
     {
         IBL bl = BLFactory.GetBl();
+        private UserBO newItem = new UserBO();
+        public UserBO newItem1 { get => newItem; set => newItem = value; }
         public MainWindow()
         {
             InitializeComponent();
-            
+            DataContext = newItem;
         }
         private void Button_Click(object sender, RoutedEventArgs e)//אירוע לחיצת כפתור מנהל
         {
             manager managerWindow = new manager(bl);
             managerWindow.Show();
+        }
+
+        private void Button_ClickLogIn(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (bl.ifUserAndPassCorrect(newItem.UserName, password.Password))//אם קיים במערכת משתמש כזה
+                {
+                    manager managerWindow = new manager(bl);
+                    managerWindow.ShowDialog();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+        }
+        private void forgetPassWord_doubleClick(object sender, RoutedEventArgs e)//שכחתי סיסמה
+        {
+            forgetPassword forgetPasswordWindow = new forgetPassword(bl);
+            forgetPasswordWindow.ShowDialog();
+        }
+        private void signUp_doubleClick(object sender, RoutedEventArgs e)//הרשמת משתמש מנהל
+        {
+            signUp signUpWindow = new signUp(bl);
+            signUpWindow.ShowDialog();
         }
     }
 }

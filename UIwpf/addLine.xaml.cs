@@ -33,11 +33,21 @@ namespace UIwpf
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            addLine1.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            addLine2.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            addLine3.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            addLine4.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            ifDone = true;
+            try
+            {
+                BusStationBO newStation1 = bl.GetBusStationBO(newItem.FirstStationNum);
+                BusStationBO newStation2 = bl.GetBusStationBO(newItem.LastStationNum);
+                PairConsecutiveStationsBO pair = bl.GetPairConsecutiveStationsBO(newItem.FirstStationNum, newItem.LastStationNum);
+                if (pair == null)//אין עדיין מידע עבור זוג התחנות הללו
+                {
+                    //נפתח חלון חדש שמבקש מידע עבור המרחק בין התחנות האלה
+                    addDataToPaitStation addDataToPaitStationWindow = new addDataToPaitStation(bl, newItem.FirstStationNum, newItem.LastStationNum);
+                    addDataToPaitStationWindow.ShowDialog();
+                }
+                bl.addBusLine(newItem);
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             Close();
         }
         private void TextBox_OnlyNumbers_PreviewKeyDown(object sender, KeyEventArgs e)

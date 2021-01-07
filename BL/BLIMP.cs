@@ -150,6 +150,13 @@ namespace BL
             try
             {
                 ////////צריך למחוק את כל התחנות קו שמקושרות לקו הזה
+                //var numStationsInLine =
+                //from lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == busLine.IdentifyNumber)
+                //select new { numStation = lineStation.CodeStation };
+                //foreach (var obj in numStationsInLine)
+                //{
+                //    dal.deleteLineStation(new LineStationDAO {IdentifyNumber= busLine.IdentifyNumber, CodeStation= obj.numStation });//מחיקת התחנות של הקו מהמאגר
+                //}
                 List<LineStationDAO> stationsInLine = new List<LineStationDAO>();
                 foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == busLine.IdentifyNumber))
                 {
@@ -159,7 +166,7 @@ namespace BL
                 {
                     dal.deleteLineStation(lineStation);//מחיקת התחנות של הקו מהמאגר
                 }
-                
+
             }
             catch (DO.LineStationExceptionDO ex)
             {
@@ -728,6 +735,7 @@ namespace BL
         }
         #endregion
         //זוג תחנות עוקבות
+        #region pairs
         private PairConsecutiveStationsDAO convertDAO(PairConsecutiveStationsBO pair)
         {
             PairConsecutiveStationsDAO pairConsecutiveStationsDAO = new PairConsecutiveStationsDAO
@@ -804,6 +812,22 @@ namespace BL
             }
             return result;
         }
+        public IEnumerable<PairConsecutiveStationsBO> GetPairThatConnect(int codeStation)
+        {
+            try
+            {
+                IEnumerable<PairConsecutiveStationsDAO> listPairs = dal.getPartOfPairConsecutiveStations(item => item.StationNum1 == codeStation || item.StationNum2 == codeStation);//רשימה של תחנות עוקבות המתאימות לתחנה הזאת
+                IEnumerable<PairConsecutiveStationsBO> result =
+                    from pair in listPairs
+                    select convertoBO(pair);
+                return result;
+            }
+            catch (DO.PairConsecutiveStationsExceptionDO ex)
+            {
+                throw new BO.PairConsecutiveStationsExceptionBO("There is no pair of stations that meets the condition", ex);
+            }
+            
+        }
         //עדכון מרחק וזמן נסיעה בין זוג תחנות עוקבות
         public void updatePairConsecutiveStations(int numStation1, int numStation2,int distance, int timeDriving)
         {
@@ -815,6 +839,105 @@ namespace BL
                 TimeDriving = timeDriving
             };
             dal.updatePairConsecutiveStations(forNow);
+        }
+        #endregion
+        private UserDAO convertDAO(UserBO user)
+        {
+            UserDAO userDAO = new UserDAO
+            {
+                UserName = user.UserName,
+                PassWord = user.PassWord,
+                CheckAsk = user.CheckAsk
+            };
+            return userDAO;
+        }
+
+        private UserBO convertoBO(UserDAO user)
+        {
+            return new UserBO
+            {
+                UserName = user.UserName,
+                PassWord = user.PassWord,
+                CheckAsk = user.CheckAsk
+            };
+        }
+        public IEnumerable<UserBO> GetAllUsersBO()//הדפסת כל המשתמשים
+        {
+            return from user in dal.getAllUsers()
+                   select convertoBO(user);
+        }
+        public UserBO GetUserBO(string userName)//קבלת פרטי משתמש בודד
+        {
+            UserBO result = new UserBO();
+            UserDAO userDAO;
+            try
+            {
+                userDAO = dal.getOneObjectUserDAO(userName);
+            }
+            catch (DO.UserExceptionDO ex)
+            {
+                throw new BO.UserExceptionBO("userName not found", ex);
+            }
+            result = convertoBO(userDAO);
+            return result;
+        }
+        //הוספה, עדכון ומחיקת משתמש
+        public bool addUser(UserBO user)
+        {
+            bool result;
+            try
+            {
+                result = dal.addUser(convertDAO(user));
+            }
+            catch (DO.UserExceptionDO ex)
+            {
+                throw new BO.UserExceptionBO("userName exists allready", ex);
+            }
+            return result;
+        }
+        public bool updateUser(UserBO user)
+        {
+            bool result;
+            try
+            {
+                result = dal.updateUser(convertDAO(user));
+            }
+            catch (DO.UserExceptionDO ex)
+            {
+                throw new BO.UserExceptionBO("The userName " + user.UserName + " not found", ex);
+            }
+            return result;
+        }
+        public bool deleteUser(UserBO user)
+        {
+            bool result;
+            try
+            {
+                result = dal.deleteUser(convertDAO(user));
+            }
+            catch (DO.UserExceptionDO ex)
+            {
+                throw new BO.UserExceptionBO("Does not exist in the system", ex);
+            }
+            return result;
+        }
+        public string forgetPassWord(string userName, string checkAsk)//שחזור סיסמה לפי שם משתמש ושאלת אימות
+        {
+            UserDAO user1 = dal.getAllUsers().ToList().Find(p => p.UserName == userName && p.CheckAsk == checkAsk);
+
+            if (user1 != null)
+                return user1.PassWord;
+            else
+                throw new BO.UserExceptionBO("שם המשתמש אינו קיים במערכת ו/או שאלת האימות שהזנת אינם תואמים");
+        }
+        public bool ifUserAndPassCorrect(string userName, string passWord)
+        {
+            UserDAO user1 = dal.getAllUsers().ToList().Find(p => p.UserName == userName && p.PassWord == passWord);
+
+            if (user1 != null)
+                return true;
+            else
+                throw new BO.UserExceptionBO("אחד או יותר מהשדות שהזנת שגויים");
         }
     }
 }

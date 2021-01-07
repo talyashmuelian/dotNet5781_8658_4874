@@ -115,5 +115,23 @@ namespace DO
         {
         }
     }
-    
+    public class UserExceptionDO : Exception
+    {
+        public UserExceptionDO()
+        {
+        }
+
+        public UserExceptionDO(string message) : base(message)
+        {
+        }
+
+        public UserExceptionDO(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected UserExceptionDO(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
+
 }

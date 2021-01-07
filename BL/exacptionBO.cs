@@ -115,4 +115,22 @@ namespace BO
         {
         }
     }
+    public class UserExceptionBO : Exception
+    {
+        public UserExceptionBO()
+        {
+        }
+
+        public UserExceptionBO(string message) : base(message)
+        {
+        }
+
+        public UserExceptionBO(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected UserExceptionBO(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
 }

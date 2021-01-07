@@ -62,7 +62,12 @@ namespace DLAPI
         IEnumerable<PairConsecutiveStationsDAO> getPartOfPairConsecutiveStations(Predicate<PairConsecutiveStationsDAO> PairConsecutiveStationsDAOCondition);
         PairConsecutiveStationsDAO getOneObjectPairConsecutiveStations(int stationNum1, int stationNum2);
         #endregion
-
+        bool addUser(UserDAO user);
+        bool updateUser(UserDAO user);
+        bool deleteUser(UserDAO user);
+        IEnumerable<UserDAO> getAllUsers();
+        IEnumerable<UserDAO> getPartOfUsers(Predicate<UserDAO> UserDAOCondition);
+        UserDAO getOneObjectUserDAO(string userName);
 
     }
 }

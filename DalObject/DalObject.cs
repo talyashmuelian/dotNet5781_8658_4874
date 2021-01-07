@@ -392,6 +392,76 @@ namespace DL
                 return null;//throw new DO.PairConsecutiveStationsExceptionDO("No object found for this pair of stations");
         }
         #endregion
+        //משתמשים
+        #region users
+        public bool addUser(UserDAO user)
+        {
+            if (DATA.Users.Exists(mishehu => mishehu.UserName == user.UserName))
+            {
+                throw new UserExceptionDO("שם המשתמש כבר קיים");
+                //return false;
+            }
+            DATA.Users.Add(user.Clone());
+            return true;
+        }
+        public bool updateUser(UserDAO user)
+        {
+            if (!DATA.Users.Exists(mishehu => mishehu.UserName == user.UserName))
+            {
+                throw new DO.UserExceptionDO("The UserName " + user.UserName + " not found");
+                //return false;
+            }
+            DATA.Users.RemoveAll(b => b.UserName == user.UserName);//מוחק את השם משתמש הקיים
+            DATA.Users.Add(user.Clone());//מכניס את החדש במקומו
+            return true;
+        }
+        public bool deleteUser(UserDAO user)
+        {
+            if (!DS.DATA.Users.Exists(item => item.UserName == user.UserName))
+            {
+                //return false;
+                throw new UserExceptionDO("Does not exist in the system");
+            }
+            //BusDAO todelete = null;
+            //foreach (var item in DS.DataSource.Buses)
+            //{
+            //    if(item.License == bus.License)
+            //    {
+            //        todelete = item;
+            //        break;
+            //    }
+            //}
+            //if(todelete != null)
+            //{
+            //    DS.DataSource.Buses.Remove(todelete);
+            //}
+            DS.DATA.Users.RemoveAll(item => item.UserName == user.UserName);
+            return true;
+        }
+        public IEnumerable<UserDAO> getAllUsers()
+        {
+            return from user in DATA.Users
+                   select user.Clone();
+        }
+        public IEnumerable<UserDAO> getPartOfUsers(Predicate<UserDAO> UserDAOCondition)
+        {
+            IEnumerable<UserDAO> TempUserDAO = from UserDAO item in DATA.Users
+                                               where UserDAOCondition(item)
+                                             select item.Clone();
+            if (TempUserDAO.Count() == 0)
+                throw new UserExceptionDO("There are no users in the system that meet the condition");
+            return TempUserDAO;
+        }
+        public UserDAO getOneObjectUserDAO(string userName)
+        {
+            UserDAO user1 = DATA.Users.Find(p => p.UserName == userName);
+
+            if (user1 != null)
+                return user1.Clone();
+            else
+                throw new DO.UserExceptionDO("The UserName number " + userName + " not found");
+        }
+        #endregion
     }
 }
 

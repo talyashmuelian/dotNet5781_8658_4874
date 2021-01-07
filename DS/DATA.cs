@@ -14,6 +14,7 @@ namespace DS
         private static List<BusLineDAO> busLines = new List<BusLineDAO>();//רשימה של קווי אוטובוס
         private static List<BusStationDAO> busStations = new List<BusStationDAO>();//רשימת תחנות
         private static List<LineStationDAO> lineStations = new List<LineStationDAO>();//רשימת תחנות קו (נקודות במסלול)
+        private static List<UserDAO> users = new List<UserDAO>();
         private static List<PairConsecutiveStationsDAO> pairConsecutiveStations = new List<PairConsecutiveStationsDAO>();//אוסף כל זוגות התחנות העוקבות
         public static List<BusDAO> Buses { get => busses; }
         //public static List<BusInTravelDAO> BusesTravel { get => busestravel; }
@@ -21,6 +22,7 @@ namespace DS
         public static List<BusStationDAO> BusStations { get => busStations; }
         public static List<LineStationDAO> LineStations { get => lineStations; }
         public static List<PairConsecutiveStationsDAO> PairConsecutiveStations { get => pairConsecutiveStations; }
+        public static List<UserDAO> Users { get => users; }
         static DATA()
         {
             initBuses();
@@ -28,6 +30,7 @@ namespace DS
             initBusStations();
             initLineStations();
             initPairConsecutiveStations();
+            initUsers();
         }
         public static void initBuses()
         {
@@ -1441,6 +1444,33 @@ namespace DS
                     }
                 }
             }
+        }
+        public static void initUsers()
+        {
+            Users.Add(new UserDAO
+            {
+                UserName = "טליה",
+                PassWord = "211378658",
+                CheckAsk = "מעלה התורה",
+            });
+            Users.Add(new UserDAO
+            {
+                UserName = "נריה",
+                PassWord = "211344874",
+                CheckAsk = "רננות",
+            });
+            Users.Add(new UserDAO
+            {
+                UserName = "שירה",
+                PassWord = "1234567",
+                CheckAsk = "אורות",
+            });
+            Users.Add(new UserDAO
+            {
+                UserName = "דוד",
+                PassWord = "7654321",
+                CheckAsk = "מוריה",
+            });
         }
 
 

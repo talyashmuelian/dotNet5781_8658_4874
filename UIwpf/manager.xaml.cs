@@ -50,20 +50,8 @@ namespace UIwpf
         {
             addLine addLineWindow = new addLine(bl);
             addLineWindow.ShowDialog();
-            bool a=false;
-            try 
-            {
-                if (addLineWindow.ifDone)
-                { a = bl.addBusLine(addLineWindow.newItem1); }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה",MessageBoxButton.OK, MessageBoxImage.Error); }
             RefreshLinesLB();
-            if (a)
-                {
-                    MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
         }
-
         private void Button_ClickDeleteLine(object sender, RoutedEventArgs e)
         {
             deleteLine deleteLineWindow = new deleteLine(bl);
@@ -259,6 +247,50 @@ namespace UIwpf
             //BusBO CurrentBus = fxElt.SelectedItem as BusBO;
             bl.refuel(CurrentBus.License);
             MessageBox.Show("!התדלוק בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void Button_ClickUpdatePair(object sender, RoutedEventArgs e)
+        {
+            updateAddPair updateAddPairWindow = new updateAddPair(bl);
+            updateAddPairWindow.ShowDialog();
+            bool a = false;
+            try
+            {
+                if (updateAddPairWindow.ifDone)
+                { a = bl.updatePairConsecutiveStations(updateAddPairWindow.newItem1); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+            RefreshLinesLB();
+            if (a)
+            {
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+        private void Button_ClickAddPair(object sender, RoutedEventArgs e)
+        {
+            updateAddPair updateAddPairWindow = new updateAddPair(bl);
+            updateAddPairWindow.ShowDialog();
+            bool a = false;
+            try
+            {
+                if (updateAddPairWindow.ifDone)
+                { a = bl.addPairConsecutiveStations(updateAddPairWindow.newItem1); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+            RefreshLinesLB();
+            if (a)
+            {
+                MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+        private void Button_ClickShowPair(object sender, RoutedEventArgs e)//כפתור לתצוגת התחנות העוקבות של קו מסוים
+        {
+            var fxElt = sender as FrameworkElement;
+            BusStationBO CurrentStation = fxElt.DataContext as BusStationBO;
+            //var fxElt = sender as ListBox;
+            //BusStationBO CurrentStation = fxElt.SelectedItem as BusStationBO;
+            showPair showPairWindow = new showPair(bl, CurrentStation);
+            showPairWindow.ShowDialog();
         }
     }
 }

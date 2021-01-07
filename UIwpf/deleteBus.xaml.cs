@@ -33,7 +33,11 @@ namespace UIwpf
 
         private void Button_ClickDeleteBus(object sender, RoutedEventArgs e)
         {
-            ifDone = true;
+            MessageBoxResult result = MessageBox.Show("?האם אתה בטוח שברצונך למחוק את האוטובוס", "אישור מחיקה", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                ifDone = true;
+            }
             Close();
         }
         private void TextBox_OnlyNumbers_PreviewKeyDown(object sender, KeyEventArgs e)
