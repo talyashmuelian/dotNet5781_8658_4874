@@ -48,7 +48,9 @@
     <Compile Include="BusLineBO.cs" />
     <Compile Include="BusStationBO.cs" />
     <Compile Include="exacptionBO.cs" />
+    <Compile Include="LineInAreaBO.cs" />
     <Compile Include="LineInStationBO.cs" />
+    <Compile Include="MiniStationBO.cs" />
     <Compile Include="PairConsecutiveStationsBO.cs" />
     <Compile Include="TripBO.cs" />
     <Compile Include="StationInLineBO.cs" />

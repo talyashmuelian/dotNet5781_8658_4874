@@ -10,6 +10,7 @@ namespace BLAPI
     {
         IEnumerable<BusLineBO> GetAllBusLinesBO();//הדפסת כל הקווים
         BusLineBO GetBusLineBO(int identifyNumber);//קבלת פרטים על קו בודד
+        IEnumerable<LineInAreaBO> orderLinesByArea();
         //הוספה, עדכון ומחיקת קו
         bool addBusLine(BusLineBO busLine);
         bool updateBusLine(BusLineBO busLine);
@@ -31,6 +32,7 @@ namespace BLAPI
         void refuel(string license);
         void treatment(string license);
         IEnumerable<BusStationBO> GetAllBusStationsBO();//הדפסת כל התחנות
+        IEnumerable<MiniStationBO> GetAllMiniStationsBO();
         BusStationBO GetBusStationBO(int codeStation);//קבלת פרטים עבור תחנה מסוימת
         //הוספה עדכון ומחיקת תחנה
         bool addBusStation(BusStationBO busStation);//הוספת תחנה חדשה לגמרי שחייבת להיות לפחות בקו אחד

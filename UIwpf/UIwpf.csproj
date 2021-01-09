@@ -79,6 +79,7 @@
     <Compile Include="forgetPassword.xaml.cs">
       <DependentUpon>forgetPassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NamesStations.cs" />
     <Compile Include="showBus.xaml.cs">
       <DependentUpon>showBus.xaml</DependentUpon>
     </Compile>

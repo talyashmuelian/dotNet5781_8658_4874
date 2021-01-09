@@ -10,9 +10,9 @@
         <TextBlock x:Name="addLine111" Text="הוספת קו"  HorizontalAlignment="Left" Margin="377,0,0,374.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="36" Width="92"/>
         <TextBlock x:Name="explane" Text="עליך להוסיף מספר קו, איזור וחובה להוסיף שתי תחנות שקיימות במערכת. אם ברצונך להוסיף תחנות נוספות בצע זאת בכפתור הייעודי" HorizontalAlignment="Left" Margin="73,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="23" Width="701"/>
         <TextBlock HorizontalAlignment="Left" Margin="459,100,0,0" TextWrapping="Wrap" Text=":מספר הקו להוספה" VerticalAlignment="Top" Height="29" Width="102"/>
-        <TextBlock HorizontalAlignment="Left" Margin="463,150,0,0" TextWrapping="Wrap" Text=":איזור הקו להוספה" VerticalAlignment="Top" Height="29" Width="102"/>
-        <TextBlock HorizontalAlignment="Left" Margin="448,200,0,0" TextWrapping="Wrap" Text=":מספר התחנה הראשונה" VerticalAlignment="Top" Height="29" Width="129"/>
-        <TextBlock HorizontalAlignment="Left" Margin="460,250,0,0" TextWrapping="Wrap" Text=":מספר התחנה האחרונה" VerticalAlignment="Top" Height="29" Width="129"/>
+        <TextBlock HorizontalAlignment="Left" Margin="466,150,0,0" TextWrapping="Wrap" Text=":איזור הקו להוספה" VerticalAlignment="Top" Height="29" Width="102"/>
+        <TextBlock HorizontalAlignment="Left" Margin="460,200,0,0" TextWrapping="Wrap" Text=":בחר תחנה ראשונה" VerticalAlignment="Top" Height="29" Width="129"/>
+        <TextBlock HorizontalAlignment="Left" Margin="472,250,0,0" TextWrapping="Wrap" Text=":בחר תחנה שנייה" VerticalAlignment="Top" Height="29" Width="129"/>
         <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" Text="{Binding Path=LineNumber, Mode=OneWayToSource}" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="3" VerticalAlignment="Top" Width="120"/>
         
         

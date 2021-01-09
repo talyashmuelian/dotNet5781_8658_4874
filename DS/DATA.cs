@@ -243,7 +243,7 @@ namespace DS
             {
                 IdentifyNumber = 1,
                 LineNumber = 1,
-                Area="center",
+                Area="מרכז",
                 FirstStationNum =123456,
                 LastStationNum=111111,
             });
@@ -251,7 +251,7 @@ namespace DS
             {
                 IdentifyNumber = 2,
                 LineNumber = 2,
-                Area ="jerusalem",
+                Area ="ירושלים",
                 FirstStationNum =111222,
                 LastStationNum =123123,
             });
@@ -259,7 +259,7 @@ namespace DS
             {
                 IdentifyNumber = 3,
                 LineNumber = 3,
-                Area ="south",
+                Area = "דרום",
                 FirstStationNum =234234,
                 LastStationNum =144144,
             });
@@ -267,7 +267,7 @@ namespace DS
             {
                 IdentifyNumber =4 ,
                 LineNumber = 4,
-                Area = "north",
+                Area = "צפון",
                 FirstStationNum =122122,
                 LastStationNum =344344,
             });
@@ -275,7 +275,7 @@ namespace DS
             {
                 IdentifyNumber =5 ,
                 LineNumber = 5,
-                Area = "center",
+                Area = "מרכז",
                 FirstStationNum =544544,
                 LastStationNum =654321,
             });
@@ -283,7 +283,7 @@ namespace DS
             {
                 IdentifyNumber = 6,
                 LineNumber = 6,
-                Area = "jerusalem",
+                Area = "ירושלים",
                 FirstStationNum =654654,
                 LastStationNum =345999,
             });
@@ -291,7 +291,7 @@ namespace DS
             {
                 IdentifyNumber = 7,
                 LineNumber = 7,
-                Area = "north",
+                Area = "צפון",
                 FirstStationNum =877877,
                 LastStationNum =435435,
             });
@@ -299,7 +299,7 @@ namespace DS
             {
                 IdentifyNumber =8 ,
                 LineNumber =8 ,
-                Area = "center",
+                Area = "מרכז",
                 FirstStationNum =987658,
                 LastStationNum =374657,
             });
@@ -307,7 +307,7 @@ namespace DS
             {
                 IdentifyNumber =9 ,
                 LineNumber = 9,
-                Area = "jerusalem",
+                Area = "ירושלים",
                 FirstStationNum =756284,
                 LastStationNum =376592,
             });
@@ -315,7 +315,7 @@ namespace DS
             {
                 IdentifyNumber = 10,
                 LineNumber = 10,
-                Area = "south",
+                Area = "דרום",
                 FirstStationNum =568377,
                 LastStationNum =473829,
             });

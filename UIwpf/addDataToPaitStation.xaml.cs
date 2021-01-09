@@ -23,6 +23,10 @@ namespace UIwpf
         IBL bl;
         private PairConsecutiveStationsBO newItem = new PairConsecutiveStationsBO();
         public PairConsecutiveStationsBO newItem1 { get => newItem; set => newItem = value; }
+        private NamesStations help = new NamesStations();
+        public NamesStations help1 { get => help; set => help = value; }
+        private string NameStation1;
+        private string NameStation2;
         public bool ifDone { get; set; } = false;
         public addDataToPaitStation(IBL _bl, int station1, int station2)
         {
@@ -30,7 +34,14 @@ namespace UIwpf
             bl = _bl;
             newItem.StationNum1 = station1;
             newItem.StationNum2 = station2;
-            DataContext = newItem;
+            help.NameStation1 = bl.GetBusStationBO(station1).NameStation;
+            help.NameStation2 = bl.GetBusStationBO(station2).NameStation;
+            numStaion1.DataContext = newItem;
+            numStaion2.DataContext = newItem;
+            distance.DataContext = newItem;
+            timeDriving.DataContext = newItem;
+            nameStaion1.DataContext = help;
+            nameStaion2.DataContext = help;
         }
 
         private void Button_ClickAddData(object sender, RoutedEventArgs e)
@@ -38,9 +49,11 @@ namespace UIwpf
             try
             {
                 bl.addPairConsecutiveStations(newItem);
+                ifDone = true;
+                Close();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
-            Close();
+            
         }
         private void TextBox_OnlyNumbers_PreviewKeyDown(object sender, KeyEventArgs e)
         {

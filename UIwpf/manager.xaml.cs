@@ -24,6 +24,7 @@ namespace UIwpf
     public partial class manager : Window
     {
         IBL bl;
+        private List<string> areas = new List<string>();
         public manager(IBL _bl)
         {
             InitializeComponent();
@@ -32,6 +33,51 @@ namespace UIwpf
             RefreshBusesLB();
             RefreshLinesLB();
             RefreshStationsLB();
+            areas.Add("כל האיזורים");
+            areas.Add("ירושלים");
+            areas.Add("מרכז");
+            areas.Add("דרום");
+            areas.Add("צפון");
+            areaCB.ItemsSource = areas;
+            areaCB.SelectedIndex = 0;
+        }
+        private void areaCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (areaCB.SelectedItem.ToString())
+            {
+                case "כל האיזורים":
+                    lbLinesOnSystem.DataContext = bl.GetAllBusLinesBO().ToList();
+                    break;
+                case "ירושלים":
+                    foreach (var group in bl.orderLinesByArea())
+                    {
+                        if (group.Key== "ירושלים")
+                            lbLinesOnSystem.DataContext = group.ListOfLinesInArea;
+                    }
+                    break;
+                case "דרום":
+                    foreach (var group in bl.orderLinesByArea())
+                    {
+                        if (group.Key == "דרום")
+                            lbLinesOnSystem.DataContext = group.ListOfLinesInArea;
+                    }
+                    break;
+                case "צפון":
+                    foreach (var group in bl.orderLinesByArea())
+                    {
+                        if (group.Key == "צפון")
+                            lbLinesOnSystem.DataContext = group.ListOfLinesInArea;
+                    }
+                    break;
+                case "מרכז":
+                    foreach (var group in bl.orderLinesByArea())
+                    {
+                        if (group.Key == "מרכז")
+                            lbLinesOnSystem.DataContext = group.ListOfLinesInArea;
+                    }
+                    break;
+            }
+
         }
         void RefreshBusesLB()
         {
@@ -39,19 +85,12 @@ namespace UIwpf
         }
         void RefreshLinesLB()
         {
-            IEnumerable<BusLineBO> listAllLines =//מיון הקווים
-               from line in bl.GetAllBusLinesBO()
-               orderby line.LineNumber
-               select line;
-            lbLinesOnSystem.DataContext = listAllLines.ToList();
+            areaCB.SelectedIndex = 0;
+            lbLinesOnSystem.DataContext = bl.GetAllBusLinesBO().ToList();
         }
         void RefreshStationsLB()
         {
-            IEnumerable<BusStationBO> listAllStation =//מיון התחנות
-               from station in bl.GetAllBusStationsBO()
-               orderby station.CodeStation
-               select station;
-            lbStationsOnSystem.DataContext = listAllStation.ToList();
+            lbStationsOnSystem.DataContext = bl.GetAllBusStationsBO().ToList();
         }
 
         private void Button_ClickAddLine(object sender, RoutedEventArgs e)

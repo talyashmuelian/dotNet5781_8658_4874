@@ -29,12 +29,37 @@ namespace UIwpf
             InitializeComponent();
             bl = _bl;
             DataContext = newItem;
+            station1CB.ItemsSource = bl.GetAllMiniStationsBO();
+            station2CB.ItemsSource = bl.GetAllMiniStationsBO();
+        }
+        private void station1CB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            newItem.StationNum1 = (station1CB.SelectedItem as MiniStationBO).CodeStation;
+        }
+        private void station2CB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                if ((station2CB.SelectedItem as MiniStationBO).CodeStation == (station1CB.SelectedItem as MiniStationBO).CodeStation)
+                    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
+                newItem.StationNum2 = (station2CB.SelectedItem as MiniStationBO).CodeStation;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+
         }
 
         private void Button_ClickDoIt(object sender, RoutedEventArgs e)
         {
-            ifDone = true;
-            Close();
+            try
+            {
+                if ((station2CB.SelectedItem as MiniStationBO).CodeStation == (station1CB.SelectedItem as MiniStationBO).CodeStation)
+                    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
+                ifDone = true;
+                Close();
+            }
+            catch (BusStationExceptionBO ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); Close(); }
+
         }
     }
 }

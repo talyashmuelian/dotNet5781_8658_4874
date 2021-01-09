@@ -8,15 +8,17 @@
         Title="updateAddPair" Height="450" Width="460">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="162,10,0,0" TextWrapping="Wrap" Text=":הכנס את נתוני התחנות" VerticalAlignment="Top" Height="25" Width="140"/>
-        <TextBlock HorizontalAlignment="Left" Margin="241,65,0,0" TextWrapping="Wrap" Text=":מספר התחנה הראשונה" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="83,65,0,0" TextWrapping="Wrap" Text="{Binding Path=StationNum1, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="252,116,0,0" TextWrapping="Wrap" Text=":מספר התחנה השנייה" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="83,113,0,0" TextWrapping="Wrap" Text="{Binding Path=StationNum2, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="241,65,0,0" TextWrapping="Wrap" Text=":בחר תחנה ראשונה" VerticalAlignment="Top"/>
+        
+        <TextBlock HorizontalAlignment="Left" Margin="252,116,0,0" TextWrapping="Wrap" Text=":בחר תחנה שנייה" VerticalAlignment="Top"/>
+        
         <TextBlock HorizontalAlignment="Left" Margin="329,165,0,0" TextWrapping="Wrap" Text=":מרחק" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="82,164,0,0" TextWrapping="Wrap" Text="{Binding Path=Distance, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="314,212,0,0" TextWrapping="Wrap" Text=":זמן נסיעה" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="82,211,0,0" TextWrapping="Wrap" Text="{Binding Path=TimeDriving, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <Button Content="הכנס נתונים" HorizontalAlignment="Left" Margin="171,271,0,0" VerticalAlignment="Top" Width="97" Height="28" Click="Button_ClickDoIt"/>
+        <ComboBox x:Name="station1CB" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="82,59,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station1CB_SelectionChanged"/>
+        <ComboBox x:Name="station2CB" HorizontalAlignment="Left" Margin="82,110,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station2CB_SelectionChanged"/>
 
 
     </Grid>

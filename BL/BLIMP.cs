@@ -95,8 +95,31 @@ namespace BL
         public IEnumerable<BusLineBO> GetAllBusLinesBO()
         {
             return from busLine in dal.getAllBusLines()
+                   orderby busLine.LineNumber
                    select convertoBO(busLine);
         }
+        public IEnumerable<LineInAreaBO> orderLinesByArea()
+        {
+            IEnumerable<LineInAreaBO> result =
+                from line in GetAllBusLinesBO()
+                group line by line.Area into lineInArea
+                select new LineInAreaBO
+                {
+                    Key = lineInArea.Key,
+                    ListOfLinesInArea = lineInArea
+                };
+            return result;
+            //foreach (var group in result)
+            //{
+            //    Console.WriteLine(group.key);
+            //    foreach (var line in group.Line)
+            //    {
+            //        Console.WriteLine("-"+ line);
+            //    }
+            //}
+
+        }
+        
         //קבלת פרטים על קו בודד
         public BusLineBO GetBusLineBO(int identifyNumber)
         {
@@ -675,8 +698,16 @@ namespace BL
         //הדפסת כל התחנות
         public IEnumerable<BusStationBO> GetAllBusStationsBO()
         {
-            return from bus in dal.getAllBusStations()
-                   select convertoBO(bus);
+            return from busStation in dal.getAllBusStations()
+                   orderby busStation.CodeStation
+                   select convertoBO(busStation);
+        }
+        public IEnumerable<MiniStationBO> GetAllMiniStationsBO()
+        {
+            IEnumerable<MiniStationBO> result =
+                from station in GetAllBusStationsBO()
+                select new MiniStationBO { CodeStation = station.CodeStation, NameStation = station.NameStation };
+            return result;
         }
         //קבלת פרטים עבור תחנה מסוימת
         public BusStationBO GetBusStationBO(int codeStation)

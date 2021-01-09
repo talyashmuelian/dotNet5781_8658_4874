@@ -34,8 +34,8 @@ namespace UIwpf
             areas.Add("צפון");
             DataContext = newItem;
             areaCB.ItemsSource = areas;
-            station1CB.ItemsSource =bl.GetAllBusStationsBO();
-            station2CB.ItemsSource = bl.GetAllBusStationsBO();
+            station1CB.ItemsSource =bl.GetAllMiniStationsBO();
+            station2CB.ItemsSource = bl.GetAllMiniStationsBO();
         }
         private void areaCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -43,15 +43,15 @@ namespace UIwpf
         }
         private void station1CB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            newItem.FirstStationNum = (station1CB.SelectedItem as BusStationBO).CodeStation;
+            newItem.FirstStationNum = (station1CB.SelectedItem as MiniStationBO).CodeStation;
         }
         private void station2CB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                if ((station2CB.SelectedItem as BusStationBO).CodeStation == (station1CB.SelectedItem as BusStationBO).CodeStation)
+                if ((station2CB.SelectedItem as MiniStationBO).CodeStation == (station1CB.SelectedItem as MiniStationBO).CodeStation)
                     throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
-                newItem.LastStationNum = (station2CB.SelectedItem as BusStationBO).CodeStation;
+                newItem.LastStationNum = (station2CB.SelectedItem as MiniStationBO).CodeStation;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             
@@ -60,7 +60,7 @@ namespace UIwpf
         {
             try
             {
-                if ((station2CB.SelectedItem as BusStationBO).CodeStation == (station1CB.SelectedItem as BusStationBO).CodeStation)
+                if ((station2CB.SelectedItem as MiniStationBO).CodeStation == (station1CB.SelectedItem as MiniStationBO).CodeStation)
                     throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
                 BusStationBO newStation1 = bl.GetBusStationBO(newItem.FirstStationNum);
                 BusStationBO newStation2 = bl.GetBusStationBO(newItem.LastStationNum);

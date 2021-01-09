@@ -102,6 +102,7 @@
                             <Button Content="מחיקת קו" HorizontalAlignment="Left" Margin="590,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteLine"/>
                             <Button Content="הוספת תחנה לקו" HorizontalAlignment="Left" Margin="206,10,0,0" VerticalAlignment="Top" Width="112" Click="Button_ClickAddStationToLine"/>
                             <Button Content="מחיקת תחנה מקו" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="112" Click="Button_ClickDeleteStationFromLine"/>
+                            <ComboBox x:Name="areaCB" HorizontalAlignment="Left" Margin="717,9,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="areaCB_SelectionChanged"/>
 
                         </Grid>
                     </TabItem.Content>
