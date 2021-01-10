@@ -29,8 +29,12 @@ namespace UIwpf
             bl = _bl;
             newItem.IdentifyNumber = currentLine.IdentifyNumber;
             DataContext = newItem;
+            stationsInLineCB.ItemsSource = bl.GetListMiniStationsByLine(currentLine);
         }
-
+        private void stationsInLineCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            newItem.CodeStation = (stationsInLineCB.SelectedItem as MiniStationBO).CodeStation;
+        }
         private void Button_ClickDelete(object sender, RoutedEventArgs e)
         {
             try

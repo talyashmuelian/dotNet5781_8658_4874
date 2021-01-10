@@ -48,7 +48,7 @@ namespace UIwpf
                 bool flag2 = false;//דגל האם הוא אישר הוספת מידע בחלון השני
                 //זימון פונקציות שבודקת האם קיימות ישויות תחנות עוקבות לתחנה החדשה עם זאת שלפניה ואחריה
                 int beforeStation = bl.ifNeedToGetDataToBeforeStation(newItem.IdentifyNumber, newItem.CodeStation, newItem.Location);
-                if (beforeStation != 0)
+                if (beforeStation != 0)//צריך לבקש מידע
                 {
                     //נפתח חלון חדש שמבקש מידע עבור המרחק בין התחנות האלה
                     addDataToPaitStationWindow1 = new addDataToPaitStation(bl, beforeStation, newItem.CodeStation);
@@ -58,8 +58,10 @@ namespace UIwpf
                         flag1 = true;
                     }
                 }
+                else
+                    flag1 = true;
                 int afterStation = bl.ifNeedToGetDataToAfterStation(newItem.IdentifyNumber, newItem.CodeStation, newItem.Location);
-                if (afterStation !=0)
+                if (afterStation !=0)//צריך לבקש מידע
                 {
                     //נפתח חלון חדש שמבקש מידע עבור המרחק בין התחנות האלה
                     addDataToPaitStationWindow2 = new addDataToPaitStation(bl, afterStation, newItem.CodeStation);
@@ -69,6 +71,8 @@ namespace UIwpf
                         flag2 = true;
                     }
                 }
+                else
+                    flag2 = true;
                 if (flag1&&flag2)
                 {
                     bl.addStationToLine(newItem.CodeStation, newItem.IdentifyNumber, newItem.Location);

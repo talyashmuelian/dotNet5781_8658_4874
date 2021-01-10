@@ -10,9 +10,20 @@
         
         <TextBlock HorizontalAlignment="Left" Margin="195,22,0,0" TextWrapping="Wrap" Text="מחיקת תחנה מקו" VerticalAlignment="Top"/>
         
-        <TextBlock HorizontalAlignment="Left" Margin="267,58,0,0" TextWrapping="Wrap" Text=":הכנס מספר תחנה" VerticalAlignment="Top" Width="118"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,58,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="6" Text="{Binding Path=CodeStation, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="מחק" HorizontalAlignment="Left" Margin="162,107,0,0" VerticalAlignment="Top" Width="122" Height="36" Click="Button_ClickDelete"/>
+        <TextBlock HorizontalAlignment="Left" Margin="267,58,0,0" TextWrapping="Wrap" Text=":בחר תחנה" VerticalAlignment="Top" Width="118"/>
+
+        <Button Content="מחק" HorizontalAlignment="Left" Margin="162,107,0,0" VerticalAlignment="Top" Width="122" Height="36" Click="Button_ClickDelete">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=stationsInLineCB, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <ComboBox x:Name="stationsInLineCB"  HorizontalAlignment="Left" Margin="121,59,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="stationsInLineCB_SelectionChanged"/>
 
     </Grid>
 </Window>

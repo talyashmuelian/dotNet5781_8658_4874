@@ -98,7 +98,7 @@ namespace BL
                    orderby busLine.LineNumber
                    select convertoBO(busLine);
         }
-        public IEnumerable<LineInAreaBO> orderLinesByArea()
+        public IEnumerable<LineInAreaBO> orderLinesByArea()//ממיינת את הקווים לפי איזורים
         {
             IEnumerable<LineInAreaBO> result =
                 from line in GetAllBusLinesBO()
@@ -119,7 +119,14 @@ namespace BL
             //}
 
         }
-        
+        public IEnumerable<MiniStationBO> GetListMiniStationsByLine(BusLineBO line)//מחזירה את רשימת המיני תחנות של קו ספציפי
+        {
+            IEnumerable<MiniStationBO> result =
+                from station in line.ListOfStations
+                select new MiniStationBO { CodeStation = station.CodeStation, NameStation = station.NameStation };
+            return result;
+        }
+
         //קבלת פרטים על קו בודד
         public BusLineBO GetBusLineBO(int identifyNumber)
         {
@@ -225,6 +232,13 @@ namespace BL
             }
             bool flag = true;//  דגל שיהיה אמת אם התחנה קיימת בקו ואפשר למחוק אותה, אחרת יהיה שקר
             int location = 0;
+            int sumStationsInLine = 0;
+            foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))//סופר כמה תחנות יש בקו 
+            {
+                sumStationsInLine++;
+            }
+            if (sumStationsInLine==2)
+                throw new BO.BusLineExceptionBO("לא ניתן למחוק תחנה מקו כאשר מסלולו עובר בשתי תחנות בלבד. אם ברצונך למחוק את הקו, בצע זאת דרך הכפתור הייעודי");
             foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))//בדיקה אם התחנה קיימת בקו
             {
                 if (lineStation.CodeStation == codeStation && lineStation.IdentifyNumber == identifyNumber)

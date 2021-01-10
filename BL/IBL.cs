@@ -9,6 +9,7 @@ namespace BLAPI
     public interface IBL
     {
         IEnumerable<BusLineBO> GetAllBusLinesBO();//הדפסת כל הקווים
+        IEnumerable<MiniStationBO> GetListMiniStationsByLine(BusLineBO line);//מחזירה את רשימת המיני תחנות של קו ספציפי
         BusLineBO GetBusLineBO(int identifyNumber);//קבלת פרטים על קו בודד
         IEnumerable<LineInAreaBO> orderLinesByArea();
         //הוספה, עדכון ומחיקת קו

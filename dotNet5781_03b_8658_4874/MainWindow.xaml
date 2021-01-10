@@ -32,7 +32,8 @@
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
-                    </TextBlock.Style>                </TextBlock>
+                    </TextBlock.Style>
+                </TextBlock>
                 <TextBlock Grid.Column="1"             Style="{StaticResource myTextBlockStyle}"   Text="{Binding Path=numOfBusString1}" FontSize="11" Foreground="#FF0D0D12" />
                 <Button x:Name="doTravel" Style="{StaticResource myButtonStyle}" IsEnabled="{Binding Path=ifReady1}"  Content="Do travel" Grid.Column="2" Click="travelButton_Click" Background="#FF8EBCD0" />
                 <Button x:Name="fuel"  Style="{StaticResource myButtonStyle}" IsEnabled="{Binding Path=ifCanToFuel1}" Content="Fuel" Grid.Column="3" Click="fuelButton_Click" Background="#FF9EDEED"/>

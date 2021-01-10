@@ -11,9 +11,22 @@
         <TextBlock HorizontalAlignment="Left" Margin="459,100,0,0" TextWrapping="Wrap" Text=":מספר הרישוי להוספה" VerticalAlignment="Top" Height="23" Width="118"/>
         <TextBlock HorizontalAlignment="Left" Margin="499,150,0,0" TextWrapping="Wrap" Text=":נסועה" VerticalAlignment="Top" Height="29" Width="102"/>
         <TextBlock HorizontalAlignment="Left" Margin="480,200,0,0" TextWrapping="Wrap" Text=":תאריך רישוי" VerticalAlignment="Top" Height="29" Width="129"/>
-        <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="8" TextWrapping="Wrap" Text="{Binding Path=License, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="275,150,0,0"  PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown"  TextWrapping="Wrap" Text="{Binding Path=TotalKms, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="addButton" Content="הוסף" HorizontalAlignment="Left" Margin="335,300,0,0" VerticalAlignment="Top" Width="132" Height="40" Click="addButton_Click" />
+        <TextBox x:Name="license" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="8" TextWrapping="Wrap" Text="{Binding Path=License, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="totalKms" HorizontalAlignment="Left" Height="23" Margin="275,150,0,0"  PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown"  TextWrapping="Wrap" Text="{Binding Path=TotalKms, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="addButton" Content="הוסף" HorizontalAlignment="Left" Margin="335,300,0,0" VerticalAlignment="Top" Width="132" Height="40" Click="addButton_Click">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=license, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=totalKms, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            </Button>
         <DatePicker HorizontalAlignment="Left" Margin="285,200,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartOfWork, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
     </Grid>
 </Window>

@@ -12,8 +12,21 @@
         <TextBlock HorizontalAlignment="Left" Margin="303,64,0,0" TextWrapping="Wrap" Text=":בחר תחנה" VerticalAlignment="Top" Width="118"/>
         
         <TextBlock HorizontalAlignment="Left" Margin="275,110,0,0" TextWrapping="Wrap" Text=":הכנס מיקום בקו" VerticalAlignment="Top" Width="98" Height="23"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="98,106,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Location, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="הוסף" HorizontalAlignment="Left" Margin="145,150,0,0" VerticalAlignment="Top" Width="140" Height="38" Click="Button_ClickAdd"/>
+        <TextBox x:Name="location"  HorizontalAlignment="Left" Height="23" Margin="98,106,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Location, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="הוסף" HorizontalAlignment="Left" Margin="145,150,0,0" VerticalAlignment="Top" Width="140" Height="38" Click="Button_ClickAdd">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=location, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=stationCB, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
         <TextBlock HorizontalAlignment="Left" Margin="80,20,0,0" TextWrapping="Wrap" Text="{Binding Path=IdentifyNumber}" VerticalAlignment="Top"/>
         <ComboBox x:Name="stationCB" HorizontalAlignment="Left" Margin="96,58,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="stationCB_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="203,22,0,0" TextWrapping="Wrap" Text="{Binding Path=LineNumber}" VerticalAlignment="Top"/>

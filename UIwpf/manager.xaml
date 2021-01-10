@@ -87,8 +87,12 @@
                     <TabItem.Content>
                         <Grid>
                             <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplateBuses}"  HorizontalAlignment="Left" Height="294" Margin="55,60,0,0" VerticalAlignment="Top" Width="613"  SelectionMode="Single" ItemsSource="{Binding}" MouseDoubleClick="showDataBuses_doubleClick" />
-                            <Button Content="הוספת אוטובוס" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddBus"/>
-                            <Button Content="עדכון אוטובוס" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickUpdateBus"/>
+                            <Button Content="הוספת אוטובוס" Style="{StaticResource myButtonStyle}" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" Width="144" Click="Button_ClickAddBus" Height="45"/>
+                            <Button  Content="עדכון אוטובוס" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickUpdateBus">
+                                <Button.Background>
+                                    <ImageBrush TileMode="FlipX"/>
+                                </Button.Background>
+                            </Button>
                             <Button Content="מחיקת אוטובוס" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteBus"/>
                         </Grid>
                     </TabItem.Content>

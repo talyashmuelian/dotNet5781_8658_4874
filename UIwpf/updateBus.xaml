@@ -13,15 +13,31 @@
         <TextBlock HorizontalAlignment="Left" Margin="346,95,0,0" TextWrapping="Wrap" Text=": נסועה מעודכנת" VerticalAlignment="Top" Height="29" Width="102"/>
         <TextBlock HorizontalAlignment="Left" Margin="327,141,0,0" TextWrapping="Wrap" Text=": תאריך רישוי מעודכן" VerticalAlignment="Top" Height="29" Width="129"/>
 
-        <TextBox x:Name="addLine2" HorizontalAlignment="Left" Height="23" Margin="109,97,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=TotalKms, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="addButton" Content="עדכן" HorizontalAlignment="Left" Margin="203,350,0,0" VerticalAlignment="Top" Width="122" Height="29" Click="Button_ClickUpdeteBus" />
+        <TextBox x:Name="totalKms" HorizontalAlignment="Left" Height="23" Margin="109,97,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=TotalKms, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="addButton" Content="עדכן" HorizontalAlignment="Left" Margin="203,350,0,0" VerticalAlignment="Top" Width="122" Height="29" Click="Button_ClickUpdeteBus">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=totalKms, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=fuel, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=kmFromTreament, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
         <DatePicker HorizontalAlignment="Left" Margin="107,140,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartOfWork, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
         <TextBlock HorizontalAlignment="Left" Margin="296,187,0,0" TextWrapping="Wrap" Text=":תאריך טיפול אחרון מעודכן" VerticalAlignment="Top"/>
         <DatePicker HorizontalAlignment="Left" Margin="107,185,0,0" VerticalAlignment="Top" SelectedDate="{Binding DateTreatLast, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
         <TextBlock HorizontalAlignment="Left" Margin="338,235,0,0" TextWrapping="Wrap" Text=":כמות הדלק במיכל" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="109,230,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Fuel, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="fuel"  HorizontalAlignment="Left" Height="23" Margin="109,230,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Fuel, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="247,277,0,0" TextWrapping="Wrap" Text=":מספר הקילומטרים מהטיפול האחרון" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="109,276,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=KmFromTreament, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="kmFromTreament" HorizontalAlignment="Left" Height="23" Margin="109,276,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=KmFromTreament, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="179,20,0,0" TextWrapping="Wrap" Text="{Binding Path=LicenseFormat}" VerticalAlignment="Top"/>
     </Grid>
 </Window>

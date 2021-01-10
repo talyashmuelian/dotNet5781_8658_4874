@@ -13,14 +13,32 @@
         <TextBlock HorizontalAlignment="Left" Margin="466,150,0,0" TextWrapping="Wrap" Text=":איזור הקו להוספה" VerticalAlignment="Top" Height="29" Width="102"/>
         <TextBlock HorizontalAlignment="Left" Margin="460,200,0,0" TextWrapping="Wrap" Text=":בחר תחנה ראשונה" VerticalAlignment="Top" Height="29" Width="129"/>
         <TextBlock HorizontalAlignment="Left" Margin="472,250,0,0" TextWrapping="Wrap" Text=":בחר תחנה שנייה" VerticalAlignment="Top" Height="29" Width="129"/>
-        <TextBox x:Name="addLine1" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" Text="{Binding Path=LineNumber, Mode=OneWayToSource}" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="3" VerticalAlignment="Top" Width="120"/>
-        
-        
-        
-        <Button x:Name="addButton" Content="הוסף" HorizontalAlignment="Left" Margin="335,300,0,0" VerticalAlignment="Top" Width="132" Height="40" Click="addButton_Click"/>
+        <TextBox x:Name="lineNumber" HorizontalAlignment="Left" Height="23" Margin="275,100,0,0" TextWrapping="Wrap" Text="{Binding Path=LineNumber, Mode=OneWayToSource}" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="3" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="areaCB"  HorizontalAlignment="Left" Margin="274,150,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="areaCB_SelectionChanged"/>
+        <ComboBox x:Name="station1CB" Text="{Binding CodeStation}" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="274,200,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station1CB_SelectionChanged"/>
+        <ComboBox x:Name="station2CB" Text="{Binding CodeStation}" HorizontalAlignment="Left" Margin="275,259,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station2CB_SelectionChanged"/>
 
-        <ComboBox x:Name="areaCB" HorizontalAlignment="Left" Margin="274,150,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="areaCB_SelectionChanged"/>
-        <ComboBox x:Name="station1CB" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="274,200,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station1CB_SelectionChanged"/>
-        <ComboBox x:Name="station2CB" HorizontalAlignment="Left" Margin="275,259,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station2CB_SelectionChanged"/>
+        <Button x:Name="addButton" Content="הוסף" HorizontalAlignment="Left" Margin="335,300,0,0" VerticalAlignment="Top" Width="132" Height="40" Click="addButton_Click">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=lineNumber, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=areaCB, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=station1CB, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=station2CB, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+       
     </Grid>
 </Window>

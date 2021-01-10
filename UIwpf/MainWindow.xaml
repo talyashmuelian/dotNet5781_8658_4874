@@ -10,11 +10,21 @@
         <Button Content="נוסע" HorizontalAlignment="Left" Margin="121,257,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="מנהל" HorizontalAlignment="Left" Margin="121,203,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="145,10,0,0" TextWrapping="Wrap" Text="!ברוך הבא" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="53,45,0,0" TextWrapping="Wrap" Text="{Binding Path=UserName, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="userName" HorizontalAlignment="Left" Height="23" Margin="53,45,0,0" TextWrapping="Wrap" Text="{Binding Path=UserName, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="198,48,0,0" TextWrapping="Wrap" Text=":שם משתמש" VerticalAlignment="Top"/>
         <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="53,87,0,0" VerticalAlignment="Top" Width="120" Height="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="225,87,0,0" TextWrapping="Wrap" Text=":סיסמה" VerticalAlignment="Top"/>
-        <Button Content="התחבר" HorizontalAlignment="Left" Margin="139,117,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickLogIn"/>
+        <Button Content="התחבר" HorizontalAlignment="Left" Margin="139,117,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickLogIn">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=userName, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            </Button> 
         <Label MouseDoubleClick="forgetPassWord_doubleClick" Content="שכחתי סיסמה" HorizontalAlignment="Left" Margin="47,115,0,0" VerticalAlignment="Top"/>
         <Label MouseDoubleClick="signUp_doubleClick" Content="הירשם" HorizontalAlignment="Left" Margin="271,0,0,0" VerticalAlignment="Top"/>
 
