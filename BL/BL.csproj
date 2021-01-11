@@ -61,13 +61,13 @@
     <Compile Include="UserBO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DalObject\DalObject.csproj">
-      <Project>{ae84c83e-36a7-4e3a-834e-bddc6f03f87d}</Project>
-      <Name>DalObject</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DLAPI\DLAPI.csproj">
       <Project>{2e72a07d-c2ff-4b8a-a8ba-70c4642999b1}</Project>
       <Name>DLAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLXML\DLXML.csproj">
+      <Project>{32f46042-d68c-4870-ac54-46e5fc272d24}</Project>
+      <Name>DLXML</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

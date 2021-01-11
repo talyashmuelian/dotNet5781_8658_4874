@@ -117,7 +117,6 @@ namespace BL
             //        Console.WriteLine("-"+ line);
             //    }
             //}
-
         }
         public IEnumerable<MiniStationBO> GetListMiniStationsByLine(BusLineBO line)//מחזירה את רשימת המיני תחנות של קו ספציפי
         {
