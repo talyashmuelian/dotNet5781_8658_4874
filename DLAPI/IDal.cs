@@ -68,6 +68,11 @@ namespace DLAPI
         IEnumerable<UserDAO> getAllUsers();
         IEnumerable<UserDAO> getPartOfUsers(Predicate<UserDAO> UserDAOCondition);
         UserDAO getOneObjectUserDAO(string userName);
-
+        bool addLineTrip(LineTripDAO lineTrip);
+        bool updateLineTrip(LineTripDAO lineTrip);
+        bool deleteLineTrip(LineTripDAO lineTrip);
+        IEnumerable<LineTripDAO> getAllLineTrips();
+        IEnumerable<LineTripDAO> getPartOfLineTrip(Predicate<LineTripDAO> LineTripDAOCondition);
+        LineTripDAO getOneObjectLineTripDAO(int identifyNumber, TimeSpan timeOfExit);
     }
 }

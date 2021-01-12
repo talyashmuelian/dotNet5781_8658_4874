@@ -1003,6 +1003,8 @@ namespace BL
                 throw new BO.UserExceptionBO("אחד או יותר מהשדות שהזנת שגויים");
         }
         #endregion
+        //פונקציות עבור לוח אלקטרוני
+        //public IEnumerable<LineTimingBO> 
     }
 }
 

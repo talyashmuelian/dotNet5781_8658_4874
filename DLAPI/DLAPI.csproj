@@ -48,7 +48,7 @@
     <Compile Include="BusStationDAO.cs" />
     <Compile Include="LineStationDAO.cs" />
     <Compile Include="PairConsecutiveStationsDAO.cs" />
-    <Compile Include="ExitLineDAO.cs" />
+    <Compile Include="LineTripDAO.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="DalConfig.cs" />
     <Compile Include="DLFactory.cs" />

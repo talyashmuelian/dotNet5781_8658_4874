@@ -133,6 +133,24 @@ namespace DO
         {
         }
     }
+    public class LineTripExceptionDO : Exception
+    {
+        public LineTripExceptionDO()
+        {
+        }
+
+        public LineTripExceptionDO(string message) : base(message)
+        {
+        }
+
+        public LineTripExceptionDO(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected LineTripExceptionDO(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
     //public class BadPersonIdException : Exception
     //{
     //    public int ID;

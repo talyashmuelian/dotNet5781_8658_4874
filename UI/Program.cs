@@ -19,7 +19,7 @@ namespace UI
                 //Console.WriteLine(new DateTime(2017,5,24).Year);
                 //printAllbusses();
                 //bl.addBus(new BusBO { License = "93939393", });
-                //printAllbusses();
+                //printAllusers();
                 //bl.deleteBus(new BusBO { License = "93939393", });
                 //printAllbusses();
                 //bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });
@@ -35,7 +35,7 @@ namespace UI
                 //printAllBusStations();
                 ////bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });;
                 //Console.WriteLine(bl.GetBusStationBO(123456));
-                //Console.WriteLine(bl.GetBusBO("12341234"));
+                //Console.WriteLine(bl.GetPairConsecutiveStationsBO(111111, 123456));
                 //printAllBusLines();
                 //bl.addStationToLine(123456, 5, 11);
                 //bool a=bl.addBusLine(new BusLineBO { LineNumber = 12, Area = "aaa", FirstStationNum = 123456, LastStationNum = 111111 });
@@ -45,8 +45,9 @@ namespace UI
                 //printAllBusLines();
                 //bl.deleteBusLine(new BusLineBO { IdentifyNumber = 2 });
                 //bl.deleteBusStation(new BusStationBO { CodeStation = 123456 });
-                //printAllBusStations();
-                bl.orderLinesByArea();
+
+                printAllBusStations();
+                //bl.orderLinesByArea();
             }
             catch (Exception ex)
             {
@@ -59,6 +60,14 @@ namespace UI
         private static void printAllbusses()
         {
             foreach (var item in bl.GetAllBusesBO())
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("-------------------------------");
+        }
+        private static void printAllusers()
+        {
+            foreach (var item in bl.GetAllUsersBO())
             {
                 Console.WriteLine(item);
             }
@@ -87,8 +96,6 @@ namespace UI
             foreach (var item in bl.GetAllBusLinesBO())
             {
                 Console.WriteLine(item);
-                foreach (var vvv in item.ListOfStations)
-                    Console.WriteLine(vvv);
             }
             Console.WriteLine("-------------------------------");
         }
