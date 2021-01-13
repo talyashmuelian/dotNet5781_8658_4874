@@ -45,7 +45,7 @@ namespace BLAPI
         bool updatePairConsecutiveStations(PairConsecutiveStationsBO pair);
         bool deletePairConsecutiveStations(PairConsecutiveStationsBO pair);
         IEnumerable<PairConsecutiveStationsBO> GetPairThatConnect(int codeStation);
-        void updatePairConsecutiveStations(int numStation1, int numStation2, int distance, int timeDriving);//עדכון מרחק וזמן נסיעה בין זוג תחנות עוקבות
+        void updatePairConsecutiveStations(int numStation1, int numStation2, double distance, TimeSpan timeDriving);//עדכון מרחק וזמן נסיעה בין זוג תחנות עוקבות
         IEnumerable<UserBO> GetAllUsersBO();//הדפסת כל המשתמשים
         UserBO GetUserBO(string userName);//קבלת פרטי משתמש בודד
         //הוספה, עדכון ומחיקת משתמש

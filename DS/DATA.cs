@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Device.Location;
 using DO;
 namespace DS
 {
@@ -325,481 +326,481 @@ namespace DS
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =123456,
-                Latitude=34.45,
-                Longitude=33.6,
-                NameStation="מצפה נבו",
+                Latitude= 32.183921,
+                Longitude= 34.917806,
+                NameStation= "בי''ס בר לב/בן יהודה",
                 IsAccessible=true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =111111,
-                Latitude =30.01,
-                Longitude =31.11,
-                NameStation ="שומרון",
+                Latitude = 31.870034,
+                Longitude = 34.819541,
+                NameStation = "הרצל/צומת בילו",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =111222,
-                Latitude =40.6,
-                Longitude =20.45,
-                NameStation ="אברהם אבינו",
+                Latitude = 31.984553,
+                Longitude = 34.782828,
+                NameStation = "הנחשול/הדייגים",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =123123,
-                Latitude =50.9,
-                Longitude =49.7,
-                NameStation ="yizhak avinu",
+                Latitude = 31.88855,
+                Longitude = 34.790904,
+                NameStation = "פריד/ששת הימים",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =234234,
-                Latitude =56.23,
-                Longitude =57.45,
-                NameStation ="yaakov avinu",
+                Latitude = 31.857565,
+                Longitude = 34.824106,
+                NameStation = "הרצל/משה שרת",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =144144,
-                Latitude =40.1,
-                Longitude =41.2,
-                NameStation ="sara imenu",
+                Latitude = 31.862305,
+                Longitude = 34.821857,
+                NameStation = "הבנים/אלי כהן",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =122122,
-                Latitude =54.3,
-                Longitude =34.45,
-                NameStation ="rivka imenu",
+                Latitude = 31.865085,
+                Longitude = 34.822237,
+                NameStation = "ויצמן/הבנים",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =344344,
-                Latitude =23.78,
-                Longitude =24.55,
-                NameStation ="lea imenu",
+                Latitude = 31.865222,
+                Longitude = 34.818957,
+                NameStation = "האירוס/הכלנית",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =544544,
-                Latitude =24.55,
-                Longitude =77.8,
-                NameStation ="rachel imenu",
+                Latitude = 31.867597,
+                Longitude = 34.818392,
+                NameStation = "הכלנית/הנרקיס",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =654321,
-                Latitude =43,
-                Longitude =23.5,
-                NameStation ="reuven",
+                Latitude = 31.86244,
+                Longitude = 34.827023,
+                NameStation = "אלי כהן/לוחמי הגטאות",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =654654,
-                Latitude =76.3,
-                Longitude =87.54,
-                NameStation ="shimon",
+                Latitude = 31.863501,
+                Longitude = 34.828702,
+                NameStation = "שבזי/שבת אחים",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =345999,
-                Latitude =12.33,
-                Longitude =33.21,
-                NameStation ="levi",
+                Latitude = 31.865348,
+                Longitude = 34.827102,
+                NameStation = "שבזי/ויצמן",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =877877,
-                Latitude =76.8,
-                Longitude =87.9,
-                NameStation ="yehooda",
+                Latitude = 31.977409,
+                Longitude = 34.763896,
+                NameStation = "חיים בר לב/שדרות יצחק רבין",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =435435,
-                Latitude =65.2,
-                Longitude =23.67,
-                NameStation ="yissachar",
+                Latitude = 31.963668,
+                Longitude = 34.836363,
+                NameStation = "הולצמן/המדע",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =987658,
-                Latitude =16.52,
-                Longitude =95.36,
-                NameStation ="zvulun",
+                Latitude = 31.963668,
+                Longitude = 34.836363,
+                NameStation = "מחנה צריפין/מועדון",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =374657,
-                Latitude =73.54,
-                Longitude =34.73,
-                NameStation ="gad",
+                Latitude = 31.856115,
+                Longitude = 34.825249,
+                NameStation = "הרצל/גולני",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =756284,
-                Latitude =74.32,
-                Longitude =36.63,
-                NameStation ="asher",
+                Latitude = 31.874963,
+                Longitude = 34.81249,
+                NameStation = "הרותם/הדגניות",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =376592,
-                Latitude =73.58,
-                Longitude =47.83,
-                NameStation ="dan",
+                Latitude = 32.305234,
+                Longitude = 34.948647,
+                NameStation = "מבוא הגפן/מורד התאנה",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =568377,
-                Latitude =93.64,
-                Longitude =47.54,
-                NameStation ="naftali",
+                Latitude = 31.883019,
+                Longitude = 34.818708,
+                NameStation = "החבורה/דב הוז",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =473829,
-                Latitude =75.3,
-                Longitude =43.5,
-                NameStation ="yosef",
+                Latitude = 31.897286,
+                Longitude = 34.775083,
+                NameStation = "הגאון בן איש חי/צאלון",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =376483,
-                Latitude =98.65,
-                Longitude =65.34,
-                NameStation ="benyamin",
+                Latitude = 31.883941,
+                Longitude = 34.807039,
+                NameStation = "עוקשי/לוי אשכול",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =625783,
-                Latitude =34.56,
-                Longitude =87.54,
-                NameStation ="david hamelech",
+                Latitude = 32.805581,
+                Longitude = 34.997928,
+                NameStation = "ארלוזורוב/הפועל",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =874593,
-                Latitude =32.56,
-                Longitude =19.43,
-                NameStation ="shlomo hamelech",
+                Latitude = 32.299994,
+                Longitude = 34.878765,
+                NameStation = "דרך הפארק/הרב נריה",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =654733,
-                Latitude =92.43,
-                Longitude =74.53,
-                NameStation ="avigail",
+                Latitude = 31.865457,
+                Longitude = 34.859437,
+                NameStation = "התאנה/הגפן",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =929292,
-                Latitude =83.54,
-                Longitude =29.64,
-                NameStation ="bat-sheva",
+                Latitude = 31.809325,
+                Longitude = 34.784347,
+                NameStation = "דרך הפרחים/יסמין",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =454545,
-                Latitude =65.43,
-                Longitude =73.43,
-                NameStation ="ester",
+                Latitude = 31.80037,
+                Longitude = 34.778239,
+                NameStation = "יצחק רבין/פנחס ספיר",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =878787,
-                Latitude =46.87,
-                Longitude =38.24,
-                NameStation ="mordechai",
+                Latitude = 31.800334,
+                Longitude = 34.785069,
+                NameStation = "חיים הרצוג/דולב",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =363636,
-                Latitude =45.78,
-                Longitude =98.1,
-                NameStation ="moshe rabenu",
+                Latitude = 31.802319,
+                Longitude = 34.786735,
+                NameStation = "בית ספר גוונים/ארז",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =747474,
-                Latitude =25.63,
-                Longitude =28.4,
-                NameStation ="aharon hacohen",
+                Latitude = 31.805041,
+                Longitude = 34.785098,
+                NameStation = "דרך האילנות/מנחם בגין",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =757575,
-                Latitude =18.62,
-                Longitude =93.54,
-                NameStation ="eliyahu hanavy",
+                Latitude = 31.801182,
+                Longitude = 34.787199,
+                NameStation = "צאלה/אלמוג",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =292929,
-                Latitude =91.4,
-                Longitude =51.3,
-                NameStation ="elisha hanavy",
+                Latitude = 31.806959,
+                Longitude = 34.773504,
+                NameStation = "בן גוריון/פוקס",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =919191,
-                Latitude =64.7,
-                Longitude =82.54,
-                NameStation ="michal",
+                Latitude = 31.884187,
+                Longitude = 34.805494,
+                NameStation = "לוי אשכול/הרב דוד ישראל",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =982457,
-                Latitude =84.6,
-                Longitude =93.5,
-                NameStation ="yehonatan",
+                Latitude = 31.982177,
+                Longitude = 34.789445,
+                NameStation = "אנילביץ'/שלום אש",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =637291,
-                Latitude =92.64,
-                Longitude =92.43,
-                NameStation ="shaul hamelech",
+                Latitude = 31.967732,
+                Longitude = 34.816339,
+                NameStation = "יהודה הלוי/יוחנן הסנדלר",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =928384,
-                Latitude =73.87,
-                Longitude =53.5,
-                NameStation ="shmuel hanavy",
+                Latitude = 31.893823,
+                Longitude = 34.824617,
+                NameStation = "ההגנה/חי''ש",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =234890,
-                Latitude =84.69,
-                Longitude =92.84,
-                NameStation ="yishay",
+                Latitude = 32.026119,
+                Longitude = 34.743063,
+                NameStation = "הרצל/רוטשילד",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =627489,
-                Latitude =65.87,
-                Longitude =94.65,
-                NameStation ="yehoshua bin nun",
+                Latitude = 32.104003,
+                Longitude = 34.827875,
+                NameStation = "לח''י/מבצע קדש",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =128373,
-                Latitude =73.65,
-                Longitude =93.23,
-                NameStation ="ehood ben gera",
+                Latitude = 32.760078,
+                Longitude = 35.047209,
+                NameStation = "הרקפות/קיבוץ גלויות",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =736940,
-                Latitude =82.59,
-                Longitude =93.65,
-                NameStation ="otniel ben kenaz",
+                Latitude = 32.85079,
+                Longitude = 35.090609,
+                NameStation = "צה''ל/ עופרה חזה",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =982822,
-                Latitude =48.65,
-                Longitude =18,
-                NameStation ="shamgar ben anat",
+                Latitude = 32.84852,
+                Longitude = 35.088374,
+                NameStation = "עופרה חזה/עוזי חיטמן",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =267788,
-                Latitude =73.44,
-                Longitude =83.45,
-                NameStation ="devora hanevia",
+                Latitude = 33.209293,
+                Longitude = 35.567504,
+                NameStation = "הרצל/טשרניחובסקי",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =456666,
-                Latitude =34,
-                Longitude =45,
-                NameStation ="gidon ben yoash",
+                Latitude = 33.215482,
+                Longitude = 35.566929,
+                NameStation = "האצ''ל/נוף החרמון",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =398475,
-                Latitude =93.34,
-                Longitude =39.30,
-                NameStation ="yair hagiladi",
+                Latitude = 31.770427,
+                Longitude = 34.639009,
+                NameStation = "אפרסק/מנגו",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =384444,
-                Latitude =83.85,
-                Longitude =94.55,
-                NameStation ="yiftach hagiladu",
+                Latitude = 32.521606,
+                Longitude = 34.918544,
+                NameStation = "הכרמל/הר המוריה",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =387566,
-                Latitude =85.55,
-                Longitude =49.65,
-                NameStation ="ivzan mibeit lechem",
+                Latitude = 32.490773,
+                Longitude = 35.48975,
+                NameStation = "משה שרת/גולדה מאיר",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =383744,
-                Latitude =93.55,
-                Longitude =94.65,
-                NameStation ="eilon hazvulony",
+                Latitude = 32.647827,
+                Longitude = 35.209895,
+                NameStation = "התעשייה/מכונה",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =383838,
-                Latitude =83.33,
-                Longitude =54.66,
-                NameStation ="avdon ben hilel",
+                Latitude = 32.164439,
+                Longitude = 34.819187,
+                NameStation = "משה דיין/דקל",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =628493,
-                Latitude =93.33,
-                Longitude =33.33,
-                NameStation ="shimshon hagibor",
+                Latitude = 31.542458,
+                Longitude = 35.119347,
+                NameStation = "הרצי''ה קוק/יוני נתניהו",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =942938,
-                Latitude =44.44,
-                Longitude =55.55,
-                NameStation ="eli hacohen",
+                Latitude = 32.092849,
+                Longitude = 34.844702,
+                NameStation = "מחלף גהה",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =938477,
-                Latitude =99.33,
-                Longitude =77.66,
-                NameStation ="noach",
+                Latitude = 31.933927,
+                Longitude = 34.878348,
+                NameStation = "לוחמי בית''ר/אלמוג",
                 IsAccessible = false
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 902476,
-                Latitude = 85.4,
-                Longitude = 83.5,
-                NameStation = "nadav veavihu",
+                Latitude = 33.211723,
+                Longitude = 35.567089,
+                NameStation = "הרצל/ששת הימים",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 837593,
-                Latitude = 39.45,
-                Longitude = 98.44,
-                NameStation = "elazar veitamar",
+                Latitude = 31.811081,
+                Longitude = 34.802492,
+                NameStation = "הזית/החרצית",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 649586,
-                Latitude = 38.4,
-                Longitude = 85.4,
-                NameStation = "hosha",
+                Latitude = 31.424528,
+                Longitude = 34.892056,
+                NameStation = "מסעף שומריה",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 394859,
-                Latitude = 28.33,
-                Longitude = 49.44,
-                NameStation = "yeshaayahu",
+                Latitude = 31.865655,
+                Longitude = 35.152186,
+                NameStation = "אגן האיילות/היעל",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 938475,
-                Latitude = 76.55,
-                Longitude = 49.44,
-                NameStation = "yirmiahu",
+                Latitude = 32.801374,
+                Longitude = 35.008053,
+                NameStation = "רזיאל/יעקב פת",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 935837,
-                Latitude = 87.44,
-                Longitude = 34.4,
-                NameStation = "yechezkel",
+                Latitude = 31.533771,
+                Longitude = 34.58592,
+                NameStation = "יחזקאל/משה רבנו",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 239474,
-                Latitude = 73.55,
-                Longitude = 96.55,
-                NameStation = "yoel",
+                Latitude = 31.69663,
+                Longitude = 34.694836,
+                NameStation = "משואות יצחק/כניסה",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 324908,
-                Latitude = 24.96,
-                Longitude = 36.77,
-                NameStation = "amos",
+                Latitude = 31.301844,
+                Longitude = 34.618134,
+                NameStation = "דובדבן/צאלון",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation =235235 ,
-                Latitude = 85.44,
-                Longitude = 98.36,
-                NameStation = "ovadya",
+                Latitude = 31.417584,
+                Longitude = 34.566963,
+                NameStation = "נווה דקלים",
                 IsAccessible = true
             });
             BusStations.Add(new BusStationDAO
             {
                 CodeStation = 345098,
-                Latitude = 82.55,
-                Longitude = 43.09,
-                NameStation = "yona",
+                Latitude = 31.627305,
+                Longitude = 34.603696,
+                NameStation = "דרך הכפר/דרך הגיא",
                 IsAccessible = true
             });
         }
@@ -1433,14 +1434,17 @@ namespace DS
                     }
                     if (flag == false)
                     {
-                        int dis = rand.Next(1, 500);//הגרלת מרחק וזמן בקילומטרים ודקות
+                        var locA = new GeoCoordinate(station1.Latitude, station1.Longitude);
+                        var locB = new GeoCoordinate(station2.Latitude, station2.Longitude);
+                        double dis = locA.GetDistanceTo(locB);
+                        //int dis = rand.Next(1, 500);//הגרלת מרחק וזמן בקילומטרים ודקות
                         PairConsecutiveStations.Add(new PairConsecutiveStationsDAO
                         {
                             StationNum1 = station1.CodeStation,
                             StationNum2 = station2.CodeStation,
                             Distance = dis,
-                            TimeDriving = dis//כל קילומטר הוא דקת נסיעה
-                        });
+                            TimeDriving = TimeSpan.FromMinutes(((dis/1000)/30)*60)
+                        }) ;
                     }
                 }
             }

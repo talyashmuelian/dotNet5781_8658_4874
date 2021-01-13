@@ -53,9 +53,7 @@ namespace BL
             //הלולאה הזאת עוברת על כל תחנות קו שמקושרות לקו הזה, ויוצרת רשימה של "תחנות בקו" שתוכנס לשדה המבוקש
             foreach (LineStationDAO lineStationNext in listStationInLineOrder)
             {
-                /////////////////////////////////////
-                ///לחשוב איפה לשים את שתי השורות האלה
-                prev = current;
+                prev = current;//מקוות שזה המקום הנכון
                 current = lineStationNext;
                 if (!first)
                 {
@@ -63,7 +61,13 @@ namespace BL
                     forNow.CodeStation = lineStationNext.CodeStation;
                     forNow.NumStationInTheLine = lineStationNext.NumStationInTheLine;
                     forNow.NameStation = dal.getOneObjectBusStationDAO(lineStationNext.CodeStation).NameStation;
-                    if(dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation) != null)
+                    TimeSpan count = new TimeSpan(0, 0, 0);
+                    for (int i= forNow.NumStationInTheLine; i>1;i--)//חישוב זמן הנסיעה של התחנה הנוכחית מתחנת המוצא
+                    {
+                        count+= dal.getOneObjectPairConsecutiveStations(listStationInLineOrder.ToList()[i].CodeStation, listStationInLineOrder.ToList()[i-1].CodeStation).TimeDriving;
+                    }
+                    forNow.TimeDrivingFromFirstStation = count;
+                    if (dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation) != null)
                     {
                         forNow.Distance = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).Distance;
                         forNow.TimeDriving = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).TimeDriving;
@@ -71,8 +75,9 @@ namespace BL
                     else
                     {
                         forNow.Distance = 0;
-                        forNow.TimeDriving = 0;
+                        forNow.TimeDriving = new TimeSpan(0,0,0);
                     }
+                    //חישוב זמן הנסיעה של התחנה הזאת מתחנת המוצא
                     listStationTypeCorrect.Add(forNow);
                 }
                 else//במקרה שזו התחנה הראשונה, נאתחל את המרחק והזמן לאפסים
@@ -83,7 +88,8 @@ namespace BL
                         NumStationInTheLine = lineStationNext.NumStationInTheLine,
                         NameStation = dal.getOneObjectBusStationDAO(lineStationNext.CodeStation).NameStation,
                         Distance = 0,
-                        TimeDriving = 0
+                        TimeDriving = new TimeSpan(0, 0, 0),
+                        TimeDrivingFromFirstStation= new TimeSpan(0, 0, 0)
                     });
                 }
                 first = false;
@@ -697,7 +703,13 @@ namespace BL
                 from lineStation in listLineStations
                 from BusLine1 in dal.getAllBusLines()
                 where lineStation.IdentifyNumber == BusLine1.IdentifyNumber
-                let result = new LineInStationBO { LineNumber = BusLine1.LineNumber, LastStationName =dal.getOneObjectBusStationDAO(BusLine1.LastStationNum).NameStation, LastStationNum= BusLine1.LastStationNum }
+                let result = new LineInStationBO 
+                { 
+                    IdentifyNumber= BusLine1.IdentifyNumber,
+                    LineNumber = BusLine1.LineNumber, 
+                    LastStationName =dal.getOneObjectBusStationDAO(BusLine1.LastStationNum).NameStation, 
+                    LastStationNum= BusLine1.LastStationNum 
+                }
                 select result;
                 busStationBO.ListOfLines = listOfLineInStation;
                 return busStationBO;
@@ -890,7 +902,7 @@ namespace BL
             
         }
         //עדכון מרחק וזמן נסיעה בין זוג תחנות עוקבות
-        public void updatePairConsecutiveStations(int numStation1, int numStation2,int distance, int timeDriving)
+        public void updatePairConsecutiveStations(int numStation1, int numStation2, double distance, TimeSpan timeDriving)
         {
             PairConsecutiveStationsDAO forNow = new PairConsecutiveStationsDAO
             {
@@ -1004,7 +1016,33 @@ namespace BL
         }
         #endregion
         //פונקציות עבור לוח אלקטרוני
-        //public IEnumerable<LineTimingBO> 
+        public IEnumerable<LineTimingBO> GetLineTimingsPerStation(BusStationBO cuurentStation, TimeSpan now)
+        {
+            List<LineTimingBO> result=new List<LineTimingBO>();
+            foreach (LineInStationBO line in cuurentStation.ListOfLines)//נעבור על כל הקווים שעוברים בתחנה
+            {
+                LineTimingBO lineTiming = new LineTimingBO();
+                lineTiming.IdentifyNumber = line.IdentifyNumber;
+                lineTiming.LineNumber = line.LineNumber;
+                lineTiming.LastStationName = line.LastStationName;
+                BusLineBO curLine = GetBusLineBO(line.IdentifyNumber);
+                TimeSpan TimeTripFromStart = new TimeSpan(0, 0, 0);
+                foreach(StationInLineBO stationInLine in curLine.ListOfStations)//חישוב כמה זמן לוקח לקו הספציפי להגיע לתחנה שלנו
+                {
+                    if (stationInLine.CodeStation == cuurentStation.CodeStation)
+                        TimeTripFromStart = stationInLine.TimeDrivingFromFirstStation;
+                }
+                //נוצרת רשימה של יציאות הקו הרלוונטיות, כלומר שייכות לקו הנוכחי ועוברות בתחנה בחצי השעה הקרובה
+                List<LineTripDAO> relevantTripToLine = dal.getPartOfLineTrip(item => item.IdentifyNumber == line.IdentifyNumber && item.TripStart+ TimeTripFromStart> now && item.TripStart + TimeTripFromStart < now+new TimeSpan(0,30,0)).ToList();
+                foreach (LineTripDAO lineTrip in relevantTripToLine)
+                {
+                    lineTiming.TripStart = lineTrip.TripStart;
+                    lineTiming.ExpectedTimeTillArrive = lineTrip.TripStart + TimeTripFromStart;
+                    result.Add(lineTiming);
+                }
+            }
+            return result;
+        }
     }
 }
 

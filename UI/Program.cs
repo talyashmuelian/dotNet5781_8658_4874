@@ -35,7 +35,7 @@ namespace UI
                 //printAllBusStations();
                 ////bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });;
                 //Console.WriteLine(bl.GetBusStationBO(123456));
-                //Console.WriteLine(bl.GetPairConsecutiveStationsBO(111111, 123456));
+                Console.WriteLine(bl.GetPairConsecutiveStationsBO(111111, 123456));
                 //printAllBusLines();
                 //bl.addStationToLine(123456, 5, 11);
                 //bool a=bl.addBusLine(new BusLineBO { LineNumber = 12, Area = "aaa", FirstStationNum = 123456, LastStationNum = 111111 });
@@ -46,7 +46,7 @@ namespace UI
                 //bl.deleteBusLine(new BusLineBO { IdentifyNumber = 2 });
                 //bl.deleteBusStation(new BusStationBO { CodeStation = 123456 });
 
-                printAllBusStations();
+                //printAllBusStations();
                 //bl.orderLinesByArea();
             }
             catch (Exception ex)

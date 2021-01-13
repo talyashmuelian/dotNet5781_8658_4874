@@ -10,8 +10,8 @@ namespace BO
     {
         public int StationNum1 { get; set; }//מספר תחנה ראשונה
         public int StationNum2 { get; set; }//מספר תחנה שנייה
-        public int Distance { get; set; }//מרחק בקילומטרים//ייתכן שצריך לעשות את זה ממשי
-        public int TimeDriving { get; set; }//זמן נסיעה ממוצע בדקות
+        public double Distance { get; set; }//מרחק בקילומטרים//ייתכן שצריך לעשות את זה ממשי
+        public TimeSpan TimeDriving { get; set; }//זמן נסיעה ממוצע
         public override string ToString()
         {
             return this.ToStringProperty();

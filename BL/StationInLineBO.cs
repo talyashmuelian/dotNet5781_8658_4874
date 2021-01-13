@@ -11,8 +11,9 @@ namespace BO
         public int NumStationInTheLine { get; set; }//מספר התחנה בקו
         public int CodeStation { get; set; }//קוד תחנה
         public string NameStation { get; set; }//שם תחנה
-        public int Distance { get; set; }//מרחק מתחנה קודמת בקמ
-        public int TimeDriving { get; set; }//זמן נסיעה מתחנה קודמת בדקות
+        public double Distance { get; set; }//מרחק מתחנה קודמת בקמ
+        public TimeSpan TimeDriving { get; set; }//זמן נסיעה מתחנה קודמת
+        public TimeSpan TimeDrivingFromFirstStation { get; set; }//זמן נסיעה מתחנה המוצא
         public override string ToString()
         {
             return this.ToStringProperty();
