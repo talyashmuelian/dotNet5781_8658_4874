@@ -9,7 +9,7 @@
     <Grid Margin="0,0,0.333,-0.333">
         <TextBlock HorizontalAlignment="Left" Margin="211,10,0,0" TextWrapping="Wrap" Text=":פרטי אוטובוס" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="362,50,0,0" TextWrapping="Wrap" Text=":מספר הרישוי" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="105,50,0,0" TextWrapping="Wrap" Text="{Binding License}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="105,50,0,0" TextWrapping="Wrap" Text="{Binding LicenseFormat}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="398,80,0,0" TextWrapping="Wrap" Text=":נסועה" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="105,80,0,0" TextWrapping="Wrap" Text="{Binding TotalKms}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="290,110,0,0" TextWrapping="Wrap" Text=":כמות הליטרים במיכל הדלק" VerticalAlignment="Top"/>

@@ -54,6 +54,8 @@ namespace BLAPI
         bool deleteUser(UserBO user);
         string forgetPassWord(string userName, string checkAsk);//שחזור סיסמה לפי שם משתמש ושאלת אימות
         bool ifUserAndPassCorrect(string userName, string passWord);
+        //עבור לוח אלקטרוני
+        IEnumerable<LineTimingBO> GetLineTimingsPerStation(BusStationBO cuurentStation, TimeSpan now);
 
     }
 }

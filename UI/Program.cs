@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Device.Location;
 using BLAPI;
 using BO;
 //using BL;
@@ -16,6 +17,11 @@ namespace UI
             try
             {
                 bl = BLFactory.GetBl();
+                var locA = new GeoCoordinate(32.183921, 34.917806);
+                var locB = new GeoCoordinate(31.870034, 34.819541);
+                double dis = locA.GetDistanceTo(locB)/1000;
+                double result = Math.Round(dis, 2);
+                Console.WriteLine(result);
                 //Console.WriteLine(new DateTime(2017,5,24).Year);
                 //printAllbusses();
                 //bl.addBus(new BusBO { License = "93939393", });

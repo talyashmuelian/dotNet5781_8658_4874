@@ -62,9 +62,9 @@ namespace BL
                     forNow.NumStationInTheLine = lineStationNext.NumStationInTheLine;
                     forNow.NameStation = dal.getOneObjectBusStationDAO(lineStationNext.CodeStation).NameStation;
                     TimeSpan count = new TimeSpan(0, 0, 0);
-                    for (int i= forNow.NumStationInTheLine; i>1;i--)//חישוב זמן הנסיעה של התחנה הנוכחית מתחנת המוצא
+                    for (int i = forNow.NumStationInTheLine; i > 1; i--)//חישוב זמן הנסיעה של התחנה הנוכחית מתחנת המוצא
                     {
-                        count+= dal.getOneObjectPairConsecutiveStations(listStationInLineOrder.ToList()[i].CodeStation, listStationInLineOrder.ToList()[i-1].CodeStation).TimeDriving;
+                        count += dal.getOneObjectPairConsecutiveStations(listStationInLineOrder.ToArray()[i-1].CodeStation, listStationInLineOrder.ToArray()[i - 2].CodeStation).TimeDriving;
                     }
                     forNow.TimeDrivingFromFirstStation = count;
                     if (dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation) != null)

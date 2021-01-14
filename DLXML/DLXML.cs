@@ -1547,59 +1547,135 @@ namespace DL
         #region PairConsecutiveStations
         public bool addPairConsecutiveStations(PairConsecutiveStationsDAO stations)
         {
-            List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            if (ListPairStations.FirstOrDefault(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1) != null)
+            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
+            //if (ListPairStations.FirstOrDefault(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1) != null)
+            //    throw new PairConsecutiveStationsExceptionDO("The pair of stations already exists");
+            //ListPairStations.Add(stations);
+            //XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
+            //return true;
+            XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
+
+            XElement pair1 = (from p in pairsRootElem.Elements()
+                             where p.Element("StationNum1").Value == stations.StationNum1.ToString() && p.Element("StationNum2").Value == stations.StationNum2.ToString() || p.Element("StationNum2").Value == stations.StationNum1.ToString() && p.Element("StationNum1").Value == stations.StationNum2.ToString()
+                              select p).FirstOrDefault();
+
+            if (pair1 != null)
                 throw new PairConsecutiveStationsExceptionDO("The pair of stations already exists");
-            ListPairStations.Add(stations);
-            XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
+
+            XElement pairElem = new XElement("PairConsecutiveStationsDAO",
+                                   new XElement("StationNum1", stations.StationNum1),
+                                   new XElement("StationNum2", stations.StationNum2),
+                                   new XElement("Distance", stations.Distance),
+                                   new XElement("TimeDriving", stations.TimeDriving));
+
+            pairsRootElem.Add(pairElem);
+
+            XMLTools.SaveListToXMLElement(pairsRootElem, pairStationsPath);
             return true;
+
         }
         public bool updatePairConsecutiveStations(PairConsecutiveStationsDAO stations)
         {
-            List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            PairConsecutiveStationsDAO pair = ListPairStations.Find(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1);
-            if (pair != null)
+            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
+            //PairConsecutiveStationsDAO pair = ListPairStations.Find(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1);
+            //if (pair != null)
+            //{
+            //    ListPairStations.Remove(pair);
+            //    ListPairStations.Add(stations); //no nee to Clone()
+            //}
+            //else
+            //    throw new DO.PairConsecutiveStationsExceptionDO("The pair of stations does not exist in the system");
+            //XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
+            //return true;
+            XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
+
+            XElement pair1 = (from p in pairsRootElem.Elements()
+                              where p.Element("StationNum1").Value == stations.StationNum1.ToString() && p.Element("StationNum2").Value == stations.StationNum2.ToString() || p.Element("StationNum2").Value == stations.StationNum1.ToString() && p.Element("StationNum1").Value == stations.StationNum2.ToString()
+                              select p).FirstOrDefault();
+            if (pair1 != null)
             {
-                ListPairStations.Remove(pair);
-                ListPairStations.Add(stations); //no nee to Clone()
+                pair1.Element("StationNum1").Value = stations.StationNum1.ToString();
+                pair1.Element("StationNum2").Value = stations.StationNum2.ToString();
+                pair1.Element("Distance").Value = stations.Distance.ToString();
+                pair1.Element("TimeDriving").Value = stations.TimeDriving.ToString();
+
+                XMLTools.SaveListToXMLElement(pairsRootElem, pairStationsPath);
+                return true;
             }
             else
                 throw new DO.PairConsecutiveStationsExceptionDO("The pair of stations does not exist in the system");
-            XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
-            return true;
         }
         public bool deletePairConsecutiveStations(PairConsecutiveStationsDAO stations)
         {
-            List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            PairConsecutiveStationsDAO pair = ListPairStations.Find(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1);
-            if (pair != null)
+            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
+            //PairConsecutiveStationsDAO pair = ListPairStations.Find(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1);
+            //if (pair != null)
+            //{
+            //    ListPairStations.Remove(pair);
+            //}
+            //else
+            //    throw new PairConsecutiveStationsExceptionDO("Does not exist in the system");
+            //XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
+            //return true;
+            XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
+
+            XElement pair1 = (from p in pairsRootElem.Elements()
+                              where p.Element("StationNum1").Value == stations.StationNum1.ToString() && p.Element("StationNum2").Value == stations.StationNum2.ToString() || p.Element("StationNum2").Value == stations.StationNum1.ToString() && p.Element("StationNum1").Value == stations.StationNum2.ToString()
+                              select p).FirstOrDefault();
+
+            if (pair1 != null)
             {
-                ListPairStations.Remove(pair);
+                pair1.Remove();
+                XMLTools.SaveListToXMLElement(pairsRootElem, pairStationsPath);
+                return true;
             }
             else
-                throw new PairConsecutiveStationsExceptionDO("Does not exist in the system");
-            XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
-            return true;
+                throw new BusExceptionDO("Does not exist in the system");
         }
         public IEnumerable<PairConsecutiveStationsDAO> getAllPairConsecutiveStations()
         {
-            List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            return from stations in ListPairStations
-                   select stations; //no need to Clone()
+            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
+            //return from stations in ListPairStations
+            //       select stations; //no need to Clone()
+            XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
+
+            return (from pair in pairsRootElem.Elements()
+                    select new PairConsecutiveStationsDAO()
+                    {
+                        StationNum1 = Int32.Parse(pair.Element("StationNum1").Value),
+                        StationNum2 = Int32.Parse(pair.Element("StationNum2").Value),
+                        Distance = Double.Parse(pair.Element("Distance").Value),
+                        TimeDriving = TimeSpan.Parse(pair.Element("TimeDriving").Value),
+                    }
+                   );
         }
         public IEnumerable<PairConsecutiveStationsDAO> getPartOfPairConsecutiveStations(Predicate<PairConsecutiveStationsDAO> PairConsecutiveStationsDAOCondition)
         {
-            List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            IEnumerable<PairConsecutiveStationsDAO> TempPairConsecutiveStationsDAO = from PairConsecutiveStationsDAO item in ListPairStations
-                                                                                     where PairConsecutiveStationsDAOCondition(item)
-                                                                                     select item;//no need to Clone()
-            if (TempPairConsecutiveStationsDAO.Count() == 0)
-                throw new PairConsecutiveStationsExceptionDO("There is no pair of stations that meets the condition");
-            return TempPairConsecutiveStationsDAO;
+            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
+            //IEnumerable<PairConsecutiveStationsDAO> TempPairConsecutiveStationsDAO = from PairConsecutiveStationsDAO item in ListPairStations
+            //                                                                         where PairConsecutiveStationsDAOCondition(item)
+            //                                                                         select item;//no need to Clone()
+            //if (TempPairConsecutiveStationsDAO.Count() == 0)
+            //    throw new PairConsecutiveStationsExceptionDO("There is no pair of stations that meets the condition");
+            //return TempPairConsecutiveStationsDAO;
+            XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
+
+            return from pair in pairsRootElem.Elements()
+                   let p1 = new PairConsecutiveStationsDAO()
+                   {
+                       StationNum1 = Int32.Parse(pair.Element("StationNum1").Value),
+                       StationNum2 = Int32.Parse(pair.Element("StationNum2").Value),
+                       Distance = Double.Parse(pair.Element("Distance").Value),
+                       TimeDriving = TimeSpan.Parse(pair.Element("TimeDriving").Value),
+                   }
+                   where PairConsecutiveStationsDAOCondition(p1)
+                   select p1;
         }
         public PairConsecutiveStationsDAO getOneObjectPairConsecutiveStations(int stationNum1, int stationNum2)
         {
             #region try
+            //List<BusStationDAO> BusStations = new List<BusStationDAO>();
+            //XElement a = new XElement(pairStationsPath);
             //List<BusStationDAO> BusStations = new List<BusStationDAO>();
             //BusStations.Add(new BusStationDAO
             //{
@@ -2098,27 +2174,60 @@ namespace DL
             //        {
             //            var locA = new GeoCoordinate(station1.Latitude, station1.Longitude);
             //            var locB = new GeoCoordinate(station2.Latitude, station2.Longitude);
-            //            double dis = locA.GetDistanceTo(locB);
+            //            double dis = locA.GetDistanceTo(locB) / 1000;
+            //            double result = Math.Round(dis, 2);//כדי להשאיר רק שתי ספרות אחרי הנקודה העשרונית
             //            //int dis = rand.Next(1, 500);//הגרלת מרחק וזמן בקילומטרים ודקות
             //            PairConsecutiveStations.Add(new PairConsecutiveStationsDAO
             //            {
             //                StationNum1 = station1.CodeStation,
             //                StationNum2 = station2.CodeStation,
-            //                Distance = dis,
-            //                TimeDriving = TimeSpan.FromMinutes(((dis / 1000) / 30) * 60)
+            //                Distance = result,
+            //                TimeDriving = TimeSpan.FromMinutes(((dis) / 30) * 60)
             //            });
             //        }
             //    }
+            //    //a.Add(XMLTools.ToXML(PairConsecutiveStations[0]));
+            //    //for (int i=1;i< PairConsecutiveStations.Count(); i++)
+            //    //{
+            //    //    a.Add(XMLTools.ToXML(PairConsecutiveStations[i]));
+            //    //}
+            //    foreach (var item in PairConsecutiveStations)
+            //    {
+            //        XElement result = new XElement("PairConsecutiveStationsDAO",
+            //    new XElement("StationNum1", item.StationNum1),
+            //    new XElement("StationNum2", item.StationNum2),
+            //    new XElement("Distance", item.Distance),
+            //    new XElement("TimeDriving", item.TimeDriving)
+            //    );
+            //        a.Add( result);
+            //    }
+            //    XMLTools.SaveListToXMLElement(a, pairStationsPath);
             //}
+            
             //XMLTools.SaveListToXMLSerializer(PairConsecutiveStations, pairStationsPath);
             #endregion
             List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
 
-            DO.PairConsecutiveStationsDAO sta = ListPairStations.Find(p => p.StationNum1 == stationNum1 && p.StationNum2 == stationNum2 || p.StationNum2 == stationNum1 && p.StationNum1 == stationNum2);
+            DO.PairConsecutiveStationsDAO sta = ListPairStations.Find(p1 => p1.StationNum1 == stationNum1 && p1.StationNum2 == stationNum2 || p1.StationNum2 == stationNum1 && p1.StationNum1 == stationNum2);
             if (sta != null)
                 return sta; //no need to Clone()
             else
                 return null;//throw new DO.PairConsecutiveStationsExceptionDO("No object found for this pair of stations");
+            XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
+
+            PairConsecutiveStationsDAO p = (from pair in pairsRootElem.Elements()
+                        where pair.Element("StationNum1").Value == stationNum1.ToString() && pair.Element("StationNum2").Value == stationNum2.ToString() || pair.Element("StationNum1").Value == stationNum2.ToString() && pair.Element("StationNum2").Value == stationNum1.ToString()
+                                            select new PairConsecutiveStationsDAO()
+                                            {
+                                                StationNum1 = Int32.Parse(pair.Element("StationNum1").Value),
+                                                StationNum2 = Int32.Parse(pair.Element("StationNum2").Value),
+                                                Distance = Double.Parse(pair.Element("Distance").Value),
+                                                TimeDriving = TimeSpan.Parse(pair.Element("TimeDriving").Value),
+                                            }
+                        ).FirstOrDefault();
+            if (p == null)
+                return null;
+            return p;
         }
         #endregion
         //users

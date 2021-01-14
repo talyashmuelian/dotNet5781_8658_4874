@@ -16,6 +16,7 @@ namespace DS
         private static List<BusStationDAO> busStations = new List<BusStationDAO>();//רשימת תחנות
         private static List<LineStationDAO> lineStations = new List<LineStationDAO>();//רשימת תחנות קו (נקודות במסלול)
         private static List<UserDAO> users = new List<UserDAO>();
+        private static List<LineTripDAO> lineTrips = new List<LineTripDAO>();
         private static List<PairConsecutiveStationsDAO> pairConsecutiveStations = new List<PairConsecutiveStationsDAO>();//אוסף כל זוגות התחנות העוקבות
         public static List<BusDAO> Buses { get => busses; }
         //public static List<BusInTravelDAO> BusesTravel { get => busestravel; }
@@ -24,6 +25,7 @@ namespace DS
         public static List<LineStationDAO> LineStations { get => lineStations; }
         public static List<PairConsecutiveStationsDAO> PairConsecutiveStations { get => pairConsecutiveStations; }
         public static List<UserDAO> Users { get => users; }
+        public static List<LineTripDAO> LineTrips { get => lineTrips; }
         static DATA()
         {
             initBuses();
@@ -1436,14 +1438,15 @@ namespace DS
                     {
                         var locA = new GeoCoordinate(station1.Latitude, station1.Longitude);
                         var locB = new GeoCoordinate(station2.Latitude, station2.Longitude);
-                        double dis = locA.GetDistanceTo(locB);
+                        double dis = locA.GetDistanceTo(locB)/1000;
+                        double result = Math.Round(dis, 2);//כדי להשאיר רק שתי ספרות אחרי הנקודה העשרונית
                         //int dis = rand.Next(1, 500);//הגרלת מרחק וזמן בקילומטרים ודקות
                         PairConsecutiveStations.Add(new PairConsecutiveStationsDAO
                         {
                             StationNum1 = station1.CodeStation,
                             StationNum2 = station2.CodeStation,
-                            Distance = dis,
-                            TimeDriving = TimeSpan.FromMinutes(((dis/1000)/30)*60)
+                            Distance = result,
+                            TimeDriving = TimeSpan.FromMinutes(((dis)/30)*60)
                         }) ;
                     }
                 }
@@ -1474,6 +1477,109 @@ namespace DS
                 UserName = "דוד",
                 PassWord = "7654321",
                 CheckAsk = "מוריה",
+            });
+        }
+        public static void initLineTrips()
+        {
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 1,
+                TripStart = new TimeSpan(13, 0, 0)
+            }) ;
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 2,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 3,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 4,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 5,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 6,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 7,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 8,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 9,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 10,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 1,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 2,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 3,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 4,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 5,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 6,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 7,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 8,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 9,
+                TripStart = new TimeSpan(13, 0, 0)
+            });
+            LineTrips.Add(new LineTripDAO
+            {
+                IdentifyNumber = 10,
+                TripStart = new TimeSpan(13, 0, 0)
             });
         }
 

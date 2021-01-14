@@ -17,7 +17,17 @@ namespace DL
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
         }
-        #region SaveLoadWithXElement
+        //public static XElement ToXML(this DO.PairConsecutiveStationsDAO pair)
+        //{
+        //    XElement result = new XElement("PairConsecutiveStationsDAO",
+        //        new XElement("StationNum1", pair.StationNum1),
+        //        new XElement("StationNum2", pair.StationNum2),
+        //        new XElement("Distance", pair.Distance),
+        //        new XElement("TimeDriving", pair.TimeDriving)
+        //        );
+        //    return result;
+        //}
+        #region SaveLoadWithXElementS
         public static void SaveListToXMLElement(XElement rootElem, string filePath)
         {
             try
@@ -51,7 +61,7 @@ namespace DL
             }
         }
         #endregion
-
+        
         #region SaveLoadWithXMLSerializer
         public static void SaveListToXMLSerializer<T>(List<T> list, string filePath)
         {
