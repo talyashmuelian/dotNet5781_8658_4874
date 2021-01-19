@@ -2058,7 +2058,7 @@ namespace DS
             });
             LineTrips.Add(new LineTripDAO
             {
-                IdentifyNumber = ,
+                IdentifyNumber = 4,
                 TripStart = new TimeSpan(13, 30, 0)
             });
             LineTrips.Add(new LineTripDAO

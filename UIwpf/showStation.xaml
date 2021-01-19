@@ -34,7 +34,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="494,104,0,0" TextWrapping="Wrap" Text="{Binding Longitude}" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="579,190,0,0" TextWrapping="Wrap" Text=":נגישות לנכים" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="497,192,0,0" TextWrapping="Wrap" Text="{Binding IsAccessible}" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgForStation" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="191" Margin="200,396,0,0" VerticalAlignment="Top" Width="279">
+        <DataGrid x:Name="dgForStation" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="191" Margin="200,396,0,0" VerticalAlignment="Top" Width="297">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="דקות שנותרו" Binding="{Binding MoreHowMinutesCome}" />
                 <DataGridTextColumn Header="זמן הגעה" Binding="{Binding ExpectedTimeTillArrive}" />

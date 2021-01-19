@@ -1107,21 +1107,23 @@ namespace BL
             }
             return result;
         }
-        public List<BusLineBO> GetRelevantWays(int codeStation1, int codeStation2)
+        public List<WayForPassBO> GetRelevantWays(int codeStation1, int codeStation2)
         {
-            List<BusLineBO> result = new List<BusLineBO>();
-            bool ifFirstIn = false;
-            int LocationFirst = 0;
-            bool ifLastIn = false;
-            int LocationLast = 0;
+            List<WayForPassBO> result = new List<WayForPassBO>();
+            
             foreach (BusLineBO line in GetAllBusLinesBO())
             {
+                bool ifFirstIn = false;
+                int LocationFirst = 0;
+                bool ifLastIn = false;
+                int LocationLast = 0;
                 foreach (var station in line.ListOfStations)
                 {
                     if (station.CodeStation== codeStation1)
                     {
                         ifFirstIn = true;
                         LocationFirst = station.NumStationInTheLine;
+                        break;
                     }
                 }
                 foreach (var station in line.ListOfStations)
@@ -1130,14 +1132,24 @@ namespace BL
                     {
                         ifLastIn = true;
                         LocationLast = station.NumStationInTheLine;
+                        break;
                     }
                 }
-                if (ifFirstIn&& ifLastIn&& LocationFirst< LocationLast)//אם שתי התחנות קיימות בקו ותחנת המוצא לפני תחנת היעד
+                if (ifFirstIn==true&& ifLastIn==true&& LocationFirst< LocationLast)//אם שתי התחנות קיימות בקו ותחנת המוצא לפני תחנת היעד
                 {
-                    result.Add(line);
+                    TimeSpan count = new TimeSpan(0, 0, 0);
+                    for (int i= LocationLast-1; i>= LocationFirst;i--)
+                    {
+                        count += line.ListOfStations.ToArray()[i].TimeDriving;
+                    }
+                    result.Add(new WayForPassBO { LineNumber=line.LineNumber,TimeOfTrip= count });
                 }
             }
-            return result;
+            IEnumerable<WayForPassBO> orderList =
+                from way in result
+                orderby way.TimeOfTrip
+                select way;
+            return orderList.ToList();
         }
     }
 }

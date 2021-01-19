@@ -1386,7 +1386,7 @@ namespace DL
             //});
             //LineStations.Add(new LineStationDAO
             //{
-            //    CodeStation = 987658,
+            //    CodeStation = 363636,
             //    IdentifyNumber = 8,
             //    NumStationInTheLine = 8
             //});
@@ -2119,7 +2119,7 @@ namespace DL
             //});
             //LineStations.Add(new LineStationDAO
             //{
-            //    CodeStation = 987658,
+            //    CodeStation = 363636,
             //    IdentifyNumber = 8,
             //    NumStationInTheLine = 8
             //});
@@ -2534,12 +2534,1802 @@ namespace DL
             //LineTrips.Add(new LineTripDAO
             //{
             //    IdentifyNumber = 1,
-            //    TripStart = new TimeSpan(20, 35, 0)
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 1,
+            //    TripStart = new TimeSpan(23, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 2,
+            //    TripStart = new TimeSpan(23, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 3,
+            //    TripStart = new TimeSpan(23, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 4,
+            //    TripStart = new TimeSpan(23, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 5,
+            //    TripStart = new TimeSpan(23, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 6,
+            //    TripStart = new TimeSpan(23, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 7,
+            //    TripStart = new TimeSpan(23, 00, 0)
             //});
             //LineTrips.Add(new LineTripDAO
             //{
             //    IdentifyNumber = 8,
-            //    TripStart = new TimeSpan(20, 45, 0)
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 8,
+            //    TripStart = new TimeSpan(23, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 9,
+            //    TripStart = new TimeSpan(23, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(6, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(7, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(8, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(9, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(10, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(11, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(12, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(13, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(14, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(15, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(16, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(17, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(18, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(19, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(20, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(21, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(22, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(23, 30, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(6, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(7, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(8, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(9, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(10, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(11, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(12, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(13, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(14, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(15, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(16, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(17, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(18, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(19, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(20, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(21, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(22, 00, 0)
+            //});
+            //LineTrips.Add(new LineTripDAO
+            //{
+            //    IdentifyNumber = 10,
+            //    TripStart = new TimeSpan(23, 00, 0)
             //});
 
 

@@ -52,8 +52,17 @@ namespace UIwpf
             try
             {
                 newItem.Distance = Convert.ToDouble(distance.Text);
-                double temp = Convert.ToDouble(timeDriving.Text);
-                newItem.TimeDriving = TimeSpan.FromMinutes(temp);
+                int hours1 = Convert.ToInt32(hours.Text);
+                int minutes1 = Convert.ToInt32(minutes.Text);
+                int seconds1 = Convert.ToInt32(seconds.Text);
+                if (hours1 < 0 || hours1 > 24 || minutes1 < 0 || minutes1 > 60 || seconds1 < 0 || seconds1 > 60)
+                {
+                    throw new LineTripExceptionBO("השעה שהכנסת אינה תקינה");
+                }
+                TimeSpan time = new TimeSpan(hours1, minutes1, seconds1);
+                //double temp = Convert.ToDouble(timeDriving.Text);
+                //newItem.TimeDriving = TimeSpan.FromMinutes(temp);
+                newItem.TimeDriving = time;
                 bl.addPairConsecutiveStations(newItem);
                 ifDone = true;
                 Close();

@@ -38,7 +38,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="517,18,0,0" TextWrapping="Wrap" Text="{Binding LineNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="435,18,0,0" TextWrapping="Wrap" Text=":איזור" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="347,18,0,0" TextWrapping="Wrap" Text="{Binding Area}" VerticalAlignment="Top" Height="19" Width="70"/>
-        <DataGrid x:Name="loozDG" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="243" Margin="828,62,0,0" VerticalAlignment="Top" Width="97">
+        <DataGrid x:Name="loozDG" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="243" Margin="828,62,0,0" VerticalAlignment="Top" Width="105">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="זמני יציאת הקו" Binding="{Binding TripStart}" />
             </DataGrid.Columns>

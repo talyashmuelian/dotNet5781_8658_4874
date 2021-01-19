@@ -58,7 +58,7 @@ namespace BLAPI
         IEnumerable<LineTimingBO> GetLineTimingsPerStation(BusStationBO cuurentStation, TimeSpan now);
         bool addLineTrip(LineTripBO lineTrip);
         bool deleteLineTrip(LineTripBO lineTrip);
-        List<BusLineBO> GetRelevantWays(int codeStation1, int codeStation2);
+        List<WayForPassBO> GetRelevantWays(int codeStation1, int codeStation2);
     }
 }
 

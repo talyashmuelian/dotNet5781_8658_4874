@@ -458,15 +458,15 @@
   </PairConsecutiveStationsDAO>
   <PairConsecutiveStationsDAO>
     <StationNum1>877877</StationNum1>
-    <StationNum2>987658</StationNum2>
-    <Distance>7.01</Distance>
-    <TimeDriving>0:14:1</TimeDriving>
+    <StationNum2>363636</StationNum2>
+    <Distance>19.61</Distance>
+    <TimeDriving>0:39:12</TimeDriving>
   </PairConsecutiveStationsDAO>
   <PairConsecutiveStationsDAO>
-    <StationNum1>987658</StationNum1>
+    <StationNum1>363636</StationNum1>
     <StationNum2>625783</StationNum2>
-    <Distance>94.92</Distance>
-    <TimeDriving>3:9:50</TimeDriving>
+    <Distance>113.41</Distance>
+    <TimeDriving>3:46:48</TimeDriving>
   </PairConsecutiveStationsDAO>
   <PairConsecutiveStationsDAO>
     <StationNum1>625783</StationNum1>

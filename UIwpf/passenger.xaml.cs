@@ -32,16 +32,23 @@ namespace UIwpf
         }
         private void firstStationCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            codeStation1 = (firstStationCB.SelectedItem as MiniStationBO).CodeStation;
+            try
+            {
+                //if ((lastStationCB.SelectedItem as MiniStationBO).CodeStation == (firstStationCB.SelectedItem as MiniStationBO).CodeStation)
+                //    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
+                codeStation1 = (firstStationCB.SelectedItem as MiniStationBO).CodeStation;
+            dgWays.ItemsSource = bl.GetRelevantWays(codeStation1, codeStation2);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
         private void lastStationCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                if ((lastStationCB.SelectedItem as MiniStationBO).CodeStation == (firstStationCB.SelectedItem as MiniStationBO).CodeStation)
-                    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
+                //if ((lastStationCB.SelectedItem as MiniStationBO).CodeStation == (firstStationCB.SelectedItem as MiniStationBO).CodeStation)
+                //    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
                 codeStation2 = (lastStationCB.SelectedItem as MiniStationBO).CodeStation;
-                LBlines.ItemsSource = bl.GetRelevantWays(codeStation1, codeStation2);
+                dgWays.ItemsSource = bl.GetRelevantWays(codeStation1, codeStation2);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
 

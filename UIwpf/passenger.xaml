@@ -5,14 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="passenger" Height="450" Width="800">
+        Title="passenger" Height="400" Width="400">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="335,10,0,0" TextWrapping="Wrap" Text=":הכנס תחנת מוצא ותחנת יעד" VerticalAlignment="Top"/>
-        <ComboBox x:Name="lastStationCB"  HorizontalAlignment="Left" Margin="168,70,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="lastStationCB_SelectionChanged"/>
-        <ComboBox x:Name="firstStationCB" HorizontalAlignment="Left" Margin="475,70,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="firstStationCB_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="335,70,0,0" TextWrapping="Wrap" Text=":תחנת יעד" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="633,73,0,0" TextWrapping="Wrap" Text=":תחנת מוצא" VerticalAlignment="Top"/>
-        <ListBox x:Name="LBlines"  HorizontalAlignment="Left" Height="196" Margin="79,156,0,0" VerticalAlignment="Top" Width="616"/>
+        <TextBlock HorizontalAlignment="Left" Margin="120,10,0,0" TextWrapping="Wrap" Text=":הכנס תחנת מוצא ותחנת יעד" VerticalAlignment="Top"/>
+        <ComboBox x:Name="lastStationCB"  HorizontalAlignment="Left" Margin="24,117,0,0" VerticalAlignment="Top" Width="254" SelectionChanged="lastStationCB_SelectionChanged"/>
+        <ComboBox x:Name="firstStationCB" HorizontalAlignment="Left" Margin="24,67,0,0" VerticalAlignment="Top" Width="256" SelectionChanged="firstStationCB_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="315,117,0,0" TextWrapping="Wrap" Text=":תחנת יעד" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="304,67,0,0" TextWrapping="Wrap" Text=":תחנת מוצא" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgWays" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="131" Margin="127,173,0,0" VerticalAlignment="Top" Width="133">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="זמן הנסיעה" Binding="{Binding TimeOfTrip}" />
+                <DataGridTextColumn Header="מספר קו" Binding="{Binding LineNumber}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
 
     </Grid>
 </Window>

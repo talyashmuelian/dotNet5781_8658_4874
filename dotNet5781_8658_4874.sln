@@ -23,7 +23,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{0027
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{4CDA206C-7CB0-4AC7-9185-B0E03638449C}"
 	ProjectSection(SolutionItems) = preProject
+		bin\xml\busesXml.xml = bin\xml\busesXml.xml
 		bin\config.xml = bin\config.xml
+		bin\xml\lineStationsXml.xml = bin\xml\lineStationsXml.xml
+		bin\xml\linesXml.xml = bin\xml\linesXml.xml
+		bin\xml\lineTripsXml.xml = bin\xml\lineTripsXml.xml
+		bin\xml\pairStationsXml.xml = bin\xml\pairStationsXml.xml
+		bin\xml\stationsXml.xml = bin\xml\stationsXml.xml
+		bin\xml\usersXml.xml = bin\xml\usersXml.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalObject", "DalObject\DalObject.csproj", "{AE84C83E-36A7-4E3A-834E-BDDC6F03F87D}"

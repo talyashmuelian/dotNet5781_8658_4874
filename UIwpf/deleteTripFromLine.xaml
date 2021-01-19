@@ -13,6 +13,16 @@
         <TextBlock HorizontalAlignment="Left" Margin="92,37,0,0" TextWrapping="Wrap" Text="{Binding IdentifyNumber}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="151,80,0,0" TextWrapping="Wrap" Text="בחר יציאה" VerticalAlignment="Top"/>
         <ComboBox x:Name="tripsInLineCB" HorizontalAlignment="Left" Margin="38,77,0,0" VerticalAlignment="Top" Width="91" SelectionChanged="tripsInLineCB_SelectionChanged" Height="19"/>
-        <Button Content="מחק" HorizontalAlignment="Left" Margin="92,122,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickDel"/>
+        <Button Content="מחק" HorizontalAlignment="Left" Margin="92,122,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickDel">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=tripsInLineCB, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>
