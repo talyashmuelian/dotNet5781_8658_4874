@@ -15,6 +15,7 @@ namespace BO
         public int FirstStationNum { get; set; }//מספר תחנה ראשונה
         public int LastStationNum { get; set; }//מספר תחנה אחרונה
         public IEnumerable<StationInLineBO> ListOfStations { get; set; }
+        public IEnumerable<LineTripBO> ListOfTrips { get; set; }//רשימת יציאות הקו
         public override string ToString()
         {
             return this.ToStringProperty();

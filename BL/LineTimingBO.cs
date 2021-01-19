@@ -16,6 +16,7 @@ namespace BO
         public int LineNumber { get; set; } //Line Number as understood by the people
         public string LastStationName { get; set; }// Last station name - so the passengers will know better which direction it is
         public TimeSpan ExpectedTimeTillArrive { get; set; }//Expected time of arrival
+        public int MoreHowMinutesCome { get; set; }//עוד כמה דקות הוא מגיע
     }
 }
 

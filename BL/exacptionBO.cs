@@ -133,4 +133,22 @@ namespace BO
         {
         }
     }
+    public class LineTripExceptionBO : Exception
+    {
+        public LineTripExceptionBO()
+        {
+        }
+
+        public LineTripExceptionBO(string message) : base(message)
+        {
+        }
+
+        public LineTripExceptionBO(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected LineTripExceptionBO(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
 }

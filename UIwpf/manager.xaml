@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="מנהל" Height="450" Width="1000">
+        Title="מנהל" Height="450" Width="1300">
     <Window.Resources>
         <DataTemplate x:Key="MyDataTemplateBuses"    DataType="local:MyData" >
             <Grid Grid.IsSharedSizeScope="True">
@@ -31,6 +31,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120" />
                     <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="30" />
@@ -41,16 +43,18 @@
                     <ColumnDefinition Width="40" />
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="10" Text=":מספר קו" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
-                <TextBlock Grid.Column="9"  Text="{Binding Path=LineNumber}" FontSize="11" Foreground="#FF0D0D12" />
-                <TextBlock Grid.Column="8" Text=":מזהה קו" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
-                <TextBlock Grid.Column="7"  Text="{Binding Path=IdentifyNumber}" FontSize="11" Foreground="#FF0D0D12" />
-                <TextBlock Grid.Column="6" Text=":איזור" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
-                <TextBlock Grid.Column="5"  Text="{Binding Path=Area}" FontSize="11" Foreground="#FF0D0D12" />
-                <Button x:Name="updateLine" Content="עדכון" Grid.Column="3" Background="#FF8EBCD0" Click="Button_ClickUpdateLine1" />
-                <Button x:Name="deleteLine" Content="הסר" Grid.Column="2" Background="#FF8EBCD0" Click="Button_ClickDeleteLine1" />
-                <Button x:Name="addStationToLine" Content="הוספת תחנה לקו" Grid.Column="1" Background="#FF8EBCD0" Click="Button_ClickAddStationToLine1" />
-                <Button x:Name="deleteStationFromLine" Content="מחיקת תחנה מהקו" Grid.Column="0" Background="#FF8EBCD0" Click="Button_ClickDeleteStationFromLine1" />
+                <TextBlock Grid.Column="12" Text=":מספר קו" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="11"  Text="{Binding Path=LineNumber}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="10" Text=":מזהה קו" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="9"  Text="{Binding Path=IdentifyNumber}" FontSize="11" Foreground="#FF0D0D12" />
+                <TextBlock Grid.Column="8" Text=":איזור" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
+                <TextBlock Grid.Column="7"  Text="{Binding Path=Area}" FontSize="11" Foreground="#FF0D0D12" />
+                <Button x:Name="updateLine" Content="עדכון" Grid.Column="5" Background="#FF8EBCD0" Click="Button_ClickUpdateLine1" />
+                <Button x:Name="deleteLine" Content="הסרה" Grid.Column="4" Background="#FF8EBCD0" Click="Button_ClickDeleteLine1" />
+                <Button x:Name="addStationToLine" Content="הוספת תחנה לקו" Grid.Column="3" Background="#FF8EBCD0" Click="Button_ClickAddStationToLine1" />
+                <Button x:Name="deleteStationFromLine" Content="מחיקת תחנה מהקו" Grid.Column="2" Background="#FF8EBCD0" Click="Button_ClickDeleteStationFromLine1" />
+                <Button x:Name="addTripToLine" Content="הוספת יציאה לקו" Grid.Column="1" Background="#FF8EBCD0" Click="Button_ClickAddTripToLine" />
+                <Button x:Name="deleteTripFromLine" Content="מחיקת יציאה מהקו" Grid.Column="0" Background="#FF8EBCD0" Click="Button_ClickDeleteTripFromLine" />
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="MyDataTemplateStations"                   DataType="local:MyData" >
@@ -88,24 +92,16 @@
                         <Grid>
                             <ListBox x:Name="lbBusesOnSystem" ItemTemplate="{StaticResource MyDataTemplateBuses}"  HorizontalAlignment="Left" Height="294" Margin="55,60,0,0" VerticalAlignment="Top" Width="613"  SelectionMode="Single" ItemsSource="{Binding}" MouseDoubleClick="showDataBuses_doubleClick" />
                             <Button Content="הוספת אוטובוס" Style="{StaticResource myButtonStyle}" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" Width="144" Click="Button_ClickAddBus" Height="45"/>
-                            <Button  Content="עדכון אוטובוס" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickUpdateBus">
-                                <Button.Background>
-                                    <ImageBrush TileMode="FlipX"/>
-                                </Button.Background>
-                            </Button>
-                            <Button Content="מחיקת אוטובוס" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteBus"/>
+                            
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
                 <TabItem Header="קווים">
                     <TabItem.Content>
                         <Grid>
-                            <ListBox x:Name="lbLinesOnSystem" ItemTemplate="{StaticResource MyDataTemplateLines}"  HorizontalAlignment="Left" Height="260" Margin="48,60,0,0" VerticalAlignment="Top" Width="861"  SelectionMode="Single" MouseDoubleClick="showDataLines_doubleClick" ItemsSource="{Binding}" />
+                            <ListBox x:Name="lbLinesOnSystem" ItemTemplate="{StaticResource MyDataTemplateLines}"  HorizontalAlignment="Left" Height="260" Margin="48,60,0,0" VerticalAlignment="Top" Width="1118"  SelectionMode="Single" MouseDoubleClick="showDataLines_doubleClick" ItemsSource="{Binding}" />
                             <Button Content="הוספת קו" HorizontalAlignment="Left" Margin="349,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddLine"/>
-                            <Button Content="עדכון קו" HorizontalAlignment="Left" Margin="472,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickUpdateLine"/>
-                            <Button Content="מחיקת קו" HorizontalAlignment="Left" Margin="590,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteLine"/>
-                            <Button Content="הוספת תחנה לקו" HorizontalAlignment="Left" Margin="206,10,0,0" VerticalAlignment="Top" Width="112" Click="Button_ClickAddStationToLine"/>
-                            <Button Content="מחיקת תחנה מקו" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="112" Click="Button_ClickDeleteStationFromLine"/>
+                            
                             <ComboBox x:Name="areaCB" HorizontalAlignment="Left" Margin="717,9,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="areaCB_SelectionChanged"/>
 
                         </Grid>
@@ -116,8 +112,7 @@
                         <Grid>
                             <ListBox x:Name="lbStationsOnSystem" ItemTemplate="{StaticResource MyDataTemplateStations}"  HorizontalAlignment="Left" Height="294" Margin="50,60,0,0" VerticalAlignment="Top" Width="859"  SelectionMode="Single" MouseDoubleClick="showDataStations_doubleClick" ItemsSource="{Binding}" />
                             <Button Content="הוספת תחנה" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddStation"/>
-                            <Button Content="עדכון תחנה" HorizontalAlignment="Left" Margin="318,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickUpdateStation"/>
-                            <Button Content="מחיקת תחנה" HorizontalAlignment="Left" Margin="502,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickDeleteStation"/>
+                            
                             <Button Content="עדכון זמן ומרחק בין זוג תחנות" HorizontalAlignment="Left" Margin="119,369,0,0" VerticalAlignment="Top" Width="179" Click="Button_ClickUpdatePair"/>
                             <Button Content="הוספת זמן ומרחק בין זוג תחנות" HorizontalAlignment="Left" Margin="398,369,0,0" VerticalAlignment="Top" Width="188" Click="Button_ClickAddPair"/>
                         </Grid>

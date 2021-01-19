@@ -30,7 +30,7 @@
     </Window.Resources>
 
     <Grid>
-        <ListBox x:Name="lbStationsInLineOnSystem" ItemTemplate="{StaticResource MyDataTemplateStationsInLine}"  HorizontalAlignment="Left" Height="243" Margin="124,62,0,0" VerticalAlignment="Top" Width="772"  SelectionMode="Single" ItemsSource="{Binding}" />
+        <ListBox x:Name="lbStationsInLineOnSystem" ItemTemplate="{StaticResource MyDataTemplateStationsInLine}"  HorizontalAlignment="Left" Height="243" Margin="36,62,0,0" VerticalAlignment="Top" Width="772"  SelectionMode="Single" ItemsSource="{Binding}" />
         <TextBlock HorizontalAlignment="Left" Margin="828,20,0,0" TextWrapping="Wrap" Text=":נתוני הקו" VerticalAlignment="Top" Height="27" Width="132"/>
         <TextBlock HorizontalAlignment="Left" Margin="707,20,0,0" TextWrapping="Wrap" Text=":מספר מזהה" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="658,21,0,0" TextWrapping="Wrap" Text="{Binding IdentifyNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
@@ -38,6 +38,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="517,18,0,0" TextWrapping="Wrap" Text="{Binding LineNumber}" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="435,18,0,0" TextWrapping="Wrap" Text=":איזור" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="347,18,0,0" TextWrapping="Wrap" Text="{Binding Area}" VerticalAlignment="Top" Height="19" Width="70"/>
+        <DataGrid x:Name="loozDG" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="243" Margin="828,62,0,0" VerticalAlignment="Top" Width="97">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="זמני יציאת הקו" Binding="{Binding TripStart}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
 
     </Grid>

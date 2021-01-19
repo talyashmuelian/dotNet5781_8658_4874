@@ -1,0 +1,18 @@
+﻿<Window x:Class="UIwpf.passenger"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIwpf"
+        mc:Ignorable="d"
+        Title="passenger" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="335,10,0,0" TextWrapping="Wrap" Text=":הכנס תחנת מוצא ותחנת יעד" VerticalAlignment="Top"/>
+        <ComboBox x:Name="lastStationCB"  HorizontalAlignment="Left" Margin="168,70,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="lastStationCB_SelectionChanged"/>
+        <ComboBox x:Name="firstStationCB" HorizontalAlignment="Left" Margin="475,70,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="firstStationCB_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="335,70,0,0" TextWrapping="Wrap" Text=":תחנת יעד" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="633,73,0,0" TextWrapping="Wrap" Text=":תחנת מוצא" VerticalAlignment="Top"/>
+        <ListBox x:Name="LBlines"  HorizontalAlignment="Left" Height="196" Margin="79,156,0,0" VerticalAlignment="Top" Width="616"/>
+
+    </Grid>
+</Window>

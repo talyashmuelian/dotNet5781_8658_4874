@@ -36,18 +36,24 @@ namespace UIwpf
             newItem.StationNum2 = station2;
             help.NameStation1 = bl.GetBusStationBO(station1).NameStation;
             help.NameStation2 = bl.GetBusStationBO(station2).NameStation;
-            numStaion1.DataContext = newItem;
-            numStaion2.DataContext = newItem;
-            distance.DataContext = newItem;
-            timeDriving.DataContext = newItem;
             nameStaion1.DataContext = help;
             nameStaion2.DataContext = help;
+            numStaion1.DataContext = newItem;
+            numStaion2.DataContext = newItem;
+            //distance.DataContext = newItem;
+            //timeDriving.DataContext = newItem;
+            
+            
+            
         }
 
         private void Button_ClickAddData(object sender, RoutedEventArgs e)
         {
             try
             {
+                newItem.Distance = Convert.ToDouble(distance.Text);
+                double temp = Convert.ToDouble(timeDriving.Text);
+                newItem.TimeDriving = TimeSpan.FromMinutes(temp);
                 bl.addPairConsecutiveStations(newItem);
                 ifDone = true;
                 Close();

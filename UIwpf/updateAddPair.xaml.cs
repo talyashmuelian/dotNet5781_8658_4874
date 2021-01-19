@@ -52,6 +52,8 @@ namespace UIwpf
         {
             try
             {
+                double temp = Convert.ToDouble(timeDriving.Text);
+                newItem.TimeDriving = TimeSpan.FromMinutes(temp);
                 if ((station2CB.SelectedItem as MiniStationBO).CodeStation == (station1CB.SelectedItem as MiniStationBO).CodeStation)
                     throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
                 ifDone = true;

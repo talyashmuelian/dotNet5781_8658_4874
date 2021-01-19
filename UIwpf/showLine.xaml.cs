@@ -27,6 +27,7 @@ namespace UIwpf
             bl = _bl;
             DataContext = currentLine;
             lbStationsInLineOnSystem.DataContext = currentLine.ListOfStations.ToList();
+            loozDG.ItemsSource = currentLine.ListOfTrips.ToList();
         }
     }
 }

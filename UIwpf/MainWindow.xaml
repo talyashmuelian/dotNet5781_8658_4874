@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="תחבורה ציבורית" Height="450" Width="340">
     <Grid>
-        <Button Content="נוסע" HorizontalAlignment="Left" Margin="121,257,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="נוסע" HorizontalAlignment="Left" Margin="121,257,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickPassenger"/>
         <Button Content="מנהל" HorizontalAlignment="Left" Margin="121,203,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="145,10,0,0" TextWrapping="Wrap" Text="!ברוך הבא" VerticalAlignment="Top"/>
         <TextBox x:Name="userName" HorizontalAlignment="Left" Height="23" Margin="53,45,0,0" TextWrapping="Wrap" Text="{Binding Path=UserName, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>

@@ -56,7 +56,9 @@ namespace BLAPI
         bool ifUserAndPassCorrect(string userName, string passWord);
         //עבור לוח אלקטרוני
         IEnumerable<LineTimingBO> GetLineTimingsPerStation(BusStationBO cuurentStation, TimeSpan now);
-
+        bool addLineTrip(LineTripBO lineTrip);
+        bool deleteLineTrip(LineTripBO lineTrip);
+        List<BusLineBO> GetRelevantWays(int codeStation1, int codeStation2);
     }
 }
 

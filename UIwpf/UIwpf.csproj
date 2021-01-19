@@ -67,11 +67,17 @@
     <Compile Include="addStationToLine.xaml.cs">
       <DependentUpon>addStationToLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="addTripToLine.xaml.cs">
+      <DependentUpon>addTripToLine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="deleteBus.xaml.cs">
       <DependentUpon>deleteBus.xaml</DependentUpon>
     </Compile>
     <Compile Include="deleteStation.xaml.cs">
       <DependentUpon>deleteStation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="deleteTripFromLine.xaml.cs">
+      <DependentUpon>deleteTripFromLine.xaml</DependentUpon>
     </Compile>
     <Compile Include="delStationFromLine.xaml.cs">
       <DependentUpon>delStationFromLine.xaml</DependentUpon>
@@ -80,6 +86,9 @@
       <DependentUpon>forgetPassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="NamesStations.cs" />
+    <Compile Include="passenger.xaml.cs">
+      <DependentUpon>passenger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="showBus.xaml.cs">
       <DependentUpon>showBus.xaml</DependentUpon>
     </Compile>
@@ -128,6 +137,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="addTripToLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="deleteBus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="deleteStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="deleteTripFromLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +184,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="manager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="passenger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,21 +7,30 @@ using System.Device.Location;
 using BLAPI;
 using BO;
 //using BL;
+using BLAPI;
+using DLAPI;
+//using DL;
+using BO;
+using DO;
 namespace UI
 {
     class Program
     {
         static IBL bl;
+        static IDal dal;
         static void Main(string[] args)
         {
             try
             {
                 bl = BLFactory.GetBl();
+                dal = DLFactory.GetDal();
                 var locA = new GeoCoordinate(32.183921, 34.917806);
                 var locB = new GeoCoordinate(31.870034, 34.819541);
                 double dis = locA.GetDistanceTo(locB)/1000;
                 double result = Math.Round(dis, 2);
                 Console.WriteLine(result);
+                TimeSpan TimeDriving = TimeSpan.FromMinutes(((dis) / 30) * 60);
+                Console.WriteLine(TimeDriving.ToString());
                 //Console.WriteLine(new DateTime(2017,5,24).Year);
                 //printAllbusses();
                 //bl.addBus(new BusBO { License = "93939393", });
@@ -41,7 +50,11 @@ namespace UI
                 //printAllBusStations();
                 ////bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });;
                 //Console.WriteLine(bl.GetBusStationBO(123456));
-                Console.WriteLine(bl.GetPairConsecutiveStationsBO(111111, 123456));
+                //Console.WriteLine(dal.getOneObjectPairConsecutiveStations(123456, 111111));
+                foreach (var item in dal.getAllPairConsecutiveStations())
+                {
+                    Console.WriteLine(item);
+                }
                 //printAllBusLines();
                 //bl.addStationToLine(123456, 5, 11);
                 //bool a=bl.addBusLine(new BusLineBO { LineNumber = 12, Area = "aaa", FirstStationNum = 123456, LastStationNum = 111111 });

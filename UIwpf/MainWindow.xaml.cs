@@ -59,5 +59,11 @@ namespace UIwpf
             signUp signUpWindow = new signUp(bl);
             signUpWindow.ShowDialog();
         }
+
+        private void Button_ClickPassenger(object sender, RoutedEventArgs e)
+        {
+            passenger passengerWindow = new passenger(bl);
+            passengerWindow.Show();
+        }
     }
 }

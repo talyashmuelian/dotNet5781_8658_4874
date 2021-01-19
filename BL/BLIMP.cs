@@ -14,6 +14,15 @@ namespace BL
     {
         const int FULLTANK = 1200;
         readonly IDal dal = DLFactory.GetDal();
+        #region singleton implementaion
+        private readonly static BLIMP instance = new BLIMP();
+
+        public BLIMP() { } // בנאי ברירת מחדל 
+        static BLIMP() { }  // בנאי שמוודא אתחול של אינטנס לפני השימוש הראשון  
+
+        internal static BLIMP Instance { get => instance; }
+
+        #endregion singleton
         //קווים
         #region lines
         private BusLineDAO convertDAO(BusLineBO busLine)
@@ -95,6 +104,11 @@ namespace BL
                 first = false;
             }
             busLineBO.ListOfStations = listStationTypeCorrect;
+            IEnumerable<LineTripBO> trips=
+                from trip in dal.getPartOfLineTrip(item => item.IdentifyNumber == busLine.IdentifyNumber)
+                orderby trip.TripStart
+                select convertoBO(trip);
+            busLineBO.ListOfTrips = trips;
             return busLineBO;
         }
         //הדפסת כל הקווים
@@ -792,11 +806,11 @@ namespace BL
                 //        IdentifyNumber = busLine.IdentifyNumber
                 //    });
                 //}
-                foreach(LineStationDAO lineStation in dal.getAllLineStations())
-                {
-                    if (lineStation.CodeStation== busStation.CodeStation)//יש קו שמקושר לתחנה הזאת אז אי אפשר למחוק אותה
-                        throw new BO.BusStationExceptionBO("There are lines that pass through this station, so it is not possible to delete it.");
-                }
+                //foreach(LineStationDAO lineStation in dal.getAllLineStations())
+                //{
+                //    if (lineStation.CodeStation== busStation.CodeStation)//יש קו שמקושר לתחנה הזאת אז אי אפשר למחוק אותה
+                //        throw new BO.BusStationExceptionBO("There are lines that pass through this station, so it is not possible to delete it.");
+                //}
                 dal.deleteBusStation(convertDAO(busStation));
                 return true;
             }
@@ -1018,7 +1032,7 @@ namespace BL
         //פונקציות עבור לוח אלקטרוני
         public IEnumerable<LineTimingBO> GetLineTimingsPerStation(BusStationBO cuurentStation, TimeSpan now)
         {
-            List<LineTimingBO> result=new List<LineTimingBO>();
+            List<LineTimingBO> result = new List<LineTimingBO>();
             foreach (LineInStationBO line in cuurentStation.ListOfLines)//נעבור על כל הקווים שעוברים בתחנה
             {
                 LineTimingBO lineTiming = new LineTimingBO();
@@ -1027,18 +1041,100 @@ namespace BL
                 lineTiming.LastStationName = line.LastStationName;
                 BusLineBO curLine = GetBusLineBO(line.IdentifyNumber);
                 TimeSpan TimeTripFromStart = new TimeSpan(0, 0, 0);
-                foreach(StationInLineBO stationInLine in curLine.ListOfStations)//חישוב כמה זמן לוקח לקו הספציפי להגיע לתחנה שלנו
+                foreach (StationInLineBO stationInLine in curLine.ListOfStations)//חישוב כמה זמן לוקח לקו הספציפי להגיע לתחנה שלנו
                 {
                     if (stationInLine.CodeStation == cuurentStation.CodeStation)
                         TimeTripFromStart = stationInLine.TimeDrivingFromFirstStation;
                 }
-                //נוצרת רשימה של יציאות הקו הרלוונטיות, כלומר שייכות לקו הנוכחי ועוברות בתחנה בחצי השעה הקרובה
-                List<LineTripDAO> relevantTripToLine = dal.getPartOfLineTrip(item => item.IdentifyNumber == line.IdentifyNumber && item.TripStart+ TimeTripFromStart> now && item.TripStart + TimeTripFromStart < now+new TimeSpan(0,30,0)).ToList();
-                foreach (LineTripDAO lineTrip in relevantTripToLine)
+                try
                 {
-                    lineTiming.TripStart = lineTrip.TripStart;
-                    lineTiming.ExpectedTimeTillArrive = lineTrip.TripStart + TimeTripFromStart;
-                    result.Add(lineTiming);
+                    //נוצרת רשימה של יציאות הקו הרלוונטיות, כלומר שייכות לקו הנוכחי ועוברות בתחנה בחצי השעה הקרובה
+                    List<LineTripDAO> relevantTripToLine = dal.getPartOfLineTrip(item => item.IdentifyNumber == line.IdentifyNumber && item.TripStart + TimeTripFromStart > now && item.TripStart + TimeTripFromStart < now + new TimeSpan(0, 30, 0)).ToList();
+                    foreach (LineTripDAO lineTrip in relevantTripToLine)
+                    {
+                        lineTiming.TripStart = lineTrip.TripStart;
+                        lineTiming.ExpectedTimeTillArrive = lineTrip.TripStart + TimeTripFromStart;
+                        lineTiming.MoreHowMinutesCome = (lineTiming.ExpectedTimeTillArrive-now).Minutes;
+                        result.Add(lineTiming);
+                    }
+                }
+                catch { }//במקרה של תחנה שלא עוברים בה קווים בחצי השעה הקרובה
+            }
+            return result;
+        }
+        private LineTripDAO convertDAO(LineTripBO lineTrip)
+        {
+            LineTripDAO lineTripDAO = new LineTripDAO
+            {
+                IdentifyNumber = lineTrip.IdentifyNumber,
+                TripStart = lineTrip.TripStart,
+            };
+            return lineTripDAO;
+        }
+
+        private LineTripBO convertoBO(LineTripDAO lineTrip)
+        {
+            LineTripBO result = new LineTripBO
+            {
+                IdentifyNumber = lineTrip.IdentifyNumber,
+                TripStart = lineTrip.TripStart,
+            };
+            return result;
+        }
+        public bool addLineTrip(LineTripBO lineTrip)
+        {
+            bool result;
+            try
+            {
+                result = dal.addLineTrip(convertDAO(lineTrip));
+            }
+            catch (DO.LineTripExceptionDO ex)
+            {
+                throw new LineTripExceptionBO("The line exit already exists", ex);
+            }
+            return result;
+        }
+        public bool deleteLineTrip(LineTripBO lineTrip)
+        {
+            bool result;
+            try
+            {
+                result = dal.deleteLineTrip(convertDAO(lineTrip));
+            }
+            catch (DO.LineTripExceptionDO ex)
+            {
+                throw new BO.LineTripExceptionBO("Does not exist in the system", ex);
+            }
+            return result;
+        }
+        public List<BusLineBO> GetRelevantWays(int codeStation1, int codeStation2)
+        {
+            List<BusLineBO> result = new List<BusLineBO>();
+            bool ifFirstIn = false;
+            int LocationFirst = 0;
+            bool ifLastIn = false;
+            int LocationLast = 0;
+            foreach (BusLineBO line in GetAllBusLinesBO())
+            {
+                foreach (var station in line.ListOfStations)
+                {
+                    if (station.CodeStation== codeStation1)
+                    {
+                        ifFirstIn = true;
+                        LocationFirst = station.NumStationInTheLine;
+                    }
+                }
+                foreach (var station in line.ListOfStations)
+                {
+                    if (station.CodeStation == codeStation2)
+                    {
+                        ifLastIn = true;
+                        LocationLast = station.NumStationInTheLine;
+                    }
+                }
+                if (ifFirstIn&& ifLastIn&& LocationFirst< LocationLast)//אם שתי התחנות קיימות בקו ותחנת המוצא לפני תחנת היעד
+                {
+                    result.Add(line);
                 }
             }
             return result;
