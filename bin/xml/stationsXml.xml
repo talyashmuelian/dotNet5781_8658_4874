@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<ArrayOfBusStationDAO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BusStationDAO>
+    <CodeStation>123456</CodeStation>
+    <Latitude>32.183921</Latitude>
+    <Longitude>34.917806</Longitude>
+    <NameStation>בי''ס בר לב/בן יהודה</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>111111</CodeStation>
+    <Latitude>31.870034</Latitude>
+    <Longitude>34.819541</Longitude>
+    <NameStation>הרצל/צומת בילו</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>111222</CodeStation>
+    <Latitude>31.984553</Latitude>
+    <Longitude>34.782828</Longitude>
+    <NameStation>הנחשול/הדייגים</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>123123</CodeStation>
+    <Latitude>31.88855</Latitude>
+    <Longitude>34.790904</Longitude>
+    <NameStation>פריד/ששת הימים</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>234234</CodeStation>
+    <Latitude>31.857565</Latitude>
+    <Longitude>34.824106</Longitude>
+    <NameStation>הרצל/משה שרת</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>144144</CodeStation>
+    <Latitude>31.862305</Latitude>
+    <Longitude>34.821857</Longitude>
+    <NameStation>הבנים/אלי כהן</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>122122</CodeStation>
+    <Latitude>31.865085</Latitude>
+    <Longitude>34.822237</Longitude>
+    <NameStation>ויצמן/הבנים</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>344344</CodeStation>
+    <Latitude>31.865222</Latitude>
+    <Longitude>34.818957</Longitude>
+    <NameStation>האירוס/הכלנית</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>544544</CodeStation>
+    <Latitude>31.867597</Latitude>
+    <Longitude>34.818392</Longitude>
+    <NameStation>הכלנית/הנרקיס</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>654321</CodeStation>
+    <Latitude>31.86244</Latitude>
+    <Longitude>34.827023</Longitude>
+    <NameStation>אלי כהן/לוחמי הגטאות</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>654654</CodeStation>
+    <Latitude>31.863501</Latitude>
+    <Longitude>34.828702</Longitude>
+    <NameStation>שבזי/שבת אחים</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>345999</CodeStation>
+    <Latitude>31.865348</Latitude>
+    <Longitude>34.827102</Longitude>
+    <NameStation>שבזי/ויצמן</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>877877</CodeStation>
+    <Latitude>31.977409</Latitude>
+    <Longitude>34.763896</Longitude>
+    <NameStation>חיים בר לב/שדרות יצחק רבין</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>435435</CodeStation>
+    <Latitude>31.963668</Latitude>
+    <Longitude>34.836363</Longitude>
+    <NameStation>הולצמן/המדע</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>987658</CodeStation>
+    <Latitude>31.963668</Latitude>
+    <Longitude>34.836363</Longitude>
+    <NameStation>מחנה צריפין/מועדון</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>374657</CodeStation>
+    <Latitude>31.856115</Latitude>
+    <Longitude>34.825249</Longitude>
+    <NameStation>הרצל/גולני</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>756284</CodeStation>
+    <Latitude>31.874963</Latitude>
+    <Longitude>34.81249</Longitude>
+    <NameStation>הרותם/הדגניות</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>376592</CodeStation>
+    <Latitude>32.305234</Latitude>
+    <Longitude>34.948647</Longitude>
+    <NameStation>מבוא הגפן/מורד התאנה</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>568377</CodeStation>
+    <Latitude>31.883019</Latitude>
+    <Longitude>34.818708</Longitude>
+    <NameStation>החבורה/דב הוז</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>473829</CodeStation>
+    <Latitude>31.897286</Latitude>
+    <Longitude>34.775083</Longitude>
+    <NameStation>הגאון בן איש חי/צאלון</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>376483</CodeStation>
+    <Latitude>31.883941</Latitude>
+    <Longitude>34.807039</Longitude>
+    <NameStation>עוקשי/לוי אשכול</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>625783</CodeStation>
+    <Latitude>32.805581</Latitude>
+    <Longitude>34.997928</Longitude>
+    <NameStation>ארלוזורוב/הפועל</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>874593</CodeStation>
+    <Latitude>32.299994</Latitude>
+    <Longitude>34.878765</Longitude>
+    <NameStation>דרך הפארק/הרב נריה</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>654733</CodeStation>
+    <Latitude>31.865457</Latitude>
+    <Longitude>34.859437</Longitude>
+    <NameStation>התאנה/הגפן</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>929292</CodeStation>
+    <Latitude>31.809325</Latitude>
+    <Longitude>34.784347</Longitude>
+    <NameStation>דרך הפרחים/יסמין</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>454545</CodeStation>
+    <Latitude>31.80037</Latitude>
+    <Longitude>34.778239</Longitude>
+    <NameStation>יצחק רבין/פנחס ספיר</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>878787</CodeStation>
+    <Latitude>31.800334</Latitude>
+    <Longitude>34.785069</Longitude>
+    <NameStation>חיים הרצוג/דולב</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>363636</CodeStation>
+    <Latitude>31.802319</Latitude>
+    <Longitude>34.786735</Longitude>
+    <NameStation>בית ספר גוונים/ארז</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>747474</CodeStation>
+    <Latitude>31.805041</Latitude>
+    <Longitude>34.785098</Longitude>
+    <NameStation>דרך האילנות/מנחם בגין</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>757575</CodeStation>
+    <Latitude>31.801182</Latitude>
+    <Longitude>34.787199</Longitude>
+    <NameStation>צאלה/אלמוג</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>292929</CodeStation>
+    <Latitude>31.806959</Latitude>
+    <Longitude>34.773504</Longitude>
+    <NameStation>בן גוריון/פוקס</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>919191</CodeStation>
+    <Latitude>31.884187</Latitude>
+    <Longitude>34.805494</Longitude>
+    <NameStation>לוי אשכול/הרב דוד ישראל</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>982457</CodeStation>
+    <Latitude>31.982177</Latitude>
+    <Longitude>34.789445</Longitude>
+    <NameStation>אנילביץ'/שלום אש</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>637291</CodeStation>
+    <Latitude>31.967732</Latitude>
+    <Longitude>34.816339</Longitude>
+    <NameStation>יהודה הלוי/יוחנן הסנדלר</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>928384</CodeStation>
+    <Latitude>31.893823</Latitude>
+    <Longitude>34.824617</Longitude>
+    <NameStation>ההגנה/חי''ש</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>234890</CodeStation>
+    <Latitude>32.026119</Latitude>
+    <Longitude>34.743063</Longitude>
+    <NameStation>הרצל/רוטשילד</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>627489</CodeStation>
+    <Latitude>32.104003</Latitude>
+    <Longitude>34.827875</Longitude>
+    <NameStation>לח''י/מבצע קדש</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>128373</CodeStation>
+    <Latitude>32.760078</Latitude>
+    <Longitude>35.047209</Longitude>
+    <NameStation>הרקפות/קיבוץ גלויות</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>736940</CodeStation>
+    <Latitude>32.85079</Latitude>
+    <Longitude>35.090609</Longitude>
+    <NameStation>צה''ל/ עופרה חזה</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>982822</CodeStation>
+    <Latitude>32.84852</Latitude>
+    <Longitude>35.088374</Longitude>
+    <NameStation>עופרה חזה/עוזי חיטמן</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>267788</CodeStation>
+    <Latitude>33.209293</Latitude>
+    <Longitude>35.567504</Longitude>
+    <NameStation>הרצל/טשרניחובסקי</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>456666</CodeStation>
+    <Latitude>33.215482</Latitude>
+    <Longitude>35.566929</Longitude>
+    <NameStation>האצ''ל/נוף החרמון</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>398475</CodeStation>
+    <Latitude>31.770427</Latitude>
+    <Longitude>34.639009</Longitude>
+    <NameStation>אפרסק/מנגו</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>384444</CodeStation>
+    <Latitude>32.521606</Latitude>
+    <Longitude>34.918544</Longitude>
+    <NameStation>הכרמל/הר המוריה</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>387566</CodeStation>
+    <Latitude>32.490773</Latitude>
+    <Longitude>35.48975</Longitude>
+    <NameStation>משה שרת/גולדה מאיר</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>383744</CodeStation>
+    <Latitude>32.647827</Latitude>
+    <Longitude>35.209895</Longitude>
+    <NameStation>התעשייה/מכונה</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>383838</CodeStation>
+    <Latitude>32.164439</Latitude>
+    <Longitude>34.819187</Longitude>
+    <NameStation>משה דיין/דקל</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>628493</CodeStation>
+    <Latitude>31.542458</Latitude>
+    <Longitude>35.119347</Longitude>
+    <NameStation>הרצי''ה קוק/יוני נתניהו</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>942938</CodeStation>
+    <Latitude>32.092849</Latitude>
+    <Longitude>34.844702</Longitude>
+    <NameStation>מחלף גהה</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>938477</CodeStation>
+    <Latitude>31.933927</Latitude>
+    <Longitude>34.878348</Longitude>
+    <NameStation>לוחמי בית''ר/אלמוג</NameStation>
+    <IsAccessible>false</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>902476</CodeStation>
+    <Latitude>33.211723</Latitude>
+    <Longitude>35.567089</Longitude>
+    <NameStation>הרצל/ששת הימים</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>837593</CodeStation>
+    <Latitude>31.811081</Latitude>
+    <Longitude>34.802492</Longitude>
+    <NameStation>הזית/החרצית</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>649586</CodeStation>
+    <Latitude>31.424528</Latitude>
+    <Longitude>34.892056</Longitude>
+    <NameStation>מסעף שומריה</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>394859</CodeStation>
+    <Latitude>31.865655</Latitude>
+    <Longitude>35.152186</Longitude>
+    <NameStation>אגן האיילות/היעל</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>938475</CodeStation>
+    <Latitude>32.801374</Latitude>
+    <Longitude>35.008053</Longitude>
+    <NameStation>רזיאל/יעקב פת</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>935837</CodeStation>
+    <Latitude>31.533771</Latitude>
+    <Longitude>34.58592</Longitude>
+    <NameStation>יחזקאל/משה רבנו</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>239474</CodeStation>
+    <Latitude>31.69663</Latitude>
+    <Longitude>34.694836</Longitude>
+    <NameStation>משואות יצחק/כניסה</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>324908</CodeStation>
+    <Latitude>31.301844</Latitude>
+    <Longitude>34.618134</Longitude>
+    <NameStation>דובדבן/צאלון</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>235235</CodeStation>
+    <Latitude>31.417584</Latitude>
+    <Longitude>34.566963</Longitude>
+    <NameStation>נווה דקלים</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+  <BusStationDAO>
+    <CodeStation>345098</CodeStation>
+    <Latitude>31.627305</Latitude>
+    <Longitude>34.603696</Longitude>
+    <NameStation>דרך הכפר/דרך הגיא</NameStation>
+    <IsAccessible>true</IsAccessible>
+  </BusStationDAO>
+</ArrayOfBusStationDAO>

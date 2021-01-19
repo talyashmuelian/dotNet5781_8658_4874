@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfUserDAO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserDAO>
+    <UserName>טליה</UserName>
+    <PassWord>211378658</PassWord>
+    <CheckAsk>מעלה התורה</CheckAsk>
+  </UserDAO>
+  <UserDAO>
+    <UserName>נריה</UserName>
+    <PassWord>211344874</PassWord>
+    <CheckAsk>רננות</CheckAsk>
+  </UserDAO>
+  <UserDAO>
+    <UserName>שירה</UserName>
+    <PassWord>1234567</PassWord>
+    <CheckAsk>אורות</CheckAsk>
+  </UserDAO>
+  <UserDAO>
+    <UserName>דוד</UserName>
+    <PassWord>7654321</PassWord>
+    <CheckAsk>מוריה</CheckAsk>
+  </UserDAO>
+</ArrayOfUserDAO>
