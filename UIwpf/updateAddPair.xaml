@@ -15,7 +15,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="329,165,0,0" TextWrapping="Wrap" Text=":מרחק" VerticalAlignment="Top"/>
         <TextBox x:Name="distance"   HorizontalAlignment="Left" Height="23" Margin="82,164,0,0" TextWrapping="Wrap" Text="{Binding Path=Distance, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="314,212,0,0" TextWrapping="Wrap" Text=":זמן נסיעה" VerticalAlignment="Top"/>
-        <TextBox x:Name="timeDriving"  HorizontalAlignment="Left" Height="23" Margin="82,211,0,0" TextWrapping="Wrap" Text="{Binding Path=TimeDriving, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        
         <Button Content="הכנס נתונים" HorizontalAlignment="Left" Margin="171,271,0,0" VerticalAlignment="Top" Width="97" Height="28" Click="Button_ClickDoIt">
             <Button.Style>
                 <Style>
@@ -23,7 +23,13 @@
                         <DataTrigger Binding="{Binding ElementName=distance, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding ElementName=timeDriving, Path=Text}" Value="">
+                        <DataTrigger Binding="{Binding ElementName=hours, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=minutes, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=seconds, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=station1CB, Path=SelectedIndex}" Value="-1">
@@ -38,6 +44,11 @@
         </Button>
         <ComboBox x:Name="station1CB" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="82,59,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station1CB_SelectionChanged"/>
         <ComboBox x:Name="station2CB" HorizontalAlignment="Left" Margin="82,110,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="station2CB_SelectionChanged"/>
+        <TextBox x:Name="hours" MaxLength="2" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" HorizontalAlignment="Left" Height="21" Margin="90,207,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24" RenderTransformOrigin="-0.09,1.833"/>
+        <TextBlock HorizontalAlignment="Left" Margin="122,207,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top"/>
+        <TextBox x:Name="minutes" MaxLength="2" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" HorizontalAlignment="Left" Height="21" Margin="130,207,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24" RenderTransformOrigin="-0.215,2.452"/>
+        <TextBlock HorizontalAlignment="Left" Margin="162,207,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top"/>
+        <TextBox x:Name="seconds" MaxLength="2" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" HorizontalAlignment="Left" Height="21" Margin="171,207,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24"/>
 
 
     </Grid>

@@ -33,6 +33,7 @@ namespace UIwpf
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            newItem.StartOfWork = dateStart.SelectedDate.Value;
             newItem.DateTreatLast= DateTime.Now;
             newItem.Fuel = 1200;
             newItem.KmFromTreament = 0;

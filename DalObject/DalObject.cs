@@ -258,7 +258,8 @@
 //            //    throw new LineStationExceptionDO("The line does not exist and therefore no station can be added to it");
 //            //    //return false;
 //            //}
-//            if (DATA.LineStations.Exists(mishehu => mishehu.IdentifyNumber == station.IdentifyNumber && mishehu.CodeStation == station.CodeStation))
+
+//            if (DATA.LineStations.Exists(mishehu => mishehu.IdentifyNumber == station.IdentifyNumber && mishehu.CodeStation == station.CodeStation))//אם התחנה כבר קיימת בקו
 //            {
 //                throw new LineStationExceptionDO("The station already exists on the line");
 //                //return false;

@@ -179,19 +179,22 @@ namespace UIwpf
                 MessageBoxResult result = MessageBox.Show("האם אתה בטוח שברצונך למחוק את התחנה? מחיקה זו תמחק את התחנה מכל הקווים שעוברים בה", "אישור מחיקה", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    foreach (var line in CurrentStation.ListOfLines)//מחיקה התחנה מכל הקווים שעוברים בה, כמובן תבקש מידע על זוג תחנות חדשות אם יהיה צורך
+                    if (CurrentStation.ListOfLines != null)//במידה ויש קווים שעוברים בתחנה
                     {
-                        BusLineBO CurrentLine = bl.GetBusLineBO(line.IdentifyNumber);
-                        bl.chekIfCanToDelStationFromLine(CurrentStation.CodeStation, CurrentLine.IdentifyNumber);
-                        PairConsecutiveStationsBO currentPair = bl.ifNeedToGetDataBetweenTwoStation(CurrentLine.IdentifyNumber, CurrentStation.CodeStation);
-                        if (currentPair != null)//אין מידע עבור התחנה הקודמת והעוקבת לזו שרוצים למחוק
+                        foreach (var line in CurrentStation.ListOfLines)//מחיקה התחנה מכל הקווים שעוברים בה, כמובן תבקש מידע על זוג תחנות חדשות אם יהיה צורך
                         {
-                            //נפתח חלון חדש שמבקש מידע עבור המרחק בין התחנות האלה
-                            addDataToPaitStation addDataToPaitStationWindow = new addDataToPaitStation(bl, currentPair.StationNum1, currentPair.StationNum2);
-                            addDataToPaitStationWindow.ShowDialog();
+                            BusLineBO CurrentLine = bl.GetBusLineBO(line.IdentifyNumber);
+                            bl.chekIfCanToDelStationFromLine(CurrentStation.CodeStation, CurrentLine.IdentifyNumber);
+                            PairConsecutiveStationsBO currentPair = bl.ifNeedToGetDataBetweenTwoStation(CurrentLine.IdentifyNumber, CurrentStation.CodeStation);
+                            if (currentPair != null)//אין מידע עבור התחנה הקודמת והעוקבת לזו שרוצים למחוק
+                            {
+                                //נפתח חלון חדש שמבקש מידע עבור המרחק בין התחנות האלה
+                                addDataToPaitStation addDataToPaitStationWindow = new addDataToPaitStation(bl, currentPair.StationNum1, currentPair.StationNum2);
+                                addDataToPaitStationWindow.ShowDialog();
+                            }
+                            bl.delStationToLine(CurrentStation.CodeStation, CurrentLine.IdentifyNumber);
+                            MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
-                        bl.delStationToLine(CurrentStation.CodeStation, CurrentLine.IdentifyNumber);
-                        MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     bl.deleteBusStation(CurrentStation);
                     RefreshStationsLB();
@@ -280,21 +283,29 @@ namespace UIwpf
         }
         private void Button_ClickTreatment(object sender, RoutedEventArgs e)
         {
-            var fxElt = sender as FrameworkElement;
-            BusBO CurrentBus = fxElt.DataContext as BusBO;
-            //var fxElt = sender as ListBox;
-            //BusBO CurrentBus = fxElt.SelectedItem as BusBO;
-            bl.treatment(CurrentBus.License);
-            MessageBox.Show("!הטיפול בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            try
+            {
+                var fxElt = sender as FrameworkElement;
+                BusBO CurrentBus = fxElt.DataContext as BusBO;
+                //var fxElt = sender as ListBox;
+                //BusBO CurrentBus = fxElt.SelectedItem as BusBO;
+                bl.treatment(CurrentBus.License);
+                MessageBox.Show("!הטיפול בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
         private void Button_ClickFuel(object sender, RoutedEventArgs e)
         {
-            var fxElt = sender as FrameworkElement;
-            BusBO CurrentBus = fxElt.DataContext as BusBO;
-            //var fxElt = sender as ListBox;
-            //BusBO CurrentBus = fxElt.SelectedItem as BusBO;
-            bl.refuel(CurrentBus.License);
-            MessageBox.Show("!התדלוק בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            try
+            {
+                var fxElt = sender as FrameworkElement;
+                BusBO CurrentBus = fxElt.DataContext as BusBO;
+                //var fxElt = sender as ListBox;
+                //BusBO CurrentBus = fxElt.SelectedItem as BusBO;
+                bl.refuel(CurrentBus.License);
+                MessageBox.Show("!התדלוק בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
         private void Button_ClickUpdatePair(object sender, RoutedEventArgs e)

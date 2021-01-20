@@ -1,4 +1,5 @@
 ﻿<Window x:Class="UIwpf.addBus"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -27,6 +28,6 @@
                 </Style>
             </Button.Style>
             </Button>
-        <DatePicker HorizontalAlignment="Left" Margin="285,200,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartOfWork, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+        <DatePicker x:Name="dateStart"  SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="285,200,0,0" VerticalAlignment="Top" />
     </Grid>
 </Window>

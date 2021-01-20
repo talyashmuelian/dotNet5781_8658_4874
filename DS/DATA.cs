@@ -1436,9 +1436,9 @@ namespace DS
                     }
                     if (flag == false)
                     {
-                        var locA = new GeoCoordinate(station1.Latitude, station1.Longitude);
-                        var locB = new GeoCoordinate(station2.Latitude, station2.Longitude);
-                        double dis = locA.GetDistanceTo(locB)/1000;
+                        var locA = new GeoCoordinate(station1.Latitude, station1.Longitude);//חישוב מיקום תחנה 1 ע"י המחלקה הייעודית
+                        var locB = new GeoCoordinate(station2.Latitude, station2.Longitude);//חישוב מיקום תחנה 2 ע"י המחלקה הייעודית
+                        double dis = locA.GetDistanceTo(locB)/1000;//חישוב המרחק בין המיקומים
                         double result = Math.Round(dis, 2);//כדי להשאיר רק שתי ספרות אחרי הנקודה העשרונית
                         //int dis = rand.Next(1, 500);//הגרלת מרחק וזמן בקילומטרים ודקות
                         PairConsecutiveStations.Add(new PairConsecutiveStationsDAO

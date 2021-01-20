@@ -655,7 +655,7 @@ namespace BL
                 throw new BO.BusExceptionBO("tank full allready");
             }
             busDAO.Status = DO.Status.REFUELLING;
-            //אחרי זה צריך לשנות את הסטטוס בחזרה למוכן
+            busDAO.Status = DO.Status.READY;//אחרי זה צריך לשנות את הסטטוס בחזרה למוכן
             busDAO.Fuel = FULLTANK;//התדלוק עצמו
             dal.updateBus(busDAO);
         }
@@ -673,6 +673,7 @@ namespace BL
                     busDAO = bus;
             }
             busDAO.Status = DO.Status.SERVICE;
+            busDAO.Status = DO.Status.READY;//אחרי זה צריך לשנות את הסטטוס בחזרה למוכן
             busDAO.DateTreatLast = DateTime.Now;
             busDAO.KmFromTreament = 0;
             dal.updateBus(busDAO);
@@ -1033,32 +1034,36 @@ namespace BL
         public IEnumerable<LineTimingBO> GetLineTimingsPerStation(BusStationBO cuurentStation, TimeSpan now)
         {
             List<LineTimingBO> result = new List<LineTimingBO>();
-            foreach (LineInStationBO line in cuurentStation.ListOfLines)//נעבור על כל הקווים שעוברים בתחנה
+            if (cuurentStation.ListOfLines != null)
             {
-                LineTimingBO lineTiming = new LineTimingBO();
-                lineTiming.IdentifyNumber = line.IdentifyNumber;
-                lineTiming.LineNumber = line.LineNumber;
-                lineTiming.LastStationName = line.LastStationName;
-                BusLineBO curLine = GetBusLineBO(line.IdentifyNumber);
-                TimeSpan TimeTripFromStart = new TimeSpan(0, 0, 0);
-                foreach (StationInLineBO stationInLine in curLine.ListOfStations)//חישוב כמה זמן לוקח לקו הספציפי להגיע לתחנה שלנו
+                
+                foreach (LineInStationBO line in cuurentStation.ListOfLines)//נעבור על כל הקווים שעוברים בתחנה
                 {
-                    if (stationInLine.CodeStation == cuurentStation.CodeStation)
-                        TimeTripFromStart = stationInLine.TimeDrivingFromFirstStation;
-                }
-                try
-                {
-                    //נוצרת רשימה של יציאות הקו הרלוונטיות, כלומר שייכות לקו הנוכחי ועוברות בתחנה בחצי השעה הקרובה
-                    List<LineTripDAO> relevantTripToLine = dal.getPartOfLineTrip(item => item.IdentifyNumber == line.IdentifyNumber && item.TripStart + TimeTripFromStart > now && item.TripStart + TimeTripFromStart < now + new TimeSpan(0, 30, 0)).ToList();
-                    foreach (LineTripDAO lineTrip in relevantTripToLine)
+                    LineTimingBO lineTiming = new LineTimingBO();
+                    lineTiming.IdentifyNumber = line.IdentifyNumber;
+                    lineTiming.LineNumber = line.LineNumber;
+                    lineTiming.LastStationName = line.LastStationName;
+                    BusLineBO curLine = GetBusLineBO(line.IdentifyNumber);
+                    TimeSpan TimeTripFromStart = new TimeSpan(0, 0, 0);
+                    foreach (StationInLineBO stationInLine in curLine.ListOfStations)//חישוב כמה זמן לוקח לקו הספציפי להגיע לתחנה שלנו
                     {
-                        lineTiming.TripStart = lineTrip.TripStart;
-                        lineTiming.ExpectedTimeTillArrive = lineTrip.TripStart + TimeTripFromStart;
-                        lineTiming.MoreHowMinutesCome = (lineTiming.ExpectedTimeTillArrive-now).Minutes;
-                        result.Add(lineTiming);
+                        if (stationInLine.CodeStation == cuurentStation.CodeStation)
+                            TimeTripFromStart = stationInLine.TimeDrivingFromFirstStation;
                     }
+                    try
+                    {
+                        //נוצרת רשימה של יציאות הקו הרלוונטיות, כלומר שייכות לקו הנוכחי ועוברות בתחנה בחצי השעה הקרובה
+                        List<LineTripDAO> relevantTripToLine = dal.getPartOfLineTrip(item => item.IdentifyNumber == line.IdentifyNumber && item.TripStart + TimeTripFromStart > now && item.TripStart + TimeTripFromStart < now + new TimeSpan(0, 30, 0)).ToList();
+                        foreach (LineTripDAO lineTrip in relevantTripToLine)
+                        {
+                            lineTiming.TripStart = lineTrip.TripStart;
+                            lineTiming.ExpectedTimeTillArrive = lineTrip.TripStart + TimeTripFromStart;
+                            lineTiming.MoreHowMinutesCome = (lineTiming.ExpectedTimeTillArrive - now).Minutes;
+                            result.Add(lineTiming);
+                        }
+                    }
+                    catch { }//במקרה של תחנה שלא עוברים בה קווים בחצי השעה הקרובה
                 }
-                catch { }//במקרה של תחנה שלא עוברים בה קווים בחצי השעה הקרובה
             }
             return result;
         }

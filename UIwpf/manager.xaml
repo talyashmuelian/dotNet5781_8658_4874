@@ -66,7 +66,7 @@
                     <ColumnDefinition Width="30" />
                     <ColumnDefinition Width="30" />
                     <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="200" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="70" />
                     <ColumnDefinition Width="80" />
@@ -110,7 +110,7 @@
                 <TabItem Header="תחנות" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,-2,-2" Width="66">
                     <TabItem.Content>
                         <Grid>
-                            <ListBox x:Name="lbStationsOnSystem" ItemTemplate="{StaticResource MyDataTemplateStations}"  HorizontalAlignment="Left" Height="294" Margin="50,60,0,0" VerticalAlignment="Top" Width="859"  SelectionMode="Single" MouseDoubleClick="showDataStations_doubleClick" ItemsSource="{Binding}" />
+                            <ListBox x:Name="lbStationsOnSystem" ItemTemplate="{StaticResource MyDataTemplateStations}"  HorizontalAlignment="Left" Height="294" Margin="50,60,0,0" VerticalAlignment="Top" Width="1096"  SelectionMode="Single" MouseDoubleClick="showDataStations_doubleClick" ItemsSource="{Binding}" />
                             <Button Content="הוספת תחנה" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_ClickAddStation"/>
                             
                             <Button Content="עדכון זמן ומרחק בין זוג תחנות" HorizontalAlignment="Left" Margin="119,369,0,0" VerticalAlignment="Top" Width="179" Click="Button_ClickUpdatePair"/>

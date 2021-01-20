@@ -1,4 +1,5 @@
 ﻿<Window x:Class="UIwpf.updateBus"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -31,9 +32,9 @@
                 </Style>
             </Button.Style>
         </Button>
-        <DatePicker HorizontalAlignment="Left" Margin="107,140,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartOfWork, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="296,187,0,0" TextWrapping="Wrap" Text=":תאריך טיפול אחרון מעודכן" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="107,185,0,0" VerticalAlignment="Top" SelectedDate="{Binding DateTreatLast, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+        <DatePicker x:Name="dateStart"  SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="107,140,0,0" VerticalAlignment="Top" />
+        <TextBlock  HorizontalAlignment="Left" Margin="296,187,0,0" TextWrapping="Wrap" Text=":תאריך טיפול אחרון מעודכן" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dateTreat"  SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="107,185,0,0" VerticalAlignment="Top" />
         <TextBlock HorizontalAlignment="Left" Margin="338,235,0,0" TextWrapping="Wrap" Text=":כמות הדלק במיכל" VerticalAlignment="Top"/>
         <TextBox x:Name="fuel"  HorizontalAlignment="Left" Height="23" Margin="109,230,0,0" TextWrapping="Wrap" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" Text="{Binding Path=Fuel, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="247,277,0,0" TextWrapping="Wrap" Text=":מספר הקילומטרים מהטיפול האחרון" VerticalAlignment="Top"/>

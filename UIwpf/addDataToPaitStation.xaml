@@ -22,7 +22,13 @@
                         <DataTrigger Binding="{Binding ElementName=distance, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding ElementName=timeDriving, Path=Text}" Value="">
+                        <DataTrigger Binding="{Binding ElementName=hours, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=minutes, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=seconds, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -31,11 +37,11 @@
         </Button>
         <TextBlock x:Name="nameStaion1"    HorizontalAlignment="Left" Margin="106,95,0,0" TextWrapping="Wrap" Text="{Binding Path=NameStation1}" VerticalAlignment="Top"/>
         <TextBlock x:Name="nameStaion2" HorizontalAlignment="Left" Margin="238,93,0,0" TextWrapping="Wrap" Text="{Binding Path=NameStation2}" VerticalAlignment="Top"/>
-        <TextBox x:Name="hours" MaxLength="2" HorizontalAlignment="Left" Height="21" Margin="101,152,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24"/>
+        <TextBox x:Name="hours" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="2" HorizontalAlignment="Left" Height="21" Margin="101,152,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="130,154,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top"/>
-        <TextBox x:Name="minutes" MaxLength="2" HorizontalAlignment="Left" Height="21" Margin="145,152,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24"/>
+        <TextBox x:Name="minutes" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="2" HorizontalAlignment="Left" Height="21" Margin="145,152,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="179,152,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top"/>
-        <TextBox x:Name="seconds" MaxLength="2" HorizontalAlignment="Left" Height="21" Margin="187,152,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24"/>
+        <TextBox x:Name="seconds" PreviewKeyDown="TextBox_OnlyNumbers_PreviewKeyDown" MaxLength="2" HorizontalAlignment="Left" Height="21" Margin="187,152,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="24"/>
 
 
     </Grid>

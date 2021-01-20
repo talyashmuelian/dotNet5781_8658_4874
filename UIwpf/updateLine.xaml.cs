@@ -55,9 +55,9 @@ namespace UIwpf
             TextBox text = sender as TextBox;
             if (text == null) return;
             if (e == null) return;
-
+            //e.Key == Key.Enter ||
             //allow get out of the text box
-            if (e.Key == Key.Enter || e.Key == Key.Return || e.Key == Key.Tab)
+            if (e.Key == Key.Return || e.Key == Key.Tab)
             {
                 Close();
                 e.Handled = true; //ignore this key. mark event as handled, will not be routed to other controls

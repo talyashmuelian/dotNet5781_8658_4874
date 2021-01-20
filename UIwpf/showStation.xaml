@@ -11,7 +11,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50" />
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="150" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
@@ -23,11 +23,11 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="lbLinesInStationOnSystem" ItemTemplate="{StaticResource MyDataTemplateLinesInStations}"  HorizontalAlignment="Left" Height="243" Margin="124,24,0,0" VerticalAlignment="Top" Width="316"  SelectionMode="Single" ItemsSource="{Binding}" />
+        <ListBox x:Name="lbLinesInStationOnSystem" ItemTemplate="{StaticResource MyDataTemplateLinesInStations}"  HorizontalAlignment="Left" Height="243" Margin="42,24,0,0" VerticalAlignment="Top" Width="387"  SelectionMode="Single" ItemsSource="{Binding}" />
         <TextBlock HorizontalAlignment="Left" Margin="578,24,0,0" TextWrapping="Wrap" Text=":מספר תחנה" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="479,22,0,0" TextWrapping="Wrap" Text="{Binding CodeStation}" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="584,60,0,0" TextWrapping="Wrap" Text=":שם התחנה" VerticalAlignment="Top" Height="19" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Margin="477,61,0,0" TextWrapping="Wrap" Text="{Binding NameStation}" VerticalAlignment="Top" Height="19" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="434,61,0,0" TextWrapping="Wrap" Text="{Binding NameStation}" VerticalAlignment="Top" Height="18" Width="129"/>
         <TextBlock HorizontalAlignment="Left" Margin="604,144,0,0" TextWrapping="Wrap" Text=":קו רוחב" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="495,141,0,0" TextWrapping="Wrap" Text="{Binding Latitude}" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="603,103,0,0" TextWrapping="Wrap" Text=":קו אורך" VerticalAlignment="Top" Height="19" Width="70"/>

@@ -52,8 +52,17 @@ namespace UIwpf
         {
             try
             {
-                double temp = Convert.ToDouble(timeDriving.Text);
-                newItem.TimeDriving = TimeSpan.FromMinutes(temp);
+                int hours1 = Convert.ToInt32(hours.Text);
+                int minutes1 = Convert.ToInt32(minutes.Text);
+                int seconds1 = Convert.ToInt32(seconds.Text);
+                if (hours1 < 0 || hours1 > 24 || minutes1 < 0 || minutes1 > 60 || seconds1 < 0 || seconds1 > 60)
+                {
+                    throw new LineTripExceptionBO("הזמן אינו תקין");
+                }
+                TimeSpan time = new TimeSpan(hours1, minutes1, seconds1);
+                //double temp = Convert.ToDouble(timeDriving.Text);
+                //newItem.TimeDriving = TimeSpan.FromMinutes(temp);
+                newItem.TimeDriving = time;
                 if ((station2CB.SelectedItem as MiniStationBO).CodeStation == (station1CB.SelectedItem as MiniStationBO).CodeStation)
                     throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
                 ifDone = true;
@@ -62,6 +71,39 @@ namespace UIwpf
             catch (BusStationExceptionBO ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
             catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); Close(); }
 
+        }
+        private void TextBox_OnlyNumbers_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox text = sender as TextBox;
+            if (text == null) return;
+            if (e == null) return;
+            //e.Key == Key.Enter ||
+            //allow get out of the text box
+            if (e.Key == Key.Return || e.Key == Key.Tab)
+            {
+                Close();
+                e.Handled = true; //ignore this key. mark event as handled, will not be routed to other controls
+                return;
+            }
+            //allow list of system keys (add other key here if you want to allow)
+            if (e.Key == Key.Escape || e.Key == Key.Back || e.Key == Key.Delete ||
+                e.Key == Key.CapsLock || e.Key == Key.LeftShift || e.Key == Key.Home
+             || e.Key == Key.End || e.Key == Key.Insert || e.Key == Key.Down || e.Key == Key.Right)
+                return;
+
+            char c = (char)KeyInterop.VirtualKeyFromKey(e.Key);
+
+            //allow control system keys
+            if (Char.IsControl(c)) return;
+
+            //allow digits (without Shift or Alt)
+            if (Char.IsDigit(c))
+                if (!(Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightAlt)))
+                    return; //let this key be written inside the textbox
+
+            //forbid letters and signs (#,$, %, ...)
+            e.Handled = true; //ignore this key. mark event as handled, will not be routed to other controls
+            return;
         }
     }
 }

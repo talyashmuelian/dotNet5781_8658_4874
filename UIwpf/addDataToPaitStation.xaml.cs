@@ -57,7 +57,7 @@ namespace UIwpf
                 int seconds1 = Convert.ToInt32(seconds.Text);
                 if (hours1 < 0 || hours1 > 24 || minutes1 < 0 || minutes1 > 60 || seconds1 < 0 || seconds1 > 60)
                 {
-                    throw new LineTripExceptionBO("השעה שהכנסת אינה תקינה");
+                    throw new LineTripExceptionBO("הזמן אינו תקין");
                 }
                 TimeSpan time = new TimeSpan(hours1, minutes1, seconds1);
                 //double temp = Convert.ToDouble(timeDriving.Text);
@@ -75,9 +75,9 @@ namespace UIwpf
             TextBox text = sender as TextBox;
             if (text == null) return;
             if (e == null) return;
-
+            //e.Key == Key.Enter ||
             //allow get out of the text box
-            if (e.Key == Key.Enter || e.Key == Key.Return || e.Key == Key.Tab)
+            if (e.Key == Key.Return || e.Key == Key.Tab)
             {
                 Close();
                 e.Handled = true; //ignore this key. mark event as handled, will not be routed to other controls
