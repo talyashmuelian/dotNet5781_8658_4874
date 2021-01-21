@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="updateStation" Height="350" Width="640">
+        Title="updateStation" Height="350" Width="640" Icon="לוגו.jpeg">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="303,10,0,0" TextWrapping="Wrap" Text="עדכון תחנה" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="72,37,0,0" TextWrapping="Wrap" Text="ביכולתך לעדכן את שם התחנה, קווי אורכה ורוחבה, ונגישותה לנכים. חובה להכניס מידע בכל השדות" VerticalAlignment="Top" Width="522" Height="31"/>

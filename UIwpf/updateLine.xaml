@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="updateLine" Height="250" Width="800">
+        Title="updateLine" Height="250" Width="800" Icon="לוגו.jpeg">
     <Grid>
         
         <TextBlock HorizontalAlignment="Left" Margin="28,37,-7.667,0" TextWrapping="Wrap" Text="ביכולתך לעדכן את מספר הקו ואיזורו על פי המספר המזהה. חובה להכניס מידע בשני השדות. אם ברצונך להוסיף תחנות, השתמש בכפתור הייעודי" VerticalAlignment="Top" Width="773"/>

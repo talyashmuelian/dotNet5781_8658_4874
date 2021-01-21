@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="showLine" Height="450" Width="1100">
+        Title="showLine" Height="450" Width="1100" Icon="לוגו.jpeg">
     <Window.Resources>
         <DataTemplate x:Key="MyDataTemplateStationsInLine"                   DataType="local:MyData" >
             <Grid>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="showBus" Height="320" Width="500">
+        Title="showBus" Height="320" Width="500" Icon="לוגו.jpeg">
     <Grid Margin="0,0,0.333,-0.333">
         <TextBlock HorizontalAlignment="Left" Margin="211,10,0,0" TextWrapping="Wrap" Text=":פרטי אוטובוס" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="362,50,0,0" TextWrapping="Wrap" Text=":מספר הרישוי" VerticalAlignment="Top"/>

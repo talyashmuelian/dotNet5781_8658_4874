@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="addStation" Height="450" Width="800">
+        Title="addStation" Height="450" Width="800" Icon="לוגו.jpeg">
     <Grid>
         <TextBlock x:Name="addLine111" Text="הוספת תחנה"  HorizontalAlignment="Left" Margin="377,0,0,360.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="36" Width="92"/>
         <TextBlock HorizontalAlignment="Left" Margin="448,100,0,0" TextWrapping="Wrap" Text=":מספר תחנה להוספה" VerticalAlignment="Top" Height="29" Width="113"/>

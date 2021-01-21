@@ -42,7 +42,7 @@ namespace DL
                 throw new BusExceptionDO("license exists allready");
 
             XElement busElem = new XElement("BusDAO",
-                                   new XElement("License", bus.License),
+                                   new XElement("License", bus.License),//העתקה עמוקה
                                    new XElement("StartOfWork", bus.StartOfWork),
                                    new XElement("TotalKms", bus.TotalKms),
                                    new XElement("Fuel", bus.Fuel),
@@ -64,7 +64,7 @@ namespace DL
                             select p).FirstOrDefault();
             if (bus1 != null)
             {
-                bus1.Element("License").Value = bus.License;
+                bus1.Element("License").Value = bus.License;//העתקה עמוקה
                 bus1.Element("StartOfWork").Value = bus.StartOfWork.ToString();
                 bus1.Element("TotalKms").Value = bus.TotalKms.ToString();
                 bus1.Element("Fuel").Value = bus.Fuel.ToString();
@@ -157,7 +157,7 @@ namespace DL
         #region BusLine
         public bool addBusLine(BusLineDAO busLine)
         {
-            List<BusLineDAO> ListBusLines = XMLTools.LoadListFromXMLSerializer<BusLineDAO>(linesPath);
+            List<BusLineDAO> ListBusLines = XMLTools.LoadListFromXMLSerializer<BusLineDAO>(linesPath);//שליפת הקובץ שמכיל את רשימת הקווים
             List<LineStationDAO> ListLineStations = XMLTools.LoadListFromXMLSerializer<LineStationDAO>(lineStationsPath);
             if (ListBusLines.FirstOrDefault(s => s.IdentifyNumber == busLine.IdentifyNumber) != null)
                 throw new BusLineExceptionDO("Identify-Number-Line exists allready");
@@ -180,6 +180,10 @@ namespace DL
             BusLineDAO line = ListBusLines.Find(p => p.IdentifyNumber == busLine.IdentifyNumber);
             if (line != null)
             {
+                BusLineDAO currentLine = getOneObjectBusLineDAO(busLine.IdentifyNumber);//שמירה על הערכים הקודמים של הקו
+                busLine.IdentifyNumber = currentLine.IdentifyNumber;
+                busLine.FirstStationNum = currentLine.FirstStationNum;
+                busLine.LastStationNum = currentLine.LastStationNum;
                 ListBusLines.Remove(line);
                 ListBusLines.Add(busLine); //no nee to Clone()
             }

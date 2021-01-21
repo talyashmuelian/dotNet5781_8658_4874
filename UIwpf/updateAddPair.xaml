@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="updateAddPair" Height="400" Width="460">
+        Title="updateAddPair" Height="400" Width="460" Icon="לוגו.jpeg">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="162,10,0,0" TextWrapping="Wrap" Text=":הכנס את נתוני התחנות" VerticalAlignment="Top" Height="25" Width="140"/>
         <TextBlock HorizontalAlignment="Left" Margin="241,65,0,0" TextWrapping="Wrap" Text=":בחר תחנה ראשונה" VerticalAlignment="Top"/>

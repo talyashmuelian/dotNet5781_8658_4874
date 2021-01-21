@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="updateBus" Height="450" Width="510">
+        Title="updateBus" Height="450" Width="510" Icon="לוגו.jpeg">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="70,55,0,0" TextWrapping="Wrap" Text="ביכולתך לעדכן את המידע על האוטובוס. חובה להכניס מידע בכל השדות" VerticalAlignment="Top" Width="376" Height="40"/>
         <TextBlock x:Name="addLine111" Text="עדכון אוטובוס"  HorizontalAlignment="Left" Margin="249,0,0,356.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="36" Width="92"/>

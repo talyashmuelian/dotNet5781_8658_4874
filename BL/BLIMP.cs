@@ -78,15 +78,14 @@ namespace BL
                     forNow.TimeDrivingFromFirstStation = count;
                     if (dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation) != null)
                     {
-                        forNow.Distance = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).Distance;
-                        forNow.TimeDriving = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).TimeDriving;
+                        forNow.Distance = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).Distance;//הצבת המרחק מתוך זוג התחנות העוקבות בשדה מרחק של התחנה שלנו מקודמתה
+                        forNow.TimeDriving = dal.getOneObjectPairConsecutiveStations(current.CodeStation, prev.CodeStation).TimeDriving;//הצבת הזמן נסיעה מתוך זוג התחנות העוקבות בשדה זמן נסיעה של התחנה שלנו מקודמתה
                     }
                     else
                     {
                         forNow.Distance = 0;
                         forNow.TimeDriving = new TimeSpan(0,0,0);
                     }
-                    //חישוב זמן הנסיעה של התחנה הזאת מתחנת המוצא
                     listStationTypeCorrect.Add(forNow);
                 }
                 else//במקרה שזו התחנה הראשונה, נאתחל את המרחק והזמן לאפסים
@@ -238,7 +237,7 @@ namespace BL
             }
             catch (DO.BusStationExceptionDO ex)
             {
-                throw new BO.BusStationExceptionBO("Code Station number not found", ex);
+                throw new BO.BusStationExceptionBO("מספר התחנה לא נמצא", ex);
             }
             BusLineDAO busLineDAO;
             try
@@ -247,7 +246,7 @@ namespace BL
             }
             catch (DO.BusLineExceptionDO ex)
             {
-                throw new BO.BusLineExceptionBO("Identify Number not found", ex);
+                throw new BO.BusLineExceptionBO("מזהה הקו לא נמצא", ex);
             }
             bool flag = true;//  דגל שיהיה אמת אם התחנה קיימת בקו ואפשר למחוק אותה, אחרת יהיה שקר
             int location = 0;
@@ -285,11 +284,11 @@ namespace BL
             {
                 countStations++;
             }
-            if (location == 1 || location == countStations)
+            if (location == 1 || location == countStations)//אם התחנה המיועדת למחיקה אחרונה או ראשונה
                 return null;//לא צריך לקבל מידע חדש על זוג חדש כי אין כזה
             int numStationBefore = 0;
             int numStationAfter = 0;
-            foreach (var station in GetBusLineBO(identifyNumber).ListOfStations)
+            foreach (var station in GetBusLineBO(identifyNumber).ListOfStations)//עובר על כל התחנות של הקו הספציפי
             {
                 if (station.NumStationInTheLine == location - 1)
                     numStationBefore = station.CodeStation;
@@ -303,7 +302,7 @@ namespace BL
         public void delStationToLine(int codeStation, int identifyNumber)//מחיקת תחנה קיימת מקו קיים
         {
             BusStationDAO busStationDAO;
-            try
+            try//בדיקה שהתחנה קיימת במערכת
             {
                 busStationDAO = dal.getOneObjectBusStationDAO(codeStation);
             }
@@ -312,7 +311,7 @@ namespace BL
                 throw new BO.BusStationExceptionBO("Code Station number not found", ex);
             }
             BusLineDAO busLineDAO;
-            try
+            try//בדיקה שהקו קיים במערכת
             {
                 busLineDAO = dal.getOneObjectBusLineDAO(identifyNumber);
             }
@@ -447,7 +446,7 @@ namespace BL
         public void addStationToLine(int codeStation, int identifyNumber, int location)//הוספת תחנה קיימת לקו קיים
         {
             if (location==0)
-                throw new BO.BusLineExceptionBO("The location is incorrect");//אפשר להכניס מיקום מאחד והלאה
+                throw new BO.BusLineExceptionBO("המיקום אינו תקין");//אפשר להכניס מיקום מאחד והלאה
             BusStationDAO busStationDAO;
             try
             {
@@ -469,7 +468,7 @@ namespace BL
             foreach(LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))//בדיקה אם התחנה כבר קיימת בקו
             {
                 if (lineStation.CodeStation == codeStation && lineStation.IdentifyNumber == identifyNumber)
-                    throw new BO.BusLineExceptionBO("The station already exists on this line");
+                    throw new BO.BusLineExceptionBO("התחנה כבר קיימת בקו");
             }
             int countStations=0;//כמה תחנות יש לקו
             foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == identifyNumber))//בדיקה אם המיקום הגיוני ולא גדול יותר מידי
@@ -477,7 +476,7 @@ namespace BL
                     countStations++;
             }
             if(countStations+1< location)//אם המיקום גדול מידי
-                throw new BO.BusLineExceptionBO("The location sent is invalid. You must enter a location as the number of stations on the line or one more.");
+                throw new BO.BusLineExceptionBO("המיקום שהוזן אינו חוקי. עליך להזין מיקום כמספר התחנות בקו או אחד יותר");
             if (location==1)//אם התחנה שמתווספת היא הראשונה צריך לשנות את זה בשדה של תחנה ראשונה
             {
                 //GetBusLineBO(identifyNumber)
@@ -606,7 +605,7 @@ namespace BL
             }
             catch (DO.BusExceptionDO ex)
             {
-                throw new BO.BusExceptionBO("license exists allready", ex);
+                throw new BO.BusExceptionBO("מספר הרישוי כבר קיים במערכת", ex);
             }
             return result;
         }
@@ -652,7 +651,7 @@ namespace BL
             }
             if (busDAO.Fuel == FULLTANK)
             {
-                throw new BO.BusExceptionBO("tank full allready");
+                throw new BO.BusExceptionBO("!הטנק מלא");
             }
             busDAO.Status = DO.Status.REFUELLING;
             busDAO.Status = DO.Status.READY;//אחרי זה צריך לשנות את הסטטוס בחזרה למוכן
@@ -742,7 +741,7 @@ namespace BL
                    orderby busStation.CodeStation
                    select convertoBO(busStation);
         }
-        public IEnumerable<MiniStationBO> GetAllMiniStationsBO()
+        public IEnumerable<MiniStationBO> GetAllMiniStationsBO()//תצוגה מינימלית של תחנה עבור הקומבובוקס
         {
             IEnumerable<MiniStationBO> result =
                 from station in GetAllBusStationsBO()
@@ -766,7 +765,6 @@ namespace BL
             return result;
         }
         //הוספה עדכון ומחיקת תחנה
-        //הוספת תחנה חדשה לגמרי שחייבת להיות לפחות בקו אחד
         public bool addBusStation(BusStationBO busStation)
         {
             bool result;
@@ -777,7 +775,7 @@ namespace BL
             }
             catch (DO.BusStationExceptionDO ex)
             {
-                throw new BO.BusStationExceptionBO("Code station exists allready", ex);
+                throw new BO.BusStationExceptionBO("קוד התחנה כבר קיים במערכת", ex);
             }
             return result;
         }
@@ -912,7 +910,7 @@ namespace BL
             }
             catch (DO.PairConsecutiveStationsExceptionDO ex)
             {
-                throw new BO.PairConsecutiveStationsExceptionBO("There is no pair of stations that meets the condition", ex);
+                throw new BO.PairConsecutiveStationsExceptionBO("אין זוגות שתחנה זו קיימת בהם", ex);
             }
             
         }
@@ -981,7 +979,7 @@ namespace BL
             }
             catch (DO.UserExceptionDO ex)
             {
-                throw new BO.UserExceptionBO("userName exists allready", ex);
+                throw new BO.UserExceptionBO("שם המשתמש בשימוש כבר", ex);
             }
             return result;
         }
@@ -1095,7 +1093,7 @@ namespace BL
             }
             catch (DO.LineTripExceptionDO ex)
             {
-                throw new LineTripExceptionBO("The line exit already exists", ex);
+                throw new LineTripExceptionBO("יציאת הקו כבר קיימת במערכת", ex);
             }
             return result;
         }
@@ -1143,9 +1141,9 @@ namespace BL
                 if (ifFirstIn==true&& ifLastIn==true&& LocationFirst< LocationLast)//אם שתי התחנות קיימות בקו ותחנת המוצא לפני תחנת היעד
                 {
                     TimeSpan count = new TimeSpan(0, 0, 0);
-                    for (int i= LocationLast-1; i>= LocationFirst;i--)
+                    for (int i= LocationLast-1; i>= LocationFirst;i--)//עובר מהתחנת יעד עד תחנת המוצא אחורה
                     {
-                        count += line.ListOfStations.ToArray()[i].TimeDriving;
+                        count += line.ListOfStations.ToArray()[i].TimeDriving;//סופר את זמן הנסיעה של המסלול הזה
                     }
                     result.Add(new WayForPassBO { LineNumber=line.LineNumber,TimeOfTrip= count });
                 }

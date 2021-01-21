@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="delStationFromLine" Height="220" Width="450">
+        Title="delStationFromLine" Height="220" Width="450" Icon="לוגו.jpeg">
     <Grid>
         
         <TextBlock HorizontalAlignment="Left" Margin="195,22,0,0" TextWrapping="Wrap" Text="מחיקת תחנה מקו" VerticalAlignment="Top"/>

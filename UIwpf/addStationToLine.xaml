@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="addStationToLine" Height="250" Width="450">
+        Title="addStationToLine" Height="250" Width="450" Icon="לוגו.jpeg">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="229,22,0,0" TextWrapping="Wrap" Text=":'הוספת תחנה לקו מס" VerticalAlignment="Top"/>
         

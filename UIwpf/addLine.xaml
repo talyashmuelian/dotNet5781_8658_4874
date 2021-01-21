@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIwpf"
         mc:Ignorable="d"
-        Title="addLine" Height="450" Width="800">
+        Title="addLine" Height="450" Width="800" Icon="לוגו.jpeg">
     <Grid>
         <TextBlock x:Name="addLine111" Text="הוספת קו"  HorizontalAlignment="Left" Margin="377,0,0,374.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="36" Width="92"/>
         <TextBlock x:Name="explane" Text="עליך להוסיף מספר קו, איזור וחובה להוסיף שתי תחנות שקיימות במערכת. אם ברצונך להוסיף תחנות נוספות בצע זאת בכפתור הייעודי" HorizontalAlignment="Left" Margin="73,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="23" Width="701"/>
