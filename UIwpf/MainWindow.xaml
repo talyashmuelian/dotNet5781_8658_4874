@@ -9,7 +9,7 @@
     <Grid>
 
         <Button Content="מידע לנוסע" Style="{StaticResource myButtonStyle}" HorizontalAlignment="Left" Margin="120,169,0,0" VerticalAlignment="Top" Width="94" Click="Button_ClickPassenger" Height="34"/>
-        <Button Content="מנהל" HorizontalAlignment="Left" Margin="242,115,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        
         <TextBlock HorizontalAlignment="Left" Margin="145,10,0,0" TextWrapping="Wrap" Text="!ברוך הבא" VerticalAlignment="Top"/>
         <TextBox x:Name="userName" HorizontalAlignment="Left" Height="23" Margin="53,45,0,0" TextWrapping="Wrap" Text="{Binding Path=UserName, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="198,48,0,0" TextWrapping="Wrap" Text=":שם משתמש" VerticalAlignment="Top"/>

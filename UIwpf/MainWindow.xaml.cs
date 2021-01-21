@@ -31,11 +31,7 @@ namespace UIwpf
             InitializeComponent();
             DataContext = newItem;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)//אירוע לחיצת כפתור מנהל
-        {
-            manager managerWindow = new manager(bl);
-            managerWindow.Show();
-        }
+        
 
         private void Button_ClickLogIn(object sender, RoutedEventArgs e)
         {

@@ -34,8 +34,6 @@ namespace UIwpf
         {
             try
             {
-                //if ((lastStationCB.SelectedItem as MiniStationBO).CodeStation == (firstStationCB.SelectedItem as MiniStationBO).CodeStation)
-                //    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
                 codeStation1 = (firstStationCB.SelectedItem as MiniStationBO).CodeStation;
             dgWays.ItemsSource = bl.GetRelevantWays(codeStation1, codeStation2);
             }
@@ -45,8 +43,6 @@ namespace UIwpf
         {
             try
             {
-                //if ((lastStationCB.SelectedItem as MiniStationBO).CodeStation == (firstStationCB.SelectedItem as MiniStationBO).CodeStation)
-                //    throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");
                 codeStation2 = (lastStationCB.SelectedItem as MiniStationBO).CodeStation;
                 dgWays.ItemsSource = bl.GetRelevantWays(codeStation1, codeStation2);
             }

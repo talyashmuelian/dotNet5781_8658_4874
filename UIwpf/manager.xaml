@@ -20,10 +20,10 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="6" Text=":מספר רישוי" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
                 <TextBlock Grid.Column="5"  Text="{Binding Path=LicenseFormat}" FontSize="11" Foreground="#FF0D0D12" />
-                <Button x:Name="Treatment" Content="בצע טיפול" Grid.Column="3" Background="#FFFACCAE" Click="Button_ClickTreatment" />
-                <Button x:Name="Fuel" Content="בצע תדלוק" Grid.Column="2" Background="#FFFACCAE" Click="Button_ClickFuel" />
-                <Button x:Name="updateBus" Content="עדכון" Grid.Column="1" Background="#FFFACCAE" Click="Button_ClickUpdateBus1" />
-                <Button x:Name="deleteBus" Content="הסרה" Grid.Column="0" Background="#FFFACCAE" Click="Button_ClickDeleteBus1" />
+                <Button x:Name="Treatment" Content="בצע טיפול" Grid.Column="3" Style="{StaticResource myButtonStyle1}" Click="Button_ClickTreatment" />
+                <Button x:Name="Fuel" Content="בצע תדלוק" Grid.Column="2" Style="{StaticResource myButtonStyle1}" Click="Button_ClickFuel" />
+                <Button x:Name="updateBus" Content="עדכון" Grid.Column="1" Style="{StaticResource myButtonStyle1}" Click="Button_ClickUpdateBus1" />
+                <Button x:Name="deleteBus" Content="הסרה" Grid.Column="0" Style="{StaticResource myButtonStyle1}" Click="Button_ClickDeleteBus1" />
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="MyDataTemplateLines"                   DataType="local:MyData" >
@@ -49,12 +49,12 @@
                 <TextBlock Grid.Column="9"  Text="{Binding Path=IdentifyNumber}" FontSize="11" Foreground="#FF0D0D12" />
                 <TextBlock Grid.Column="8" Text=":איזור" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
                 <TextBlock Grid.Column="7"  Text="{Binding Path=Area}" FontSize="11" Foreground="#FF0D0D12" />
-                <Button x:Name="updateLine" Content="עדכון" Grid.Column="5" Background="#FFFACCAE" Click="Button_ClickUpdateLine1" />
-                <Button x:Name="deleteLine" Content="הסרה" Grid.Column="4" Background="#FFFACCAE" Click="Button_ClickDeleteLine1" />
-                <Button x:Name="addStationToLine" Content="הוספת תחנה לקו" Grid.Column="3" Background="#FFFACCAE" Click="Button_ClickAddStationToLine1" />
-                <Button x:Name="deleteStationFromLine" Content="מחיקת תחנה מהקו" Grid.Column="2" Background="#FFFACCAE" Click="Button_ClickDeleteStationFromLine1" />
-                <Button x:Name="addTripToLine" Content="הוספת יציאה לקו" Grid.Column="1" Background="#FFFACCAE" Click="Button_ClickAddTripToLine" />
-                <Button x:Name="deleteTripFromLine" Content="מחיקת יציאה מהקו" Grid.Column="0" Background="#FFFACCAE" Click="Button_ClickDeleteTripFromLine" />
+                <Button x:Name="updateLine" Content="עדכון" Grid.Column="5" Style="{StaticResource myButtonStyle1}" Click="Button_ClickUpdateLine1" />
+                <Button x:Name="deleteLine" Content="הסרה" Grid.Column="4" Style="{StaticResource myButtonStyle1}" Click="Button_ClickDeleteLine1" />
+                <Button x:Name="addStationToLine" Content="הוספת תחנה לקו" Grid.Column="3" Style="{StaticResource myButtonStyle1}" Click="Button_ClickAddStationToLine1" />
+                <Button x:Name="deleteStationFromLine" Content="מחיקת תחנה מהקו" Grid.Column="2" Style="{StaticResource myButtonStyle1}" Click="Button_ClickDeleteStationFromLine1" />
+                <Button x:Name="addTripToLine" Content="הוספת יציאה לקו" Grid.Column="1" Style="{StaticResource myButtonStyle1}" Click="Button_ClickAddTripToLine" />
+                <Button x:Name="deleteTripFromLine" Content="מחיקת יציאה מהקו" Grid.Column="0" Style="{StaticResource myButtonStyle1}" Click="Button_ClickDeleteTripFromLine" />
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="MyDataTemplateStations"                   DataType="local:MyData" >
@@ -78,9 +78,9 @@
                 <TextBlock Grid.Column="6"  Text="{Binding Path=NameStation}" FontSize="11" Foreground="#FF0D0D12" />
                 <TextBlock Grid.Column="5" Text=":גישה לנכים" FontFamily="Ink Free" FontSize="12" Foreground="#FF0A0A0E" FontWeight="Bold"/>
                 <TextBlock Grid.Column="4"  Text="{Binding Path=IsAccessible}" FontSize="11" Foreground="#FF0D0D12" />
-                <Button Grid.Column="2" Content="תחנות עוקבות"  Background="#FFFACCAE" Click="Button_ClickShowPair" />
-                <Button Grid.Column="1" Content="עדכון"  Background="#FFFACCAE" Click="Button_ClickUpdateStation1" />
-                <Button Grid.Column="0" Content="הסרה"  Background="#FFFACCAE" Click="Button_ClickDeleteStation1" />
+                <Button Grid.Column="2" Content="תחנות עוקבות"  Style="{StaticResource myButtonStyle1}" Click="Button_ClickShowPair" />
+                <Button Grid.Column="1" Content="עדכון"  Style="{StaticResource myButtonStyle1}" Click="Button_ClickUpdateStation1" />
+                <Button Grid.Column="0" Content="הסרה"  Style="{StaticResource myButtonStyle1}" Click="Button_ClickDeleteStation1" />
             </Grid>
         </DataTemplate>
     </Window.Resources>

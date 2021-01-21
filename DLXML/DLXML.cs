@@ -24,8 +24,8 @@ namespace DL
         string linesPath = @"linesXml.xml"; //XMLSerializer
         string stationsPath = @"stationsXml.xml"; //XMLSerializer
         string lineStationsPath = @"lineStationsXml.xml"; //XMLSerializer
-        string pairStationsPath = @"pairStationsXml.xml"; //XMLSerializer
-        string usersPath = @"usersXml.xml"; //XElement
+        string pairStationsPath = @"pairStationsXml.xml"; //XElement
+        string usersPath = @"usersXml.xml"; //XMLSerializer
         string lineTripsPath = @"lineTripsXml.xml"; //XElement
         #endregion
         //אוטובוס
@@ -166,7 +166,6 @@ namespace DL
             busLine.IdentifyNumber = identifyNumber++;
             dlConfig.Element("LineID").Value = identifyNumber.ToString();
             dlConfig.Save(@"config.xml");
-            //busLine.IdentifyNumber = configoration.RunNumber;
             ListBusLines.Add(busLine); //no need to Clone()
             ListLineStations.Add(new LineStationDAO { CodeStation = busLine.FirstStationNum, IdentifyNumber = busLine.IdentifyNumber, NumStationInTheLine = 1 });
             ListLineStations.Add(new LineStationDAO { CodeStation = busLine.LastStationNum, IdentifyNumber = busLine.IdentifyNumber, NumStationInTheLine = 2 });
@@ -347,22 +346,17 @@ namespace DL
         public bool deleteBusStation(BusStationDAO station)
         {
             List<BusStationDAO> ListBusStations = XMLTools.LoadListFromXMLSerializer<BusStationDAO>(stationsPath);
-            //XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
             BusStationDAO sta = ListBusStations.Find(p => p.CodeStation == station.CodeStation);
             if (sta != null)
             {
                 
                 ListBusStations.Remove(sta);
                 //מחיקת האובייקטים של תחנות עוקבות שקשורות לתחנה הזאת
-                
-
-                //pairsRootElem.RemoveAll(mishehu => mishehu.StationNum1 == station.CodeStation || mishehu.StationNum2 == station.CodeStation);//מוחק את כל הזוגות שקשורים לתחנה הנמחקת
             }
             else
                 throw new BusStationExceptionDO("Does not exist in the system");
 
             XMLTools.SaveListToXMLSerializer(ListBusStations, stationsPath);
-            //XMLTools.SaveListToXMLElement(pairsRootElem, pairStationsPath);
             return true;
         }
         public IEnumerable<BusStationDAO> getAllBusStations()
@@ -1560,12 +1554,6 @@ namespace DL
         #region PairConsecutiveStations
         public bool addPairConsecutiveStations(PairConsecutiveStationsDAO stations)
         {
-            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            //if (ListPairStations.FirstOrDefault(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1) != null)
-            //    throw new PairConsecutiveStationsExceptionDO("The pair of stations already exists");
-            //ListPairStations.Add(stations);
-            //XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
-            //return true;
             XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
 
             XElement pair1 = (from p in pairsRootElem.Elements()
@@ -1589,17 +1577,6 @@ namespace DL
         }
         public bool updatePairConsecutiveStations(PairConsecutiveStationsDAO stations)
         {
-            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            //PairConsecutiveStationsDAO pair = ListPairStations.Find(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1);
-            //if (pair != null)
-            //{
-            //    ListPairStations.Remove(pair);
-            //    ListPairStations.Add(stations); //no nee to Clone()
-            //}
-            //else
-            //    throw new DO.PairConsecutiveStationsExceptionDO("The pair of stations does not exist in the system");
-            //XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
-            //return true;
             XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
 
             XElement pair1 = (from p in pairsRootElem.Elements()
@@ -1620,16 +1597,6 @@ namespace DL
         }
         public bool deletePairConsecutiveStations(PairConsecutiveStationsDAO stations)
         {
-            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            //PairConsecutiveStationsDAO pair = ListPairStations.Find(mishehu => mishehu.StationNum1 == stations.StationNum1 && mishehu.StationNum2 == stations.StationNum2 || mishehu.StationNum1 == stations.StationNum2 && mishehu.StationNum2 == stations.StationNum1);
-            //if (pair != null)
-            //{
-            //    ListPairStations.Remove(pair);
-            //}
-            //else
-            //    throw new PairConsecutiveStationsExceptionDO("Does not exist in the system");
-            //XMLTools.SaveListToXMLSerializer(ListPairStations, pairStationsPath);
-            //return true;
             XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
 
             XElement pair1 = (from p in pairsRootElem.Elements()
@@ -2291,9 +2258,6 @@ namespace DL
             //}
             //XMLTools.SaveListToXMLElement(a, pairStationsPath);
             #endregion
-            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            //return from stations in ListPairStations
-            //       select stations; //no need to Clone()
             XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
 
             return (from pair in pairsRootElem.Elements()
@@ -2308,13 +2272,6 @@ namespace DL
         }
         public IEnumerable<PairConsecutiveStationsDAO> getPartOfPairConsecutiveStations(Predicate<PairConsecutiveStationsDAO> PairConsecutiveStationsDAOCondition)
         {
-            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-            //IEnumerable<PairConsecutiveStationsDAO> TempPairConsecutiveStationsDAO = from PairConsecutiveStationsDAO item in ListPairStations
-            //                                                                         where PairConsecutiveStationsDAOCondition(item)
-            //                                                                         select item;//no need to Clone()
-            //if (TempPairConsecutiveStationsDAO.Count() == 0)
-            //    throw new PairConsecutiveStationsExceptionDO("There is no pair of stations that meets the condition");
-            //return TempPairConsecutiveStationsDAO;
             XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
 
             return from pair in pairsRootElem.Elements()
@@ -2330,13 +2287,6 @@ namespace DL
         }
         public PairConsecutiveStationsDAO getOneObjectPairConsecutiveStations(int stationNum1, int stationNum2)
         {
-            //List<PairConsecutiveStationsDAO> ListPairStations = XMLTools.LoadListFromXMLSerializer<PairConsecutiveStationsDAO>(pairStationsPath);
-
-            //DO.PairConsecutiveStationsDAO sta = ListPairStations.Find(p1 => p1.StationNum1 == stationNum1 && p1.StationNum2 == stationNum2 || p1.StationNum2 == stationNum1 && p1.StationNum1 == stationNum2);
-            //if (sta != null)
-            //    return sta; //no need to Clone()
-            //else
-            //    return null;//throw new DO.PairConsecutiveStationsExceptionDO("No object found for this pair of stations");
 
             XElement pairsRootElem = XMLTools.LoadListFromXMLElement(pairStationsPath);
 
@@ -2450,12 +2400,6 @@ namespace DL
         #region lineTrip
         public bool addLineTrip(LineTripDAO lineTrip)
         {
-            //List<LineTripDAO> ListLineTrips = XMLTools.LoadListFromXMLSerializer<LineTripDAO>(lineTripsPath);
-            //if (ListLineTrips.FirstOrDefault(mishehu => mishehu.IdentifyNumber == lineTrip.IdentifyNumber && mishehu.TripStart == lineTrip.TripStart) != null)
-            //    throw new LineTripExceptionDO("The line exit already exists");//הוצאנו חריגה במצב שהיציאת קו הסאת כבר קיימת במערכת. מצד שני, ייתכן שזה דבר תקין, צריך לחשוב
-            //ListLineTrips.Add(lineTrip); //no need to Clone()
-            //XMLTools.SaveListToXMLSerializer(ListLineTrips, lineTripsPath);
-            //return true;
             XElement lineTripsRootElem = XMLTools.LoadListFromXMLElement(lineTripsPath);
 
             XElement lineTrips1 = (from p in lineTripsRootElem.Elements()
@@ -2476,17 +2420,6 @@ namespace DL
         }
         public bool updateLineTrip(LineTripDAO lineTrip)
         {
-            //List<LineTripDAO> ListLineTrips = XMLTools.LoadListFromXMLSerializer<LineTripDAO>(lineTripsPath);
-            //LineTripDAO trip = ListLineTrips.Find(mishehu => mishehu.IdentifyNumber == lineTrip.IdentifyNumber && mishehu.TripStart == lineTrip.TripStart);
-            //if (trip != null)
-            //{
-            //    ListLineTrips.Remove(trip);
-            //    ListLineTrips.Add(lineTrip); //no nee to Clone()
-            //}
-            //else
-            //    throw new DO.LineTripExceptionDO("The line exit was not found");
-            //XMLTools.SaveListToXMLSerializer(ListLineTrips, lineTripsPath);
-            //return true;
             XElement lineTripsRootElem = XMLTools.LoadListFromXMLElement(lineTripsPath);
 
             XElement lineTrips1 = (from p in lineTripsRootElem.Elements()
@@ -2505,16 +2438,6 @@ namespace DL
         }
         public bool deleteLineTrip(LineTripDAO lineTrip)
         {
-            //List<LineTripDAO> ListLineTrips = XMLTools.LoadListFromXMLSerializer<LineTripDAO>(lineTripsPath);
-            //LineTripDAO trip = ListLineTrips.Find(mishehu => mishehu.IdentifyNumber == lineTrip.IdentifyNumber && mishehu.TripStart == lineTrip.TripStart);
-            //if (trip != null)
-            //{
-            //    ListLineTrips.Remove(trip);
-            //}
-            //else
-            //    throw new DO.LineTripExceptionDO("The line exit was not found");
-            //XMLTools.SaveListToXMLSerializer(ListLineTrips, lineTripsPath);
-            //return true;
             XElement lineTripsRootElem = XMLTools.LoadListFromXMLElement(lineTripsPath);
 
             XElement lineTrips1 = (from p in lineTripsRootElem.Elements()
@@ -4348,9 +4271,6 @@ namespace DL
             //}
             //XMLTools.SaveListToXMLElement(a, lineTripsPath);
             #endregion
-            //List<LineTripDAO> ListLineTrips = XMLTools.LoadListFromXMLSerializer<LineTripDAO>(lineTripsPath);
-            //return from lineTrip in ListLineTrips
-            //       select lineTrip; //no need to Clone()
             XElement lineTripsRootElem = XMLTools.LoadListFromXMLElement(lineTripsPath);
 
             return (from lineTrip in lineTripsRootElem.Elements()
@@ -4363,13 +4283,6 @@ namespace DL
         }
         public IEnumerable<LineTripDAO> getPartOfLineTrip(Predicate<LineTripDAO> LineTripDAOCondition)
         {
-            //List<LineTripDAO> ListLineTrips = XMLTools.LoadListFromXMLSerializer<LineTripDAO>(lineTripsPath);
-            //IEnumerable<LineTripDAO> TempLineTripDAO = from LineTripDAO item in ListLineTrips
-            //                                           where LineTripDAOCondition(item)
-            //                                           select item;
-            //if (TempLineTripDAO.Count() == 0)
-            //    throw new LineTripExceptionDO("There are no lineTrips in the system that meet the condition");
-            //return TempLineTripDAO;
             XElement lineTripsRootElem = XMLTools.LoadListFromXMLElement(lineTripsPath);
 
             return from lineTrip in lineTripsRootElem.Elements()
@@ -4383,12 +4296,6 @@ namespace DL
         }
         public LineTripDAO getOneObjectLineTripDAO(int identifyNumber, TimeSpan tripStart)
         {
-            //List<LineTripDAO> ListLineTrips = XMLTools.LoadListFromXMLSerializer<LineTripDAO>(lineTripsPath);
-            //DO.LineTripDAO lineTrip = ListLineTrips.Find(mishehu => mishehu.IdentifyNumber == identifyNumber && mishehu.TripStart == tripStart);
-            //if (lineTrip != null)
-            //    return lineTrip; //no need to Clone()
-            //else
-            //    throw new DO.LineTripExceptionDO("The line exit was not found");
             XElement lineTripsRootElem = XMLTools.LoadListFromXMLElement(lineTripsPath);
 
             LineTripDAO p = (from lineTrip in lineTripsRootElem.Elements()

@@ -60,8 +60,6 @@ namespace UIwpf
                     throw new LineTripExceptionBO("הזמן אינו תקין");
                 }
                 TimeSpan time = new TimeSpan(hours1, minutes1, seconds1);
-                //double temp = Convert.ToDouble(timeDriving.Text);
-                //newItem.TimeDriving = TimeSpan.FromMinutes(temp);
                 newItem.TimeDriving = time;
                 bl.addPairConsecutiveStations(newItem);
                 ifDone = true;

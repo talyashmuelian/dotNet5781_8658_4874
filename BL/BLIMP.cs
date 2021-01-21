@@ -52,7 +52,6 @@ namespace BL
             IEnumerable<LineStationDAO> listStationInLineOrder =//נשמרות כל התחנות קו של הקו הזה בצורה ממוינת
                from lineStation in listLineStations
                orderby lineStation.NumStationInTheLine
-               //where lineStation.CodeStation == BusStation.CodeStation
                select lineStation;
             IEnumerable<PairConsecutiveStationsDAO> pairs = dal.getAllPairConsecutiveStations();
             List<StationInLineBO> listStationTypeCorrect = new List<StationInLineBO>();
@@ -128,14 +127,6 @@ namespace BL
                     ListOfLinesInArea = lineInArea
                 };
             return result;
-            //foreach (var group in result)
-            //{
-            //    Console.WriteLine(group.key);
-            //    foreach (var line in group.Line)
-            //    {
-            //        Console.WriteLine("-"+ line);
-            //    }
-            //}
         }
         public IEnumerable<MiniStationBO> GetListMiniStationsByLine(BusLineBO line)//מחזירה את רשימת המיני תחנות של קו ספציפי
         {
@@ -197,14 +188,7 @@ namespace BL
         {
             try
             {
-                ////////צריך למחוק את כל התחנות קו שמקושרות לקו הזה
-                //var numStationsInLine =
-                //from lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == busLine.IdentifyNumber)
-                //select new { numStation = lineStation.CodeStation };
-                //foreach (var obj in numStationsInLine)
-                //{
-                //    dal.deleteLineStation(new LineStationDAO {IdentifyNumber= busLine.IdentifyNumber, CodeStation= obj.numStation });//מחיקת התחנות של הקו מהמאגר
-                //}
+                //מוחק את כל תחנות הקו שקשורות לקו הזה
                 List<LineStationDAO> stationsInLine = new List<LineStationDAO>();
                 foreach (LineStationDAO lineStation in dal.getPartOfLineStations(item => item.IdentifyNumber == busLine.IdentifyNumber))
                 {
@@ -479,7 +463,6 @@ namespace BL
                 throw new BO.BusLineExceptionBO("המיקום שהוזן אינו חוקי. עליך להזין מיקום כמספר התחנות בקו או אחד יותר");
             if (location==1)//אם התחנה שמתווספת היא הראשונה צריך לשנות את זה בשדה של תחנה ראשונה
             {
-                //GetBusLineBO(identifyNumber)
                 bool a = updateBusLine(new BusLineBO {
                     IdentifyNumber= GetBusLineBO(identifyNumber).IdentifyNumber,
                     LineNumber= GetBusLineBO(identifyNumber).LineNumber,
@@ -490,7 +473,6 @@ namespace BL
             }
             if (location == countStations+1)//אם התחנה שמתווספת היא האחרונה צריך לשנות את זה בשדה של תחנה אחרונה
             {
-                //GetBusLineBO(identifyNumber)
                 bool a = updateBusLine(new BusLineBO
                 {
                     IdentifyNumber = GetBusLineBO(identifyNumber).IdentifyNumber,
@@ -532,13 +514,12 @@ namespace BL
         {
             BusDAO busDAO = new BusDAO
             {
-                License = bus.License,//Int32.Parse(bus.License)
+                License = bus.License,
                 StartOfWork = bus.StartOfWork,
                 TotalKms = bus.TotalKms,
                 Fuel = bus.Fuel,
                 DateTreatLast = bus.DateTreatLast,
                 KmFromTreament = bus.KmFromTreament,
-                //Status = (bus.Status == true) ? Status.READY : Status.REFUELLING
                 Status = (DO.Status)bus.Status
             };
             return busDAO;
@@ -690,13 +671,6 @@ namespace BL
                 NameStation = busStation.NameStation,
                 IsAccessible = busStation.IsAccessible,
             };
-            //IEnumerable<LineStationDAO> listLineStations = dal.getPartOfLineStations(item => item.CodeStation == busStation.CodeStation);
-            //IEnumerable<BusLineBO> listOfLineInStation =
-            //    from lineStation in listLineStations
-            //    from BusLine in busStation.ListOfLines
-            //    where lineStation.IdentifyNumber != BusLine.IdentifyNumber
-            //    select BusLine;
-            //busStationBO.ListOfLines = listOfLineInStation;
             return busStationDAO;
         }
 
@@ -796,20 +770,7 @@ namespace BL
         {
             try
             {
-                ////////ייתכן שצריך למחוק את כל התחנות קו שמקושרות לתחנה הזאת
-                //foreach (BusLineBO busLine in busStation.ListOfLines)
-                //{
-                //    dal.deleteLineStation(new LineStationDAO
-                //    {
-                //        CodeStation = busStation.CodeStation,
-                //        IdentifyNumber = busLine.IdentifyNumber
-                //    });
-                //}
-                //foreach(LineStationDAO lineStation in dal.getAllLineStations())
-                //{
-                //    if (lineStation.CodeStation== busStation.CodeStation)//יש קו שמקושר לתחנה הזאת אז אי אפשר למחוק אותה
-                //        throw new BO.BusStationExceptionBO("There are lines that pass through this station, so it is not possible to delete it.");
-                //}
+                
                 dal.deleteBusStation(convertDAO(busStation));
                 return true;
             }

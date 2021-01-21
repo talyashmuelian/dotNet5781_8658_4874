@@ -213,18 +213,6 @@ namespace UIwpf
             updateStation updateStationWindow = new updateStation(bl, CurrentStation);
             updateStationWindow.ShowDialog();
             RefreshStationsLB();
-            //bool a = false;
-            //try
-            //{
-            //    if (updateStationWindow.ifDone)
-            //    { a = bl.updateBusStation(updateStationWindow.newItem1); }
-            //}
-            //catch (Exception ex) { MessageBox.Show(ex.Message, "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error); }
-            //RefreshStationsLB();
-            //if (a)
-            //{
-            //    MessageBox.Show("!בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
-            //}
         }
         private void showDataStations_doubleClick(object sender, RoutedEventArgs e)//חלון נתוני תחנה
         {
@@ -287,8 +275,6 @@ namespace UIwpf
             {
                 var fxElt = sender as FrameworkElement;
                 BusBO CurrentBus = fxElt.DataContext as BusBO;
-                //var fxElt = sender as ListBox;
-                //BusBO CurrentBus = fxElt.SelectedItem as BusBO;
                 bl.treatment(CurrentBus.License);
                 MessageBox.Show("!הטיפול בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -300,8 +286,6 @@ namespace UIwpf
             {
                 var fxElt = sender as FrameworkElement;
                 BusBO CurrentBus = fxElt.DataContext as BusBO;
-                //var fxElt = sender as ListBox;
-                //BusBO CurrentBus = fxElt.SelectedItem as BusBO;
                 bl.refuel(CurrentBus.License);
                 MessageBox.Show("!התדלוק בוצע בהצלחה", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -346,8 +330,6 @@ namespace UIwpf
         {
             var fxElt = sender as FrameworkElement;
             BusStationBO CurrentStation = fxElt.DataContext as BusStationBO;
-            //var fxElt = sender as ListBox;
-            //BusStationBO CurrentStation = fxElt.SelectedItem as BusStationBO;
             showPair showPairWindow = new showPair(bl, CurrentStation);
             showPairWindow.ShowDialog();
         }

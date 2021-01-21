@@ -70,12 +70,6 @@
     <Compile Include="addTripToLine.xaml.cs">
       <DependentUpon>addTripToLine.xaml</DependentUpon>
     </Compile>
-    <Compile Include="deleteBus.xaml.cs">
-      <DependentUpon>deleteBus.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="deleteStation.xaml.cs">
-      <DependentUpon>deleteStation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="deleteTripFromLine.xaml.cs">
       <DependentUpon>deleteTripFromLine.xaml</DependentUpon>
     </Compile>
@@ -141,18 +135,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="deleteBus.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="deleteLine.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="deleteStation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="deleteTripFromLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,9 +157,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="deleteLine.xaml.cs">
-      <DependentUpon>deleteLine.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

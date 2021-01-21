@@ -60,8 +60,6 @@ namespace UIwpf
                     throw new LineTripExceptionBO("הזמן אינו תקין");
                 }
                 TimeSpan time = new TimeSpan(hours1, minutes1, seconds1);
-                //double temp = Convert.ToDouble(timeDriving.Text);
-                //newItem.TimeDriving = TimeSpan.FromMinutes(temp);
                 newItem.TimeDriving = time;
                 if ((station2CB.SelectedItem as MiniStationBO).CodeStation == (station1CB.SelectedItem as MiniStationBO).CodeStation)
                     throw new BO.BusStationExceptionBO("לא ניתן לבחור את אותה תחנה פעמיים");

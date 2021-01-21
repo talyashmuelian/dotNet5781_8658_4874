@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exception.cs" />
-    <Compile Include="BusInTravelDAO.cs" />
     <Compile Include="BusLineDAO.cs" />
     <Compile Include="BusStationDAO.cs" />
     <Compile Include="LineStationDAO.cs" />
