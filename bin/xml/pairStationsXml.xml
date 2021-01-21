@@ -594,10 +594,4 @@
     <Distance>99.37</Distance>
     <TimeDriving>3:18:44</TimeDriving>
   </PairConsecutiveStationsDAO>
-  <PairConsecutiveStationsDAO>
-    <StationNum1>627489</StationNum1>
-    <StationNum2>736940</StationNum2>
-    <Distance>12</Distance>
-    <TimeDriving>00:12:00</TimeDriving>
-  </PairConsecutiveStationsDAO>
 </pairStationsXml.xml>

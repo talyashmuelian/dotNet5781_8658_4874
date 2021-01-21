@@ -20,4 +20,9 @@
     <PassWord>7654321</PassWord>
     <CheckAsk>מוריה</CheckAsk>
   </UserDAO>
+  <UserDAO>
+    <UserName>נורית</UserName>
+    <PassWord>1234</PassWord>
+    <CheckAsk>נעם</CheckAsk>
+  </UserDAO>
 </ArrayOfUserDAO>

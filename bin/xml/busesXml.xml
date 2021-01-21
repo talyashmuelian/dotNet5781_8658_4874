@@ -198,4 +198,13 @@
     <KmFromTreament>0</KmFromTreament>
     <Status>READY</Status>
   </BusDAO>
+  <BusDAO>
+    <License>12344566</License>
+    <StartOfWork>2021-01-21T00:00:00</StartOfWork>
+    <TotalKms>123</TotalKms>
+    <Fuel>1200</Fuel>
+    <DateTreatLast>2021-01-21T12:15:58.3750306+02:00</DateTreatLast>
+    <KmFromTreament>0</KmFromTreament>
+    <Status>READY</Status>
+  </BusDAO>
 </ArrayOfBus>

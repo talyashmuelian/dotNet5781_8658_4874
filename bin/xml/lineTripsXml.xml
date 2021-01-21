@@ -146,10 +146,6 @@
   </PairConsecutiveStationsDAO>
   <PairConsecutiveStationsDAO>
     <IdentifyNumber>2</IdentifyNumber>
-    <TripStart>06:30:00</TripStart>
-  </PairConsecutiveStationsDAO>
-  <PairConsecutiveStationsDAO>
-    <IdentifyNumber>2</IdentifyNumber>
     <TripStart>07:30:00</TripStart>
   </PairConsecutiveStationsDAO>
   <PairConsecutiveStationsDAO>
@@ -1440,4 +1436,8 @@
     <IdentifyNumber>10</IdentifyNumber>
     <TripStart>23:00:00</TripStart>
   </PairConsecutiveStationsDAO>
+  <LineTripDAO>
+    <IdentifyNumber>12</IdentifyNumber>
+    <TripStart>12:27:00</TripStart>
+  </LineTripDAO>
 </lineTripsXml.xml>

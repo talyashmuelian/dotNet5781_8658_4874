@@ -51,7 +51,7 @@ namespace UI
                 ////bl.updateBus(new BusBO { License = "93939393", Status = Status.READY });;
                 //Console.WriteLine(bl.GetBusStationBO(123456));
                 //Console.WriteLine(dal.getOneObjectPairConsecutiveStations(123456, 111111));
-                foreach (var item in dal.getAllLineStations())
+                foreach (var item in dal.getAllPairConsecutiveStations())
                 {
                     Console.WriteLine(item);
                 }

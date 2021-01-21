@@ -54,7 +54,6 @@
     <Compile Include="LineTripBO.cs" />
     <Compile Include="MiniStationBO.cs" />
     <Compile Include="PairConsecutiveStationsBO.cs" />
-    <Compile Include="TripBO.cs" />
     <Compile Include="StationInLineBO.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="IBL.cs" />

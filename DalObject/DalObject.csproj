@@ -45,5 +45,15 @@
     <Compile Include="DalObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DLAPI\DLAPI.csproj">
+      <Project>{2e72a07d-c2ff-4b8a-a8ba-70c4642999b1}</Project>
+      <Name>DLAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DS\DS.csproj">
+      <Project>{f26a38e2-4643-4764-a13e-29b0669d6887}</Project>
+      <Name>DS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
