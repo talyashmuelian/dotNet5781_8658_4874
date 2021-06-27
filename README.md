@@ -1,5 +1,2 @@
-Hi, we stay here
-# dotNet5781_8658_4874
-neria and talya dot net
-
-Hello earth
+project in c#, dotnet
+Development of a system for traveling by public transport, travel planning, arrival times.
